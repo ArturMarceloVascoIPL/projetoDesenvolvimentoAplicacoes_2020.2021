@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="Model1TargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Pessoas" EntityType="Model1.Pessoa" />
+          <AssociationSet Name="ClienteFilho" Association="Model1.ClienteFilho">
+            <End Role="Cliente" EntitySet="Pessoas" />
+            <End Role="Filho" EntitySet="Pessoas" />
+          </AssociationSet>
+          <EntitySet Name="Compras" EntityType="Model1.Compra" />
+          <AssociationSet Name="ClienteCompra" Association="Model1.ClienteCompra">
+            <End Role="Cliente" EntitySet="Pessoas" />
+            <End Role="Compra" EntitySet="Compras" />
+          </AssociationSet>
+          <EntitySet Name="Produtos" EntityType="Model1.Produto" />
+          <EntitySet Name="DetalhesCompras" EntityType="Model1.DetalheCompra" />
+          <EntitySet Name="TiposProdutos" EntityType="Model1.TipoProduto" />
+          <AssociationSet Name="TipoProdutoProduto" Association="Model1.TipoProdutoProduto">
+            <End Role="TipoProduto" EntitySet="TiposProdutos" />
+            <End Role="Produto" EntitySet="Produtos" />
+          </AssociationSet>
+          <AssociationSet Name="ProdutoDetalheCompra" Association="Model1.ProdutoDetalheCompra">
+            <End Role="Produto" EntitySet="Produtos" />
+            <End Role="DetalheCompra" EntitySet="DetalhesCompras" />
+          </AssociationSet>
+          <AssociationSet Name="CompraDetalheCompra" Association="Model1.CompraDetalheCompra">
+            <End Role="Compra" EntitySet="Compras" />
+            <End Role="DetalheCompra" EntitySet="DetalhesCompras" />
+          </AssociationSet>
+          <EntitySet Name="Colaboracoes" EntityType="Model1.Colaboracao" />
+          <AssociationSet Name="AnimadorColaboracao" Association="Model1.AnimadorColaboracao">
+            <End Role="Animador" EntitySet="Pessoas" />
+            <End Role="Colaboracao" EntitySet="Colaboracoes" />
+          </AssociationSet>
+          <EntitySet Name="Eventos" EntityType="Model1.Evento" />
+          <AssociationSet Name="EventoColaboracao" Association="Model1.EventoColaboracao">
+            <End Role="Evento" EntitySet="Eventos" />
+            <End Role="Colaboracao" EntitySet="Colaboracoes" />
+          </AssociationSet>
+          <EntitySet Name="Participacoes" EntityType="Model1.Participacao" />
+          <AssociationSet Name="ParticipacaoEvento" Association="Model1.ParticipacaoEvento">
+            <End Role="Participacao" EntitySet="Participacoes" />
+            <End Role="Evento" EntitySet="Eventos" />
+          </AssociationSet>
+          <EntitySet Name="Escolas" EntityType="Model1.Escola" />
+          <AssociationSet Name="EscolaParticipacao" Association="Model1.EscolaParticipacao">
+            <End Role="Escola" EntitySet="Escolas" />
+            <End Role="Participacao" EntitySet="Participacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FilhoEscola" Association="Model1.FilhoEscola">
+            <End Role="Filho" EntitySet="Pessoas" />
+            <End Role="Escola" EntitySet="Escolas" />
+          </AssociationSet>
+          <EntitySet Name="Inscricoes" EntityType="Model1.Inscricao" />
+          <AssociationSet Name="InscricaoFilho" Association="Model1.InscricaoFilho">
+            <End Role="Inscricao" EntitySet="Inscricoes" />
+            <End Role="Filho" EntitySet="Pessoas" />
+          </AssociationSet>
+          <AssociationSet Name="InscricaoEvento" Association="Model1.InscricaoEvento">
+            <End Role="Inscricao" EntitySet="Inscricoes" />
+            <End Role="Evento" EntitySet="Eventos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="IdPessoa" />
+          </Key>
+          <Property Name="IdPessoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Morada" Type="String" Nullable="false" />
+          <Property Name="Localidade" Type="String" Nullable="false" />
+          <Property Name="CodPostal" Type="String" Nullable="false" />
+          <Property Name="Telefone" Type="String" Nullable="false" />
+          <Property Name="Telemovel" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Filho" BaseType="Model1.Pessoa" >
+          <Property Name="Sexo" Type="String" Nullable="false" />
+          <Property Name="DtaNascimento" Type="String" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Model1.ClienteFilho" FromRole="Filho" ToRole="Cliente" />
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Escola" Relationship="Model1.FilhoEscola" FromRole="Filho" ToRole="Escola" />
+          <Property Name="IdEscola" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Inscricoes" Relationship="Model1.InscricaoFilho" FromRole="Filho" ToRole="Inscricao" />
+        </EntityType>
+        <EntityType Name="Cliente" BaseType="Model1.Pessoa" >
+          <Property Name="ValorOferta" Type="String" Nullable="false" />
+          <Property Name="NumCartao" Type="String" Nullable="false" />
+          <NavigationProperty Name="Filhos" Relationship="Model1.ClienteFilho" FromRole="Cliente" ToRole="Filho" />
+          <NavigationProperty Name="Compras" Relationship="Model1.ClienteCompra" FromRole="Cliente" ToRole="Compra" />
+        </EntityType>
+        <EntityType Name="Animador" BaseType="Model1.Pessoa" >
+          <Property Name="Especialidade" Type="String" Nullable="false" />
+          <NavigationProperty Name="Colaboracoes" Relationship="Model1.AnimadorColaboracao" FromRole="Animador" ToRole="Colaboracao" />
+        </EntityType>
+        <Association Name="ClienteFilho">
+          <End Type="Model1.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="Model1.Filho" Role="Filho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="IdPessoa" />
+            </Principal>
+            <Dependent Role="Filho">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Compra">
+          <Key>
+            <PropertyRef Name="IdCompra" />
+          </Key>
+          <Property Name="IdCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Data" Type="String" Nullable="false" />
+          <Property Name="UtilizouCartao" Type="String" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Model1.ClienteCompra" FromRole="Compra" ToRole="Cliente" />
+          <Property Name="IdCliente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DetalhesCompras" Relationship="Model1.CompraDetalheCompra" FromRole="Compra" ToRole="DetalheCompra" />
+        </EntityType>
+        <Association Name="ClienteCompra">
+          <End Type="Model1.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="Model1.Compra" Role="Compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="IdPessoa" />
+            </Principal>
+            <Dependent Role="Compra">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="IdProduto" />
+          </Key>
+          <Property Name="IdProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Designacao" Type="String" Nullable="false" />
+          <Property Name="Preco" Type="String" Nullable="false" />
+          <Property Name="StockExistente" Type="String" Nullable="false" />
+          <NavigationProperty Name="TipoProduto" Relationship="Model1.TipoProdutoProduto" FromRole="Produto" ToRole="TipoProduto" />
+          <Property Name="IdTipoProduto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DetalhesCompras" Relationship="Model1.ProdutoDetalheCompra" FromRole="Produto" ToRole="DetalheCompra" />
+        </EntityType>
+        <EntityType Name="DetalheCompra">
+          <Key>
+            <PropertyRef Name="IdProduto" />
+            <PropertyRef Name="IdCompra" />
+          </Key>
+          <NavigationProperty Name="Produto" Relationship="Model1.ProdutoDetalheCompra" FromRole="DetalheCompra" ToRole="Produto" />
+          <Property Name="IdProduto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Compra" Relationship="Model1.CompraDetalheCompra" FromRole="DetalheCompra" ToRole="Compra" />
+          <Property Name="IdCompra" Type="Int32" Nullable="false" />
+          <Property Name="Quantidade" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoProduto">
+          <Key>
+            <PropertyRef Name="IdTipoProduto" />
+          </Key>
+          <Property Name="IdTipoProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" Nullable="false" />
+          <NavigationProperty Name="Produtos" Relationship="Model1.TipoProdutoProduto" FromRole="TipoProduto" ToRole="Produto" />
+        </EntityType>
+        <Association Name="TipoProdutoProduto">
+          <End Type="Model1.TipoProduto" Role="TipoProduto" Multiplicity="1" />
+          <End Type="Model1.Produto" Role="Produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoProduto">
+              <PropertyRef Name="IdTipoProduto" />
+            </Principal>
+            <Dependent Role="Produto">
+              <PropertyRef Name="IdTipoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProdutoDetalheCompra">
+          <End Type="Model1.Produto" Role="Produto" Multiplicity="1" />
+          <End Type="Model1.DetalheCompra" Role="DetalheCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="IdProduto" />
+            </Principal>
+            <Dependent Role="DetalheCompra">
+              <PropertyRef Name="IdProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CompraDetalheCompra">
+          <End Type="Model1.Compra" Role="Compra" Multiplicity="1" />
+          <End Type="Model1.DetalheCompra" Role="DetalheCompra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compra">
+              <PropertyRef Name="IdCompra" />
+            </Principal>
+            <Dependent Role="DetalheCompra">
+              <PropertyRef Name="IdCompra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Colaboracao" >
+          <Key>
+            <PropertyRef Name="IdAnimador" />
+            <PropertyRef Name="IdEvento" />
+          </Key>
+          <NavigationProperty Name="Animador" Relationship="Model1.AnimadorColaboracao" FromRole="Colaboracao" ToRole="Animador" />
+          <Property Name="IdAnimador" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Evento" Relationship="Model1.EventoColaboracao" FromRole="Colaboracao" ToRole="Evento" />
+          <Property Name="IdEvento" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="AnimadorColaboracao">
+          <End Type="Model1.Animador" Role="Animador" Multiplicity="1" />
+          <End Type="Model1.Colaboracao" Role="Colaboracao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animador">
+              <PropertyRef Name="IdPessoa" />
+            </Principal>
+            <Dependent Role="Colaboracao">
+              <PropertyRef Name="IdAnimador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="IdEvento" />
+          </Key>
+          <Property Name="IdEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <Property Name="Local" Type="String" Nullable="false" />
+          <Property Name="DataHora" Type="String" Nullable="false" />
+          <Property Name="LimiteParticipacao" Type="String" Nullable="false" />
+          <Property Name="IdadeInferiror" Type="String" Nullable="false" />
+          <Property Name="IdadeSuperior" Type="String" Nullable="false" />
+          <Property Name="TipoEvento" Type="String" Nullable="false" />
+          <NavigationProperty Name="Colaboracoes" Relationship="Model1.EventoColaboracao" FromRole="Evento" ToRole="Colaboracao" />
+          <NavigationProperty Name="Participacao" Relationship="Model1.ParticipacaoEvento" FromRole="Evento" ToRole="Participacao" />
+          <NavigationProperty Name="Inscricoes" Relationship="Model1.InscricaoEvento" FromRole="Evento" ToRole="Inscricao" />
+        </EntityType>
+        <Association Name="EventoColaboracao">
+          <End Type="Model1.Evento" Role="Evento" Multiplicity="1" />
+          <End Type="Model1.Colaboracao" Role="Colaboracao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Evento">
+              <PropertyRef Name="IdEvento" />
+            </Principal>
+            <Dependent Role="Colaboracao">
+              <PropertyRef Name="IdEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Participacao" >
+          <Key>
+            <PropertyRef Name="IdEvento" />
+            <PropertyRef Name="IdEscola" />
+          </Key>
+          <NavigationProperty Name="Eventos" Relationship="Model1.ParticipacaoEvento" FromRole="Participacao" ToRole="Evento" />
+          <Property Name="IdEvento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Escola" Relationship="Model1.EscolaParticipacao" FromRole="Participacao" ToRole="Escola" />
+          <Property Name="IdEscola" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="ParticipacaoEvento">
+          <End Type="Model1.Participacao" Role="Participacao" Multiplicity="*" />
+          <End Type="Model1.Evento" Role="Evento" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Evento">
+              <PropertyRef Name="IdEvento" />
+            </Principal>
+            <Dependent Role="Participacao">
+              <PropertyRef Name="IdEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Escola">
+          <Key>
+            <PropertyRef Name="IdEscola" />
+          </Key>
+          <Property Name="IdEscola" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <NavigationProperty Name="Participacoes" Relationship="Model1.EscolaParticipacao" FromRole="Escola" ToRole="Participacao" />
+          <Property Name="Morada" Type="String" Nullable="false" />
+          <Property Name="Localidade" Type="String" Nullable="false" />
+          <Property Name="CodPostal" Type="String" Nullable="false" />
+          <Property Name="Telefone" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <NavigationProperty Name="Filhos" Relationship="Model1.FilhoEscola" FromRole="Escola" ToRole="Filho" />
+        </EntityType>
+        <Association Name="EscolaParticipacao">
+          <End Type="Model1.Escola" Role="Escola" Multiplicity="1" />
+          <End Type="Model1.Participacao" Role="Participacao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Escola">
+              <PropertyRef Name="IdEscola" />
+            </Principal>
+            <Dependent Role="Participacao">
+              <PropertyRef Name="IdEscola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FilhoEscola">
+          <End Type="Model1.Filho" Role="Filho" Multiplicity="*" />
+          <End Type="Model1.Escola" Role="Escola" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Escola">
+              <PropertyRef Name="IdEscola" />
+            </Principal>
+            <Dependent Role="Filho">
+              <PropertyRef Name="IdEscola" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Inscricao" >
+          <Key>
+            <PropertyRef Name="IdFilho" />
+            <PropertyRef Name="IdEvento" />
+          </Key>
+          <Property Name="Confirmada" Type="String" Nullable="false" />
+          <NavigationProperty Name="Filho" Relationship="Model1.InscricaoFilho" FromRole="Inscricao" ToRole="Filho" />
+          <Property Name="IdFilho" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Evento" Relationship="Model1.InscricaoEvento" FromRole="Inscricao" ToRole="Evento" />
+          <Property Name="IdEvento" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="InscricaoFilho">
+          <End Type="Model1.Inscricao" Role="Inscricao" Multiplicity="*" />
+          <End Type="Model1.Filho" Role="Filho" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Filho">
+              <PropertyRef Name="IdPessoa" />
+            </Principal>
+            <Dependent Role="Inscricao">
+              <PropertyRef Name="IdFilho" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InscricaoEvento">
+          <End Type="Model1.Inscricao" Role="Inscricao" Multiplicity="*" />
+          <End Type="Model1.Evento" Role="Evento" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Evento">
+              <PropertyRef Name="IdEvento" />
+            </Principal>
+            <Dependent Role="Inscricao">
+              <PropertyRef Name="IdEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model1" />
+        <Alias Key="Target" Value="Model1.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model1Container" StorageEntityContainer="Model1TargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

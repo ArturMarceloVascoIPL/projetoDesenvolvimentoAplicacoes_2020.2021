@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="777d9270ca794c34a764c3d6e5cafc0e" Name="Diagram1" ZoomLevel="88" >
+        <EntityTypeShape EntityType="Model1.Pessoa" Width="1.5" PointX="4.125" PointY="6.5" />
+        <EntityTypeShape EntityType="Model1.Filho" Width="1.5" PointX="2.375" PointY="3" />
+        <EntityTypeShape EntityType="Model1.Cliente" Width="1.5" PointX="2.375" PointY="10.25" />
+        <InheritanceConnector EntityType="Model1.Filho" />
+        <InheritanceConnector EntityType="Model1.Cliente" />
+        <EntityTypeShape EntityType="Model1.Animador" Width="1.5" PointX="6.875" PointY="7.875" />
+        <InheritanceConnector EntityType="Model1.Animador" />
+        <AssociationConnector Association="Model1.ClienteFilho" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Model1.Compra" Width="1.5" PointX="4.625" PointY="10.25" />
+        <AssociationConnector Association="Model1.ClienteCompra" />
+        <EntityTypeShape EntityType="Model1.Produto" Width="1.5" PointX="9.125" PointY="10.25" />
+        <EntityTypeShape EntityType="Model1.DetalheCompra" Width="1.5" PointX="6.875" PointY="10.25" />
+        <EntityTypeShape EntityType="Model1.TipoProduto" Width="1.5" PointX="11.375" PointY="10.25" />
+        <AssociationConnector Association="Model1.TipoProdutoProduto" />
+        <AssociationConnector Association="Model1.ProdutoDetalheCompra" />
+        <AssociationConnector Association="Model1.CompraDetalheCompra" />
+        <EntityTypeShape EntityType="Model1.Colaboracao" Width="1.5" PointX="9.125" PointY="7.875" />
+        <AssociationConnector Association="Model1.AnimadorColaboracao" />
+        <EntityTypeShape EntityType="Model1.Evento" Width="1.5" PointX="11.75" PointY="6" />
+        <AssociationConnector Association="Model1.EventoColaboracao" />
+        <EntityTypeShape EntityType="Model1.Participacao" Width="1.5" PointX="9.125" PointY="5.125" />
+        <AssociationConnector Association="Model1.ParticipacaoEvento" />
+        <EntityTypeShape EntityType="Model1.Escola" Width="1.5" PointX="6.875" PointY="4.625" />
+        <AssociationConnector Association="Model1.EscolaParticipacao" />
+        <AssociationConnector Association="Model1.FilhoEscola" />
+        <EntityTypeShape EntityType="Model1.Inscricao" Width="1.5" PointX="5.25" PointY="2.375" />
+        <AssociationConnector Association="Model1.InscricaoFilho" />
+        <AssociationConnector Association="Model1.InscricaoEvento" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
