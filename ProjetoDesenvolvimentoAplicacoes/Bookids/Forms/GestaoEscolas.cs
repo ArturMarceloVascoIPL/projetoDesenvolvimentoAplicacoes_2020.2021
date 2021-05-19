@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bookids
+namespace Bookids.Forms
 {
-    public partial class MenuPrincipal : Form
+    public partial class GestaoEscolas : Form
     {
-        public MenuPrincipal()
+        public GestaoEscolas()
         {
             InitializeComponent();
         }
