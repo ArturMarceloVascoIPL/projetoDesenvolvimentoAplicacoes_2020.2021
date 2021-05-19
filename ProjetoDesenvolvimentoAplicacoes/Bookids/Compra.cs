@@ -22,7 +22,7 @@ namespace Bookids
     
         public int IdCompra { get; set; }
         public string Data { get; set; }
-        public string UtilizouCartao { get; set; }
+        public bool UtilizouCartao { get; set; }
         public int IdCliente { get; set; }
     
         public virtual Cliente Cliente { get; set; }

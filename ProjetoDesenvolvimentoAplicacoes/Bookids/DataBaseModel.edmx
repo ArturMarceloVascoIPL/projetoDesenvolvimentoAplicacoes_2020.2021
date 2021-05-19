@@ -89,8 +89,8 @@
     <Property Name="Morada" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Localidade" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CodPostal" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Telefone" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Telemovel" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefone" Type="int" Nullable="true" />
+    <Property Name="Telemovel" Type="int" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Compras">
@@ -99,7 +99,7 @@
     </Key>
     <Property Name="IdCompra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Data" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="UtilizouCartao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UtilizouCartao" Type="bit" Nullable="false" />
     <Property Name="IdCliente" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Produtos">
@@ -108,8 +108,8 @@
     </Key>
     <Property Name="IdProduto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Designacao" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Preco" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="StockExistente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Preco" Type="decimal" Nullable="false" />
+    <Property Name="StockExistente" Type="int" Nullable="false" />
     <Property Name="IdTipoProduto" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="DetalhesCompras">
@@ -119,7 +119,7 @@
     </Key>
     <Property Name="IdProduto" Type="int" Nullable="false" />
     <Property Name="IdCompra" Type="int" Nullable="false" />
-    <Property Name="Quantidade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Quantidade" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TiposProdutos">
     <Key>
@@ -144,9 +144,9 @@
     <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Local" Type="nvarchar(max)" Nullable="false" />
     <Property Name="DataHora" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="LimiteParticipacao" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="IdadeInferiror" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="IdadeSuperior" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LimiteParticipacao" Type="int" Nullable="false" />
+    <Property Name="IdadeInferiror" Type="int" Nullable="false" />
+    <Property Name="IdadeSuperior" Type="int" Nullable="false" />
     <Property Name="TipoEvento" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Participacoes">
@@ -166,7 +166,7 @@
     <Property Name="Morada" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Localidade" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CodPostal" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Telefone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefone" Type="int" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Inscricoes">
@@ -174,7 +174,7 @@
       <PropertyRef Name="IdFilho" />
       <PropertyRef Name="IdEvento" />
     </Key>
-    <Property Name="Confirmada" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Confirmada" Type="bit" Nullable="false" />
     <Property Name="IdFilho" Type="int" Nullable="false" />
     <Property Name="IdEvento" Type="int" Nullable="false" />
   </EntityType>
@@ -182,8 +182,8 @@
     <Key>
       <PropertyRef Name="IdPessoa" />
     </Key>
-    <Property Name="ValorOferta" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="NumCartao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ValorOferta" Type="decimal" Nullable="true" />
+    <Property Name="NumCartao" Type="int" Nullable="true" />
     <Property Name="IdPessoa" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Pessoas_Filho">
@@ -462,8 +462,8 @@
           <Property Name="Morada" Type="String" Nullable="false" />
           <Property Name="Localidade" Type="String" Nullable="false" />
           <Property Name="CodPostal" Type="String" Nullable="false" />
-          <Property Name="Telefone" Type="String" Nullable="false" />
-          <Property Name="Telemovel" Type="String" Nullable="false" />
+          <Property Name="Telefone" Type="Int32" Nullable="true" />
+          <Property Name="Telemovel" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Filho" BaseType="Model1.Pessoa" >
@@ -476,8 +476,8 @@
           <NavigationProperty Name="Inscricoes" Relationship="Model1.InscricaoFilho" FromRole="Filho" ToRole="Inscricao" />
         </EntityType>
         <EntityType Name="Cliente" BaseType="Model1.Pessoa" >
-          <Property Name="ValorOferta" Type="String" Nullable="false" />
-          <Property Name="NumCartao" Type="String" Nullable="false" />
+          <Property Name="ValorOferta" Type="Decimal" Nullable="true" />
+          <Property Name="NumCartao" Type="Int32" Nullable="true" />
           <NavigationProperty Name="Filhos" Relationship="Model1.ClienteFilho" FromRole="Cliente" ToRole="Filho" />
           <NavigationProperty Name="Compras" Relationship="Model1.ClienteCompra" FromRole="Cliente" ToRole="Compra" />
         </EntityType>
@@ -503,7 +503,7 @@
           </Key>
           <Property Name="IdCompra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Data" Type="String" Nullable="false" />
-          <Property Name="UtilizouCartao" Type="String" Nullable="false" />
+          <Property Name="UtilizouCartao" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Cliente" Relationship="Model1.ClienteCompra" FromRole="Compra" ToRole="Cliente" />
           <Property Name="IdCliente" Type="Int32" Nullable="false" />
           <NavigationProperty Name="DetalhesCompras" Relationship="Model1.CompraDetalheCompra" FromRole="Compra" ToRole="DetalheCompra" />
@@ -526,8 +526,8 @@
           </Key>
           <Property Name="IdProduto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Designacao" Type="String" Nullable="false" />
-          <Property Name="Preco" Type="String" Nullable="false" />
-          <Property Name="StockExistente" Type="String" Nullable="false" />
+          <Property Name="Preco" Type="Decimal" Nullable="false" />
+          <Property Name="StockExistente" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TipoProduto" Relationship="Model1.TipoProdutoProduto" FromRole="Produto" ToRole="TipoProduto" />
           <Property Name="IdTipoProduto" Type="Int32" Nullable="false" />
           <NavigationProperty Name="DetalhesCompras" Relationship="Model1.ProdutoDetalheCompra" FromRole="Produto" ToRole="DetalheCompra" />
@@ -541,7 +541,7 @@
           <Property Name="IdProduto" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Compra" Relationship="Model1.CompraDetalheCompra" FromRole="DetalheCompra" ToRole="Compra" />
           <Property Name="IdCompra" Type="Int32" Nullable="false" />
-          <Property Name="Quantidade" Type="String" Nullable="false" />
+          <Property Name="Quantidade" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoProduto">
           <Key>
@@ -617,9 +617,9 @@
           <Property Name="Descricao" Type="String" Nullable="false" />
           <Property Name="Local" Type="String" Nullable="false" />
           <Property Name="DataHora" Type="String" Nullable="false" />
-          <Property Name="LimiteParticipacao" Type="String" Nullable="false" />
-          <Property Name="IdadeInferiror" Type="String" Nullable="false" />
-          <Property Name="IdadeSuperior" Type="String" Nullable="false" />
+          <Property Name="LimiteParticipacao" Type="Int32" Nullable="false" />
+          <Property Name="IdadeInferiror" Type="Int32" Nullable="false" />
+          <Property Name="IdadeSuperior" Type="Int32" Nullable="false" />
           <Property Name="TipoEvento" Type="String" Nullable="false" />
           <NavigationProperty Name="Colaboracoes" Relationship="Model1.EventoColaboracao" FromRole="Evento" ToRole="Colaboracao" />
           <NavigationProperty Name="Participacao" Relationship="Model1.ParticipacaoEvento" FromRole="Evento" ToRole="Participacao" />
@@ -669,7 +669,7 @@
           <Property Name="Morada" Type="String" Nullable="false" />
           <Property Name="Localidade" Type="String" Nullable="false" />
           <Property Name="CodPostal" Type="String" Nullable="false" />
-          <Property Name="Telefone" Type="String" Nullable="false" />
+          <Property Name="Telefone" Type="Int32" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" />
           <NavigationProperty Name="Filhos" Relationship="Model1.FilhoEscola" FromRole="Escola" ToRole="Filho" />
         </EntityType>
@@ -702,7 +702,7 @@
             <PropertyRef Name="IdFilho" />
             <PropertyRef Name="IdEvento" />
           </Key>
-          <Property Name="Confirmada" Type="String" Nullable="false" />
+          <Property Name="Confirmada" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Filho" Relationship="Model1.InscricaoFilho" FromRole="Inscricao" ToRole="Filho" />
           <Property Name="IdFilho" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Evento" Relationship="Model1.InscricaoEvento" FromRole="Inscricao" ToRole="Evento" />

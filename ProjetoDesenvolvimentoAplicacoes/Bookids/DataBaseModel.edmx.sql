@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/12/2021 10:07:38
--- Generated from EDMX file: C:\Users\artur\Desktop\CODE\GitHub\projetoDesenvolvimentoAplicacoes_2020.2021\ProjetoDesenvolvimentoAplicacoes\Bookids\DataBaseModel.edmx
+-- Date Created: 05/19/2021 10:47:44
+-- Generated from EDMX file: C:\Users\mrace\OneDrive\Ambiente de Trabalho\DA\ProjetoDA\projetoDesenvolvimentoAplicacoes_2020.2021\ProjetoDesenvolvimentoAplicacoes\Bookids\DataBaseModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,11 +17,95 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_ClienteFilho]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pessoas_Filho] DROP CONSTRAINT [FK_ClienteFilho];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ClienteCompra]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Compras] DROP CONSTRAINT [FK_ClienteCompra];
+GO
+IF OBJECT_ID(N'[dbo].[FK_TipoProdutoProduto]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Produtos] DROP CONSTRAINT [FK_TipoProdutoProduto];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProdutoDetalheCompra]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DetalhesCompras] DROP CONSTRAINT [FK_ProdutoDetalheCompra];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompraDetalheCompra]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[DetalhesCompras] DROP CONSTRAINT [FK_CompraDetalheCompra];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AnimadorColaboracao]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Colaboracoes] DROP CONSTRAINT [FK_AnimadorColaboracao];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EventoColaboracao]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Colaboracoes] DROP CONSTRAINT [FK_EventoColaboracao];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ParticipacaoEvento]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Participacoes] DROP CONSTRAINT [FK_ParticipacaoEvento];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EscolaParticipacao]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Participacoes] DROP CONSTRAINT [FK_EscolaParticipacao];
+GO
+IF OBJECT_ID(N'[dbo].[FK_FilhoEscola]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pessoas_Filho] DROP CONSTRAINT [FK_FilhoEscola];
+GO
+IF OBJECT_ID(N'[dbo].[FK_InscricaoFilho]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Inscricoes] DROP CONSTRAINT [FK_InscricaoFilho];
+GO
+IF OBJECT_ID(N'[dbo].[FK_InscricaoEvento]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Inscricoes] DROP CONSTRAINT [FK_InscricaoEvento];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Cliente_inherits_Pessoa]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pessoas_Cliente] DROP CONSTRAINT [FK_Cliente_inherits_Pessoa];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Filho_inherits_Pessoa]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pessoas_Filho] DROP CONSTRAINT [FK_Filho_inherits_Pessoa];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Animador_inherits_Pessoa]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Pessoas_Animador] DROP CONSTRAINT [FK_Animador_inherits_Pessoa];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Pessoas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Pessoas];
+GO
+IF OBJECT_ID(N'[dbo].[Compras]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Compras];
+GO
+IF OBJECT_ID(N'[dbo].[Produtos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Produtos];
+GO
+IF OBJECT_ID(N'[dbo].[DetalhesCompras]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DetalhesCompras];
+GO
+IF OBJECT_ID(N'[dbo].[TiposProdutos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TiposProdutos];
+GO
+IF OBJECT_ID(N'[dbo].[Colaboracoes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Colaboracoes];
+GO
+IF OBJECT_ID(N'[dbo].[Eventos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Eventos];
+GO
+IF OBJECT_ID(N'[dbo].[Participacoes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Participacoes];
+GO
+IF OBJECT_ID(N'[dbo].[Escolas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Escolas];
+GO
+IF OBJECT_ID(N'[dbo].[Inscricoes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Inscricoes];
+GO
+IF OBJECT_ID(N'[dbo].[Pessoas_Cliente]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Pessoas_Cliente];
+GO
+IF OBJECT_ID(N'[dbo].[Pessoas_Filho]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Pessoas_Filho];
+GO
+IF OBJECT_ID(N'[dbo].[Pessoas_Animador]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Pessoas_Animador];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -34,8 +118,8 @@ CREATE TABLE [dbo].[Pessoas] (
     [Morada] nvarchar(max)  NOT NULL,
     [Localidade] nvarchar(max)  NOT NULL,
     [CodPostal] nvarchar(max)  NOT NULL,
-    [Telefone] nvarchar(max)  NOT NULL,
-    [Telemovel] nvarchar(max)  NOT NULL,
+    [Telefone] int  NULL,
+    [Telemovel] int  NOT NULL,
     [Email] nvarchar(max)  NOT NULL
 );
 GO
@@ -44,7 +128,7 @@ GO
 CREATE TABLE [dbo].[Compras] (
     [IdCompra] int IDENTITY(1,1) NOT NULL,
     [Data] nvarchar(max)  NOT NULL,
-    [UtilizouCartao] nvarchar(max)  NOT NULL,
+    [UtilizouCartao] bit  NOT NULL,
     [IdCliente] int  NOT NULL
 );
 GO
@@ -53,8 +137,8 @@ GO
 CREATE TABLE [dbo].[Produtos] (
     [IdProduto] int IDENTITY(1,1) NOT NULL,
     [Designacao] nvarchar(max)  NOT NULL,
-    [Preco] nvarchar(max)  NOT NULL,
-    [StockExistente] nvarchar(max)  NOT NULL,
+    [Preco] decimal(18,0)  NOT NULL,
+    [StockExistente] int  NOT NULL,
     [IdTipoProduto] int  NOT NULL
 );
 GO
@@ -63,7 +147,7 @@ GO
 CREATE TABLE [dbo].[DetalhesCompras] (
     [IdProduto] int  NOT NULL,
     [IdCompra] int  NOT NULL,
-    [Quantidade] nvarchar(max)  NOT NULL
+    [Quantidade] int  NOT NULL
 );
 GO
 
@@ -87,9 +171,9 @@ CREATE TABLE [dbo].[Eventos] (
     [Descricao] nvarchar(max)  NOT NULL,
     [Local] nvarchar(max)  NOT NULL,
     [DataHora] nvarchar(max)  NOT NULL,
-    [LimiteParticipacao] nvarchar(max)  NOT NULL,
-    [IdadeInferiror] nvarchar(max)  NOT NULL,
-    [IdadeSuperior] nvarchar(max)  NOT NULL,
+    [LimiteParticipacao] int  NOT NULL,
+    [IdadeInferiror] int  NOT NULL,
+    [IdadeSuperior] int  NOT NULL,
     [TipoEvento] nvarchar(max)  NOT NULL
 );
 GO
@@ -108,14 +192,14 @@ CREATE TABLE [dbo].[Escolas] (
     [Morada] nvarchar(max)  NOT NULL,
     [Localidade] nvarchar(max)  NOT NULL,
     [CodPostal] nvarchar(max)  NOT NULL,
-    [Telefone] nvarchar(max)  NOT NULL,
+    [Telefone] int  NOT NULL,
     [Email] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'Inscricoes'
 CREATE TABLE [dbo].[Inscricoes] (
-    [Confirmada] nvarchar(max)  NOT NULL,
+    [Confirmada] bit  NOT NULL,
     [IdFilho] int  NOT NULL,
     [IdEvento] int  NOT NULL
 );
@@ -123,8 +207,8 @@ GO
 
 -- Creating table 'Pessoas_Cliente'
 CREATE TABLE [dbo].[Pessoas_Cliente] (
-    [ValorOferta] nvarchar(max)  NOT NULL,
-    [NumCartao] nvarchar(max)  NOT NULL,
+    [ValorOferta] decimal(18,0)  NULL,
+    [NumCartao] int  NULL,
     [IdPessoa] int  NOT NULL
 );
 GO

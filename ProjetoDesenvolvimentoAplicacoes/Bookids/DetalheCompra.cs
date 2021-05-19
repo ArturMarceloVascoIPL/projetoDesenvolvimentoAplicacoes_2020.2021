@@ -16,7 +16,7 @@ namespace Bookids
     {
         public int IdProduto { get; set; }
         public int IdCompra { get; set; }
-        public string Quantidade { get; set; }
+        public int Quantidade { get; set; }
     
         public virtual Produto Produto { get; set; }
         public virtual Compra Compra { get; set; }
