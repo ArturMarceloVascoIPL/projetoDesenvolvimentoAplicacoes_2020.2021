@@ -21,8 +21,8 @@ namespace Bookids
             this.Compras = new HashSet<Compra>();
         }
     
-        public string ValorOferta { get; set; }
-        public string NumCartao { get; set; }
+        public Nullable<decimal> ValorOferta { get; set; }
+        public Nullable<int> NumCartao { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Filho> Filhos { get; set; }

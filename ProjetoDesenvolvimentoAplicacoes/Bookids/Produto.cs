@@ -22,8 +22,8 @@ namespace Bookids
     
         public int IdProduto { get; set; }
         public string Designacao { get; set; }
-        public string Preco { get; set; }
-        public string StockExistente { get; set; }
+        public decimal Preco { get; set; }
+        public int StockExistente { get; set; }
         public int IdTipoProduto { get; set; }
     
         public virtual TipoProduto TipoProduto { get; set; }

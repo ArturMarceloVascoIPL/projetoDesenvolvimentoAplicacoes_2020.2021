@@ -19,8 +19,8 @@ namespace Bookids
         public string Morada { get; set; }
         public string Localidade { get; set; }
         public string CodPostal { get; set; }
-        public string Telefone { get; set; }
-        public string Telemovel { get; set; }
+        public Nullable<int> Telefone { get; set; }
+        public int Telemovel { get; set; }
         public string Email { get; set; }
     }
 }

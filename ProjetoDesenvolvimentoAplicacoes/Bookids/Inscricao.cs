@@ -14,7 +14,7 @@ namespace Bookids
     
     public partial class Inscricao
     {
-        public string Confirmada { get; set; }
+        public bool Confirmada { get; set; }
         public int IdFilho { get; set; }
         public int IdEvento { get; set; }
     
