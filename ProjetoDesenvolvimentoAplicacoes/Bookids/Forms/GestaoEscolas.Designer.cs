@@ -171,7 +171,7 @@ namespace Bookids.Forms
             this.panelEscola.Controls.Add(this.textBoxMorada);
             this.panelEscola.Enabled = false;
             this.panelEscola.Location = new System.Drawing.Point(328, 122);
-            this.panelEscola.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelEscola.Margin = new System.Windows.Forms.Padding(2);
             this.panelEscola.Name = "panelEscola";
             this.panelEscola.Size = new System.Drawing.Size(396, 193);
             this.panelEscola.TabIndex = 6;
@@ -179,7 +179,7 @@ namespace Bookids.Forms
             // textBoxTelefone
             // 
             this.textBoxTelefone.Location = new System.Drawing.Point(108, 84);
-            this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTelefone.MaxLength = 9;
             this.textBoxTelefone.Name = "textBoxTelefone";
             this.textBoxTelefone.Size = new System.Drawing.Size(278, 20);
@@ -189,7 +189,7 @@ namespace Bookids.Forms
             // buttonGuardarEscola
             // 
             this.buttonGuardarEscola.Location = new System.Drawing.Point(287, 133);
-            this.buttonGuardarEscola.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonGuardarEscola.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGuardarEscola.Name = "buttonGuardarEscola";
             this.buttonGuardarEscola.Size = new System.Drawing.Size(100, 52);
             this.buttonGuardarEscola.TabIndex = 21;
@@ -233,7 +233,7 @@ namespace Bookids.Forms
             // textBoxCodPostal
             // 
             this.textBoxCodPostal.Location = new System.Drawing.Point(292, 59);
-            this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCodPostal.Name = "textBoxCodPostal";
             this.textBoxCodPostal.Size = new System.Drawing.Size(95, 20);
             this.textBoxCodPostal.TabIndex = 45;
@@ -274,7 +274,7 @@ namespace Bookids.Forms
             // textBoxEmail
             // 
             this.textBoxEmail.Location = new System.Drawing.Point(108, 109);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(279, 20);
             this.textBoxEmail.TabIndex = 42;
@@ -282,7 +282,7 @@ namespace Bookids.Forms
             // textBoxNome
             // 
             this.textBoxNome.Location = new System.Drawing.Point(108, 11);
-            this.textBoxNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNome.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(279, 20);
             this.textBoxNome.TabIndex = 38;
@@ -290,7 +290,7 @@ namespace Bookids.Forms
             // textBoxLocalidade
             // 
             this.textBoxLocalidade.Location = new System.Drawing.Point(108, 59);
-            this.textBoxLocalidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxLocalidade.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxLocalidade.Name = "textBoxLocalidade";
             this.textBoxLocalidade.Size = new System.Drawing.Size(95, 20);
             this.textBoxLocalidade.TabIndex = 40;
@@ -298,7 +298,7 @@ namespace Bookids.Forms
             // textBoxMorada
             // 
             this.textBoxMorada.Location = new System.Drawing.Point(108, 35);
-            this.textBoxMorada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMorada.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMorada.Name = "textBoxMorada";
             this.textBoxMorada.Size = new System.Drawing.Size(279, 20);
             this.textBoxMorada.TabIndex = 39;
@@ -308,7 +308,7 @@ namespace Bookids.Forms
             this.panelAlunos.Controls.Add(this.listBoxAlunos);
             this.panelAlunos.Controls.Add(this.l_labelAlunos);
             this.panelAlunos.Location = new System.Drawing.Point(726, 35);
-            this.panelAlunos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelAlunos.Margin = new System.Windows.Forms.Padding(2);
             this.panelAlunos.Name = "panelAlunos";
             this.panelAlunos.Size = new System.Drawing.Size(344, 193);
             this.panelAlunos.TabIndex = 56;
@@ -317,7 +317,7 @@ namespace Bookids.Forms
             // 
             this.listBoxAlunos.FormattingEnabled = true;
             this.listBoxAlunos.Location = new System.Drawing.Point(15, 33);
-            this.listBoxAlunos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxAlunos.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxAlunos.Name = "listBoxAlunos";
             this.listBoxAlunos.Size = new System.Drawing.Size(327, 147);
             this.listBoxAlunos.TabIndex = 58;
@@ -336,8 +336,8 @@ namespace Bookids.Forms
             // buttonApagarEscola
             // 
             this.buttonApagarEscola.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonApagarEscola.Location = new System.Drawing.Point(224, 368);
-            this.buttonApagarEscola.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonApagarEscola.Location = new System.Drawing.Point(224, 361);
+            this.buttonApagarEscola.Margin = new System.Windows.Forms.Padding(2);
             this.buttonApagarEscola.Name = "buttonApagarEscola";
             this.buttonApagarEscola.Size = new System.Drawing.Size(100, 52);
             this.buttonApagarEscola.TabIndex = 32;
@@ -348,8 +348,8 @@ namespace Bookids.Forms
             // buttonEditar
             // 
             this.buttonEditar.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonEditar.Location = new System.Drawing.Point(119, 368);
-            this.buttonEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonEditar.Location = new System.Drawing.Point(119, 361);
+            this.buttonEditar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(101, 52);
             this.buttonEditar.TabIndex = 31;
@@ -360,8 +360,8 @@ namespace Bookids.Forms
             // buttonNovo
             // 
             this.buttonNovo.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonNovo.Location = new System.Drawing.Point(15, 368);
-            this.buttonNovo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonNovo.Location = new System.Drawing.Point(15, 361);
+            this.buttonNovo.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNovo.Name = "buttonNovo";
             this.buttonNovo.Size = new System.Drawing.Size(100, 52);
             this.buttonNovo.TabIndex = 30;
@@ -372,7 +372,7 @@ namespace Bookids.Forms
             // textBoxPesquisaEscolas
             // 
             this.textBoxPesquisaEscolas.Location = new System.Drawing.Point(67, 56);
-            this.textBoxPesquisaEscolas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPesquisaEscolas.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPesquisaEscolas.Name = "textBoxPesquisaEscolas";
             this.textBoxPesquisaEscolas.Size = new System.Drawing.Size(257, 20);
             this.textBoxPesquisaEscolas.TabIndex = 28;
@@ -380,8 +380,8 @@ namespace Bookids.Forms
             // listBoxEscolas
             // 
             this.listBoxEscolas.FormattingEnabled = true;
-            this.listBoxEscolas.Location = new System.Drawing.Point(15, 78);
-            this.listBoxEscolas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxEscolas.Location = new System.Drawing.Point(15, 80);
+            this.listBoxEscolas.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxEscolas.Name = "listBoxEscolas";
             this.listBoxEscolas.Size = new System.Drawing.Size(309, 277);
             this.listBoxEscolas.TabIndex = 27;
@@ -403,7 +403,7 @@ namespace Bookids.Forms
             this.panel1.Controls.Add(this.listBoxEventos);
             this.panel1.Controls.Add(this.l_labelEventos);
             this.panel1.Location = new System.Drawing.Point(726, 232);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(344, 193);
             this.panel1.TabIndex = 57;
@@ -412,7 +412,7 @@ namespace Bookids.Forms
             // 
             this.listBoxEventos.FormattingEnabled = true;
             this.listBoxEventos.Location = new System.Drawing.Point(15, 33);
-            this.listBoxEventos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxEventos.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxEventos.Name = "listBoxEventos";
             this.listBoxEventos.Size = new System.Drawing.Size(327, 147);
             this.listBoxEventos.TabIndex = 58;
@@ -440,7 +440,7 @@ namespace Bookids.Forms
             this.buttonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonRefresh.Location = new System.Drawing.Point(41, 56);
-            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(22, 20);
             this.buttonRefresh.TabIndex = 58;
@@ -453,7 +453,7 @@ namespace Bookids.Forms
             this.buttonPesquisarEscolas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonPesquisarEscolas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonPesquisarEscolas.Location = new System.Drawing.Point(15, 56);
-            this.buttonPesquisarEscolas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonPesquisarEscolas.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPesquisarEscolas.Name = "buttonPesquisarEscolas";
             this.buttonPesquisarEscolas.Size = new System.Drawing.Size(22, 20);
             this.buttonPesquisarEscolas.TabIndex = 29;
@@ -482,7 +482,7 @@ namespace Bookids.Forms
             this.Controls.Add(this.panelEscola);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GestaoEscolas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
