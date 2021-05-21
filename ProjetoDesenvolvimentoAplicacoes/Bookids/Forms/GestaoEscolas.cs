@@ -63,13 +63,16 @@ namespace Bookids.Forms
 
             if (escola != null) // Verifica se a escola nao e' null
             {
-                if (RepoEscolas.RemoveEscola(escola)) // Remove a escola
+                if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
                 {
-                    MessageBox.Show("Removida com Sucesso.");
-                }
-                else
-                {
-                    MessageBox.Show("Ocorreu um erro ao tentar remover!");
+                    if (RepoEscolas.RemoveEscola(escola)) // Remove a escola
+                    {
+                        MessageBox.Show("Removida com Sucesso.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu um erro ao tentar remover!");
+                    }
                 }
 
                 listBoxEscolas.DataSource = RepoEscolas.GetEscolas(); // Atualiza a lista de escolas
@@ -115,13 +118,19 @@ namespace Bookids.Forms
 
             Escola escola = (Escola)listBoxEscolas.SelectedItem; // Guarda a escola selecionada
 
-            // Apresenta os dados
+            // Apresenta os dados da escola
             textBoxNome.Text = escola.Nome;
             textBoxMorada.Text = escola.Morada;
             textBoxLocalidade.Text = escola.Localidade;
             textBoxCodPostal.Text = escola.CodPostal;
             textBoxTelefone.Text = escola.Telefone.ToString();
             textBoxEmail.Text = escola.Email;
+
+            // Apresenta os alunos
+            listBoxAlunos.DataSource = escola.Filhos.ToList<Filho>();
+
+            // Apresenta os eventos planeados
+            listBoxEventos.DataSource = RepoEscolas.GetEventos(escola.IdEscola);
         }
 
         /* Pesquisar as escolas por nome */
@@ -136,6 +145,7 @@ namespace Bookids.Forms
             listBoxEscolas.DataSource = RepoEscolas.GetEscolas();
         }
 
+        /* Apenas permitir inserir numeros no campo do numero de telefone */
         private void textBoxTelefone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
