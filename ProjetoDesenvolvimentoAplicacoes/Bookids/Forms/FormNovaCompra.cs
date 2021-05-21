@@ -16,6 +16,7 @@ namespace Bookids
         public FormNovaCompra()
         {
             InitializeComponent();
+            timer1.Start();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -30,6 +31,12 @@ namespace Bookids
             {
                 //do something else
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelHora.Text = Convert.ToString(DateTime.Now.ToString("HH:mm:ss"));
+            labelData.Text = DateTime.Now.ToString("d");
         }
     }
 }

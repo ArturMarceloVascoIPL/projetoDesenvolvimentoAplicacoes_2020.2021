@@ -29,7 +29,9 @@ namespace Bookids
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.HomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarRecenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +43,9 @@ namespace Bookids
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.labelHora = new System.Windows.Forms.Label();
+            this.labelData = new System.Windows.Forms.Label();
             this.btnEventos = new System.Windows.Forms.Button();
             this.btnCLientesFilhos = new System.Windows.Forms.Button();
             this.btnCompras = new System.Windows.Forms.Button();
@@ -52,9 +56,8 @@ namespace Bookids
             this.listView1 = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.HomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -74,6 +77,13 @@ namespace Bookids
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // HomeToolStripMenuItem
+            // 
+            this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
+            this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
+            this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
+            // 
             // eventosToolStripMenuItem
             // 
             this.eventosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -88,12 +98,14 @@ namespace Bookids
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
             this.novoToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
             this.novoToolStripMenuItem.Text = "Novo";
+            this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
             // 
             // editarRecenteToolStripMenuItem
             // 
             this.editarRecenteToolStripMenuItem.Name = "editarRecenteToolStripMenuItem";
             this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
             this.editarRecenteToolStripMenuItem.Text = "Editar Recente";
+            this.editarRecenteToolStripMenuItem.Click += new System.EventHandler(this.editarRecenteToolStripMenuItem_Click);
             // 
             // comprasToolStripMenuItem
             // 
@@ -108,6 +120,7 @@ namespace Bookids
             this.verRecenteToolStripMenuItem.Name = "verRecenteToolStripMenuItem";
             this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(185, 28);
             this.verRecenteToolStripMenuItem.Text = "Ver Recente";
+            this.verRecenteToolStripMenuItem.Click += new System.EventHandler(this.verRecenteToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
@@ -123,12 +136,14 @@ namespace Bookids
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
             this.novoToolStripMenuItem1.Size = new System.Drawing.Size(183, 28);
             this.novoToolStripMenuItem1.Text = "Novo";
+            this.novoToolStripMenuItem1.Click += new System.EventHandler(this.novoToolStripMenuItem1_Click);
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
             this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
+            this.editarTiposToolStripMenuItem.Click += new System.EventHandler(this.editarTiposToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -143,9 +158,10 @@ namespace Bookids
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.labelHora);
+            this.panel2.Controls.Add(this.labelData);
             this.panel2.Controls.Add(this.btnEventos);
             this.panel2.Controls.Add(this.btnCLientesFilhos);
             this.panel2.Controls.Add(this.btnCompras);
@@ -163,19 +179,36 @@ namespace Bookids
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(310, 333);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "09:30";
+            this.label3.Size = new System.Drawing.Size(0, 20);
+            this.label3.TabIndex = 8;
             // 
-            // label2
+            // panel3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(310, 301);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "01-01-2021";
+            this.panel3.BackgroundImage = global::Bookids.Properties.Resources.baseline_watch_later_black_24dp;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel3.Location = new System.Drawing.Point(313, 371);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(50, 50);
+            this.panel3.TabIndex = 3;
+            // 
+            // labelHora
+            // 
+            this.labelHora.AutoSize = true;
+            this.labelHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHora.Location = new System.Drawing.Point(310, 333);
+            this.labelHora.Name = "labelHora";
+            this.labelHora.Size = new System.Drawing.Size(0, 20);
+            this.labelHora.TabIndex = 7;
+            // 
+            // labelData
+            // 
+            this.labelData.AutoSize = true;
+            this.labelData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelData.Location = new System.Drawing.Point(310, 301);
+            this.labelData.Name = "labelData";
+            this.labelData.Size = new System.Drawing.Size(93, 20);
+            this.labelData.TabIndex = 6;
+            this.labelData.Text = "01-01-2021";
             // 
             // btnEventos
             // 
@@ -294,15 +327,6 @@ namespace Bookids
             this.label4.TabIndex = 6;
             this.label4.Text = "BooKids";
             // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = global::Bookids.Properties.Resources.baseline_watch_later_black_24dp;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel3.Location = new System.Drawing.Point(313, 371);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(50, 50);
-            this.panel3.TabIndex = 3;
-            // 
             // panel1
             // 
             this.panel1.BackgroundImage = global::Bookids.Properties.Resources.baseline_home_black_24dp1;
@@ -312,11 +336,9 @@ namespace Bookids
             this.panel1.Size = new System.Drawing.Size(112, 120);
             this.panel1.TabIndex = 0;
             // 
-            // HomeToolStripMenuItem
+            // timer1
             // 
-            this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
-            this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MenuPrincipal
             // 
@@ -369,13 +391,15 @@ namespace Bookids
         private System.Windows.Forms.Button btnProdutos;
         private System.Windows.Forms.Button btnEscolas;
         private System.Windows.Forms.Button btnAnimadores;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelHora;
+        private System.Windows.Forms.Label labelData;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
