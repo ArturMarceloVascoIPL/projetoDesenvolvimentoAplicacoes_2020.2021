@@ -29,13 +29,14 @@ namespace Bookids
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelPrecoTotalCompra = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.textBoxSearchClientes = new System.Windows.Forms.TextBox();
             this.listaProdutos = new System.Windows.Forms.ListBox();
             this.listaCarrinho = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelHora = new System.Windows.Forms.Label();
+            this.labelData = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -45,6 +46,7 @@ namespace Bookids
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,25 +96,25 @@ namespace Bookids
             this.listaCarrinho.Size = new System.Drawing.Size(264, 356);
             this.listaCarrinho.TabIndex = 31;
             // 
-            // label3
+            // labelHora
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(169, 467);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "09:30";
+            this.labelHora.AutoSize = true;
+            this.labelHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHora.Location = new System.Drawing.Point(169, 467);
+            this.labelHora.Name = "labelHora";
+            this.labelHora.Size = new System.Drawing.Size(50, 20);
+            this.labelHora.TabIndex = 34;
+            this.labelHora.Text = "09:30";
             // 
-            // label2
+            // labelData
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(70, 467);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "01-01-2021";
+            this.labelData.AutoSize = true;
+            this.labelData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelData.Location = new System.Drawing.Point(70, 467);
+            this.labelData.Name = "labelData";
+            this.labelData.Size = new System.Drawing.Size(93, 20);
+            this.labelData.TabIndex = 33;
+            this.labelData.Text = "01-01-2021";
             // 
             // panel6
             // 
@@ -196,6 +198,10 @@ namespace Bookids
             this.panel3.Size = new System.Drawing.Size(48, 48);
             this.panel3.TabIndex = 25;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FormNovaCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -203,8 +209,8 @@ namespace Bookids
             this.ClientSize = new System.Drawing.Size(617, 522);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelHora);
+            this.Controls.Add(this.labelData);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.listaCarrinho);
             this.Controls.Add(this.listaProdutos);
@@ -236,11 +242,12 @@ namespace Bookids
         private System.Windows.Forms.ListBox listaCarrinho;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelHora;
+        private System.Windows.Forms.Label labelData;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Timer timer1;
     }
 }

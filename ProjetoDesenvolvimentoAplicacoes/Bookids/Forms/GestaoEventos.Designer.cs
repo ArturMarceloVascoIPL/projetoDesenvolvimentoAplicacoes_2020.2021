@@ -49,6 +49,16 @@ namespace Bookids.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.labelEvento = new System.Windows.Forms.Label();
             this.panelEditEvento = new System.Windows.Forms.Panel();
+            this.btnExportFichaInsc = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancelarEvento = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePickerDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
@@ -59,16 +69,6 @@ namespace Bookids.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCancelarEvento = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
@@ -85,8 +85,7 @@ namespace Bookids.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnExportInscritos = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.listaParticipantes = new System.Windows.Forms.ListBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -111,7 +110,7 @@ namespace Bookids.Forms
             this.produtosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1989, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1926, 31);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -268,7 +267,7 @@ namespace Bookids.Forms
             // panelEditEvento
             // 
             this.panelEditEvento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelEditEvento.Controls.Add(this.button3);
+            this.panelEditEvento.Controls.Add(this.btnExportFichaInsc);
             this.panelEditEvento.Controls.Add(this.button1);
             this.panelEditEvento.Controls.Add(this.btnCancelarEvento);
             this.panelEditEvento.Controls.Add(this.textBox4);
@@ -294,6 +293,99 @@ namespace Bookids.Forms
             this.panelEditEvento.Name = "panelEditEvento";
             this.panelEditEvento.Size = new System.Drawing.Size(521, 396);
             this.panelEditEvento.TabIndex = 22;
+            // 
+            // btnExportFichaInsc
+            // 
+            this.btnExportFichaInsc.Location = new System.Drawing.Point(3, 311);
+            this.btnExportFichaInsc.Name = "btnExportFichaInsc";
+            this.btnExportFichaInsc.Size = new System.Drawing.Size(133, 64);
+            this.btnExportFichaInsc.TabIndex = 51;
+            this.btnExportFichaInsc.Text = "Exportar";
+            this.btnExportFichaInsc.UseVisualStyleBackColor = false;
+            this.btnExportFichaInsc.Click += new System.EventHandler(this.btnExportFichaInsc_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(387, 311);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 64);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Salvar";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelarEvento
+            // 
+            this.btnCancelarEvento.Location = new System.Drawing.Point(248, 311);
+            this.btnCancelarEvento.Name = "btnCancelarEvento";
+            this.btnCancelarEvento.Size = new System.Drawing.Size(133, 64);
+            this.btnCancelarEvento.TabIndex = 22;
+            this.btnCancelarEvento.Text = "Cancelar";
+            this.btnCancelarEvento.UseVisualStyleBackColor = false;
+            this.btnCancelarEvento.Click += new System.EventHandler(this.btnCancelarEvento_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(156, 250);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(56, 22);
+            this.textBox4.TabIndex = 50;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(7, 252);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(143, 20);
+            this.label12.TabIndex = 49;
+            this.label12.Text = "Max Participantes";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(251, 231);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 20);
+            this.label9.TabIndex = 48;
+            this.label9.Text = "IDADE";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(251, 252);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 20);
+            this.label8.TabIndex = 47;
+            this.label8.Text = "Min:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(298, 250);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(68, 22);
+            this.textBox3.TabIndex = 46;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(383, 252);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 20);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "Max:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(436, 252);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(68, 22);
+            this.textBox2.TabIndex = 44;
             // 
             // label3
             // 
@@ -386,98 +478,6 @@ namespace Bookids.Forms
             this.label10.Size = new System.Drawing.Size(91, 20);
             this.label10.TabIndex = 16;
             this.label10.Text = "Descrição:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(383, 252);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 20);
-            this.label7.TabIndex = 45;
-            this.label7.Text = "Max:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(436, 252);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(68, 22);
-            this.textBox2.TabIndex = 44;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(251, 252);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 20);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "Min:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(298, 250);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(68, 22);
-            this.textBox3.TabIndex = 46;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(251, 231);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 20);
-            this.label9.TabIndex = 48;
-            this.label9.Text = "IDADE";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(156, 250);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(56, 22);
-            this.textBox4.TabIndex = 50;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(7, 252);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(143, 20);
-            this.label12.TabIndex = 49;
-            this.label12.Text = "Max Participantes";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(387, 311);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 64);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Salvar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelarEvento
-            // 
-            this.btnCancelarEvento.Location = new System.Drawing.Point(248, 311);
-            this.btnCancelarEvento.Name = "btnCancelarEvento";
-            this.btnCancelarEvento.Size = new System.Drawing.Size(133, 64);
-            this.btnCancelarEvento.TabIndex = 22;
-            this.btnCancelarEvento.Text = "Cancelar";
-            this.btnCancelarEvento.UseVisualStyleBackColor = false;
-            this.btnCancelarEvento.Click += new System.EventHandler(this.btnCancelarEvento_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(3, 311);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 64);
-            this.button3.TabIndex = 51;
-            this.button3.Text = "Exportar";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -616,8 +616,7 @@ namespace Bookids.Forms
             // panel6
             // 
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Controls.Add(this.button8);
-            this.panel6.Controls.Add(this.button9);
+            this.panel6.Controls.Add(this.btnExportInscritos);
             this.panel6.Controls.Add(this.textBox7);
             this.panel6.Controls.Add(this.listaParticipantes);
             this.panel6.Controls.Add(this.label13);
@@ -636,23 +635,15 @@ namespace Bookids.Forms
             this.panel7.Size = new System.Drawing.Size(29, 22);
             this.panel7.TabIndex = 21;
             // 
-            // button8
+            // btnExportInscritos
             // 
-            this.button8.Location = new System.Drawing.Point(296, 480);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(133, 64);
-            this.button8.TabIndex = 20;
-            this.button8.Text = "Apagar";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(18, 480);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(133, 64);
-            this.button9.TabIndex = 18;
-            this.button9.Text = "Novo";
-            this.button9.UseVisualStyleBackColor = false;
+            this.btnExportInscritos.Location = new System.Drawing.Point(296, 480);
+            this.btnExportInscritos.Name = "btnExportInscritos";
+            this.btnExportInscritos.Size = new System.Drawing.Size(133, 64);
+            this.btnExportInscritos.TabIndex = 20;
+            this.btnExportInscritos.Text = "Exportar";
+            this.btnExportInscritos.UseVisualStyleBackColor = false;
+            this.btnExportInscritos.Click += new System.EventHandler(this.btnExportInscritos_Click);
             // 
             // textBox7
             // 
@@ -687,14 +678,14 @@ namespace Bookids.Forms
             this.panelEditEventoExtend.Controls.Add(this.panel4);
             this.panelEditEventoExtend.Location = new System.Drawing.Point(1008, 28);
             this.panelEditEventoExtend.Name = "panelEditEventoExtend";
-            this.panelEditEventoExtend.Size = new System.Drawing.Size(958, 573);
+            this.panelEditEventoExtend.Size = new System.Drawing.Size(900, 573);
             this.panelEditEventoExtend.TabIndex = 22;
             // 
             // GestaoEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1989, 613);
+            this.ClientSize = new System.Drawing.Size(1926, 613);
             this.Controls.Add(this.labelEvento);
             this.Controls.Add(this.panelEditEvento);
             this.Controls.Add(this.panelEventos);
@@ -764,7 +755,7 @@ namespace Bookids.Forms
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCancelarEvento;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnExportFichaInsc;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button4;
@@ -781,8 +772,7 @@ namespace Bookids.Forms
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnExportInscritos;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.ListBox listaParticipantes;
         private System.Windows.Forms.Label label13;
