@@ -29,8 +29,8 @@ namespace Bookids.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.HomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarRecenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,46 +39,42 @@ namespace Bookids.Forms
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarTiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelEscolas = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnNovoProd = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panelEscola = new System.Windows.Forms.Panel();
+            this.textBoxTelefone = new System.Windows.Forms.NumericUpDown();
+            this.buttonGuardarEscola = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button10 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxCodPostal = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
+            this.textBoxNome = new System.Windows.Forms.TextBox();
+            this.textBoxLocalidade = new System.Windows.Forms.TextBox();
+            this.textBoxMorada = new System.Windows.Forms.TextBox();
+            this.panelAlunos = new System.Windows.Forms.Panel();
+            this.listBoxAlunos = new System.Windows.Forms.ListBox();
+            this.l_labelAlunos = new System.Windows.Forms.Label();
+            this.buttonApagarEscola = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonNovo = new System.Windows.Forms.Button();
+            this.textBoxPesquisaEscolas = new System.Windows.Forms.TextBox();
+            this.listBoxEscolas = new System.Windows.Forms.ListBox();
+            this.l_labelEscolas = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.listBoxEventos = new System.Windows.Forms.ListBox();
+            this.l_labelEventos = new System.Windows.Forms.Label();
+            this.toolTipPesquisa = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonRefresh = new System.Windows.Forms.Panel();
+            this.buttonPesquisarEscolas = new System.Windows.Forms.Panel();
+            this.HomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTipRefresh = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
-            this.panelEscolas.SuspendLayout();
+            this.panelEscola.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxTelefone)).BeginInit();
+            this.panelAlunos.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -91,15 +87,10 @@ namespace Bookids.Forms
             this.produtosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1924, 31);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1076, 28);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // HomeToolStripMenuItem
-            // 
-            this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
-            this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
             // 
             // eventosToolStripMenuItem
             // 
@@ -107,19 +98,19 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem,
             this.editarRecenteToolStripMenuItem});
             this.eventosToolStripMenuItem.Name = "eventosToolStripMenuItem";
-            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(83, 27);
+            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.eventosToolStripMenuItem.Text = "Eventos";
             // 
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.novoToolStripMenuItem.Text = "Novo";
             // 
             // editarRecenteToolStripMenuItem
             // 
             this.editarRecenteToolStripMenuItem.Name = "editarRecenteToolStripMenuItem";
-            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.editarRecenteToolStripMenuItem.Text = "Editar Recente";
             // 
             // comprasToolStripMenuItem
@@ -127,13 +118,13 @@ namespace Bookids.Forms
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verRecenteToolStripMenuItem});
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(92, 27);
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.comprasToolStripMenuItem.Text = "Compras";
             // 
             // verRecenteToolStripMenuItem
             // 
             this.verRecenteToolStripMenuItem.Name = "verRecenteToolStripMenuItem";
-            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(185, 28);
+            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.verRecenteToolStripMenuItem.Text = "Ver Recente";
             // 
             // produtosToolStripMenuItem
@@ -142,378 +133,378 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem1,
             this.editarTiposToolStripMenuItem});
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(93, 27);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.produtosToolStripMenuItem.Text = "Produtos";
             // 
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(183, 28);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
             this.novoToolStripMenuItem1.Text = "Novo";
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
             // 
-            // panelEscolas
+            // panelEscola
             // 
-            this.panelEscolas.Controls.Add(this.button3);
-            this.panelEscolas.Controls.Add(this.button2);
-            this.panelEscolas.Controls.Add(this.btnNovoProd);
-            this.panelEscolas.Controls.Add(this.listBox1);
-            this.panelEscolas.Controls.Add(this.label4);
-            this.panelEscolas.Location = new System.Drawing.Point(12, 34);
-            this.panelEscolas.Name = "panelEscolas";
-            this.panelEscolas.Size = new System.Drawing.Size(445, 497);
-            this.panelEscolas.TabIndex = 5;
+            this.panelEscola.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelEscola.Controls.Add(this.textBoxTelefone);
+            this.panelEscola.Controls.Add(this.buttonGuardarEscola);
+            this.panelEscola.Controls.Add(this.label1);
+            this.panelEscola.Controls.Add(this.label9);
+            this.panelEscola.Controls.Add(this.label2);
+            this.panelEscola.Controls.Add(this.textBoxCodPostal);
+            this.panelEscola.Controls.Add(this.label3);
+            this.panelEscola.Controls.Add(this.label8);
+            this.panelEscola.Controls.Add(this.label5);
+            this.panelEscola.Controls.Add(this.textBoxEmail);
+            this.panelEscola.Controls.Add(this.textBoxNome);
+            this.panelEscola.Controls.Add(this.textBoxLocalidade);
+            this.panelEscola.Controls.Add(this.textBoxMorada);
+            this.panelEscola.Enabled = false;
+            this.panelEscola.Location = new System.Drawing.Point(328, 122);
+            this.panelEscola.Margin = new System.Windows.Forms.Padding(2);
+            this.panelEscola.Name = "panelEscola";
+            this.panelEscola.Size = new System.Drawing.Size(396, 193);
+            this.panelEscola.TabIndex = 6;
             // 
-            // button3
+            // textBoxTelefone
             // 
-            this.button3.Location = new System.Drawing.Point(296, 424);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 64);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Apagar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.textBoxTelefone.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.textBoxTelefone.Location = new System.Drawing.Point(108, 84);
+            this.textBoxTelefone.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.textBoxTelefone.Name = "textBoxTelefone";
+            this.textBoxTelefone.Size = new System.Drawing.Size(279, 20);
+            this.textBoxTelefone.TabIndex = 47;
             // 
-            // button2
+            // buttonGuardarEscola
             // 
-            this.button2.Location = new System.Drawing.Point(157, 424);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 64);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // btnNovoProd
-            // 
-            this.btnNovoProd.Location = new System.Drawing.Point(18, 424);
-            this.btnNovoProd.Name = "btnNovoProd";
-            this.btnNovoProd.Size = new System.Drawing.Size(133, 64);
-            this.btnNovoProd.TabIndex = 18;
-            this.btnNovoProd.Text = "Novo";
-            this.btnNovoProd.UseVisualStyleBackColor = false;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(18, 45);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(411, 372);
-            this.listBox1.TabIndex = 16;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 25);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Escolas";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.textBox9);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox8);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox6);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Location = new System.Drawing.Point(475, 34);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1437, 502);
-            this.panel1.TabIndex = 6;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(144, 122);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(338, 22);
-            this.textBox9.TabIndex = 47;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(20, 122);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(78, 20);
-            this.label9.TabIndex = 46;
-            this.label9.Text = "Telefone:";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(382, 87);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 22);
-            this.textBox8.TabIndex = 45;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(279, 87);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 20);
-            this.label8.TabIndex = 44;
-            this.label8.Text = "Cod-Postal:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(144, 150);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(338, 22);
-            this.textBox6.TabIndex = 42;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(144, 87);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 40;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(144, 49);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(338, 22);
-            this.textBox3.TabIndex = 39;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(144, 14);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(338, 22);
-            this.textBox2.TabIndex = 38;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 150);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 20);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "Email:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 20);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Localidade:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 20);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Morada:";
+            this.buttonGuardarEscola.Location = new System.Drawing.Point(287, 133);
+            this.buttonGuardarEscola.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonGuardarEscola.Name = "buttonGuardarEscola";
+            this.buttonGuardarEscola.Size = new System.Drawing.Size(100, 52);
+            this.buttonGuardarEscola.TabIndex = 21;
+            this.buttonGuardarEscola.Text = "Guardar";
+            this.buttonGuardarEscola.UseVisualStyleBackColor = false;
+            this.buttonGuardarEscola.Click += new System.EventHandler(this.buttonGuardarEscola_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 12);
+            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 20);
+            this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 32;
             this.label1.Text = "Nome:";
             // 
-            // button1
+            // label9
             // 
-            this.button1.Location = new System.Drawing.Point(359, 424);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 64);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Apagar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(12, 86);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 17);
+            this.label9.TabIndex = 46;
+            this.label9.Text = "Telefone:";
             // 
-            // button4
+            // label2
             // 
-            this.button4.Location = new System.Drawing.Point(3, 427);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 64);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Salvar";
-            this.button4.UseVisualStyleBackColor = false;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 36);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 17);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Morada:";
             // 
-            // panel2
+            // textBoxCodPostal
             // 
-            this.panel2.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Location = new System.Drawing.Point(31, 21);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(29, 22);
-            this.panel2.TabIndex = 54;
+            this.textBoxCodPostal.Location = new System.Drawing.Point(292, 59);
+            this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCodPostal.Name = "textBoxCodPostal";
+            this.textBoxCodPostal.Size = new System.Drawing.Size(95, 20);
+            this.textBoxCodPostal.TabIndex = 45;
             // 
-            // button5
+            // label3
             // 
-            this.button5.Location = new System.Drawing.Point(309, 417);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 64);
-            this.button5.TabIndex = 53;
-            this.button5.Text = "Remover";
-            this.button5.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 60);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 17);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Localidade:";
             // 
-            // button7
+            // label8
             // 
-            this.button7.Location = new System.Drawing.Point(31, 417);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(133, 64);
-            this.button7.TabIndex = 51;
-            this.button7.Text = "Adicionar";
-            this.button7.UseVisualStyleBackColor = false;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(207, 60);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 17);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "Cod-Postal:";
             // 
-            // textBox1
+            // label5
             // 
-            this.textBox1.Location = new System.Drawing.Point(58, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(384, 22);
-            this.textBox1.TabIndex = 50;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(15, 110);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 17);
+            this.label5.TabIndex = 35;
+            this.label5.Text = "Email:";
             // 
-            // listBox2
+            // textBoxEmail
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(31, 54);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(411, 356);
-            this.listBox2.TabIndex = 49;
+            this.textBoxEmail.Location = new System.Drawing.Point(108, 109);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(279, 20);
+            this.textBoxEmail.TabIndex = 42;
             // 
-            // label6
+            // textBoxNome
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(26, -5);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 25);
-            this.label6.TabIndex = 48;
-            this.label6.Text = "Eventos";
+            this.textBoxNome.Location = new System.Drawing.Point(108, 11);
+            this.textBoxNome.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxNome.Name = "textBoxNome";
+            this.textBoxNome.Size = new System.Drawing.Size(279, 20);
+            this.textBoxNome.TabIndex = 38;
             // 
-            // panel3
+            // textBoxLocalidade
             // 
-            this.panel3.Controls.Add(this.listBox2);
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.button5);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.button7);
-            this.panel3.Location = new System.Drawing.Point(498, 12);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(459, 490);
-            this.panel3.TabIndex = 55;
+            this.textBoxLocalidade.Location = new System.Drawing.Point(108, 59);
+            this.textBoxLocalidade.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxLocalidade.Name = "textBoxLocalidade";
+            this.textBoxLocalidade.Size = new System.Drawing.Size(95, 20);
+            this.textBoxLocalidade.TabIndex = 40;
             // 
-            // panel4
+            // textBoxMorada
             // 
-            this.panel4.Controls.Add(this.listBox3);
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.button8);
-            this.panel4.Controls.Add(this.textBox5);
-            this.panel4.Controls.Add(this.button10);
-            this.panel4.Location = new System.Drawing.Point(975, 12);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(459, 490);
-            this.panel4.TabIndex = 56;
+            this.textBoxMorada.Location = new System.Drawing.Point(108, 35);
+            this.textBoxMorada.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxMorada.Name = "textBoxMorada";
+            this.textBoxMorada.Size = new System.Drawing.Size(279, 20);
+            this.textBoxMorada.TabIndex = 39;
             // 
-            // listBox3
+            // panelAlunos
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 16;
-            this.listBox3.Location = new System.Drawing.Point(31, 54);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(411, 356);
-            this.listBox3.TabIndex = 49;
+            this.panelAlunos.Controls.Add(this.listBoxAlunos);
+            this.panelAlunos.Controls.Add(this.l_labelAlunos);
+            this.panelAlunos.Location = new System.Drawing.Point(726, 35);
+            this.panelAlunos.Margin = new System.Windows.Forms.Padding(2);
+            this.panelAlunos.Name = "panelAlunos";
+            this.panelAlunos.Size = new System.Drawing.Size(344, 193);
+            this.panelAlunos.TabIndex = 56;
             // 
-            // panel5
+            // listBoxAlunos
             // 
-            this.panel5.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel5.Location = new System.Drawing.Point(31, 21);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(29, 22);
-            this.panel5.TabIndex = 54;
+            this.listBoxAlunos.FormattingEnabled = true;
+            this.listBoxAlunos.Location = new System.Drawing.Point(15, 33);
+            this.listBoxAlunos.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxAlunos.Name = "listBoxAlunos";
+            this.listBoxAlunos.Size = new System.Drawing.Size(327, 147);
+            this.listBoxAlunos.TabIndex = 58;
             // 
-            // label7
+            // l_labelAlunos
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(26, -5);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 25);
-            this.label7.TabIndex = 48;
-            this.label7.Text = "Filhos";
+            this.l_labelAlunos.AutoSize = true;
+            this.l_labelAlunos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_labelAlunos.Location = new System.Drawing.Point(11, 9);
+            this.l_labelAlunos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.l_labelAlunos.Name = "l_labelAlunos";
+            this.l_labelAlunos.Size = new System.Drawing.Size(58, 20);
+            this.l_labelAlunos.TabIndex = 48;
+            this.l_labelAlunos.Text = "Alunos";
             // 
-            // button8
+            // buttonApagarEscola
             // 
-            this.button8.Location = new System.Drawing.Point(309, 417);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(133, 64);
-            this.button8.TabIndex = 53;
-            this.button8.Text = "Remover";
-            this.button8.UseVisualStyleBackColor = false;
+            this.buttonApagarEscola.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonApagarEscola.Location = new System.Drawing.Point(224, 368);
+            this.buttonApagarEscola.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonApagarEscola.Name = "buttonApagarEscola";
+            this.buttonApagarEscola.Size = new System.Drawing.Size(100, 52);
+            this.buttonApagarEscola.TabIndex = 32;
+            this.buttonApagarEscola.Text = "Apagar";
+            this.buttonApagarEscola.UseVisualStyleBackColor = false;
+            this.buttonApagarEscola.Click += new System.EventHandler(this.buttonApagarEscola_Click);
             // 
-            // textBox5
+            // buttonEditar
             // 
-            this.textBox5.Location = new System.Drawing.Point(58, 21);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(384, 22);
-            this.textBox5.TabIndex = 50;
+            this.buttonEditar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditar.Location = new System.Drawing.Point(119, 368);
+            this.buttonEditar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(101, 52);
+            this.buttonEditar.TabIndex = 31;
+            this.buttonEditar.Text = "Editar";
+            this.buttonEditar.UseVisualStyleBackColor = false;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
-            // button10
+            // buttonNovo
             // 
-            this.button10.Location = new System.Drawing.Point(31, 417);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(133, 64);
-            this.button10.TabIndex = 51;
-            this.button10.Text = "Adicionar";
-            this.button10.UseVisualStyleBackColor = false;
+            this.buttonNovo.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonNovo.Location = new System.Drawing.Point(15, 368);
+            this.buttonNovo.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonNovo.Name = "buttonNovo";
+            this.buttonNovo.Size = new System.Drawing.Size(100, 52);
+            this.buttonNovo.TabIndex = 30;
+            this.buttonNovo.Text = "Novo";
+            this.buttonNovo.UseVisualStyleBackColor = false;
+            this.buttonNovo.Click += new System.EventHandler(this.buttonNovo_Click);
+            // 
+            // textBoxPesquisaEscolas
+            // 
+            this.textBoxPesquisaEscolas.Location = new System.Drawing.Point(67, 56);
+            this.textBoxPesquisaEscolas.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPesquisaEscolas.Name = "textBoxPesquisaEscolas";
+            this.textBoxPesquisaEscolas.Size = new System.Drawing.Size(257, 20);
+            this.textBoxPesquisaEscolas.TabIndex = 28;
+            // 
+            // listBoxEscolas
+            // 
+            this.listBoxEscolas.FormattingEnabled = true;
+            this.listBoxEscolas.Location = new System.Drawing.Point(15, 78);
+            this.listBoxEscolas.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxEscolas.Name = "listBoxEscolas";
+            this.listBoxEscolas.Size = new System.Drawing.Size(309, 277);
+            this.listBoxEscolas.TabIndex = 27;
+            this.listBoxEscolas.SelectedIndexChanged += new System.EventHandler(this.listBoxEscolas_SelectedIndexChanged);
+            // 
+            // l_labelEscolas
+            // 
+            this.l_labelEscolas.AutoSize = true;
+            this.l_labelEscolas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_labelEscolas.Location = new System.Drawing.Point(11, 35);
+            this.l_labelEscolas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.l_labelEscolas.Name = "l_labelEscolas";
+            this.l_labelEscolas.Size = new System.Drawing.Size(72, 20);
+            this.l_labelEscolas.TabIndex = 26;
+            this.l_labelEscolas.Text = "Escolas";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.listBoxEventos);
+            this.panel1.Controls.Add(this.l_labelEventos);
+            this.panel1.Location = new System.Drawing.Point(726, 232);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(344, 193);
+            this.panel1.TabIndex = 57;
+            // 
+            // listBoxEventos
+            // 
+            this.listBoxEventos.FormattingEnabled = true;
+            this.listBoxEventos.Location = new System.Drawing.Point(15, 33);
+            this.listBoxEventos.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxEventos.Name = "listBoxEventos";
+            this.listBoxEventos.Size = new System.Drawing.Size(327, 147);
+            this.listBoxEventos.TabIndex = 58;
+            // 
+            // l_labelEventos
+            // 
+            this.l_labelEventos.AutoSize = true;
+            this.l_labelEventos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_labelEventos.Location = new System.Drawing.Point(11, 9);
+            this.l_labelEventos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.l_labelEventos.Name = "l_labelEventos";
+            this.l_labelEventos.Size = new System.Drawing.Size(146, 20);
+            this.l_labelEventos.TabIndex = 48;
+            this.l_labelEventos.Text = "Eventos Planeados";
+            // 
+            // toolTipPesquisa
+            // 
+            this.toolTipPesquisa.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTipPesquisa.ToolTipTitle = "Pesquisa por Nome";
+            // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.buttonRefresh.BackgroundImage = global::Bookids.Properties.Resources.baseline_autorenew_black_24dp;
+            this.buttonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRefresh.Location = new System.Drawing.Point(41, 56);
+            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(22, 20);
+            this.buttonRefresh.TabIndex = 58;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
+            // buttonPesquisarEscolas
+            // 
+            this.buttonPesquisarEscolas.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonPesquisarEscolas.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
+            this.buttonPesquisarEscolas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonPesquisarEscolas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPesquisarEscolas.Location = new System.Drawing.Point(15, 56);
+            this.buttonPesquisarEscolas.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonPesquisarEscolas.Name = "buttonPesquisarEscolas";
+            this.buttonPesquisarEscolas.Size = new System.Drawing.Size(22, 20);
+            this.buttonPesquisarEscolas.TabIndex = 29;
+            this.buttonPesquisarEscolas.Click += new System.EventHandler(this.buttonPesquisarEscolas_Click);
+            // 
+            // HomeToolStripMenuItem
+            // 
+            this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
+            this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(32, 24);
+            // 
+            // toolTipRefresh
+            // 
+            this.toolTipRefresh.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTipRefresh.ToolTipTitle = "Limpar Filtro";
             // 
             // GestaoEscolas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 548);
+            this.ClientSize = new System.Drawing.Size(1076, 434);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelEscolas);
+            this.Controls.Add(this.panelAlunos);
+            this.Controls.Add(this.buttonApagarEscola);
+            this.Controls.Add(this.buttonEditar);
+            this.Controls.Add(this.buttonNovo);
+            this.Controls.Add(this.buttonPesquisarEscolas);
+            this.Controls.Add(this.textBoxPesquisaEscolas);
+            this.Controls.Add(this.listBoxEscolas);
+            this.Controls.Add(this.l_labelEscolas);
+            this.Controls.Add(this.panelEscola);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GestaoEscolas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestao Escolas";
+            this.Load += new System.EventHandler(this.GestaoEscolas_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panelEscolas.ResumeLayout(false);
-            this.panelEscolas.PerformLayout();
+            this.panelEscola.ResumeLayout(false);
+            this.panelEscola.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBoxTelefone)).EndInit();
+            this.panelAlunos.ResumeLayout(false);
+            this.panelAlunos.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -531,40 +522,35 @@ namespace Bookids.Forms
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editarTiposToolStripMenuItem;
-        private System.Windows.Forms.Panel panelEscolas;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnNovoProd;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Panel panelEscola;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBoxCodPostal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox textBoxEmail;
+        private System.Windows.Forms.TextBox textBoxNome;
+        private System.Windows.Forms.TextBox textBoxLocalidade;
+        private System.Windows.Forms.TextBox textBoxMorada;
+        private System.Windows.Forms.Button buttonGuardarEscola;
+        private System.Windows.Forms.Panel panelAlunos;
+        private System.Windows.Forms.Label l_labelAlunos;
+        private System.Windows.Forms.Button buttonApagarEscola;
+        private System.Windows.Forms.Button buttonEditar;
+        private System.Windows.Forms.Button buttonNovo;
+        private System.Windows.Forms.Panel buttonPesquisarEscolas;
+        private System.Windows.Forms.TextBox textBoxPesquisaEscolas;
+        private System.Windows.Forms.ListBox listBoxEscolas;
+        private System.Windows.Forms.Label l_labelEscolas;
+        private System.Windows.Forms.ListBox listBoxAlunos;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox listBoxEventos;
+        private System.Windows.Forms.Label l_labelEventos;
+        private System.Windows.Forms.NumericUpDown textBoxTelefone;
+        private System.Windows.Forms.ToolTip toolTipPesquisa;
+        private System.Windows.Forms.Panel buttonRefresh;
+        private System.Windows.Forms.ToolTip toolTipRefresh;
     }
 }

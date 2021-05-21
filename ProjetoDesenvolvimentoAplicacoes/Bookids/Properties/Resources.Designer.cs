@@ -73,9 +73,49 @@ namespace Bookids.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap baseline_arrow_back_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_arrow_back_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_arrow_downward_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_arrow_downward_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baseline_arrow_forward_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_arrow_forward_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_arrow_upward_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_arrow_upward_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_autorenew_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_autorenew_black_24dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
