@@ -831,7 +831,6 @@ namespace Bookids.Forms
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clientes | Filhos";
-            this.Load += new System.EventHandler(this.GestaoClienteFilhos_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelCliente.ResumeLayout(false);

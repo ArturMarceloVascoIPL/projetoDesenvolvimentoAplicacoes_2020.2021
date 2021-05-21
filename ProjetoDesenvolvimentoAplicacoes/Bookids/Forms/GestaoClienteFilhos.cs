@@ -20,9 +20,8 @@ namespace Bookids.Forms
         private void radioButtonNao_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonSim.Checked == true)
-            {
                 textBoxNumCartao.Enabled = true;
-            }
+
             else
             {
                 textBoxNumCartao.Clear();
@@ -39,11 +38,6 @@ namespace Bookids.Forms
         private void buttonConfirmacoes_Click(object sender, EventArgs e)
         {
             Size = new Size(1310, 466);
-        }
-
-        private void GestaoClienteFilhos_Load(object sender, EventArgs e)
-        {
-            Size = new Size(1085, 466);
         }
     }
 }

@@ -41,11 +41,11 @@ namespace Bookids.Forms
             textBoxMorada.Clear();
             textBoxLocalidade.Clear();
             textBoxCodPostal.Clear();
-            textBoxTelefone.Value = 0;
+            textBoxTelefone.Clear();
             textBoxEmail.Clear();
 
             textBoxNome.Focus(); // Coloca o cursor no painel
-            
+
         }
 
         /* Desbloqueia e Permite editar a escola selecionada */
@@ -79,11 +79,11 @@ namespace Bookids.Forms
                 MessageBox.Show("Tem de selecionar uma escola!");
             }
         }
-        
+
         /* Edita ou Cria a escola */
         private void buttonGuardarEscola_Click(object sender, EventArgs e)
         {
-            int telefone = Convert.ToInt32(textBoxTelefone.Value); // Converte o telefone para inteiro
+            int telefone = Convert.ToInt32(textBoxTelefone.Text); // Converte o telefone para inteiro
             Escola escola = new Escola(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, textBoxEmail.Text); // Guarda a nova escola
 
             if (editar == true) /* EDICAO NAO FUNCIONAL AINDA */
@@ -114,13 +114,13 @@ namespace Bookids.Forms
             panelEscola.Enabled = false; // Bloqueia o painel
 
             Escola escola = (Escola)listBoxEscolas.SelectedItem; // Guarda a escola selecionada
-            
+
             // Apresenta os dados
             textBoxNome.Text = escola.Nome;
             textBoxMorada.Text = escola.Morada;
             textBoxLocalidade.Text = escola.Localidade;
             textBoxCodPostal.Text = escola.CodPostal;
-            textBoxTelefone.Value = escola.Telefone;
+            textBoxTelefone.Text = escola.Telefone.ToString();
             textBoxEmail.Text = escola.Email;
         }
 
@@ -134,6 +134,20 @@ namespace Bookids.Forms
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
             listBoxEscolas.DataSource = RepoEscolas.GetEscolas();
+        }
+
+        private void textBoxTelefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -16,5 +16,17 @@ namespace Bookids.Forms
         {
             InitializeComponent();
         }
+
+        private void btnNovoEvento_Click(object sender, EventArgs e)
+        {
+            panelEditEvento.Enabled = true;
+            panelEditEventoExtend.Enabled = true;
+        }
+        private void btnCancelarEvento_Click(object sender, EventArgs e)
+        {
+
+            panelEditEvento.Enabled = true;
+            panelEditEventoExtend.Enabled = true;
+        }
     }
 }
