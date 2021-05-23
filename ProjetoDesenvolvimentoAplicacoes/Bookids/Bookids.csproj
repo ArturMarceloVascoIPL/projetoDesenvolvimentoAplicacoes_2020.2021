@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="DataBase\Cliente.cs" />
     <Compile Include="DataBase\Escola.cs" />
+    <Compile Include="DataBase\Evento.cs" />
     <Compile Include="DetalheCompra.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>

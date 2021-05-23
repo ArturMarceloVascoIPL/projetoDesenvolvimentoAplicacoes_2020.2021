@@ -16,6 +16,16 @@ namespace Bookids
             return model.Escolas.ToList<Escola>();
         }
 
+        /* Retorna em Lista todos os eventos que a escola vai participar */
+        public List<Evento> GetEventos(int id)
+        {
+            return (from p in model.Participacoes
+                    join e in model.Eventos
+                    on p.IdEvento equals e.IdEvento
+                    where p.IdEscola == id
+                    select e).ToList<Evento>();
+        }
+
         /* Adiciona uma escola, retorna true(sucesso) ou false(erro) */
         public bool AddEscola(Escola escola)
         {
