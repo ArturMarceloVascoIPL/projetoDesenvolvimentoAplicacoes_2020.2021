@@ -16,5 +16,10 @@ namespace Bookids.Forms
         {
             InitializeComponent();
         }
+
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

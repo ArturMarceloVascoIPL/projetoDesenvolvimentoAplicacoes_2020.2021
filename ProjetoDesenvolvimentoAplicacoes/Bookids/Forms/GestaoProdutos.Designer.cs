@@ -61,13 +61,13 @@ namespace Bookids.Forms
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panelEditProdutosGeral = new System.Windows.Forms.Panel();
             this.panelEditTipos = new System.Windows.Forms.Panel();
+            this.button8 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelProdutos.SuspendLayout();
             this.panelEditProdutos.SuspendLayout();
@@ -94,6 +94,7 @@ namespace Bookids.Forms
             this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
             this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
+            this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // eventosToolStripMenuItem
             // 
@@ -374,6 +375,41 @@ namespace Bookids.Forms
             this.panelEditTipos.Size = new System.Drawing.Size(518, 417);
             this.panelEditTipos.TabIndex = 33;
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(9, 345);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(119, 64);
+            this.button8.TabIndex = 35;
+            this.button8.Text = "Apagar";
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(360, 185);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(119, 22);
+            this.textBox3.TabIndex = 34;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.ItemHeight = 16;
+            this.listBox2.Location = new System.Drawing.Point(9, 53);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(208, 260);
+            this.listBox2.TabIndex = 28;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(301, 187);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 20);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Nome";
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(380, 348);
@@ -401,41 +437,6 @@ namespace Bookids.Forms
             this.label8.Size = new System.Drawing.Size(58, 20);
             this.label8.TabIndex = 27;
             this.label8.Text = "TIPOS";
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(9, 53);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(208, 260);
-            this.listBox2.TabIndex = 28;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(360, 185);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(119, 22);
-            this.textBox3.TabIndex = 34;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(301, 187);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 20);
-            this.label6.TabIndex = 33;
-            this.label6.Text = "Nome";
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(9, 345);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(119, 64);
-            this.button8.TabIndex = 35;
-            this.button8.Text = "Apagar";
-            this.button8.UseVisualStyleBackColor = false;
             // 
             // GestaoProdutos
             // 

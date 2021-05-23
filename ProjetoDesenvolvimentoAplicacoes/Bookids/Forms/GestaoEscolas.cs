@@ -149,5 +149,10 @@ namespace Bookids.Forms
                 e.Handled = true;
             }
         }
+
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

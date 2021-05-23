@@ -31,5 +31,10 @@ namespace Bookids.Forms
         {
             panelEditProdutos.Enabled = true;
         }
+
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

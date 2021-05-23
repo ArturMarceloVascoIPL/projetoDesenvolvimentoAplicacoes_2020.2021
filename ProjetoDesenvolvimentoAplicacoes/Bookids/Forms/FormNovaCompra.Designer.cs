@@ -38,8 +38,8 @@ namespace Bookids
             this.labelHora = new System.Windows.Forms.Label();
             this.labelData = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.panelCardNo = new System.Windows.Forms.Panel();
+            this.panelCardYes = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -63,6 +63,7 @@ namespace Bookids
             // 
             // btnSalvar
             // 
+            this.btnSalvar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSalvar.Location = new System.Drawing.Point(497, 446);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(108, 64);
@@ -118,31 +119,35 @@ namespace Bookids
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.panel8);
-            this.panel6.Controls.Add(this.panel9);
+            this.panel6.Controls.Add(this.panelCardNo);
+            this.panel6.Controls.Add(this.panelCardYes);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Location = new System.Drawing.Point(341, 446);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 64);
             this.panel6.TabIndex = 35;
             // 
-            // panel8
+            // panelCardNo
             // 
-            this.panel8.BackgroundImage = global::Bookids.Properties.Resources.baseline_clear_black_24dp;
-            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel8.Location = new System.Drawing.Point(50, 12);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(41, 38);
-            this.panel8.TabIndex = 35;
+            this.panelCardNo.BackColor = System.Drawing.Color.White;
+            this.panelCardNo.BackgroundImage = global::Bookids.Properties.Resources.baseline_clear_black_24dp;
+            this.panelCardNo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelCardNo.Location = new System.Drawing.Point(50, 12);
+            this.panelCardNo.Name = "panelCardNo";
+            this.panelCardNo.Size = new System.Drawing.Size(41, 38);
+            this.panelCardNo.TabIndex = 35;
+            this.panelCardNo.Click += new System.EventHandler(this.panelCardNo_Click);
             // 
-            // panel9
+            // panelCardYes
             // 
-            this.panel9.BackgroundImage = global::Bookids.Properties.Resources.baseline_check_black_24dp;
-            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel9.Location = new System.Drawing.Point(3, 12);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(41, 38);
-            this.panel9.TabIndex = 34;
+            this.panelCardYes.BackColor = System.Drawing.Color.White;
+            this.panelCardYes.BackgroundImage = global::Bookids.Properties.Resources.baseline_check_black_24dp;
+            this.panelCardYes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelCardYes.Location = new System.Drawing.Point(3, 12);
+            this.panelCardYes.Name = "panelCardYes";
+            this.panelCardYes.Size = new System.Drawing.Size(41, 38);
+            this.panelCardYes.TabIndex = 34;
+            this.panelCardYes.Click += new System.EventHandler(this.panelCardYes_Click);
             // 
             // panel7
             // 
@@ -246,8 +251,8 @@ namespace Bookids
         private System.Windows.Forms.Label labelData;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panelCardNo;
+        private System.Windows.Forms.Panel panelCardYes;
         private System.Windows.Forms.Timer timer1;
     }
 }

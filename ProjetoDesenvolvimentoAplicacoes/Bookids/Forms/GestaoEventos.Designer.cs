@@ -119,6 +119,7 @@ namespace Bookids.Forms
             this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
             this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
+            this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // eventosToolStripMenuItem
             // 
@@ -266,6 +267,7 @@ namespace Bookids.Forms
             // 
             // panelEditEvento
             // 
+            this.panelEditEvento.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelEditEvento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelEditEvento.Controls.Add(this.btnExportFichaInsc);
             this.panelEditEvento.Controls.Add(this.button1);

@@ -64,10 +64,10 @@ namespace Bookids.Forms
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.Chocolate;
-            this.btnClose.Location = new System.Drawing.Point(130, 12);
+            this.btnClose.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnClose.Location = new System.Drawing.Point(176, 12);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(70, 43);
+            this.btnClose.Size = new System.Drawing.Size(44, 44);
             this.btnClose.TabIndex = 4;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;

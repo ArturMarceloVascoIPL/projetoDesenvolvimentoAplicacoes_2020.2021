@@ -13,10 +13,14 @@ namespace Bookids
 {
     public partial class FormNovaCompra : Form
     {
+        bool card;
+
         public FormNovaCompra()
         {
             InitializeComponent();
             timer1.Start();
+            panelCardNo.BackColor = Color.Red;
+            panelCardYes.BackColor = Color.White;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -37,6 +41,20 @@ namespace Bookids
         {
             labelHora.Text = Convert.ToString(DateTime.Now.ToString("HH:mm:ss"));
             labelData.Text = DateTime.Now.ToString("d");
+        }
+
+        private void panelCardYes_Click(object sender, EventArgs e)
+        {
+            card = true;
+            panelCardYes.BackColor = Color.Green;
+            panelCardNo.BackColor = Color.White;
+        }
+
+        private void panelCardNo_Click(object sender, EventArgs e)
+        {
+            card = false;
+            panelCardNo.BackColor = Color.Red;
+            panelCardYes.BackColor = Color.White;
         }
     }
 }

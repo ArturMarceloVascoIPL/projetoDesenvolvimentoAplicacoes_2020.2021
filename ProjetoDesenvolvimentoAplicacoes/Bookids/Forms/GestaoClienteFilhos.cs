@@ -15,6 +15,7 @@ namespace Bookids.Forms
         public GestaoClienteFilhos()
         {
             InitializeComponent();
+            Size = new Size(886, 573);
         }
 
         private void radioButtonNao_CheckedChanged(object sender, EventArgs e)
@@ -35,9 +36,26 @@ namespace Bookids.Forms
             panelFilho.Enabled = true;
         }
 
+        bool confirmPanel = false;
         private void buttonConfirmacoes_Click(object sender, EventArgs e)
         {
-            Size = new Size(1310, 466);
+            if (!confirmPanel)
+            {
+                Size = new Size(1743, 573);
+                Location = new Point(Location.X - 400, Location.Y);
+                confirmPanel = true;
+            }
+            else
+            {
+                Size = new Size(886, 573);
+                Location = new Point(Location.X + 400, Location.Y);
+                confirmPanel = false;
+            }
+        }
+
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

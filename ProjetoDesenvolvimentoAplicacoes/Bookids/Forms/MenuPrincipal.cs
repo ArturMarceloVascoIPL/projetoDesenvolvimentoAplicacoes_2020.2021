@@ -65,11 +65,6 @@ namespace Bookids
             formClientesFilhos.ShowDialog();
         }
 
-        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void novoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 

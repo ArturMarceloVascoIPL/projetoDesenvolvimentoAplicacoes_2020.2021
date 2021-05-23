@@ -28,5 +28,9 @@ namespace Bookids.Forms
             panelEditEvento.Enabled = true;
             panelEditEventoExtend.Enabled = true;
         }
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

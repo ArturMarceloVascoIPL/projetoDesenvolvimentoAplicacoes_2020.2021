@@ -22,5 +22,9 @@ namespace Bookids
             var formNovaCompra = new FormNovaCompra();
             formNovaCompra.ShowDialog();
         }
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

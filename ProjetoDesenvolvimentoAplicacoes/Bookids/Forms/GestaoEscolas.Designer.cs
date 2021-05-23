@@ -41,6 +41,7 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarTiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelEscola = new System.Windows.Forms.Panel();
+            this.textBoxTelefone = new System.Windows.Forms.TextBox();
             this.buttonGuardarEscola = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,7 +70,6 @@ namespace Bookids.Forms
             this.buttonRefresh = new System.Windows.Forms.Panel();
             this.buttonPesquisarEscolas = new System.Windows.Forms.Panel();
             this.toolTipRefresh = new System.Windows.Forms.ToolTip(this.components);
-            this.textBoxTelefone = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panelEscola.SuspendLayout();
             this.panelAlunos.SuspendLayout();
@@ -96,6 +96,7 @@ namespace Bookids.Forms
             this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
             this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
+            this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // eventosToolStripMenuItem
             // 
@@ -175,6 +176,16 @@ namespace Bookids.Forms
             this.panelEscola.Name = "panelEscola";
             this.panelEscola.Size = new System.Drawing.Size(528, 238);
             this.panelEscola.TabIndex = 6;
+            // 
+            // textBoxTelefone
+            // 
+            this.textBoxTelefone.Location = new System.Drawing.Point(144, 104);
+            this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTelefone.MaxLength = 9;
+            this.textBoxTelefone.Name = "textBoxTelefone";
+            this.textBoxTelefone.Size = new System.Drawing.Size(370, 22);
+            this.textBoxTelefone.TabIndex = 47;
+            this.textBoxTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTelefone_KeyPress);
             // 
             // buttonGuardarEscola
             // 
@@ -447,16 +458,6 @@ namespace Bookids.Forms
             // 
             this.toolTipRefresh.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTipRefresh.ToolTipTitle = "Limpar Filtro";
-            // 
-            // textBoxTelefone
-            // 
-            this.textBoxTelefone.Location = new System.Drawing.Point(144, 104);
-            this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxTelefone.MaxLength = 9;
-            this.textBoxTelefone.Name = "textBoxTelefone";
-            this.textBoxTelefone.Size = new System.Drawing.Size(370, 22);
-            this.textBoxTelefone.TabIndex = 47;
-            this.textBoxTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTelefone_KeyPress);
             // 
             // GestaoEscolas
             // 
