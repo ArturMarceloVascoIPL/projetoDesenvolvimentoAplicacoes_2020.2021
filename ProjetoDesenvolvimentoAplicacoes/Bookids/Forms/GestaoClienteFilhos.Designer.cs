@@ -295,6 +295,7 @@ namespace Bookids.Forms
             this.textBoxTelefone.Name = "textBoxTelefone";
             this.textBoxTelefone.Size = new System.Drawing.Size(125, 22);
             this.textBoxTelefone.TabIndex = 27;
+            this.textBoxTelefone.Text = "0";
             this.textBoxTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumApena_KeyPress);
             // 
             // textBoxCodPostal
@@ -341,6 +342,7 @@ namespace Bookids.Forms
             this.textBoxTelemovel.Name = "textBoxTelemovel";
             this.textBoxTelemovel.Size = new System.Drawing.Size(125, 22);
             this.textBoxTelemovel.TabIndex = 26;
+            this.textBoxTelemovel.Text = "0";
             this.textBoxTelemovel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumApena_KeyPress);
             // 
             // textBoxLocalidade
