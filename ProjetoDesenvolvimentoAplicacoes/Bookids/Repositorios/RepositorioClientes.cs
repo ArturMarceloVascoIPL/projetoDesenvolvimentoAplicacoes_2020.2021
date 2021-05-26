@@ -10,12 +10,33 @@ namespace Bookids
     {
         Model1Container model = new Model1Container();
 
-        public void AddCliente() // INCOMPLETO
+        public List<Cliente> GetClientes()
         {
+            return model.Pessoas.Where(p => p is Cliente).Select(p => p).ToList().Select(p => (Cliente)p).ToList();
+        }
+
+
+        public void AddCliente(Cliente cliente)
+        {
+            model.Pessoas.Add(cliente);
             model.SaveChanges();
         }
 
-        public void RemoveCliente() // INCOMPLETO
+        public bool RemoveCliente(Cliente cliente)
+        {
+            try
+            {
+                model.Pessoas.Remove(cliente);
+            model.SaveChanges();
+        }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         {
             model.SaveChanges();
         }
