@@ -85,8 +85,37 @@ namespace Bookids.Forms
         #region Gestao Clientes
         private void listBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            buttonEditarCliente.Enabled = true;
-            buttonApagarCliente.Enabled = true;
+            Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
+            if (cliente != null)
+            {
+                buttonEditarCliente.Enabled = true;
+                buttonApagarCliente.Enabled = true;
+
+                if (Size != new Size(1428, 573))
+                {
+                    Size = new Size(1428, 573);
+                    Location = new Point(Location.X - 250, Location.Y);
+                }
+
+                if (Size != new Size(1428, 573))
+                {
+                    Size = new Size(1428, 573);
+                    Location = new Point(Location.X - 250, Location.Y);
+                }
+
+                labelCliente.Text = "Cliente Detalhes";
+
+                textBoxNomeCliente.Focus();
+
+                textBoxNomeCliente.Text = cliente.Nome;
+                textBoxMorada.Text = cliente.Morada;
+                textBoxLocalidade.Text = cliente.Localidade;
+                textBoxCodPostal.Text = cliente.CodPostal;
+                textBoxEmail.Text = cliente.Email;
+                textBoxTelemovel.Text = Convert.ToString(cliente.Telemovel);
+                textBoxTelefone.Text = Convert.ToString(cliente.Telefone);
+
+            }
         }
 
         private void buttonNovoCliente_Click(object sender, EventArgs e)
@@ -122,12 +151,13 @@ namespace Bookids.Forms
                 // Confirmacao para guardar
                 if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    //Verificacao se Tem os campos todos Preenchidos
                     foreach (Control c in panelCliente.Controls)
                     {
                         if (c is TextBox)
                         {
                             TextBox textBox = c as TextBox;
-                            if (textBox.Text != string.Empty)
+                            if (!string.IsNullOrEmpty(Convert.ToString(textBox.Text)))
                             {
                                 cliente.Nome = textBoxNomeCliente.Text;
                                 cliente.Morada = textBoxMorada.Text;
@@ -144,11 +174,12 @@ namespace Bookids.Forms
                                 }
                                 else //valor 0 (default) para salvar
                                 {
-                                    cliente.ValorOferta = 0;
                                     cliente.NumCartao = 0;
+                                    cliente.ValorOferta = 0;
                                 }
 
                                 repoCliente.AddCliente(cliente);
+                                MessageBox.Show("Salvo com Sucesso.");
 
                                 //Apagar campos do Form
                                 foreach (var control in panelCliente.Controls)
@@ -156,10 +187,15 @@ namespace Bookids.Forms
                                     if (control is TextBox)
                                         (control as TextBox).Clear();
                                 }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro. Preencher Todos os Campos.");
+                                break;
                             }
                         }
                     }
-                    MessageBox.Show("Salvo com Sucesso.");
                 }
             }
 
@@ -170,16 +206,52 @@ namespace Bookids.Forms
                 {
                     Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
 
-                    cliente.Nome = textBoxNomeCliente.Text;
-                    cliente.Morada = textBoxMorada.Text;
-                    cliente.Localidade = textBoxLocalidade.Text;
-                    cliente.CodPostal = textBoxCodPostal.Text;
-                    cliente.Email = textBoxEmail.Text;
-                    cliente.Telemovel = int.Parse(textBoxTelemovel.Text);
-                    cliente.Telefone = int.Parse(textBoxTelefone.Text);
+                    //Verificacao se Tem os campos todos Preenchidos
+                    foreach (Control c in panelCliente.Controls)
+                    {
+                        if (c is TextBox)
+                        {
+                            TextBox textBox = c as TextBox;
+                            if (!string.IsNullOrEmpty(Convert.ToString(textBox.Text)))
+                            {
+                                cliente.Nome = textBoxNomeCliente.Text;
+                                cliente.Morada = textBoxMorada.Text;
+                                cliente.Localidade = textBoxLocalidade.Text;
+                                cliente.CodPostal = textBoxCodPostal.Text;
+                                cliente.Email = textBoxEmail.Text;
+                                cliente.Telemovel = int.Parse(textBoxTelemovel.Text);
+                                cliente.Telefone = int.Parse(textBoxTelefone.Text);
 
-                    repoCliente.EditCliente(cliente.IdPessoa, cliente);
-                    MessageBox.Show("Editada com Sucesso.");
+                                if (radioButtonSim.Checked)
+                                {
+                                    cliente.NumCartao = int.Parse(textBoxNumCartao.Text);
+                                    cliente.ValorOferta = 0;
+                                }
+                                else //valor 0 (default) para salvar
+                                {
+                                    cliente.NumCartao = 0;
+                                    cliente.ValorOferta = 0;
+                                }
+
+                                repoCliente.EditCliente(cliente.IdPessoa, cliente);
+                                MessageBox.Show("Editada com Sucesso.");
+
+                                //Apagar campos do Form
+                                foreach (var control in panelCliente.Controls)
+                                {
+                                    if (control is TextBox)
+                                        (control as TextBox).Clear();
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro. Preencher Todos os Campos.");
+                                break;
+                            }
+                        }
+                    }
+
                 }
             }
             listBoxClientes.DataSource = repoCliente.GetClientes(); //Atualizar Lista Clientes
@@ -233,6 +305,11 @@ namespace Bookids.Forms
 
             listBoxClientes.DataSource = repoCliente.GetClientes(); //Atualizar Lista Clientes
         }
+
+        #endregion
+
+
+        #region Gestao Filhos
 
         #endregion
 

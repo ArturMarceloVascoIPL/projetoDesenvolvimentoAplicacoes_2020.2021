@@ -15,7 +15,6 @@ namespace Bookids
             return model.Pessoas.Where(p => p is Cliente).Select(p => p).ToList().Select(p => (Cliente)p).ToList();
         }
 
-
         public void AddCliente(Cliente cliente)
         {
             model.Pessoas.Add(cliente);
@@ -26,10 +25,6 @@ namespace Bookids
         {
             try
             {
-                //Cliente clienteDB = (from p in model.Pessoas
-                //                     where p.IdPessoa == (Cliente)id
-                //                     select p).Single();
-
                 Cliente clienteEncontrado = (from p in model.Pessoas.Where(c => c is Cliente)
                                             .Select(p => p).ToList().Select(p => (Cliente)p).ToList()
                                              where p.IdPessoa == id
@@ -67,16 +62,5 @@ namespace Bookids
 
             return true;
         }
-        //public List<Cliente> SearchByName(string nome) // INCOMPLETO
-        //{
-        //    // Where Clientes.Nome == nome
-        //    return;
-        //}
-
-        //public List<Cliente> SearchById(int id)
-        //{
-        //    // Where Clientes.Id == id
-        //    return;
-        //}
     }
 }
