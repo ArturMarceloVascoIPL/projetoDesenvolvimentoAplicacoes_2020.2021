@@ -33,7 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -48,10 +55,98 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuPrincipal.cs">
+    <Compile Include="Animador.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Colaboracao.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Compra.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Cliente.cs" />
+    <Compile Include="DataBase\Escola.cs" />
+    <Compile Include="DataBase\Evento.cs" />
+    <Compile Include="DetalheCompra.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Escola.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Evento.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Filho.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ExportarFileCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuPrincipal.Designer.cs">
+    <Compile Include="Forms\ExportarFileCompras.Designer.cs">
+      <DependentUpon>ExportarFileCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormNovaCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNovaCompra.Designer.cs">
+      <DependentUpon>FormNovaCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GestaoAnimador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestaoAnimador.Designer.cs">
+      <DependentUpon>GestaoAnimador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GestaoClienteFilhos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestaoClienteFilhos.Designer.cs">
+      <DependentUpon>GestaoClienteFilhos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GestaoCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestaoCompras.Designer.cs">
+      <DependentUpon>GestaoCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GestaoEscolas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestaoEscolas.Designer.cs">
+      <DependentUpon>GestaoEscolas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GestaoEventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestaoEventos.Designer.cs">
+      <DependentUpon>GestaoEventos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GestaoProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GestaoProdutos.Designer.cs">
+      <DependentUpon>GestaoProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inscricao.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="DataBaseModel.Designer.cs">
@@ -59,9 +154,47 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Participacao.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pessoa.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produto.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MenuPrincipal.resx">
+    <Compile Include="Repositorios\RepositorioClientes.cs" />
+    <Compile Include="Repositorios\RepositorioEscolas.cs" />
+    <Compile Include="TipoProduto.cs">
+      <DependentUpon>DataBaseModel.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\ExportarFileCompras.resx">
+      <DependentUpon>ExportarFileCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNovaCompra.resx">
+      <DependentUpon>FormNovaCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestaoAnimador.resx">
+      <DependentUpon>GestaoAnimador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestaoClienteFilhos.resx">
+      <DependentUpon>GestaoClienteFilhos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestaoCompras.resx">
+      <DependentUpon>GestaoCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestaoEscolas.resx">
+      <DependentUpon>GestaoEscolas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestaoEventos.resx">
+      <DependentUpon>GestaoEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GestaoProdutos.resx">
+      <DependentUpon>GestaoProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -72,6 +205,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="DataBaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -80,6 +214,7 @@
     <None Include="DataBaseModel.edmx.diagram">
       <DependentUpon>DataBaseModel.edmx</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,5 +228,36 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataBaseModel.Context.cs</LastGenOutput>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="DataBaseModel.edmx.sql" />
+    <Content Include="DataBaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataBaseModel.cs</LastGenOutput>
+      <DependentUpon>DataBaseModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Resources\baseline_autorenew_black_24dp.png" />
+    <None Include="Resources\baseline_arrow_upward_black_24dp.png" />
+    <None Include="Resources\baseline_arrow_downward_black_24dp.png" />
+    <None Include="Resources\baseline_arrow_back_black_24dp.png" />
+    <None Include="Resources\baseline_clear_black_24dp.png" />
+    <None Include="Resources\baseline_check_black_24dp.png" />
+    <None Include="Resources\baseline_credit_card_black_24dp.png" />
+    <None Include="Resources\baseline_arrow_forward_black_24dp.png" />
+    <None Include="Resources\baseline_add_box_black_24dp.png" />
+    <None Include="Resources\baseline_person_black_24dp.png" />
+    <None Include="Resources\baseline_shopping_cart_black_24dp.png" />
+    <None Include="Resources\baseline_search_black_24dp.png" />
+    <None Include="Resources\baseline_watch_later_black_24dp.png" />
+    <None Include="Resources\baseline_home_black_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

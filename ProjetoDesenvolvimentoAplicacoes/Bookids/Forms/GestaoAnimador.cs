@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bookids
+namespace Bookids.Forms
 {
-    public partial class MenuPrincipal : Form
+    public partial class GestaoAnimador : Form
     {
-        public MenuPrincipal()
+        public GestaoAnimador()
         {
             InitializeComponent();
+        }
+
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
