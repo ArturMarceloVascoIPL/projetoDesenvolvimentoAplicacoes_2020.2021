@@ -58,7 +58,6 @@ namespace Bookids
             return true;
         }
 
-        /* NAO FUNCIONA POR ALGUMA RAZAO */
         /* Edita uma escola, retorna true(sucesso) ou false(erro) */
         public bool EditEscola(int id, Escola escolaEditada)
         {
@@ -68,8 +67,13 @@ namespace Bookids
                                            where e.IdEscola == id
                                            select e).Single();
 
-                escolaEncontrada = escolaEditada;
-                
+                escolaEncontrada.Nome = escolaEditada.Nome;
+                escolaEncontrada.Morada = escolaEditada.Morada;
+                escolaEncontrada.Localidade = escolaEditada.Localidade;
+                escolaEncontrada.CodPostal = escolaEditada.CodPostal;
+                escolaEncontrada.Telefone = escolaEditada.Telefone;
+                escolaEncontrada.Email = escolaEditada.Email;
+
                 model.SaveChanges();
             }
             catch (Exception)
@@ -84,7 +88,7 @@ namespace Bookids
         public List<Escola> SearchByName(string nome)
         {
             return (from escola in model.Escolas
-                    where escola.Nome == nome
+                    where escola.Nome.Contains(nome)
                     select escola).ToList<Escola>();
         }
 
@@ -92,7 +96,7 @@ namespace Bookids
         public List<Escola> SearchByLocalidade(string local)
         {
             return (from escola in model.Escolas
-                    where escola.Localidade == local
+                    where escola.Localidade.Contains(local)
                     select escola).ToList<Escola>();
         }
     }

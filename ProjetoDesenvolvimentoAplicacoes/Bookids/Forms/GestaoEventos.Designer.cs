@@ -304,7 +304,6 @@ namespace Bookids.Forms
             this.btnExportFichaInsc.TabIndex = 51;
             this.btnExportFichaInsc.Text = "Exportar";
             this.btnExportFichaInsc.UseVisualStyleBackColor = false;
-            this.btnExportFichaInsc.Click += new System.EventHandler(this.btnExportFichaInsc_Click);
             // 
             // button1
             // 
@@ -645,7 +644,6 @@ namespace Bookids.Forms
             this.btnExportInscritos.TabIndex = 20;
             this.btnExportInscritos.Text = "Exportar";
             this.btnExportInscritos.UseVisualStyleBackColor = false;
-            this.btnExportInscritos.Click += new System.EventHandler(this.btnExportInscritos_Click);
             // 
             // textBox7
             // 
