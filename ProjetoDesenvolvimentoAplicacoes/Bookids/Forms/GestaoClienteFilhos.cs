@@ -13,6 +13,8 @@ namespace Bookids.Forms
     public partial class GestaoClienteFilhos : Form
     {
         RepositorioClientes repoCliente = new RepositorioClientes();
+        bool editarCliente;
+
         public GestaoClienteFilhos()
         {
             InitializeComponent();
@@ -83,13 +85,14 @@ namespace Bookids.Forms
         #region Gestao Clientes
         private void listBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             buttonEditarCliente.Enabled = true;
             buttonApagarCliente.Enabled = true;
         }
 
         private void buttonNovoCliente_Click(object sender, EventArgs e)
         {
+            editarCliente = false;
+
             if (Size != new Size(1428, 573))
             {
                 Size = new Size(1428, 573);
@@ -97,65 +100,129 @@ namespace Bookids.Forms
             }
             panelCliente.Enabled = true;
 
+            labelCliente.Text = "Cliente Novo";
+
             textBoxNomeCliente.Focus();
+            foreach (var control in panelCliente.Controls)
+            {
+                if (control is TextBox)
+                    (control as TextBox).Clear();
+            }
         }
 
         private void buttonGuardarCliente_Click(object sender, EventArgs e)
         {
-            RepositorioClientes repCliente = new RepositorioClientes();
-            Cliente cliente = new Cliente();
+            RepositorioClientes repoCliente = new RepositorioClientes();
 
-            foreach (Control c in panelCliente.Controls)
+            //Novo Cliente
+            if (!editarCliente)
             {
-                if (c is TextBox)
+                Cliente cliente = new Cliente();
+
+                // Confirmacao para guardar
+                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    TextBox textBox = c as TextBox;
-                    if (textBox.Text != string.Empty)
+                    foreach (Control c in panelCliente.Controls)
                     {
-                        cliente.Nome = textBoxNomeCliente.Text;
-                        cliente.Morada = textBoxMorada.Text;
-                        cliente.Localidade = textBoxLocalidade.Text;
-                        cliente.CodPostal = textBoxCodPostal.Text;
-                        cliente.Email = textBoxEmail.Text;
-                        cliente.Telemovel = int.Parse(textBoxTelemovel.Text);
-                        cliente.Telefone = int.Parse(textBoxTelefone.Text);
-
-                        if (radioButtonSim.Checked)
+                        if (c is TextBox)
                         {
-                            cliente.NumCartao = int.Parse(textBoxNumCartao.Text);
-                            cliente.ValorOferta = 0;
-                        }
-                        else //valor 0 (default) para salvar
-                        {
-                            cliente.ValorOferta = 0;
-                            cliente.NumCartao = 0;
-                        }
+                            TextBox textBox = c as TextBox;
+                            if (textBox.Text != string.Empty)
+                            {
+                                cliente.Nome = textBoxNomeCliente.Text;
+                                cliente.Morada = textBoxMorada.Text;
+                                cliente.Localidade = textBoxLocalidade.Text;
+                                cliente.CodPostal = textBoxCodPostal.Text;
+                                cliente.Email = textBoxEmail.Text;
+                                cliente.Telemovel = int.Parse(textBoxTelemovel.Text);
+                                cliente.Telefone = int.Parse(textBoxTelefone.Text);
 
-                        repCliente.AddCliente(cliente);
+                                if (radioButtonSim.Checked)
+                                {
+                                    cliente.NumCartao = int.Parse(textBoxNumCartao.Text);
+                                    cliente.ValorOferta = 0;
+                                }
+                                else //valor 0 (default) para salvar
+                                {
+                                    cliente.ValorOferta = 0;
+                                    cliente.NumCartao = 0;
+                                }
 
-                        //Apagar campos do Form
-                        foreach (var control in panelCliente.Controls)
-                        {
-                            if (control is TextBox)
-                                (control as TextBox).Clear();
+                                repoCliente.AddCliente(cliente);
+
+                                //Apagar campos do Form
+                                foreach (var control in panelCliente.Controls)
+                                {
+                                    if (control is TextBox)
+                                        (control as TextBox).Clear();
+                                }
+                            }
                         }
                     }
+                    MessageBox.Show("Salvo com Sucesso.");
+                }
+            }
+
+            //Editar Cliente
+            else
+            {
+                if (MessageBox.Show("Guardar Cliente Editado?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
+
+                    cliente.Nome = textBoxNomeCliente.Text;
+                    cliente.Morada = textBoxMorada.Text;
+                    cliente.Localidade = textBoxLocalidade.Text;
+                    cliente.CodPostal = textBoxCodPostal.Text;
+                    cliente.Email = textBoxEmail.Text;
+                    cliente.Telemovel = int.Parse(textBoxTelemovel.Text);
+                    cliente.Telefone = int.Parse(textBoxTelefone.Text);
+
+                    repoCliente.EditCliente(cliente.IdPessoa, cliente);
+                    MessageBox.Show("Editada com Sucesso.");
                 }
             }
             listBoxClientes.DataSource = repoCliente.GetClientes(); //Atualizar Lista Clientes
         }
 
+        private void buttonEditarCliente_Click(object sender, EventArgs e)
+        {
+            if (Size != new Size(1428, 573))
+            {
+                Size = new Size(1428, 573);
+                Location = new Point(Location.X - 250, Location.Y);
+            }
+
+            panelCliente.Enabled = true;
+            editarCliente = true;
+            labelCliente.Text = "Cliente Editar";
+
+            Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
+
+            textBoxNomeCliente.Focus();
+
+            textBoxNomeCliente.Text = cliente.Nome;
+            textBoxMorada.Text = cliente.Morada;
+            textBoxLocalidade.Text = cliente.Localidade;
+            textBoxCodPostal.Text = cliente.CodPostal;
+            textBoxEmail.Text = cliente.Email;
+            textBoxTelemovel.Text = Convert.ToString(cliente.Telemovel);
+            textBoxTelefone.Text = Convert.ToString(cliente.Telefone);
+
+            listBoxClientes.DataSource = repoCliente.GetClientes(); //Atualizar Lista Clientes
+
+        }
 
         private void buttonApagarCliente_Click(object sender, EventArgs e)
         {
 
-            Cliente cliente = (Cliente)listBoxClientes.SelectedItem; // Guarda a escola selecionada
+            Cliente cliente = (Cliente)listBoxClientes.SelectedItem; // Guarda o cliente selecionado
 
-            if (cliente != null) // Verifica se a escola nao é null
+            if (cliente != null) // Verifica se o cliente nao é null
             {
                 if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
                 {
-                    if (repoCliente.RemoveCliente(cliente)) // Remove a escola
+                    if (repoCliente.RemoveCliente(cliente)) // Remove o cliente
                         MessageBox.Show("Removida com Sucesso.");
                     else
                         MessageBox.Show("Ocorreu um erro ao tentar remover!");
@@ -168,7 +235,6 @@ namespace Bookids.Forms
         }
 
         #endregion
-
 
     }
 }

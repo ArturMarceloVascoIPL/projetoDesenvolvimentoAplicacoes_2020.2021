@@ -73,7 +73,7 @@ namespace Bookids.Forms
             this.radioButtonMasculino = new System.Windows.Forms.RadioButton();
             this.textBoxNomeFilho = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.l_labelCliente = new System.Windows.Forms.Label();
+            this.labelCliente = new System.Windows.Forms.Label();
             this.l_labelFilho = new System.Windows.Forms.Label();
             this.listBoxParticipa = new System.Windows.Forms.ListBox();
             this.listBoxNaoParticipa = new System.Windows.Forms.ListBox();
@@ -511,7 +511,7 @@ namespace Bookids.Forms
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.Control;
+            this.panel4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.radioButtonFeminino);
             this.panel4.Controls.Add(this.radioButtonMasculino);
@@ -563,15 +563,15 @@ namespace Bookids.Forms
             this.label18.TabIndex = 16;
             this.label18.Text = "Nome:";
             // 
-            // l_labelCliente
+            // labelCliente
             // 
-            this.l_labelCliente.AutoSize = true;
-            this.l_labelCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_labelCliente.Location = new System.Drawing.Point(877, 36);
-            this.l_labelCliente.Name = "l_labelCliente";
-            this.l_labelCliente.Size = new System.Drawing.Size(99, 29);
-            this.l_labelCliente.TabIndex = 17;
-            this.l_labelCliente.Text = "Cliente";
+            this.labelCliente.AutoSize = true;
+            this.labelCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCliente.Location = new System.Drawing.Point(877, 36);
+            this.labelCliente.Name = "labelCliente";
+            this.labelCliente.Size = new System.Drawing.Size(99, 29);
+            this.labelCliente.TabIndex = 17;
+            this.labelCliente.Text = "Cliente";
             // 
             // l_labelFilho
             // 
@@ -607,7 +607,7 @@ namespace Bookids.Forms
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(152, 186);
+            this.label12.Location = new System.Drawing.Point(158, 186);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(96, 25);
             this.label12.TabIndex = 36;
@@ -617,7 +617,7 @@ namespace Bookids.Forms
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(103, 257);
+            this.label13.Location = new System.Drawing.Point(113, 256);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(141, 25);
             this.label13.TabIndex = 37;
@@ -811,6 +811,7 @@ namespace Bookids.Forms
             this.buttonEditarCliente.TabIndex = 31;
             this.buttonEditarCliente.Text = "Editar";
             this.buttonEditarCliente.UseVisualStyleBackColor = false;
+            this.buttonEditarCliente.Click += new System.EventHandler(this.buttonEditarCliente_Click);
             // 
             // buttonNovoCliente
             // 
@@ -872,7 +873,7 @@ namespace Bookids.Forms
             this.Controls.Add(this.panelClientes);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.l_labelFilho);
-            this.Controls.Add(this.l_labelCliente);
+            this.Controls.Add(this.labelCliente);
             this.Controls.Add(this.panelFilho);
             this.Controls.Add(this.panelCliente);
             this.Controls.Add(this.menuStrip1);
@@ -950,7 +951,7 @@ namespace Bookids.Forms
         private System.Windows.Forms.DateTimePicker dateTimePickerDataNascimento;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonGuardarFilho;
-        private System.Windows.Forms.Label l_labelCliente;
+        private System.Windows.Forms.Label labelCliente;
         private System.Windows.Forms.Label l_labelFilho;
         private System.Windows.Forms.ListBox listBoxParticipa;
         private System.Windows.Forms.ListBox listBoxNaoParticipa;
