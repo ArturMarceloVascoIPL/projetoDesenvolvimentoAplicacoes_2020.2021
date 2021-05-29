@@ -10,26 +10,41 @@ namespace Bookids
     {
         Model1Container model = new Model1Container();
 
-        public void AddCliente() // INCOMPLETO
+        public List<Cliente> GetClientes()
         {
+            return model.Pessoas.Where(p => p is Cliente).Select(p => p).ToList().Select(p => (Cliente)p).ToList();
+        }
+
+        public void AddCliente(Cliente cliente)
+        {
+            model.Pessoas.Add(cliente);
             model.SaveChanges();
         }
 
-        public void RemoveCliente() // INCOMPLETO
+        public void EditCliente(int id, Cliente cliente)
         {
+            Cliente clienteEncontrado = (from p in model.Pessoas.Where(c => c is Cliente)
+                                             .Select(p => p).ToList().Select(p => (Cliente)p).ToList()
+                                         where p.IdPessoa == id
+                                         select p).Single();
+
+            clienteEncontrado.Nome = cliente.Nome;
+            clienteEncontrado.Morada = cliente.Morada;
+            clienteEncontrado.Localidade = cliente.Localidade;
+            clienteEncontrado.CodPostal = cliente.CodPostal;
+            clienteEncontrado.Email = cliente.Email;
+            clienteEncontrado.Telemovel = cliente.Telemovel;
+            clienteEncontrado.Telefone = cliente.Telefone;
+
             model.SaveChanges();
         }
 
-        //public List<Cliente> SearchByName(string nome) // INCOMPLETO
-        //{
-        //    // Where Clientes.Nome == nome
-        //    return;
-        //}
+        public void RemoveCliente(Cliente cliente)
+        {
+            model.Pessoas.Attach(cliente);
+            model.Pessoas.Remove(cliente);
+            model.SaveChanges();
 
-        //public List<Cliente> SearchById(int id)
-        //{
-        //    // Where Clientes.Id == id
-        //    return;
-        //}
+        }
     }
 }
