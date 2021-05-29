@@ -12,12 +12,15 @@ namespace Bookids.Forms
 {
     public partial class GestaoClienteFilhos : Form
     {
+        //Inicializacaoes dos repositiors
         RepositorioClientes repoCliente = new RepositorioClientes();
         RepositorioFilhos repoFilho = new RepositorioFilhos();
         RepositorioEscolas repoEscola = new RepositorioEscolas();
 
+        //Manipuacalo paneis
         bool editarCliente;
         bool editarFilho;
+        bool confirmPanel = false;
 
         public GestaoClienteFilhos()
         {
@@ -26,12 +29,13 @@ namespace Bookids.Forms
             Size = new Size(886, 573);
         }
 
+
+        #region Manipulacao Janela
         private void GestaoClienteFilhos_Load(object sender, EventArgs e)
         {
             refreshListas();
         }
 
-        #region Manipulacao Janela
         private void radioButtonNao_CheckedChanged(object sender, EventArgs e)
         {
             if (radioButtonSim.Checked)
@@ -50,7 +54,6 @@ namespace Bookids.Forms
             panelFilho.Enabled = true;
         }
 
-        bool confirmPanel = false;
         private void buttonConfirmacoes_Click(object sender, EventArgs e)
         {
             if (!confirmPanel)
@@ -72,6 +75,7 @@ namespace Bookids.Forms
             Close();
         }
 
+        //Para Permitir apenas numeros quando a digitar nas Textbox
         private void textBoxNumApena_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -80,7 +84,6 @@ namespace Bookids.Forms
             // only allow one decimal point
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
                 e.Handled = true;
-
         }
 
         public void refreshListas()
@@ -142,10 +145,13 @@ namespace Bookids.Forms
                 Location = new Point(Location.X - 250, Location.Y);
             }
             panelCliente.Enabled = true;
+            panelFilho.Enabled = false;
 
             labelCliente.Text = "Cliente Novo";
 
             textBoxNomeCliente.Focus();
+
+            //Apagar as textbox
             foreach (var control in panelCliente.Controls)
             {
                 if (control is TextBox)
@@ -155,8 +161,6 @@ namespace Bookids.Forms
 
         private void buttonGuardarCliente_Click(object sender, EventArgs e)
         {
-            RepositorioClientes repoCliente = new RepositorioClientes();
-
             //Novo Cliente
             if (!editarCliente)
             {
@@ -280,6 +284,7 @@ namespace Bookids.Forms
             }
 
             panelCliente.Enabled = true;
+            panelFilho.Enabled = false;
             editarCliente = true;
             labelCliente.Text = "Cliente Editar";
 
@@ -331,19 +336,53 @@ namespace Bookids.Forms
 
         private void listBoxFilhos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Filho filho = (Filho)listBoxFilhos.SelectedItem;
+            Filho filho = (Filho)listBoxFilhos.SelectedItem;
 
-            //Detalhes do Filho
-            // Code...
+            if (filho != null)
+            {
+                buttonEditarFilho.Enabled = true;
+                buttonEditarFilho.Enabled = true;
+                panelFilhos.Enabled = true;
+
+                if (Size != new Size(1428, 573))
+                {
+                    Size = new Size(1428, 573);
+                    Location = new Point(Location.X - 250, Location.Y);
+                }
+
+                labelFilho.Text = "Filho Detalhes";
+
+                textBoxNomeCliente.Focus();
+
+                textBoxNomeFilho.Text = filho.Nome;
+                dateTimePickerDataNascimento.Text = filho.DtaNascimento;
+                if (filho.Sexo == "Masculino")
+                    radioButtonMasculino.Checked = true;
+                else
+                    radioButtonFeminino.Checked = true;
+
+                Escola escola = repoEscola.SearchById(filho.IdEscola);
+                comboBoxEscolas.Text = escola.Nome;
+
+            }
         }
 
         private void buttonNovoFilho_Click(object sender, EventArgs e)
         {
             panelFilho.Enabled = true;
+            panelCliente.Enabled = false;
             editarFilho = false;
-            textBoxNomeFilho.Focus();
 
             labelFilho.Text = "Filho Novo";
+
+            textBoxNomeCliente.Focus();
+
+            //Apagar as textbox
+            foreach (var control in panelFilho.Controls)
+            {
+                if (control is TextBox)
+                    (control as TextBox).Clear();
+            }
         }
 
         private void buttonEditarFilho_Click(object sender, EventArgs e)
@@ -355,6 +394,7 @@ namespace Bookids.Forms
             }
 
             panelFilho.Enabled = true;
+            panelCliente.Enabled = false;
             editarFilho = true;
             labelFilho.Text = "Filho Editar";
 
@@ -371,8 +411,6 @@ namespace Bookids.Forms
 
             dateTimePickerDataNascimento.Text = filho.DtaNascimento;
 
-            //Escola escola = (Escola)comboBoxEscolas.SelectedItem;
-
             Escola escola = repoEscola.SearchById(filho.IdEscola);
             comboBoxEscolas.Text = escola.Nome;
 
@@ -386,76 +424,121 @@ namespace Bookids.Forms
             {
 
                 Filho filho = new Filho();
-                filho.Nome = textBoxNomeFilho.Text;
 
-                if (radioButtonMasculino.Checked)
-                    filho.Sexo = "Masculino";
-                else
-                    filho.Sexo = "Feminino";
-
-                filho.DtaNascimento = dateTimePickerDataNascimento.Text;
-
-                Escola escola = (Escola)comboBoxEscolas.SelectedItem;
-                filho.IdEscola = escola.IdEscola;
-
-                filho.CodPostal = cliente.CodPostal;
-                filho.Morada = cliente.Morada;
-                filho.Localidade = cliente.Localidade;
-                filho.Email = cliente.Email;
-                filho.Telefone = cliente.Telefone;
-                filho.Telemovel = cliente.Telemovel;
-                filho.IdCliente = cliente.IdPessoa;
-
-                try
+                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    repoFilho.AddFilho(filho);
-                    MessageBox.Show("Salvo com Sucesso.");
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show("Erro ao Salvar." + err.Message);
+
+                    //Verificacao se Tem os campos todos Preenchidos
+                    foreach (Control c in panelFilho.Controls)
+                    {
+                        if (c is TextBox)
+                        {
+                            TextBox textBox = c as TextBox;
+                            if (!string.IsNullOrEmpty(Convert.ToString(textBox.Text)))
+                            {
+                                filho.Nome = textBoxNomeFilho.Text;
+
+                                if (radioButtonMasculino.Checked)
+                                    filho.Sexo = "Masculino";
+                                else
+                                    filho.Sexo = "Feminino";
+
+                                filho.DtaNascimento = dateTimePickerDataNascimento.Text;
+
+                                Escola escola = (Escola)comboBoxEscolas.SelectedItem;
+                                filho.IdEscola = escola.IdEscola;
+
+                                filho.CodPostal = cliente.CodPostal;
+                                filho.Morada = cliente.Morada;
+                                filho.Localidade = cliente.Localidade;
+                                filho.Email = cliente.Email;
+                                filho.Telefone = cliente.Telefone;
+                                filho.Telemovel = cliente.Telemovel;
+                                filho.IdCliente = cliente.IdPessoa;
+
+                                try
+                                {
+                                    repoFilho.AddFilho(filho);
+                                    MessageBox.Show("Salvo com Sucesso.");
+                                }
+                                catch (Exception err)
+                                {
+                                    MessageBox.Show("Erro ao Salvar." + err.Message);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro. Preencher Todos os Campos.");
+                                break;
+                            }
+                        }
+                    }
                 }
             }
             else
             {
-                Filho filho = (Filho)listBoxFilhos.SelectedItem;
-
-                filho.Nome = textBoxNomeFilho.Text;
-
-                if (radioButtonMasculino.Checked)
-                    filho.Sexo = "Masculino";
-                else
-                    filho.Sexo = "Feminino";
-
-                filho.DtaNascimento = dateTimePickerDataNascimento.Text;
-
-                Escola escola = (Escola)comboBoxEscolas.SelectedItem;
-                filho.IdEscola = escola.IdEscola;
-
-                filho.CodPostal = cliente.CodPostal;
-                filho.Morada = cliente.Morada;
-                filho.Localidade = cliente.Localidade;
-                filho.Email = cliente.Email;
-                filho.Telefone = cliente.Telefone;
-                filho.Telemovel = cliente.Telemovel;
-                filho.IdCliente = cliente.IdPessoa;
-
-                try
+                if (MessageBox.Show("Guardar Cliente Editado?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    repoFilho.EditFilho(filho.IdPessoa, filho);
-                    MessageBox.Show("Salvo com Sucesso.");
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show("Erro ao Salvar." + err.Message);
+
+                    Filho filho = (Filho)listBoxFilhos.SelectedItem;
+                    foreach (Control c in panelFilho.Controls)
+                    {
+                        if (c is TextBox)
+                        {
+                            TextBox textBox = c as TextBox;
+                            if (!string.IsNullOrEmpty(Convert.ToString(textBox.Text)))
+                            {
+                                filho.Nome = textBoxNomeFilho.Text;
+
+                                if (radioButtonMasculino.Checked)
+                                    filho.Sexo = "Masculino";
+                                else
+                                    filho.Sexo = "Feminino";
+
+                                filho.DtaNascimento = dateTimePickerDataNascimento.Text;
+
+                                Escola escola = (Escola)comboBoxEscolas.SelectedItem;
+                                filho.IdEscola = escola.IdEscola;
+
+                                filho.CodPostal = cliente.CodPostal;
+                                filho.Morada = cliente.Morada;
+                                filho.Localidade = cliente.Localidade;
+                                filho.Email = cliente.Email;
+                                filho.Telefone = cliente.Telefone;
+                                filho.Telemovel = cliente.Telemovel;
+                                filho.IdCliente = cliente.IdPessoa;
+
+                                try
+                                {
+                                    repoFilho.EditFilho(filho.IdPessoa, filho);
+                                    MessageBox.Show("Salvo com Sucesso.");
+                                }
+                                catch (Exception err)
+                                {
+                                    MessageBox.Show("Erro ao Salvar." + err.Message);
+                                }
+
+                                //Apagar as textbox
+                                foreach (var control in panelCliente.Controls)
+                                {
+                                    if (control is TextBox)
+                                        (control as TextBox).Clear();
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro. Preencher Todos os Campos.");
+                                break;
+                            }
+                        }
+                    }
                 }
 
+                //Lista Filhos
+                refreshListas();
+                listBoxFilhos.DataSource = cliente.Filhos.ToList();
             }
-
-            //Lista Filhos
-            refreshListas();
-            listBoxFilhos.DataSource = cliente.Filhos.ToList();
-
         }
 
         private void buttonApagarFilho_Click(object sender, EventArgs e)
