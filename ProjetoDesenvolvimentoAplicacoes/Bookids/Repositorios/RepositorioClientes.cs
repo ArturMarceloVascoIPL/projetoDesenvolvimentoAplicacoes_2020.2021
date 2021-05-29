@@ -21,46 +21,30 @@ namespace Bookids
             model.SaveChanges();
         }
 
-        internal bool EditCliente(int id, Cliente cliente)
+        public void EditCliente(int id, Cliente cliente)
         {
-            try
-            {
-                Cliente clienteEncontrado = (from p in model.Pessoas.Where(c => c is Cliente)
-                                            .Select(p => p).ToList().Select(p => (Cliente)p).ToList()
-                                             where p.IdPessoa == id
-                                             select p).Single();
+            Cliente clienteEncontrado = (from p in model.Pessoas.Where(c => c is Cliente)
+                                             .Select(p => p).ToList().Select(p => (Cliente)p).ToList()
+                                         where p.IdPessoa == id
+                                         select p).Single();
 
-                clienteEncontrado.Nome = cliente.Nome;
-                clienteEncontrado.Morada = cliente.Morada;
-                clienteEncontrado.Localidade = cliente.Localidade;
-                clienteEncontrado.CodPostal = cliente.CodPostal;
-                clienteEncontrado.Email = cliente.Email;
-                clienteEncontrado.Telemovel = cliente.Telemovel;
-                clienteEncontrado.Telefone = cliente.Telefone;
+            clienteEncontrado.Nome = cliente.Nome;
+            clienteEncontrado.Morada = cliente.Morada;
+            clienteEncontrado.Localidade = cliente.Localidade;
+            clienteEncontrado.CodPostal = cliente.CodPostal;
+            clienteEncontrado.Email = cliente.Email;
+            clienteEncontrado.Telemovel = cliente.Telemovel;
+            clienteEncontrado.Telefone = cliente.Telefone;
 
-                model.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
+            model.SaveChanges();
         }
 
-        public bool RemoveCliente(Cliente cliente)
+        public void RemoveCliente(Cliente cliente)
         {
-            try
-            {
-                model.Pessoas.Remove(cliente);
-                model.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            model.Pessoas.Attach(cliente);
+            model.Pessoas.Remove(cliente);
+            model.SaveChanges();
 
-            return true;
         }
     }
 }

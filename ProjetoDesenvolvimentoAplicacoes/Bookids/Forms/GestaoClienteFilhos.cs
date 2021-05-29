@@ -13,7 +13,11 @@ namespace Bookids.Forms
     public partial class GestaoClienteFilhos : Form
     {
         RepositorioClientes repoCliente = new RepositorioClientes();
+        RepositorioFilhos repoFilho = new RepositorioFilhos();
+        RepositorioEscolas repoEscola = new RepositorioEscolas();
+
         bool editarCliente;
+        bool editarFilho;
 
         public GestaoClienteFilhos()
         {
@@ -24,7 +28,7 @@ namespace Bookids.Forms
 
         private void GestaoClienteFilhos_Load(object sender, EventArgs e)
         {
-            listBoxClientes.DataSource = repoCliente.GetClientes();
+            refreshListas();
         }
 
         #region Manipulacao Janela
@@ -73,11 +77,19 @@ namespace Bookids.Forms
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
                 e.Handled = true;
 
-
             // only allow one decimal point
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
                 e.Handled = true;
 
+        }
+
+        public void refreshListas()
+        {
+            //Lista Clientes
+            listBoxClientes.DataSource = repoCliente.GetClientes();
+
+            //Lista Escolas
+            comboBoxEscolas.DataSource = repoEscola.GetEscolas();
         }
 
         #endregion
@@ -86,10 +98,13 @@ namespace Bookids.Forms
         private void listBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
+            listBoxFilhos.DataSource = cliente.Filhos.ToList();
+
             if (cliente != null)
             {
                 buttonEditarCliente.Enabled = true;
                 buttonApagarCliente.Enabled = true;
+                panelFilhos.Enabled = true;
 
                 if (Size != new Size(1428, 573))
                 {
@@ -114,7 +129,6 @@ namespace Bookids.Forms
                 textBoxEmail.Text = cliente.Email;
                 textBoxTelemovel.Text = Convert.ToString(cliente.Telemovel);
                 textBoxTelefone.Text = Convert.ToString(cliente.Telefone);
-
             }
         }
 
@@ -251,10 +265,10 @@ namespace Bookids.Forms
                             }
                         }
                     }
-
                 }
             }
-            listBoxClientes.DataSource = repoCliente.GetClientes(); //Atualizar Lista Clientes
+
+            refreshListas();
         }
 
         private void buttonEditarCliente_Click(object sender, EventArgs e)
@@ -294,24 +308,184 @@ namespace Bookids.Forms
             {
                 if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
                 {
-                    if (repoCliente.RemoveCliente(cliente)) // Remove o cliente
+                    try
+                    {
+                        repoCliente.RemoveCliente(cliente);
                         MessageBox.Show("Removida com Sucesso.");
-                    else
-                        MessageBox.Show("Ocorreu um erro ao tentar remover!");
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show("Ocorreu um erro ao tentar remover!" + err.Message);
+                    }
                 }
             }
             else
                 MessageBox.Show("Tem de selecionar um cliente!");
 
-            listBoxClientes.DataSource = repoCliente.GetClientes(); //Atualizar Lista Clientes
+            refreshListas();
         }
 
         #endregion
 
-
         #region Gestao Filhos
 
-        #endregion
+        private void listBoxFilhos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Filho filho = (Filho)listBoxFilhos.SelectedItem;
 
+            //Detalhes do Filho
+            // Code...
+        }
+
+        private void buttonNovoFilho_Click(object sender, EventArgs e)
+        {
+            panelFilho.Enabled = true;
+            editarFilho = false;
+            textBoxNomeFilho.Focus();
+
+            labelFilho.Text = "Filho Novo";
+        }
+
+        private void buttonEditarFilho_Click(object sender, EventArgs e)
+        {
+            if (Size != new Size(1428, 573))
+            {
+                Size = new Size(1428, 573);
+                Location = new Point(Location.X - 250, Location.Y);
+            }
+
+            panelFilho.Enabled = true;
+            editarFilho = true;
+            labelFilho.Text = "Filho Editar";
+
+            Filho filho = (Filho)listBoxFilhos.SelectedItem;
+
+            textBoxNomeFilho.Focus();
+
+            textBoxNomeFilho.Text = filho.Nome;
+
+            if (filho.Sexo == "Masculino")
+                radioButtonMasculino.Checked = true;
+            else
+                radioButtonFeminino.Checked = true;
+
+            dateTimePickerDataNascimento.Text = filho.DtaNascimento;
+
+            //Escola escola = (Escola)comboBoxEscolas.SelectedItem;
+
+            Escola escola = repoEscola.SearchById(filho.IdEscola);
+            comboBoxEscolas.Text = escola.Nome;
+
+        }
+
+        private void buttonGuardarFilho_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
+
+            if (!editarFilho)
+            {
+
+                Filho filho = new Filho();
+                filho.Nome = textBoxNomeFilho.Text;
+
+                if (radioButtonMasculino.Checked)
+                    filho.Sexo = "Masculino";
+                else
+                    filho.Sexo = "Feminino";
+
+                filho.DtaNascimento = dateTimePickerDataNascimento.Text;
+
+                Escola escola = (Escola)comboBoxEscolas.SelectedItem;
+                filho.IdEscola = escola.IdEscola;
+
+                filho.CodPostal = cliente.CodPostal;
+                filho.Morada = cliente.Morada;
+                filho.Localidade = cliente.Localidade;
+                filho.Email = cliente.Email;
+                filho.Telefone = cliente.Telefone;
+                filho.Telemovel = cliente.Telemovel;
+                filho.IdCliente = cliente.IdPessoa;
+
+                try
+                {
+                    repoFilho.AddFilho(filho);
+                    MessageBox.Show("Salvo com Sucesso.");
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show("Erro ao Salvar." + err.Message);
+                }
+            }
+            else
+            {
+                Filho filho = (Filho)listBoxFilhos.SelectedItem;
+
+                filho.Nome = textBoxNomeFilho.Text;
+
+                if (radioButtonMasculino.Checked)
+                    filho.Sexo = "Masculino";
+                else
+                    filho.Sexo = "Feminino";
+
+                filho.DtaNascimento = dateTimePickerDataNascimento.Text;
+
+                Escola escola = (Escola)comboBoxEscolas.SelectedItem;
+                filho.IdEscola = escola.IdEscola;
+
+                filho.CodPostal = cliente.CodPostal;
+                filho.Morada = cliente.Morada;
+                filho.Localidade = cliente.Localidade;
+                filho.Email = cliente.Email;
+                filho.Telefone = cliente.Telefone;
+                filho.Telemovel = cliente.Telemovel;
+                filho.IdCliente = cliente.IdPessoa;
+
+                try
+                {
+                    repoFilho.EditFilho(filho.IdPessoa, filho);
+                    MessageBox.Show("Salvo com Sucesso.");
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show("Erro ao Salvar." + err.Message);
+                }
+
+            }
+
+            //Lista Filhos
+            refreshListas();
+            listBoxFilhos.DataSource = cliente.Filhos.ToList();
+
+        }
+
+        private void buttonApagarFilho_Click(object sender, EventArgs e)
+        {
+            Filho filho = (Filho)listBoxFilhos.SelectedItem; // Guarda o cliente selecionado
+
+            if (filho != null) // Verifica se o cliente nao é null
+            {
+                if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
+                {
+                    try
+                    {
+                        repoFilho.RemoveFilho(filho.IdPessoa);
+                        MessageBox.Show("Removida com Sucesso.");
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show("Ocorreu um erro ao tentar remover!" + err.Message);
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Tem de selecionar um cliente!");
+
+
+            refreshListas();
+            Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
+            listBoxFilhos.DataSource = cliente.Filhos.ToList();
+
+        }
     }
+    #endregion
 }

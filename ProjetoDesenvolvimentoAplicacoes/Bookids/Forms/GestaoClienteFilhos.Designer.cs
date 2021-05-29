@@ -74,7 +74,7 @@ namespace Bookids.Forms
             this.textBoxNomeFilho = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.labelCliente = new System.Windows.Forms.Label();
-            this.l_labelFilho = new System.Windows.Forms.Label();
+            this.labelFilho = new System.Windows.Forms.Label();
             this.listBoxParticipa = new System.Windows.Forms.ListBox();
             this.listBoxNaoParticipa = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -84,11 +84,11 @@ namespace Bookids.Forms
             this.buttonParticipa = new System.Windows.Forms.Panel();
             this.buttonNaoParticipa = new System.Windows.Forms.Panel();
             this.panelFilhos = new System.Windows.Forms.Panel();
-            this.btnApagarFilho = new System.Windows.Forms.Button();
+            this.buttonApagarFilho = new System.Windows.Forms.Button();
             this.l_labelFilhos = new System.Windows.Forms.Label();
-            this.btnEditarFilho = new System.Windows.Forms.Button();
+            this.buttonEditarFilho = new System.Windows.Forms.Button();
             this.listBoxFilhos = new System.Windows.Forms.ListBox();
-            this.btnNovoFilho = new System.Windows.Forms.Button();
+            this.buttonNovoFilho = new System.Windows.Forms.Button();
             this.textBoxPesquisaFilhos = new System.Windows.Forms.TextBox();
             this.btnConfirmacoes = new System.Windows.Forms.Button();
             this.buttonPesquisarFilhos = new System.Windows.Forms.Panel();
@@ -458,7 +458,7 @@ namespace Bookids.Forms
             this.comboBoxEscolas.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxEscolas.Name = "comboBoxEscolas";
             this.comboBoxEscolas.Size = new System.Drawing.Size(248, 24);
-            this.comboBoxEscolas.TabIndex = 42;
+            this.comboBoxEscolas.TabIndex = 44;
             // 
             // label14
             // 
@@ -478,7 +478,7 @@ namespace Bookids.Forms
             this.dateTimePickerDataNascimento.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerDataNascimento.Name = "dateTimePickerDataNascimento";
             this.dateTimePickerDataNascimento.Size = new System.Drawing.Size(141, 22);
-            this.dateTimePickerDataNascimento.TabIndex = 40;
+            this.dateTimePickerDataNascimento.TabIndex = 43;
             // 
             // label11
             // 
@@ -497,9 +497,10 @@ namespace Bookids.Forms
             this.buttonGuardarFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonGuardarFilho.Name = "buttonGuardarFilho";
             this.buttonGuardarFilho.Size = new System.Drawing.Size(127, 71);
-            this.buttonGuardarFilho.TabIndex = 38;
+            this.buttonGuardarFilho.TabIndex = 45;
             this.buttonGuardarFilho.Text = "Guardar";
             this.buttonGuardarFilho.UseVisualStyleBackColor = false;
+            this.buttonGuardarFilho.Click += new System.EventHandler(this.buttonGuardarFilho_Click);
             // 
             // label10
             // 
@@ -531,7 +532,7 @@ namespace Bookids.Forms
             this.radioButtonFeminino.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonFeminino.Name = "radioButtonFeminino";
             this.radioButtonFeminino.Size = new System.Drawing.Size(98, 24);
-            this.radioButtonFeminino.TabIndex = 36;
+            this.radioButtonFeminino.TabIndex = 42;
             this.radioButtonFeminino.Text = "Feminino";
             this.radioButtonFeminino.UseVisualStyleBackColor = true;
             // 
@@ -543,7 +544,7 @@ namespace Bookids.Forms
             this.radioButtonMasculino.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonMasculino.Name = "radioButtonMasculino";
             this.radioButtonMasculino.Size = new System.Drawing.Size(106, 24);
-            this.radioButtonMasculino.TabIndex = 0;
+            this.radioButtonMasculino.TabIndex = 41;
             this.radioButtonMasculino.Text = "Masculino";
             this.radioButtonMasculino.UseVisualStyleBackColor = true;
             // 
@@ -553,7 +554,7 @@ namespace Bookids.Forms
             this.textBoxNomeFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxNomeFilho.Name = "textBoxNomeFilho";
             this.textBoxNomeFilho.Size = new System.Drawing.Size(371, 22);
-            this.textBoxNomeFilho.TabIndex = 22;
+            this.textBoxNomeFilho.TabIndex = 40;
             // 
             // label18
             // 
@@ -575,15 +576,15 @@ namespace Bookids.Forms
             this.labelCliente.TabIndex = 17;
             this.labelCliente.Text = "Cliente";
             // 
-            // l_labelFilho
+            // labelFilho
             // 
-            this.l_labelFilho.AutoSize = true;
-            this.l_labelFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_labelFilho.Location = new System.Drawing.Point(877, 318);
-            this.l_labelFilho.Name = "l_labelFilho";
-            this.l_labelFilho.Size = new System.Drawing.Size(73, 29);
-            this.l_labelFilho.TabIndex = 18;
-            this.l_labelFilho.Text = "Filho";
+            this.labelFilho.AutoSize = true;
+            this.labelFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFilho.Location = new System.Drawing.Point(877, 318);
+            this.labelFilho.Name = "labelFilho";
+            this.labelFilho.Size = new System.Drawing.Size(73, 29);
+            this.labelFilho.TabIndex = 18;
+            this.labelFilho.Text = "Filho";
             // 
             // listBoxParticipa
             // 
@@ -677,11 +678,11 @@ namespace Bookids.Forms
             // 
             // panelFilhos
             // 
-            this.panelFilhos.Controls.Add(this.btnApagarFilho);
+            this.panelFilhos.Controls.Add(this.buttonApagarFilho);
             this.panelFilhos.Controls.Add(this.l_labelFilhos);
-            this.panelFilhos.Controls.Add(this.btnEditarFilho);
+            this.panelFilhos.Controls.Add(this.buttonEditarFilho);
             this.panelFilhos.Controls.Add(this.listBoxFilhos);
-            this.panelFilhos.Controls.Add(this.btnNovoFilho);
+            this.panelFilhos.Controls.Add(this.buttonNovoFilho);
             this.panelFilhos.Controls.Add(this.textBoxPesquisaFilhos);
             this.panelFilhos.Controls.Add(this.btnConfirmacoes);
             this.panelFilhos.Controls.Add(this.buttonPesquisarFilhos);
@@ -691,16 +692,17 @@ namespace Bookids.Forms
             this.panelFilhos.Size = new System.Drawing.Size(433, 483);
             this.panelFilhos.TabIndex = 42;
             // 
-            // btnApagarFilho
+            // buttonApagarFilho
             // 
-            this.btnApagarFilho.BackColor = System.Drawing.SystemColors.Control;
-            this.btnApagarFilho.Location = new System.Drawing.Point(287, 412);
-            this.btnApagarFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnApagarFilho.Name = "btnApagarFilho";
-            this.btnApagarFilho.Size = new System.Drawing.Size(133, 64);
-            this.btnApagarFilho.TabIndex = 50;
-            this.btnApagarFilho.Text = "Apagar";
-            this.btnApagarFilho.UseVisualStyleBackColor = false;
+            this.buttonApagarFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonApagarFilho.Location = new System.Drawing.Point(287, 412);
+            this.buttonApagarFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonApagarFilho.Name = "buttonApagarFilho";
+            this.buttonApagarFilho.Size = new System.Drawing.Size(133, 64);
+            this.buttonApagarFilho.TabIndex = 50;
+            this.buttonApagarFilho.Text = "Apagar";
+            this.buttonApagarFilho.UseVisualStyleBackColor = false;
+            this.buttonApagarFilho.Click += new System.EventHandler(this.buttonApagarFilho_Click);
             // 
             // l_labelFilhos
             // 
@@ -712,16 +714,17 @@ namespace Bookids.Forms
             this.l_labelFilhos.TabIndex = 43;
             this.l_labelFilhos.Text = "Filhos";
             // 
-            // btnEditarFilho
+            // buttonEditarFilho
             // 
-            this.btnEditarFilho.BackColor = System.Drawing.SystemColors.Control;
-            this.btnEditarFilho.Location = new System.Drawing.Point(147, 412);
-            this.btnEditarFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEditarFilho.Name = "btnEditarFilho";
-            this.btnEditarFilho.Size = new System.Drawing.Size(135, 64);
-            this.btnEditarFilho.TabIndex = 49;
-            this.btnEditarFilho.Text = "Editar";
-            this.btnEditarFilho.UseVisualStyleBackColor = false;
+            this.buttonEditarFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditarFilho.Location = new System.Drawing.Point(147, 412);
+            this.buttonEditarFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonEditarFilho.Name = "buttonEditarFilho";
+            this.buttonEditarFilho.Size = new System.Drawing.Size(135, 64);
+            this.buttonEditarFilho.TabIndex = 49;
+            this.buttonEditarFilho.Text = "Editar";
+            this.buttonEditarFilho.UseVisualStyleBackColor = false;
+            this.buttonEditarFilho.Click += new System.EventHandler(this.buttonEditarFilho_Click);
             // 
             // listBoxFilhos
             // 
@@ -732,17 +735,19 @@ namespace Bookids.Forms
             this.listBoxFilhos.Name = "listBoxFilhos";
             this.listBoxFilhos.Size = new System.Drawing.Size(411, 340);
             this.listBoxFilhos.TabIndex = 44;
+            this.listBoxFilhos.SelectedIndexChanged += new System.EventHandler(this.listBoxFilhos_SelectedIndexChanged);
             // 
-            // btnNovoFilho
+            // buttonNovoFilho
             // 
-            this.btnNovoFilho.BackColor = System.Drawing.SystemColors.Control;
-            this.btnNovoFilho.Location = new System.Drawing.Point(8, 412);
-            this.btnNovoFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNovoFilho.Name = "btnNovoFilho";
-            this.btnNovoFilho.Size = new System.Drawing.Size(133, 64);
-            this.btnNovoFilho.TabIndex = 48;
-            this.btnNovoFilho.Text = "Novo";
-            this.btnNovoFilho.UseVisualStyleBackColor = false;
+            this.buttonNovoFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonNovoFilho.Location = new System.Drawing.Point(8, 412);
+            this.buttonNovoFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonNovoFilho.Name = "buttonNovoFilho";
+            this.buttonNovoFilho.Size = new System.Drawing.Size(133, 64);
+            this.buttonNovoFilho.TabIndex = 48;
+            this.buttonNovoFilho.Text = "Novo";
+            this.buttonNovoFilho.UseVisualStyleBackColor = false;
+            this.buttonNovoFilho.Click += new System.EventHandler(this.buttonNovoFilho_Click);
             // 
             // textBoxPesquisaFilhos
             // 
@@ -763,6 +768,7 @@ namespace Bookids.Forms
             this.btnConfirmacoes.TabIndex = 47;
             this.btnConfirmacoes.Text = "Confirmações";
             this.btnConfirmacoes.UseVisualStyleBackColor = false;
+
             // 
             // buttonPesquisarFilhos
             // 
@@ -874,7 +880,7 @@ namespace Bookids.Forms
             this.ClientSize = new System.Drawing.Size(1725, 526);
             this.Controls.Add(this.panelClientes);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.l_labelFilho);
+            this.Controls.Add(this.labelFilho);
             this.Controls.Add(this.labelCliente);
             this.Controls.Add(this.panelFilho);
             this.Controls.Add(this.panelCliente);
@@ -954,7 +960,7 @@ namespace Bookids.Forms
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonGuardarFilho;
         private System.Windows.Forms.Label labelCliente;
-        private System.Windows.Forms.Label l_labelFilho;
+        private System.Windows.Forms.Label labelFilho;
         private System.Windows.Forms.ListBox listBoxParticipa;
         private System.Windows.Forms.ListBox listBoxNaoParticipa;
         private System.Windows.Forms.Label label12;
@@ -966,11 +972,11 @@ namespace Bookids.Forms
         private System.Windows.Forms.ComboBox comboBoxEscolas;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panelFilhos;
-        private System.Windows.Forms.Button btnApagarFilho;
+        private System.Windows.Forms.Button buttonApagarFilho;
         private System.Windows.Forms.Label l_labelFilhos;
-        private System.Windows.Forms.Button btnEditarFilho;
+        private System.Windows.Forms.Button buttonEditarFilho;
         private System.Windows.Forms.ListBox listBoxFilhos;
-        private System.Windows.Forms.Button btnNovoFilho;
+        private System.Windows.Forms.Button buttonNovoFilho;
         private System.Windows.Forms.TextBox textBoxPesquisaFilhos;
         private System.Windows.Forms.Button btnConfirmacoes;
         private System.Windows.Forms.Panel buttonPesquisarFilhos;
