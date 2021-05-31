@@ -12,46 +12,110 @@ namespace Bookids.Forms
 {
     public partial class GestaoAnimador : Form
     {
-        private bool disposedValue;
+        RepositorioAnimadores RepoAnimadores = new RepositorioAnimadores();
+        bool editar = true;
 
         public GestaoAnimador()
         {
             InitializeComponent();
-            Animador animador = new Animador("Nome","Dentista");
-            listBoxAnimadores.Items.Add(animador);
+        }
+        private void GestaoAnimador_Load(object sender, EventArgs e)
+        {
+            listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores();
+        }
+        private void buttonNovo_Click(object sender, EventArgs e)
+        {
+            editar = false;
+            panelEditar.Enabled = true;
 
-            Model1Container _db = new Model1Container();
+            textBoxNome.Clear();
+            textBoxMorada.Clear();
+            textBoxLocalidade.Clear();
+            textBoxCodPostal.Clear();
+            textBoxTelefone.Clear();
+            textBoxTelemovel.Clear();
+            textBoxEmail.Clear();
+            textBoxLocalidade.Clear();
+            textBoxEspecialidade.Clear();
+
+            textBoxNome.Focus(); 
         }
         
 
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            
-        }
+            int telefone = Convert.ToInt32(textBoxTelefone.Text);
+            int telemovel = Convert.ToInt32(textBoxTelemovel.Text);
 
-        private void buttonNovo_Click(object sender, EventArgs e)
-        {
-            panelEditar.Enabled = true;
-        }
+            Animador animador = new Animador(textBoxNome.Text,textBoxMorada.Text,textBoxLocalidade.Text,textBoxCodPostal.Text,telefone,telemovel,textBoxEmail.Text,textBoxEspecialidade.Text);
 
-        private void GestaoAnimador_Load(object sender, EventArgs e)
-        {
-            Model1Container _db = new Model1Container();
-            var results = from emp in _db.Pessoas
-                          where emp is Animador
-                          select emp;
-
-
-            foreach (Animador Emp in results)
+            if(editar == true)
             {
-                listBoxAnimadores.Items.Add(Emp.Morada);
+                Animador animadorEditado = (Animador)listBoxAnimadores.SelectedItem;
+
+                RepoAnimadores.EditAnimador(animadorEditado.IdPessoa,animador);
+                MessageBox.Show("Editada com Sucesso");    
+
+            }
+            else
+            {
+                if (RepoAnimadores.AddAnimador(animador))
+                {
+                    MessageBox.Show("Animador criado com sucesso");
+                    refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Ocorreu um erro ao tentar criar o Animador!");
+                }
             }
         }
+
+
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void listBoxAnimadores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            panelEditar.Enabled = false;
+
+            Animador animador = (Animador)listBoxAnimadores.SelectedItem;
+
+            textBoxNome.Text = animador.Nome;
+            textBoxMorada.Text = animador.Morada;
+            textBoxLocalidade.Text = animador.Localidade;
+            textBoxCodPostal.Text = animador.CodPostal;
+            textBoxTelefone.Text = animador.Telefone.ToString();
+            textBoxTelemovel.Text = animador.Telemovel.ToString();
+            textBoxEmail.Text = animador.Email;
+            textBoxEspecialidade.Text = animador.Especialidade;
+
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            refresh();
+        }
+
+        public void refresh()
+        {
+            listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores();
+        }
+
+        private void panelBotaoPesquisa_Click(object sender, EventArgs e)
+        {
+            listBoxAnimadores.DataSource = RepoAnimadores.SearchByName(textBoxPesquisa.Text);
+        }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            panelEditar.Enabled = true; // Ativa o painel
+
+            textBoxNome.Focus(); // Coloca o cursor no painel
         }
     }
 }
