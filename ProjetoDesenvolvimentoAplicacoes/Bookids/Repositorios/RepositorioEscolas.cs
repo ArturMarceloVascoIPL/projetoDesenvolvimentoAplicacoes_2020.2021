@@ -95,5 +95,12 @@ namespace Bookids
                     where escola.Localidade == local
                     select escola).ToList<Escola>();
         }
+
+        public Escola SearchById(int id)
+        {
+            return (from escola in model.Escolas
+                    where escola.IdEscola == id
+                    select escola).Single<Escola>();
+        }
     }
 }

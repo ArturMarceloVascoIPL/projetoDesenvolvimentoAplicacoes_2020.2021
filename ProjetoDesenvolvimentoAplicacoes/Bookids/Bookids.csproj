@@ -44,6 +44,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -81,6 +82,7 @@
     <Compile Include="DataBase\Cliente.cs" />
     <Compile Include="DataBase\Escola.cs" />
     <Compile Include="DataBase\Evento.cs" />
+    <Compile Include="DataBase\Filho.cs" />
     <Compile Include="DetalheCompra.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
@@ -169,6 +171,7 @@
     <Compile Include="Repositorios\RepositorioAnimadores.cs" />
     <Compile Include="Repositorios\RepositorioClientes.cs" />
     <Compile Include="Repositorios\RepositorioEscolas.cs" />
+    <Compile Include="Repositorios\RepositorioFilhos.cs" />
     <Compile Include="TipoProduto.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
