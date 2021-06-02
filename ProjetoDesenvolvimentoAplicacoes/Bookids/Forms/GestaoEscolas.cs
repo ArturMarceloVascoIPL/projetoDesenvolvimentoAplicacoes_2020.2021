@@ -126,11 +126,19 @@ namespace Bookids.Forms
             textBoxTelefone.Text = escola.Telefone.ToString();
             textBoxEmail.Text = escola.Email;
 
-            // Apresenta os alunos
-            listBoxAlunos.DataSource = escola.Filhos.ToList<Filho>();
+            try
+            {
+                // Apresenta os alunos
+                listBoxAlunos.DataSource = escola.Filhos.ToList<Filho>();
 
-            // Apresenta os eventos planeados
-            listBoxEventos.DataSource = RepoEscolas.GetEventos(escola.IdEscola);
+                // Apresenta os eventos planeados
+                listBoxEventos.DataSource = RepoEscolas.GetEventos(escola.IdEscola);
+            }
+            catch (Exception)
+            {
+                //No Caso de escola nao ter alunos
+            }
+
         }
 
         /* Pesquisar as escolas por nome */

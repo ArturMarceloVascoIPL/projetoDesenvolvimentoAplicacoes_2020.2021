@@ -25,8 +25,6 @@ namespace Bookids.Forms
         public GestaoClienteFilhos()
         {
             InitializeComponent();
-
-            Size = new Size(886, 573);
         }
 
 
@@ -57,17 +55,10 @@ namespace Bookids.Forms
         private void buttonConfirmacoes_Click(object sender, EventArgs e)
         {
             if (!confirmPanel)
-            {
-                Size = new Size(1743, 573);
-                Location = new Point(Location.X - 400, Location.Y);
                 confirmPanel = true;
-            }
             else
-            {
-                Size = new Size(886, 573);
-                Location = new Point(Location.X + 400, Location.Y);
                 confirmPanel = false;
-            }
+
         }
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,23 +94,18 @@ namespace Bookids.Forms
             Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
             listBoxFilhos.DataSource = cliente.Filhos.ToList();
 
-            if (cliente != null)
+            if (cliente != null && listBoxFilhos.Items.Count > 0)
             {
                 buttonEditarCliente.Enabled = true;
                 buttonApagarCliente.Enabled = true;
+
+                buttonEditarFilho.Enabled = true;
+                buttonApagarFilho.Enabled = true;
+
                 panelFilhos.Enabled = true;
 
-                if (Size != new Size(1428, 573))
-                {
-                    Size = new Size(1428, 573);
-                    Location = new Point(Location.X - 250, Location.Y);
-                }
-
-                if (Size != new Size(1428, 573))
-                {
-                    Size = new Size(1428, 573);
-                    Location = new Point(Location.X - 250, Location.Y);
-                }
+                panelCliente.Enabled = false;
+                panelFilho.Enabled = false;
 
                 labelCliente.Text = "Cliente Detalhes";
 
@@ -133,17 +119,17 @@ namespace Bookids.Forms
                 textBoxTelemovel.Text = Convert.ToString(cliente.Telemovel);
                 textBoxTelefone.Text = Convert.ToString(cliente.Telefone);
             }
+            else
+            {
+                buttonEditarFilho.Enabled = false;
+                buttonApagarFilho.Enabled = false;
+            }
         }
 
         private void buttonNovoCliente_Click(object sender, EventArgs e)
         {
             editarCliente = false;
 
-            if (Size != new Size(1428, 573))
-            {
-                Size = new Size(1428, 573);
-                Location = new Point(Location.X - 250, Location.Y);
-            }
             panelCliente.Enabled = true;
             panelFilho.Enabled = false;
 
@@ -277,12 +263,6 @@ namespace Bookids.Forms
 
         private void buttonEditarCliente_Click(object sender, EventArgs e)
         {
-            if (Size != new Size(1428, 573))
-            {
-                Size = new Size(1428, 573);
-                Location = new Point(Location.X - 250, Location.Y);
-            }
-
             panelCliente.Enabled = true;
             panelFilho.Enabled = false;
             editarCliente = true;
@@ -300,13 +280,10 @@ namespace Bookids.Forms
             textBoxTelemovel.Text = Convert.ToString(cliente.Telemovel);
             textBoxTelefone.Text = Convert.ToString(cliente.Telefone);
 
-            listBoxClientes.DataSource = repoCliente.GetClientes(); //Atualizar Lista Clientes
-
         }
 
         private void buttonApagarCliente_Click(object sender, EventArgs e)
         {
-
             Cliente cliente = (Cliente)listBoxClientes.SelectedItem; // Guarda o cliente selecionado
 
             if (cliente != null) // Verifica se o cliente nao é null
@@ -338,17 +315,13 @@ namespace Bookids.Forms
         {
             Filho filho = (Filho)listBoxFilhos.SelectedItem;
 
-            if (filho != null)
+            if (filho != null && listBoxFilhos.Items.Count > 0)
             {
                 buttonEditarFilho.Enabled = true;
-                buttonEditarFilho.Enabled = true;
-                panelFilhos.Enabled = true;
+                buttonApagarFilho.Enabled = true;
 
-                if (Size != new Size(1428, 573))
-                {
-                    Size = new Size(1428, 573);
-                    Location = new Point(Location.X - 250, Location.Y);
-                }
+                panelCliente.Enabled = false;
+                panelFilho.Enabled = false;
 
                 labelFilho.Text = "Filho Detalhes";
 
@@ -363,7 +336,12 @@ namespace Bookids.Forms
 
                 Escola escola = repoEscola.SearchById(filho.IdEscola);
                 comboBoxEscolas.Text = escola.Nome;
-
+            }
+            else
+            {
+                buttonEditarFilho.Enabled = false;
+                buttonApagarFilho.Enabled = false;
+                panelFilho.Enabled = false;
             }
         }
 
@@ -387,12 +365,6 @@ namespace Bookids.Forms
 
         private void buttonEditarFilho_Click(object sender, EventArgs e)
         {
-            if (Size != new Size(1428, 573))
-            {
-                Size = new Size(1428, 573);
-                Location = new Point(Location.X - 250, Location.Y);
-            }
-
             panelFilho.Enabled = true;
             panelCliente.Enabled = false;
             editarFilho = true;
@@ -422,12 +394,10 @@ namespace Bookids.Forms
 
             if (!editarFilho)
             {
-
                 Filho filho = new Filho();
 
                 if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-
                     //Verificacao se Tem os campos todos Preenchidos
                     foreach (Control c in panelFilho.Controls)
                     {
@@ -568,6 +538,18 @@ namespace Bookids.Forms
             Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
             listBoxFilhos.DataSource = cliente.Filhos.ToList();
 
+        }
+
+        private void buttonConfirmacoes_Click_1(object sender, EventArgs e)
+        {
+            if (panelConfirmacoes.Enabled == false)
+            {
+                panelConfirmacoes.Enabled = true;
+            }
+            else
+            {
+                panelConfirmacoes.Enabled = false;
+            }
         }
     }
     #endregion

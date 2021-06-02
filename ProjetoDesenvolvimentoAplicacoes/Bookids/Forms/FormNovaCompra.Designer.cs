@@ -212,6 +212,7 @@ namespace Bookids
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 522);
+            this.Controls.Add(this.textBoxSearchClientes);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.labelHora);
@@ -221,7 +222,6 @@ namespace Bookids
             this.Controls.Add(this.listaProdutos);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.textBoxSearchClientes);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.labelPrecoTotalCompra);

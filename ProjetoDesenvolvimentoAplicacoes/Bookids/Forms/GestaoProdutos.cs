@@ -15,14 +15,11 @@ namespace Bookids.Forms
         public GestaoProdutos()
         {
             InitializeComponent();
-            Size = new Size(1043, 595);
         }
 
         private void btnAddTipos_Click(object sender, EventArgs e)
         {
-            //aumentar janela
-            Size = new Size(1592, 595);
-            Location = new Point(Location.X - 250, Location.Y);
+            //aumentar janela 
             panelEditProdutos.Enabled = false;
 
         }

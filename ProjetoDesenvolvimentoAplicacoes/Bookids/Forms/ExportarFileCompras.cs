@@ -17,9 +17,33 @@ namespace Bookids.Forms
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void buttonClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void buttonPDF_MouseHover(object sender, EventArgs e)
+        {
+            buttonPDF.BackColor = Color.Red;
+            buttonTXT.BackColor = Color.White;
+        }
+
+        private void buttonPDF_MouseLeave(object sender, EventArgs e)
+        {
+            buttonPDF.BackColor = Color.White;
+            buttonTXT.BackColor = Color.Red;
+        }
+
+        private void buttonTXT_MouseHover(object sender, EventArgs e)
+        {
+            buttonPDF.BackColor = Color.White;
+            buttonTXT.BackColor = Color.Red;
+        }
+
+        private void buttonTXT_MouseLeave(object sender, EventArgs e)
+        {
+            buttonPDF.BackColor = Color.White;
+            buttonTXT.BackColor = Color.White;
         }
     }
 }
