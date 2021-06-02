@@ -17,66 +17,39 @@ namespace Bookids
         }
 
         /* Adiciona um produto, retorna true(sucesso) ou false(erro) */
-        public bool AddProduto(Produto produto)
+        public void AddProduto(Produto produto)
         {
-            try
-            {
-                model.Produtos.Add(produto);
-                model.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
+            model.Produtos.Add(produto);
+            model.SaveChanges();
         }
 
         /* Remove um produto, retorna true(sucesso) ou false(erro) */
-        public bool RemoveProduto(Produto produto)
+        public void RemoveProduto(Produto produto)
         {
-            try
-            {
-                model.Produtos.Remove(produto);
-                model.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
+            model.Produtos.Remove(produto);
+            model.SaveChanges();
         }
 
         /* Edita um produto, retorna true(sucesso) ou false(erro) */
-        public bool EditProduto(int id, Produto produtoEditado)
+        public void EditProduto(int id, Produto produtoEditado)
         {
-            try
-            {
-                Produto produtoEncontrado = (from p in model.Produtos
-                                            where p.IdProduto == id
-                                            select p).Single();
+            Produto produtoEncontrado = (from p in model.Produtos
+                                        where p.IdProduto == id
+                                        select p).Single();
 
-                produtoEncontrado.Designacao = produtoEditado.Designacao;
-                produtoEncontrado.Preco = produtoEditado.Preco;
-                produtoEncontrado.TipoProduto = produtoEditado.TipoProduto;
-                produtoEncontrado.StockExistente = produtoEditado.StockExistente;
+            produtoEncontrado.Designacao = produtoEditado.Designacao;
+            produtoEncontrado.Preco = produtoEditado.Preco;
+            produtoEncontrado.IdTipoProduto = produtoEditado.IdTipoProduto;
+            produtoEncontrado.StockExistente = produtoEditado.StockExistente;
 
-                model.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
+            model.SaveChanges();
         }
 
         /* Faz uma pesquisa pela DESIGNACAO e retorna a lista de produtos encontrados */
         public List<Produto> SearchByDesignacao(string nome)
         {
             return (from p in model.Produtos
-                    where p.Designacao == nome
+                    where p.Designacao.Contains(nome)
                     select p).ToList<Produto>();
         }
     }

@@ -17,67 +17,25 @@ namespace Bookids
         }
 
         /* Adiciona um tipo de produto, retorna true(sucesso) ou false(erro) */
-        public bool AddTipo(TipoProduto tipoProduto)
+        public void AddTipo(TipoProduto tipoProduto)
         {
-            try
-            {
-                model.TiposProdutos.Add(tipoProduto);
-                model.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
+            model.TiposProdutos.Add(tipoProduto);
+            model.SaveChanges();
         }
 
         /* Remove um tipo de produto, retorna true(sucesso) ou false(erro) */
-        public bool RemoveTipo(TipoProduto tipoProduto)
+        public void RemoveTipo(TipoProduto tipoProduto)
         {
-            try
-            {
-                model.TiposProdutos.Remove(tipoProduto);
-                model.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
+            model.TiposProdutos.Remove(tipoProduto);
+            model.SaveChanges();
         }
 
-        /* Edita um produto, retorna true(sucesso) ou false(erro) */
-        public bool EditProduto(int id, Produto produtoEditado)
+        /* Faz uma pesquisa pelo ID e retorna o produto encontrado */
+        public TipoProduto SearchById(int id)
         {
-            try
-            {
-                Produto produtoEncontrado = (from p in model.Produtos
-                                            where p.IdProduto == id
-                                            select p).Single();
-
-                produtoEncontrado.Designacao = produtoEditado.Designacao;
-                produtoEncontrado.Preco = produtoEditado.Preco;
-                produtoEncontrado.TipoProduto = produtoEditado.TipoProduto;
-                produtoEncontrado.StockExistente = produtoEditado.StockExistente;
-
-                model.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        /* Faz uma pesquisa pela DESIGNACAO e retorna a lista de produtos encontrados */
-        public List<Produto> SearchByDesignacao(string nome)
-        {
-            return (from p in model.Produtos
-                    where p.Designacao == nome
-                    select p).ToList<Produto>();
+            return (from p in model.TiposProdutos
+                    where p.IdTipoProduto == id
+                    select p).Single();
         }
     }
 }

@@ -29,7 +29,6 @@ namespace Bookids.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.HomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,11 +65,8 @@ namespace Bookids.Forms
             this.textBoxNomeTipo = new System.Windows.Forms.TextBox();
             this.listBoxTipos = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.buttonCancelarTipo = new System.Windows.Forms.Button();
             this.buttonSalvarTipo = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.toolTipPesquisa = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipRefresh = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.panelProdutos.SuspendLayout();
             this.panelEditProdutos.SuspendLayout();
@@ -173,11 +169,11 @@ namespace Bookids.Forms
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.buttonRefresh.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttonRefresh.BackgroundImage = global::Bookids.Properties.Resources.baseline_autorenew_black_24dp;
             this.buttonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRefresh.Location = new System.Drawing.Point(40, 26);
+            this.buttonRefresh.Location = new System.Drawing.Point(14, 26);
             this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(22, 20);
@@ -186,16 +182,14 @@ namespace Bookids.Forms
             // 
             // buttonPesquisarProdutos
             // 
-            this.buttonPesquisarProdutos.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttonPesquisarProdutos.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
             this.buttonPesquisarProdutos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonPesquisarProdutos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPesquisarProdutos.Location = new System.Drawing.Point(14, 26);
+            this.buttonPesquisarProdutos.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonPesquisarProdutos.Location = new System.Drawing.Point(40, 26);
             this.buttonPesquisarProdutos.Margin = new System.Windows.Forms.Padding(2);
             this.buttonPesquisarProdutos.Name = "buttonPesquisarProdutos";
             this.buttonPesquisarProdutos.Size = new System.Drawing.Size(22, 20);
             this.buttonPesquisarProdutos.TabIndex = 60;
-            this.buttonPesquisarProdutos.Click += new System.EventHandler(this.buttonPesquisarProdutos_Click);
             // 
             // textBoxPesquisaProdutos
             // 
@@ -204,6 +198,7 @@ namespace Bookids.Forms
             this.textBoxPesquisaProdutos.Name = "textBoxPesquisaProdutos";
             this.textBoxPesquisaProdutos.Size = new System.Drawing.Size(257, 20);
             this.textBoxPesquisaProdutos.TabIndex = 59;
+            this.textBoxPesquisaProdutos.TextChanged += new System.EventHandler(this.textBoxPesquisaProdutos_TextChanged);
             // 
             // buttonApagar
             // 
@@ -214,6 +209,7 @@ namespace Bookids.Forms
             this.buttonApagar.TabIndex = 20;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = false;
+            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // buttonEditar
             // 
@@ -235,7 +231,7 @@ namespace Bookids.Forms
             this.buttonNovo.TabIndex = 18;
             this.buttonNovo.Text = "Novo";
             this.buttonNovo.UseVisualStyleBackColor = false;
-            this.buttonNovo.Click += new System.EventHandler(this.buttonNovoProduto_Click);
+            this.buttonNovo.Click += new System.EventHandler(this.buttonNovo_Click);
             // 
             // listBoxProdutos
             // 
@@ -400,14 +396,13 @@ namespace Bookids.Forms
             this.panelEditTipos.Controls.Add(this.textBoxNomeTipo);
             this.panelEditTipos.Controls.Add(this.listBoxTipos);
             this.panelEditTipos.Controls.Add(this.label6);
-            this.panelEditTipos.Controls.Add(this.buttonCancelarTipo);
             this.panelEditTipos.Controls.Add(this.buttonSalvarTipo);
             this.panelEditTipos.Controls.Add(this.label8);
             this.panelEditTipos.Enabled = false;
             this.panelEditTipos.Location = new System.Drawing.Point(644, 56);
             this.panelEditTipos.Margin = new System.Windows.Forms.Padding(2);
             this.panelEditTipos.Name = "panelEditTipos";
-            this.panelEditTipos.Size = new System.Drawing.Size(175, 344);
+            this.panelEditTipos.Size = new System.Drawing.Size(175, 304);
             this.panelEditTipos.TabIndex = 33;
             // 
             // buttonApagarTipo
@@ -449,17 +444,6 @@ namespace Bookids.Forms
             this.label6.TabIndex = 33;
             this.label6.Text = "Nome:";
             // 
-            // buttonCancelarTipo
-            // 
-            this.buttonCancelarTipo.Location = new System.Drawing.Point(7, 302);
-            this.buttonCancelarTipo.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonCancelarTipo.Name = "buttonCancelarTipo";
-            this.buttonCancelarTipo.Size = new System.Drawing.Size(157, 35);
-            this.buttonCancelarTipo.TabIndex = 23;
-            this.buttonCancelarTipo.Text = "Cancelar";
-            this.buttonCancelarTipo.UseVisualStyleBackColor = false;
-            this.buttonCancelarTipo.Click += new System.EventHandler(this.buttonCancelarTipo_Click);
-            // 
             // buttonSalvarTipo
             // 
             this.buttonSalvarTipo.Location = new System.Drawing.Point(7, 263);
@@ -478,19 +462,9 @@ namespace Bookids.Forms
             this.label8.Location = new System.Drawing.Point(4, 2);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 17);
+            this.label8.Size = new System.Drawing.Size(117, 17);
             this.label8.TabIndex = 27;
-            this.label8.Text = "TIPOS";
-            // 
-            // toolTipPesquisa
-            // 
-            this.toolTipPesquisa.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTipPesquisa.ToolTipTitle = "Pesquisa por Designação";
-            // 
-            // toolTipRefresh
-            // 
-            this.toolTipRefresh.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTipRefresh.ToolTipTitle = "Limpar Filtro";
+            this.label8.Text = "Tipos de Produto";
             // 
             // GestaoProdutos
             // 
@@ -560,10 +534,7 @@ namespace Bookids.Forms
         private System.Windows.Forms.TextBox textBoxNomeTipo;
         private System.Windows.Forms.ListBox listBoxTipos;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button buttonCancelarTipo;
         private System.Windows.Forms.Button buttonSalvarTipo;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ToolTip toolTipPesquisa;
-        private System.Windows.Forms.ToolTip toolTipRefresh;
     }
 }

@@ -238,6 +238,7 @@
       <LastGenOutput>DataBaseModel.Context.cs</LastGenOutput>
       <DependentUpon>DataBaseModel.edmx</DependentUpon>
     </Content>
+    <Content Include="DBUpdateDecimalValueType.sql" />
     <Content Include="DataBaseModel.edmx.sql" />
     <Content Include="DataBaseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

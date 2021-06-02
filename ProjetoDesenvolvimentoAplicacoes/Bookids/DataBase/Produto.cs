@@ -8,17 +8,21 @@ namespace Bookids
 {
     partial class Produto
     {
-        public Produto(string designacao, decimal preco, TipoProduto tipoProduto, int stock)
+        RepositorioTipoProdutos repoTipos = new RepositorioTipoProdutos();
+
+        public Produto(string designacao, decimal preco, int idTipoProduto, int stock)
         {
             this.Designacao = designacao;
             this.Preco = preco;
-            this.TipoProduto = tipoProduto;
+            this.IdTipoProduto = idTipoProduto;
             this.StockExistente = stock;
         }
 
         public override string ToString()
         {
-            return $"{TipoProduto}, {Designacao} - {Preco}€ - Stock: {StockExistente}";
+            var tipo = repoTipos.SearchById(IdTipoProduto);
+
+            return $"{tipo.Tipo}, {Designacao} - {Preco}€ - Stock: {StockExistente}";
         }
     }
 }
