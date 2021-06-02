@@ -285,6 +285,29 @@ namespace Bookids.Forms
             comboBoxTipoProduto.DataSource = repoTipos.GetTipos(); // Carrega os Tipos de Produtos na ComboBox
         }
 
-        #endregion
+        /* Desbloqueia e permite criar/eliminar tipos de produtos */
+        private void editarTiposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panelEditTipos.Enabled = true; // Desbloqueia o painel
+
+            textBoxNomeTipo.Focus(); // Coloca o cursor no painel
+        }
+
+        /* Desbloqueia e Limpa o painel para permitir a criação de um novo produto */
+        private void novoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            editar = false; // Mete 'editar' a falso pois nao vai editar
+
+            panelEditProdutos.Enabled = true; // Ativa o painel
+
+            // Limpa o painel
+            textBoxDesignacao.Clear();
+            textBoxPreco.Clear();
+            textBoxStock.Clear();
+
+            textBoxDesignacao.Focus(); // Coloca o cursor no painel
+        }
+
+        #endregion        
     }
 }
