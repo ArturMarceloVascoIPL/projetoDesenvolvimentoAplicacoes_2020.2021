@@ -110,10 +110,10 @@ namespace Bookids.Forms
             int telefone = 0;
             int telemovel = 0;
 
-            if (!string.IsNullOrEmpty(Convert.ToString(textBoxTelefone.Text)))
+            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBoxTelefone.Text)))
                 telefone = Convert.ToInt32(textBoxTelefone.Text);
 
-            if (!string.IsNullOrEmpty(Convert.ToString(textBoxTelemovel.Text)))
+            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBoxTelemovel.Text)))
                 telemovel = Convert.ToInt32(textBoxTelemovel.Text);
 
             if (!editar)
@@ -127,7 +127,7 @@ namespace Bookids.Forms
                         if (c is TextBox)
                         {
                             TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrEmpty(Convert.ToString(textBox.Text)))
+                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                             {
                                 Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);
                                 if (RepoAnimadores.AddAnimador(animador))
@@ -170,7 +170,7 @@ namespace Bookids.Forms
                         if (c is TextBox)
                         {
                             TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrEmpty(Convert.ToString(textBox.Text)))
+                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                             {
                                 Animador animadorEditado = (Animador)listBoxAnimadores.SelectedItem;
                                 Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);

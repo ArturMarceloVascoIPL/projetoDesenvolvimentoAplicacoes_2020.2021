@@ -161,7 +161,7 @@ namespace Bookids.Forms
                         if (c is TextBox)
                         {
                             TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrEmpty(Convert.ToString(textBox.Text)))
+                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                             {
                                 cliente.Nome = textBoxNomeCliente.Text;
                                 cliente.Morada = textBoxMorada.Text;
@@ -216,7 +216,7 @@ namespace Bookids.Forms
                         if (c is TextBox)
                         {
                             TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrEmpty(Convert.ToString(textBox.Text)))
+                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                             {
                                 cliente.Nome = textBoxNomeCliente.Text;
                                 cliente.Morada = textBoxMorada.Text;
@@ -404,7 +404,7 @@ namespace Bookids.Forms
                         if (c is TextBox)
                         {
                             TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrEmpty(Convert.ToString(textBox.Text)))
+                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                             {
                                 filho.Nome = textBoxNomeFilho.Text;
 
@@ -456,7 +456,7 @@ namespace Bookids.Forms
                         if (c is TextBox)
                         {
                             TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrEmpty(Convert.ToString(textBox.Text)))
+                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                             {
                                 filho.Nome = textBoxNomeFilho.Text;
 
