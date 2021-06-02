@@ -107,8 +107,7 @@ namespace Bookids.Forms
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            int telefone = 0;
-            int telemovel = 0;
+            int telefone = 0, telemovel = 0;
 
             if (!string.IsNullOrWhiteSpace(Convert.ToString(textBoxTelefone.Text)))
                 telefone = Convert.ToInt32(textBoxTelefone.Text);
