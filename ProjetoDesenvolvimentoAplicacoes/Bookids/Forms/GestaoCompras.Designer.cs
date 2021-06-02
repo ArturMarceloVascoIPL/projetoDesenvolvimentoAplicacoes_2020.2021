@@ -39,14 +39,13 @@ namespace Bookids
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarTiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label4 = new System.Windows.Forms.Label();
+            this.l_3 = new System.Windows.Forms.Label();
             this.panelProdutos = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNovaCompra = new System.Windows.Forms.Button();
-            this.btnVerCompra = new System.Windows.Forms.Button();
             this.textBoxSearchClientes = new System.Windows.Forms.TextBox();
             this.listaClientes = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.l_1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -56,7 +55,7 @@ namespace Bookids
             this.btnVerDetalhes = new System.Windows.Forms.Button();
             this.listaCompras = new System.Windows.Forms.ListBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.l_2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panelProdutos.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -73,7 +72,7 @@ namespace Bookids
             this.produtosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1155, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1155, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -81,7 +80,7 @@ namespace Bookids
             // 
             this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 24);
             this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // eventosToolStripMenuItem
@@ -90,19 +89,19 @@ namespace Bookids
             this.novoToolStripMenuItem,
             this.editarRecenteToolStripMenuItem});
             this.eventosToolStripMenuItem.Name = "eventosToolStripMenuItem";
-            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(83, 27);
+            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
             this.eventosToolStripMenuItem.Text = "Eventos";
             // 
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.novoToolStripMenuItem.Text = "Novo";
             // 
             // editarRecenteToolStripMenuItem
             // 
             this.editarRecenteToolStripMenuItem.Name = "editarRecenteToolStripMenuItem";
-            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.editarRecenteToolStripMenuItem.Text = "Editar Recente";
             // 
             // comprasToolStripMenuItem
@@ -110,13 +109,13 @@ namespace Bookids
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verRecenteToolStripMenuItem});
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(92, 27);
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.comprasToolStripMenuItem.Text = "Compras";
             // 
             // verRecenteToolStripMenuItem
             // 
             this.verRecenteToolStripMenuItem.Name = "verRecenteToolStripMenuItem";
-            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(185, 28);
+            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
             this.verRecenteToolStripMenuItem.Text = "Ver Recente";
             // 
             // produtosToolStripMenuItem
@@ -125,39 +124,38 @@ namespace Bookids
             this.novoToolStripMenuItem1,
             this.editarTiposToolStripMenuItem});
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(93, 27);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
             this.produtosToolStripMenuItem.Text = "Produtos";
             // 
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(183, 28);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(171, 26);
             this.novoToolStripMenuItem1.Text = "Novo";
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
             // 
-            // label4
+            // l_3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 25);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Gestao Compras";
+            this.l_3.AutoSize = true;
+            this.l_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_3.Location = new System.Drawing.Point(12, 31);
+            this.l_3.Name = "l_3";
+            this.l_3.Size = new System.Drawing.Size(160, 25);
+            this.l_3.TabIndex = 16;
+            this.l_3.Text = "Gestao Compras";
             // 
             // panelProdutos
             // 
             this.panelProdutos.Controls.Add(this.panel2);
             this.panelProdutos.Controls.Add(this.btnNovaCompra);
-            this.panelProdutos.Controls.Add(this.btnVerCompra);
             this.panelProdutos.Controls.Add(this.textBoxSearchClientes);
             this.panelProdutos.Controls.Add(this.listaClientes);
-            this.panelProdutos.Controls.Add(this.label1);
+            this.panelProdutos.Controls.Add(this.l_1);
             this.panelProdutos.Location = new System.Drawing.Point(17, 59);
             this.panelProdutos.Name = "panelProdutos";
             this.panelProdutos.Size = new System.Drawing.Size(445, 497);
@@ -182,15 +180,6 @@ namespace Bookids
             this.btnNovaCompra.UseVisualStyleBackColor = false;
             this.btnNovaCompra.Click += new System.EventHandler(this.btnNovaCompra_Click);
             // 
-            // btnVerCompra
-            // 
-            this.btnVerCompra.Location = new System.Drawing.Point(18, 424);
-            this.btnVerCompra.Name = "btnVerCompra";
-            this.btnVerCompra.Size = new System.Drawing.Size(133, 64);
-            this.btnVerCompra.TabIndex = 18;
-            this.btnVerCompra.Text = "Ver Compra";
-            this.btnVerCompra.UseVisualStyleBackColor = false;
-            // 
             // textBoxSearchClientes
             // 
             this.textBoxSearchClientes.Location = new System.Drawing.Point(45, 33);
@@ -207,15 +196,15 @@ namespace Bookids
             this.listaClientes.Size = new System.Drawing.Size(411, 356);
             this.listaClientes.TabIndex = 16;
             // 
-            // label1
+            // l_1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 25);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Clientes";
+            this.l_1.AutoSize = true;
+            this.l_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_1.Location = new System.Drawing.Point(13, 7);
+            this.l_1.Name = "l_1";
+            this.l_1.Size = new System.Drawing.Size(83, 25);
+            this.l_1.TabIndex = 15;
+            this.l_1.Text = "Clientes";
             // 
             // panel1
             // 
@@ -308,30 +297,31 @@ namespace Bookids
             this.panel3.Size = new System.Drawing.Size(48, 48);
             this.panel3.TabIndex = 0;
             // 
-            // label2
+            // l_2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(494, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(240, 25);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Detalhes Compras Cliente";
+            this.l_2.AutoSize = true;
+            this.l_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.l_2.Location = new System.Drawing.Point(494, 31);
+            this.l_2.Name = "l_2";
+            this.l_2.Size = new System.Drawing.Size(240, 25);
+            this.l_2.TabIndex = 22;
+            this.l_2.Text = "Detalhes Compras Cliente";
             // 
             // GestaoCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1155, 563);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.l_2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelProdutos);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.l_3);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "GestaoCompras";
             this.Text = "GestaoCompras";
+            this.Load += new System.EventHandler(this.GestaoCompras_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelProdutos.ResumeLayout(false);
@@ -357,20 +347,19 @@ namespace Bookids
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editarTiposToolStripMenuItem;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label l_3;
         private System.Windows.Forms.Panel panelProdutos;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnNovaCompra;
-        private System.Windows.Forms.Button btnVerCompra;
         private System.Windows.Forms.TextBox textBoxSearchClientes;
         private System.Windows.Forms.ListBox listaClientes;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label l_1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnApagarCompra;
         private System.Windows.Forms.Button btnVerDetalhes;
         private System.Windows.Forms.ListBox listaCompras;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label l_2;
         private System.Windows.Forms.Label labelPrecoTotalCompra;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label labelNomeCliente;

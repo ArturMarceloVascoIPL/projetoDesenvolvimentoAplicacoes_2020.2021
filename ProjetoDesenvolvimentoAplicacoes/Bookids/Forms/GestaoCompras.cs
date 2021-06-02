@@ -12,6 +12,8 @@ namespace Bookids
 {
     public partial class GestaoCompras : Form
     {
+        RepositorioClientes RepoClientes = new RepositorioClientes();
+
         public GestaoCompras()
         {
             InitializeComponent();
@@ -25,6 +27,16 @@ namespace Bookids
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        public void refreshClientes()
+        {
+            listaClientes.DataSource = RepoClientes.GetClientes();
+        }
+
+        private void GestaoCompras_Load(object sender, EventArgs e)
+        {
+            refreshClientes();
         }
     }
 }
