@@ -368,6 +368,7 @@ namespace Bookids.Forms
             this.textBoxPesquisa.Name = "textBoxPesquisa";
             this.textBoxPesquisa.Size = new System.Drawing.Size(384, 22);
             this.textBoxPesquisa.TabIndex = 9;
+            this.textBoxPesquisa.TextChanged += new System.EventHandler(this.textBoxPesquisa_TextChanged);
             // 
             // buttonNovo
             // 
@@ -400,6 +401,7 @@ namespace Bookids.Forms
             this.buttonApagar.TabIndex = 12;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = false;
+            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // panelBotaoPesquisa
             // 
