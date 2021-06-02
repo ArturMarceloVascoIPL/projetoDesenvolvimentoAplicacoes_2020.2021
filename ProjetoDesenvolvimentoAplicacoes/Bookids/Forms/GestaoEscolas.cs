@@ -51,6 +51,8 @@ namespace Bookids.Forms
         /* Desbloqueia e Permite editar a escola selecionada */
         private void buttonEditar_Click(object sender, EventArgs e)
         {
+            editar = true; // Mete 'editar' a verdadeiro pois vai editar
+
             panelEscola.Enabled = true; // Ativa o painel
 
             textBoxNome.Focus(); // Coloca o cursor no painel
@@ -89,7 +91,7 @@ namespace Bookids.Forms
             int telefone = Convert.ToInt32(textBoxTelefone.Text); // Converte o telefone para inteiro
             Escola escola = new Escola(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, textBoxEmail.Text); // Guarda a nova escola
 
-            if (editar == true) /* EDICAO NAO FUNCIONAL AINDA */
+            if (editar == true)
             {
                 Escola escolaEditada = (Escola)listBoxEscolas.SelectedItem; // Guarda a escola selecionada
 
@@ -127,7 +129,10 @@ namespace Bookids.Forms
             textBoxEmail.Text = escola.Email;
 
             // Apresenta os alunos
-            listBoxAlunos.DataSource = escola.Filhos.ToList<Filho>();
+            if (escola.Filhos.ToList<Filho>() != null)
+            {
+                listBoxAlunos.DataSource = escola.Filhos.ToList<Filho>();
+            }
 
             // Apresenta os eventos planeados
             listBoxEventos.DataSource = RepoEscolas.GetEventos(escola.IdEscola);
@@ -151,13 +156,7 @@ namespace Bookids.Forms
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
-            }
-
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
+            }            
         }
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
