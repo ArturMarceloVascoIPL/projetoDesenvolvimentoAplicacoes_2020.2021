@@ -21,7 +21,7 @@ namespace Bookids.Forms
         }
         private void GestaoAnimador_Load(object sender, EventArgs e)
         {
-            listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores();
+            refresh();
         }
         private void buttonNovo_Click(object sender, EventArgs e)
         {
@@ -55,8 +55,9 @@ namespace Bookids.Forms
                 Animador animadorEditado = (Animador)listBoxAnimadores.SelectedItem;
 
                 RepoAnimadores.EditAnimador(animadorEditado.IdPessoa,animador);
-                MessageBox.Show("Editada com Sucesso");    
+                MessageBox.Show("Editada com Sucesso");
 
+                refresh();
             }
             else
             {
@@ -114,8 +115,40 @@ namespace Bookids.Forms
         private void buttonEditar_Click(object sender, EventArgs e)
         {
             panelEditar.Enabled = true; // Ativa o painel
+            editar = true;
 
             textBoxNome.Focus(); // Coloca o cursor no painel
+        }
+
+        private void buttonApagar_Click(object sender, EventArgs e)
+        {
+            Animador animador = (Animador)listBoxAnimadores.SelectedItem; // Guarda a escola selecionada
+
+            if (animador != null) // Verifica se a escola nao e' null
+            {
+                if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
+                {
+                    if (RepoAnimadores.RemoveAnimador(animador)) // Remove a escola
+                    {
+                        MessageBox.Show("Removida com Sucesso.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu um erro ao tentar remover!");
+                    }
+                }
+
+                listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores(); // Atualiza a lista de escolas
+            }
+            else
+            {
+                MessageBox.Show("Tem de selecionar uma escola!");
+            }
+        }
+
+        private void textBoxPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            listBoxAnimadores.DataSource = RepoAnimadores.SearchByName(textBoxPesquisa.Text);
         }
     }
 }
