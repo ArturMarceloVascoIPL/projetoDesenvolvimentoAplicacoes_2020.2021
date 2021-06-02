@@ -543,13 +543,10 @@ namespace Bookids.Forms
         private void buttonConfirmacoes_Click_1(object sender, EventArgs e)
         {
             if (panelConfirmacoes.Enabled == false)
-            {
                 panelConfirmacoes.Enabled = true;
-            }
             else
-            {
                 panelConfirmacoes.Enabled = false;
-            }
+
         }
     }
     #endregion
