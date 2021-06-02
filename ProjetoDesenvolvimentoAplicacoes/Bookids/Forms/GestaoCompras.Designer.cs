@@ -152,10 +152,10 @@ namespace Bookids
             // 
             // panelProdutos
             // 
+            this.panelProdutos.Controls.Add(this.textBoxSearchClientes);
             this.panelProdutos.Controls.Add(this.panel2);
             this.panelProdutos.Controls.Add(this.btnNovaCompra);
             this.panelProdutos.Controls.Add(this.btnVerCompra);
-            this.panelProdutos.Controls.Add(this.textBoxSearchClientes);
             this.panelProdutos.Controls.Add(this.listaClientes);
             this.panelProdutos.Controls.Add(this.label1);
             this.panelProdutos.Location = new System.Drawing.Point(17, 59);
@@ -220,11 +220,11 @@ namespace Bookids
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.listaCompras);
             this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.labelPrecoTotalCompra);
             this.panel1.Controls.Add(this.btnApagarCompra);
             this.panel1.Controls.Add(this.btnVerDetalhes);
-            this.panel1.Controls.Add(this.listaCompras);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(499, 59);
