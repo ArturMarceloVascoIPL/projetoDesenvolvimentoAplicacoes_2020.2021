@@ -22,12 +22,40 @@ namespace Bookids.Forms
 
         public void refresh()
         {
-            listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores();
+            refresh();
         }
 
         private void GestaoAnimador_Load(object sender, EventArgs e)
         {
             refresh();
+
+            int telefone = Convert.ToInt32(textBoxTelefone.Text);
+            int telemovel = Convert.ToInt32(textBoxTelemovel.Text);
+
+            Animador animador = new Animador(textBoxNome.Text,textBoxMorada.Text,textBoxLocalidade.Text,textBoxCodPostal.Text,telefone,telemovel,textBoxEmail.Text,textBoxEspecialidade.Text);
+
+            if(editar == true)
+            {
+                Animador animadorEditado = (Animador)listBoxAnimadores.SelectedItem;
+
+                RepoAnimadores.EditAnimador(animadorEditado.IdPessoa,animador);
+                MessageBox.Show("Editada com Sucesso");
+
+                refresh();
+            }
+            else
+            {
+                if (RepoAnimadores.AddAnimador(animador))
+                {
+                    MessageBox.Show("Animador criado com sucesso");
+                    refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Ocorreu um erro ao tentar criar o Animador!");
+                }
+            }
+
         }
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -206,9 +234,11 @@ namespace Bookids.Forms
         private void buttonEditar_Click(object sender, EventArgs e)
         {
             labelAnimador.Text = "Animador Editar";
-
+            
+            panelEditar.Enabled = true; // Ativa o painel
             panelAnimador.Enabled = true; // Ativa o painel
             editar = true;
+            
             textBoxNome.Focus(); // Coloca o cursor no painel
         }
 
@@ -229,6 +259,7 @@ namespace Bookids.Forms
                         MessageBox.Show("Ocorreu um erro ao tentar remover!");
                     }
                 }
+
                 listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores(); // Atualiza a lista de escolas
             }
             else
