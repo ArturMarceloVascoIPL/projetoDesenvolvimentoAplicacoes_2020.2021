@@ -40,38 +40,36 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarTiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelProdutos = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnNovoProd = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.buttonRefresh = new System.Windows.Forms.Panel();
+            this.buttonPesquisarProdutos = new System.Windows.Forms.Panel();
+            this.textBoxPesquisaProdutos = new System.Windows.Forms.TextBox();
+            this.buttonApagar = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonNovo = new System.Windows.Forms.Button();
+            this.listBoxProdutos = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panelEditProdutos = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.btnAddTipos = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBoxDesignacao = new System.Windows.Forms.TextBox();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonSalvar = new System.Windows.Forms.Button();
+            this.buttonAddTipos = new System.Windows.Forms.Button();
+            this.comboBoxTipoProduto = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxStock = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxPreco = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.panelEditProdutosGeral = new System.Windows.Forms.Panel();
             this.panelEditTipos = new System.Windows.Forms.Panel();
-            this.button8 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.buttonApagarTipo = new System.Windows.Forms.Button();
+            this.textBoxNomeTipo = new System.Windows.Forms.TextBox();
+            this.listBoxTipos = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.buttonSalvarTipo = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panelProdutos.SuspendLayout();
             this.panelEditProdutos.SuspendLayout();
-            this.panelEditProdutosGeral.SuspendLayout();
             this.panelEditTipos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +83,8 @@ namespace Bookids.Forms
             this.produtosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1574, 31);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(826, 28);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -93,7 +92,7 @@ namespace Bookids.Forms
             // 
             this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(32, 24);
             this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // eventosToolStripMenuItem
@@ -102,19 +101,19 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem,
             this.editarRecenteToolStripMenuItem});
             this.eventosToolStripMenuItem.Name = "eventosToolStripMenuItem";
-            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(83, 27);
+            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.eventosToolStripMenuItem.Text = "Eventos";
             // 
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.novoToolStripMenuItem.Text = "Novo";
             // 
             // editarRecenteToolStripMenuItem
             // 
             this.editarRecenteToolStripMenuItem.Name = "editarRecenteToolStripMenuItem";
-            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.editarRecenteToolStripMenuItem.Text = "Editar Recente";
             // 
             // comprasToolStripMenuItem
@@ -122,13 +121,13 @@ namespace Bookids.Forms
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verRecenteToolStripMenuItem});
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(92, 27);
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.comprasToolStripMenuItem.Text = "Compras";
             // 
             // verRecenteToolStripMenuItem
             // 
             this.verRecenteToolStripMenuItem.Name = "verRecenteToolStripMenuItem";
-            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(185, 28);
+            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.verRecenteToolStripMenuItem.Text = "Ver Recente";
             // 
             // produtosToolStripMenuItem
@@ -137,95 +136,121 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem1,
             this.editarTiposToolStripMenuItem});
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(93, 27);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.produtosToolStripMenuItem.Text = "Produtos";
             // 
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(183, 28);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
             this.novoToolStripMenuItem1.Text = "Novo";
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
             // 
             // panelProdutos
             // 
-            this.panelProdutos.Controls.Add(this.panel2);
-            this.panelProdutos.Controls.Add(this.button3);
-            this.panelProdutos.Controls.Add(this.button2);
-            this.panelProdutos.Controls.Add(this.btnNovoProd);
-            this.panelProdutos.Controls.Add(this.textBox1);
-            this.panelProdutos.Controls.Add(this.listBox1);
+            this.panelProdutos.Controls.Add(this.buttonRefresh);
+            this.panelProdutos.Controls.Add(this.buttonPesquisarProdutos);
+            this.panelProdutos.Controls.Add(this.textBoxPesquisaProdutos);
+            this.panelProdutos.Controls.Add(this.buttonApagar);
+            this.panelProdutos.Controls.Add(this.buttonEditar);
+            this.panelProdutos.Controls.Add(this.buttonNovo);
+            this.panelProdutos.Controls.Add(this.listBoxProdutos);
             this.panelProdutos.Controls.Add(this.label4);
-            this.panelProdutos.Location = new System.Drawing.Point(12, 44);
+            this.panelProdutos.Location = new System.Drawing.Point(11, 30);
+            this.panelProdutos.Margin = new System.Windows.Forms.Padding(2);
             this.panelProdutos.Name = "panelProdutos";
-            this.panelProdutos.Size = new System.Drawing.Size(445, 497);
+            this.panelProdutos.Size = new System.Drawing.Size(334, 398);
             this.panelProdutos.TabIndex = 4;
             // 
-            // panel2
+            // buttonRefresh
             // 
-            this.panel2.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Location = new System.Drawing.Point(18, 33);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(29, 22);
-            this.panel2.TabIndex = 21;
+            this.buttonRefresh.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonRefresh.BackgroundImage = global::Bookids.Properties.Resources.baseline_autorenew_black_24dp;
+            this.buttonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRefresh.Location = new System.Drawing.Point(14, 26);
+            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(22, 20);
+            this.buttonRefresh.TabIndex = 61;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
-            // button3
+            // buttonPesquisarProdutos
             // 
-            this.button3.Location = new System.Drawing.Point(296, 424);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 64);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Apagar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttonPesquisarProdutos.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
+            this.buttonPesquisarProdutos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonPesquisarProdutos.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.buttonPesquisarProdutos.Location = new System.Drawing.Point(40, 26);
+            this.buttonPesquisarProdutos.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonPesquisarProdutos.Name = "buttonPesquisarProdutos";
+            this.buttonPesquisarProdutos.Size = new System.Drawing.Size(22, 20);
+            this.buttonPesquisarProdutos.TabIndex = 60;
             // 
-            // button2
+            // textBoxPesquisaProdutos
             // 
-            this.button2.Location = new System.Drawing.Point(157, 424);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 64);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.textBoxPesquisaProdutos.Location = new System.Drawing.Point(66, 26);
+            this.textBoxPesquisaProdutos.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPesquisaProdutos.Name = "textBoxPesquisaProdutos";
+            this.textBoxPesquisaProdutos.Size = new System.Drawing.Size(257, 20);
+            this.textBoxPesquisaProdutos.TabIndex = 59;
+            this.textBoxPesquisaProdutos.TextChanged += new System.EventHandler(this.textBoxPesquisaProdutos_TextChanged);
             // 
-            // btnNovoProd
+            // buttonApagar
             // 
-            this.btnNovoProd.Location = new System.Drawing.Point(18, 424);
-            this.btnNovoProd.Name = "btnNovoProd";
-            this.btnNovoProd.Size = new System.Drawing.Size(133, 64);
-            this.btnNovoProd.TabIndex = 18;
-            this.btnNovoProd.Text = "Novo";
-            this.btnNovoProd.UseVisualStyleBackColor = false;
-            this.btnNovoProd.Click += new System.EventHandler(this.btnNovoProd_Click);
+            this.buttonApagar.Location = new System.Drawing.Point(222, 344);
+            this.buttonApagar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonApagar.Name = "buttonApagar";
+            this.buttonApagar.Size = new System.Drawing.Size(100, 52);
+            this.buttonApagar.TabIndex = 20;
+            this.buttonApagar.Text = "Apagar";
+            this.buttonApagar.UseVisualStyleBackColor = false;
+            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
-            // textBox1
+            // buttonEditar
             // 
-            this.textBox1.Location = new System.Drawing.Point(45, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(384, 22);
-            this.textBox1.TabIndex = 17;
+            this.buttonEditar.Location = new System.Drawing.Point(118, 344);
+            this.buttonEditar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(100, 52);
+            this.buttonEditar.TabIndex = 19;
+            this.buttonEditar.Text = "Editar";
+            this.buttonEditar.UseVisualStyleBackColor = false;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
-            // listBox1
+            // buttonNovo
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(18, 61);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(411, 356);
-            this.listBox1.TabIndex = 16;
+            this.buttonNovo.Location = new System.Drawing.Point(14, 344);
+            this.buttonNovo.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonNovo.Name = "buttonNovo";
+            this.buttonNovo.Size = new System.Drawing.Size(100, 52);
+            this.buttonNovo.TabIndex = 18;
+            this.buttonNovo.Text = "Novo";
+            this.buttonNovo.UseVisualStyleBackColor = false;
+            this.buttonNovo.Click += new System.EventHandler(this.buttonNovo_Click);
+            // 
+            // listBoxProdutos
+            // 
+            this.listBoxProdutos.FormattingEnabled = true;
+            this.listBoxProdutos.Location = new System.Drawing.Point(14, 50);
+            this.listBoxProdutos.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxProdutos.Name = "listBoxProdutos";
+            this.listBoxProdutos.Size = new System.Drawing.Size(309, 290);
+            this.listBoxProdutos.TabIndex = 16;
+            this.listBoxProdutos.SelectedIndexChanged += new System.EventHandler(this.listBoxProdutos_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 7);
+            this.label4.Location = new System.Drawing.Point(10, 4);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 25);
+            this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 15;
             this.label4.Text = "Produtos";
             // 
@@ -233,83 +258,102 @@ namespace Bookids.Forms
             // 
             this.panelEditProdutos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelEditProdutos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelEditProdutos.Controls.Add(this.button5);
-            this.panelEditProdutos.Controls.Add(this.button6);
-            this.panelEditProdutos.Controls.Add(this.btnAddTipos);
-            this.panelEditProdutos.Controls.Add(this.comboBox1);
+            this.panelEditProdutos.Controls.Add(this.textBoxDesignacao);
+            this.panelEditProdutos.Controls.Add(this.buttonCancelar);
+            this.panelEditProdutos.Controls.Add(this.buttonSalvar);
+            this.panelEditProdutos.Controls.Add(this.buttonAddTipos);
+            this.panelEditProdutos.Controls.Add(this.comboBoxTipoProduto);
             this.panelEditProdutos.Controls.Add(this.label5);
-            this.panelEditProdutos.Controls.Add(this.textBox2);
+            this.panelEditProdutos.Controls.Add(this.textBoxStock);
             this.panelEditProdutos.Controls.Add(this.label2);
             this.panelEditProdutos.Controls.Add(this.label1);
-            this.panelEditProdutos.Controls.Add(this.textBox4);
+            this.panelEditProdutos.Controls.Add(this.textBoxPreco);
             this.panelEditProdutos.Controls.Add(this.label3);
-            this.panelEditProdutos.Controls.Add(this.richTextBox1);
             this.panelEditProdutos.Enabled = false;
-            this.panelEditProdutos.Location = new System.Drawing.Point(3, 7);
+            this.panelEditProdutos.Location = new System.Drawing.Point(349, 128);
+            this.panelEditProdutos.Margin = new System.Windows.Forms.Padding(2);
             this.panelEditProdutos.Name = "panelEditProdutos";
-            this.panelEditProdutos.Size = new System.Drawing.Size(518, 417);
+            this.panelEditProdutos.Size = new System.Drawing.Size(291, 180);
             this.panelEditProdutos.TabIndex = 5;
             // 
-            // button5
+            // textBoxDesignacao
             // 
-            this.button5.Location = new System.Drawing.Point(380, 348);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 64);
-            this.button5.TabIndex = 23;
-            this.button5.Text = "Cancelar";
-            this.button5.UseVisualStyleBackColor = false;
+            this.textBoxDesignacao.Location = new System.Drawing.Point(93, 12);
+            this.textBoxDesignacao.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxDesignacao.Name = "textBoxDesignacao";
+            this.textBoxDesignacao.Size = new System.Drawing.Size(192, 20);
+            this.textBoxDesignacao.TabIndex = 33;
             // 
-            // button6
+            // buttonCancelar
             // 
-            this.button6.Location = new System.Drawing.Point(3, 348);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(133, 64);
-            this.button6.TabIndex = 22;
-            this.button6.Text = "Salvar";
-            this.button6.UseVisualStyleBackColor = false;
+            this.buttonCancelar.Location = new System.Drawing.Point(185, 124);
+            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(100, 52);
+            this.buttonCancelar.TabIndex = 23;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = false;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // btnAddTipos
+            // buttonSalvar
             // 
-            this.btnAddTipos.Location = new System.Drawing.Point(322, 265);
-            this.btnAddTipos.Name = "btnAddTipos";
-            this.btnAddTipos.Size = new System.Drawing.Size(177, 23);
-            this.btnAddTipos.TabIndex = 32;
-            this.btnAddTipos.Text = "Editar Tipos +";
-            this.btnAddTipos.UseVisualStyleBackColor = true;
-            this.btnAddTipos.Click += new System.EventHandler(this.btnAddTipos_Click);
+            this.buttonSalvar.Location = new System.Drawing.Point(2, 124);
+            this.buttonSalvar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(100, 52);
+            this.buttonSalvar.TabIndex = 22;
+            this.buttonSalvar.Text = "Salvar";
+            this.buttonSalvar.UseVisualStyleBackColor = false;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
-            // comboBox1
+            // buttonAddTipos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(129, 265);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 31;
+            this.buttonAddTipos.Location = new System.Drawing.Point(193, 61);
+            this.buttonAddTipos.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAddTipos.Name = "buttonAddTipos";
+            this.buttonAddTipos.Size = new System.Drawing.Size(92, 21);
+            this.buttonAddTipos.TabIndex = 32;
+            this.buttonAddTipos.Text = "Editar Tipos +";
+            this.buttonAddTipos.UseVisualStyleBackColor = true;
+            this.buttonAddTipos.Click += new System.EventHandler(this.btnAddTipos_Click);
+            // 
+            // comboBoxTipoProduto
+            // 
+            this.comboBoxTipoProduto.FormattingEnabled = true;
+            this.comboBoxTipoProduto.Location = new System.Drawing.Point(93, 61);
+            this.comboBoxTipoProduto.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxTipoProduto.Name = "comboBoxTipoProduto";
+            this.comboBoxTipoProduto.Size = new System.Drawing.Size(96, 21);
+            this.comboBoxTipoProduto.TabIndex = 31;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(37, 265);
+            this.label5.Location = new System.Drawing.Point(2, 62);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 20);
+            this.label5.Size = new System.Drawing.Size(74, 17);
             this.label5.TabIndex = 30;
             this.label5.Text = "Tipo Prod:";
             // 
-            // textBox2
+            // textBoxStock
             // 
-            this.textBox2.Location = new System.Drawing.Point(380, 187);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(119, 22);
-            this.textBox2.TabIndex = 29;
+            this.textBoxStock.Location = new System.Drawing.Point(93, 86);
+            this.textBoxStock.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxStock.Name = "textBoxStock";
+            this.textBoxStock.Size = new System.Drawing.Size(96, 20);
+            this.textBoxStock.TabIndex = 29;
+            this.textBoxStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxStock_KeyPress);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(318, 187);
+            this.label2.Location = new System.Drawing.Point(4, 87);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 20);
+            this.label2.Size = new System.Drawing.Size(47, 17);
             this.label2.TabIndex = 28;
             this.label2.Text = "Stock:";
             // 
@@ -317,148 +361,134 @@ namespace Bookids.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 20);
+            this.label1.Location = new System.Drawing.Point(2, 13);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 20);
+            this.label1.Size = new System.Drawing.Size(87, 17);
             this.label1.TabIndex = 27;
             this.label1.Text = "Designação:";
             // 
-            // textBox4
+            // textBoxPreco
             // 
-            this.textBox4.Location = new System.Drawing.Point(129, 187);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(119, 22);
-            this.textBox4.TabIndex = 26;
+            this.textBoxPreco.Location = new System.Drawing.Point(93, 37);
+            this.textBoxPreco.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPreco.Name = "textBoxPreco";
+            this.textBoxPreco.Size = new System.Drawing.Size(96, 20);
+            this.textBoxPreco.TabIndex = 26;
+            this.textBoxPreco.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPreco_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(50, 187);
+            this.label3.Location = new System.Drawing.Point(2, 38);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 20);
+            this.label3.Size = new System.Drawing.Size(49, 17);
             this.label3.TabIndex = 25;
             this.label3.Text = "Preço:";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Location = new System.Drawing.Point(129, 21);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(370, 117);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
-            // 
-            // panelEditProdutosGeral
-            // 
-            this.panelEditProdutosGeral.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelEditProdutosGeral.Controls.Add(this.panelEditTipos);
-            this.panelEditProdutosGeral.Controls.Add(this.panelEditProdutos);
-            this.panelEditProdutosGeral.Location = new System.Drawing.Point(502, 44);
-            this.panelEditProdutosGeral.Name = "panelEditProdutosGeral";
-            this.panelEditProdutosGeral.Size = new System.Drawing.Size(1069, 436);
-            this.panelEditProdutosGeral.TabIndex = 6;
             // 
             // panelEditTipos
             // 
             this.panelEditTipos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelEditTipos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelEditTipos.Controls.Add(this.button8);
-            this.panelEditTipos.Controls.Add(this.textBox3);
-            this.panelEditTipos.Controls.Add(this.listBox2);
+            this.panelEditTipos.Controls.Add(this.buttonApagarTipo);
+            this.panelEditTipos.Controls.Add(this.textBoxNomeTipo);
+            this.panelEditTipos.Controls.Add(this.listBoxTipos);
             this.panelEditTipos.Controls.Add(this.label6);
-            this.panelEditTipos.Controls.Add(this.button4);
-            this.panelEditTipos.Controls.Add(this.button7);
+            this.panelEditTipos.Controls.Add(this.buttonSalvarTipo);
             this.panelEditTipos.Controls.Add(this.label8);
-            this.panelEditTipos.Location = new System.Drawing.Point(540, 7);
+            this.panelEditTipos.Enabled = false;
+            this.panelEditTipos.Location = new System.Drawing.Point(644, 56);
+            this.panelEditTipos.Margin = new System.Windows.Forms.Padding(2);
             this.panelEditTipos.Name = "panelEditTipos";
-            this.panelEditTipos.Size = new System.Drawing.Size(518, 417);
+            this.panelEditTipos.Size = new System.Drawing.Size(175, 304);
             this.panelEditTipos.TabIndex = 33;
             // 
-            // button8
+            // buttonApagarTipo
             // 
-            this.button8.Location = new System.Drawing.Point(9, 345);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(119, 64);
-            this.button8.TabIndex = 35;
-            this.button8.Text = "Apagar";
-            this.button8.UseVisualStyleBackColor = false;
+            this.buttonApagarTipo.Location = new System.Drawing.Point(94, 263);
+            this.buttonApagarTipo.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonApagarTipo.Name = "buttonApagarTipo";
+            this.buttonApagarTipo.Size = new System.Drawing.Size(70, 35);
+            this.buttonApagarTipo.TabIndex = 35;
+            this.buttonApagarTipo.Text = "Apagar";
+            this.buttonApagarTipo.UseVisualStyleBackColor = false;
+            this.buttonApagarTipo.Click += new System.EventHandler(this.buttonApagarTipo_Click);
             // 
-            // textBox3
+            // textBoxNomeTipo
             // 
-            this.textBox3.Location = new System.Drawing.Point(360, 185);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(119, 22);
-            this.textBox3.TabIndex = 34;
+            this.textBoxNomeTipo.Location = new System.Drawing.Point(57, 239);
+            this.textBoxNomeTipo.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxNomeTipo.Name = "textBoxNomeTipo";
+            this.textBoxNomeTipo.Size = new System.Drawing.Size(107, 20);
+            this.textBoxNomeTipo.TabIndex = 34;
             // 
-            // listBox2
+            // listBoxTipos
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(9, 53);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(208, 260);
-            this.listBox2.TabIndex = 28;
+            this.listBoxTipos.FormattingEnabled = true;
+            this.listBoxTipos.Location = new System.Drawing.Point(7, 23);
+            this.listBoxTipos.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxTipos.Name = "listBoxTipos";
+            this.listBoxTipos.Size = new System.Drawing.Size(157, 212);
+            this.listBoxTipos.TabIndex = 28;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(301, 187);
+            this.label6.Location = new System.Drawing.Point(4, 240);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 20);
+            this.label6.Size = new System.Drawing.Size(49, 17);
             this.label6.TabIndex = 33;
-            this.label6.Text = "Nome";
+            this.label6.Text = "Nome:";
             // 
-            // button4
+            // buttonSalvarTipo
             // 
-            this.button4.Location = new System.Drawing.Point(380, 348);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 64);
-            this.button4.TabIndex = 23;
-            this.button4.Text = "Cancelar";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(360, 225);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(133, 64);
-            this.button7.TabIndex = 22;
-            this.button7.Text = "Salvar";
-            this.button7.UseVisualStyleBackColor = false;
+            this.buttonSalvarTipo.Location = new System.Drawing.Point(7, 263);
+            this.buttonSalvarTipo.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonSalvarTipo.Name = "buttonSalvarTipo";
+            this.buttonSalvarTipo.Size = new System.Drawing.Size(70, 35);
+            this.buttonSalvarTipo.TabIndex = 22;
+            this.buttonSalvarTipo.Text = "Salvar";
+            this.buttonSalvarTipo.UseVisualStyleBackColor = false;
+            this.buttonSalvarTipo.Click += new System.EventHandler(this.buttonSalvarTipo_Click);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(5, 20);
+            this.label8.Location = new System.Drawing.Point(4, 2);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 20);
+            this.label8.Size = new System.Drawing.Size(117, 17);
             this.label8.TabIndex = 27;
-            this.label8.Text = "TIPOS";
+            this.label8.Text = "Tipos de Produto";
             // 
             // GestaoProdutos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1574, 548);
-            this.Controls.Add(this.panelEditProdutosGeral);
+            this.ClientSize = new System.Drawing.Size(826, 431);
+            this.Controls.Add(this.panelEditTipos);
+            this.Controls.Add(this.panelEditProdutos);
             this.Controls.Add(this.panelProdutos);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GestaoProdutos";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GestaoProdutos";
+            this.Load += new System.EventHandler(this.GestaoProdutos_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelProdutos.ResumeLayout(false);
             this.panelProdutos.PerformLayout();
             this.panelEditProdutos.ResumeLayout(false);
             this.panelEditProdutos.PerformLayout();
-            this.panelEditProdutosGeral.ResumeLayout(false);
             this.panelEditTipos.ResumeLayout(false);
             this.panelEditTipos.PerformLayout();
             this.ResumeLayout(false);
@@ -479,33 +509,32 @@ namespace Bookids.Forms
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editarTiposToolStripMenuItem;
         private System.Windows.Forms.Panel panelProdutos;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnNovoProd;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button buttonApagar;
+        private System.Windows.Forms.Button buttonEditar;
+        private System.Windows.Forms.Button buttonNovo;
+        private System.Windows.Forms.ListBox listBoxProdutos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panelEditProdutos;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxPreco;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxStock;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button btnAddTipos;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Panel panelEditProdutosGeral;
+        private System.Windows.Forms.ComboBox comboBoxTipoProduto;
+        private System.Windows.Forms.Button buttonAddTipos;
+        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonSalvar;
+        private System.Windows.Forms.Panel buttonRefresh;
+        private System.Windows.Forms.Panel buttonPesquisarProdutos;
+        private System.Windows.Forms.TextBox textBoxPesquisaProdutos;
+        private System.Windows.Forms.TextBox textBoxDesignacao;
         private System.Windows.Forms.Panel panelEditTipos;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Button buttonApagarTipo;
+        private System.Windows.Forms.TextBox textBoxNomeTipo;
+        private System.Windows.Forms.ListBox listBoxTipos;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button buttonSalvarTipo;
         private System.Windows.Forms.Label label8;
     }
 }

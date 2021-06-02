@@ -84,6 +84,8 @@
     <Compile Include="DataBase\Escola.cs" />
     <Compile Include="DataBase\Evento.cs" />
     <Compile Include="DataBase\Filho.cs" />
+    <Compile Include="DataBase\Produto.cs" />
+    <Compile Include="DataBase\TipoProduto.cs" />
     <Compile Include="DetalheCompra.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
@@ -174,6 +176,8 @@
     <Compile Include="Repositorios\RepositorioCompras.cs" />
     <Compile Include="Repositorios\RepositorioEscolas.cs" />
     <Compile Include="Repositorios\RepositorioFilhos.cs" />
+    <Compile Include="Repositorios\RepositorioTipoProdutos.cs" />
+    <Compile Include="Repositorios\RepositorioProdutos.cs" />
     <Compile Include="TipoProduto.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
@@ -241,6 +245,7 @@
       <LastGenOutput>DataBaseModel.Context.cs</LastGenOutput>
       <DependentUpon>DataBaseModel.edmx</DependentUpon>
     </Content>
+    <Content Include="DBUpdateDecimalValueType.sql" />
     <Content Include="DataBaseModel.edmx.sql" />
     <Content Include="DataBaseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
