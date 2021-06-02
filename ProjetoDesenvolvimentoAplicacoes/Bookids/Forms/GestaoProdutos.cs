@@ -280,6 +280,9 @@ namespace Bookids.Forms
         /* Atualizar as listas */
         private void refreshListas()
         {
+            RepositorioProdutos repoProdutos = new RepositorioProdutos();
+            RepositorioTipoProdutos repoTipos = new RepositorioTipoProdutos();
+
             listBoxProdutos.DataSource = repoProdutos.GetProdutos(); // Carrega os Produtos
             listBoxTipos.DataSource = repoTipos.GetTipos(); // Carrega os Tipos de Produtos
             comboBoxTipoProduto.DataSource = repoTipos.GetTipos(); // Carrega os Tipos de Produtos na ComboBox
