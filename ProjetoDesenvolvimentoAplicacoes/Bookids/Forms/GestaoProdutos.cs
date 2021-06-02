@@ -195,18 +195,25 @@ namespace Bookids.Forms
             {
                 if (MessageBox.Show("Quer mesmo apagar?", "Apagar!", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
                 {
-                    try
+                    if (tipoProduto.Produtos.Count == 0) // Verifica se o tipo não está associado a nenhum produto
                     {
-                        repoTipos.RemoveTipo(tipoProduto); // Remove o Tipo
-                        MessageBox.Show("Eliminado com Sucesso.");
+                        try
+                        {
+                            repoTipos.RemoveTipo(tipoProduto); // Remove o Tipo
+                            MessageBox.Show("Eliminado com Sucesso.");
+                        }
+                        catch (Exception err)
+                        {
+                            MessageBox.Show($"Ocorreu um erro ao tentar eliminar! {err.Message}");
+                        }
+                        finally
+                        {
+                            refreshListas();
+                        }
                     }
-                    catch (Exception err)
+                    else
                     {
-                        MessageBox.Show($"Ocorreu um erro ao tentar eliminar! {err.Message}");
-                    }
-                    finally
-                    {
-                        refreshListas();
+                        MessageBox.Show($"Já existe(m) {tipoProduto.Produtos.Count} Produto(s) com este Tipo, não pode eliminar.");
                     }
                 }
             }
