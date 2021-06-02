@@ -14,9 +14,9 @@ namespace Bookids
         {
 
         }
-        public List<Compras> GetCompras()
+        public List<Compra> GetCompras(int id)
         {
-            return model.Compras.Find();
+            return model.Compras.Where(c => c.IdCliente == id).ToList<Compra>();
         }
     }
 }

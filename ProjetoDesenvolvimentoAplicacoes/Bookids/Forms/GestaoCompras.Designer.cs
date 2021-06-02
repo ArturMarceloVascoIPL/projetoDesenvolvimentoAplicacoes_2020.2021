@@ -195,6 +195,7 @@ namespace Bookids
             this.listaClientes.Name = "listaClientes";
             this.listaClientes.Size = new System.Drawing.Size(411, 356);
             this.listaClientes.TabIndex = 16;
+            this.listaClientes.SelectedIndexChanged += new System.EventHandler(this.listaClientes_SelectedIndexChanged);
             // 
             // l_1
             // 

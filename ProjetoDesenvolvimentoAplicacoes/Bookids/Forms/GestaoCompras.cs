@@ -38,5 +38,12 @@ namespace Bookids
         {
             refreshClientes();
         }
+
+        private void listaClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Cliente cliente = (Cliente)listaClientes.SelectedItem;
+
+            labelNomeCliente.Text = cliente.Nome;
+        }
     }
 }

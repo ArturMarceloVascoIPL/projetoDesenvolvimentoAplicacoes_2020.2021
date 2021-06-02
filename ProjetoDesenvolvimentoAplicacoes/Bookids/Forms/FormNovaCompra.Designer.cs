@@ -229,6 +229,7 @@ namespace Bookids
             this.MaximizeBox = false;
             this.Name = "FormNovaCompra";
             this.Text = "Nova Compra";
+            this.Load += new System.EventHandler(this.FormNovaCompra_Load);
             this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

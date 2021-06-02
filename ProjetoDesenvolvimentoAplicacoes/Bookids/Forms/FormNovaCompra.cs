@@ -15,6 +15,7 @@ namespace Bookids
     {
         bool card;
 
+
         public FormNovaCompra()
         {
             InitializeComponent();
@@ -55,6 +56,11 @@ namespace Bookids
             card = false;
             panelCardNo.BackColor = Color.Red;
             panelCardYes.BackColor = Color.White;
+        }
+
+        private void FormNovaCompra_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

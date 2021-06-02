@@ -82,7 +82,7 @@ namespace Bookids
         public List<Animador> SearchByName(string nome)
         {
             return (from animador in model.Pessoas.Where(a => a is Animador).Select(a => a).ToList().Select(a => (Animador)a).ToList()
-            where animador.Nome.Contains(nome) select animador).ToList<Animador>();
+            where animador.Nome.ToLower().Contains(nome.ToLower()) select animador).ToList<Animador>();
         }
 
     }
