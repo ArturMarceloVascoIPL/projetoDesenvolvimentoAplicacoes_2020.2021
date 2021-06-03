@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,61 +19,16 @@ namespace Bookids.Forms
         {
             InitializeComponent();
         }
+
+        public void refresh()
+        {
+            listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores();
+        }
+
         private void GestaoAnimador_Load(object sender, EventArgs e)
         {
             refresh();
         }
-        private void buttonNovo_Click(object sender, EventArgs e)
-        {
-            editar = false;
-            panelEditar.Enabled = true;
-
-            textBoxNome.Clear();
-            textBoxMorada.Clear();
-            textBoxLocalidade.Clear();
-            textBoxCodPostal.Clear();
-            textBoxTelefone.Clear();
-            textBoxTelemovel.Clear();
-            textBoxEmail.Clear();
-            textBoxLocalidade.Clear();
-            textBoxEspecialidade.Clear();
-
-            textBoxNome.Focus(); 
-        }
-        
-
-
-        private void buttonGuardar_Click(object sender, EventArgs e)
-        {
-            int telefone = Convert.ToInt32(textBoxTelefone.Text);
-            int telemovel = Convert.ToInt32(textBoxTelemovel.Text);
-
-            Animador animador = new Animador(textBoxNome.Text,textBoxMorada.Text,textBoxLocalidade.Text,textBoxCodPostal.Text,telefone,telemovel,textBoxEmail.Text,textBoxEspecialidade.Text);
-
-            if(editar == true)
-            {
-                Animador animadorEditado = (Animador)listBoxAnimadores.SelectedItem;
-
-                RepoAnimadores.EditAnimador(animadorEditado.IdPessoa,animador);
-                MessageBox.Show("Editada com Sucesso");
-
-                refresh();
-            }
-            else
-            {
-                if (RepoAnimadores.AddAnimador(animador))
-                {
-                    MessageBox.Show("Animador criado com sucesso");
-                    refresh();
-                }
-                else
-                {
-                    MessageBox.Show("Ocorreu um erro ao tentar criar o Animador!");
-                }
-            }
-        }
-
-
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -82,7 +37,8 @@ namespace Bookids.Forms
 
         private void listBoxAnimadores_SelectedIndexChanged(object sender, EventArgs e)
         {
-            panelEditar.Enabled = false;
+            panelAnimador.Enabled = false;
+            labelAnimador.Text = "Animador Detalhes";
 
             Animador animador = (Animador)listBoxAnimadores.SelectedItem;
 
@@ -94,7 +50,6 @@ namespace Bookids.Forms
             textBoxTelemovel.Text = animador.Telemovel.ToString();
             textBoxEmail.Text = animador.Email;
             textBoxEspecialidade.Text = animador.Especialidade;
-
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
@@ -102,21 +57,157 @@ namespace Bookids.Forms
             refresh();
         }
 
-        public void refresh()
-        {
-            listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores();
-        }
-
         private void panelBotaoPesquisa_Click(object sender, EventArgs e)
         {
             listBoxAnimadores.DataSource = RepoAnimadores.SearchByName(textBoxPesquisa.Text);
         }
 
+        //Para Permitir apenas numeros quando a digitar nas Textbox
+        private void textBoxNumApena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                e.Handled = true;
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+                e.Handled = true;
+        }
+
+        private void buttonNovo_Click(object sender, EventArgs e)
+        {
+            editar = false;
+            panelAnimador.Enabled = true;
+            labelAnimador.Text = "Animador Novo";
+
+            //Apagar campos do Form
+            foreach (var control in panelAnimador.Controls)
+            {
+                if (control is TextBox)
+                    (control as TextBox).Clear();
+            }
+
+            textBoxNome.Focus();
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            if (!editar)
+            {
+
+                //Apagar campos do Form
+                foreach (var control in panelAnimador.Controls)
+                {
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                }
+            }
+
+            panelAnimador.Enabled = false;
+        }
+
+        private void buttonGuardar_Click(object sender, EventArgs e)
+        {
+            int telefone = 0, telemovel = 0;
+
+            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBoxTelefone.Text)))
+                telefone = Convert.ToInt32(textBoxTelefone.Text);
+
+            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBoxTelemovel.Text)))
+                telemovel = Convert.ToInt32(textBoxTelemovel.Text);
+
+            if (!editar)
+            {
+                // Confirmacao para guardar
+                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    //Verificacao se Tem os campos todos Preenchidos
+                    foreach (Control c in panelAnimador.Controls)
+                    {
+                        if (c is TextBox)
+                        {
+                            TextBox textBox = c as TextBox;
+                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
+                            {
+                                Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);
+                                if (RepoAnimadores.AddAnimador(animador))
+                                {
+                                    MessageBox.Show("Animador criado com sucesso");
+
+                                    //Apagar campos do Form
+                                    foreach (var control in panelAnimador.Controls)
+                                    {
+                                        if (control is TextBox)
+                                            (control as TextBox).Clear();
+                                    }
+                                    refresh();
+                                    break;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ocorreu um erro ao tentar criar o Animador!");
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro. Preencher Todos os Campos.");
+                                break;
+                            }
+                        }
+                    }
+                }
+
+            }
+            else
+            {
+                // Confirmacao para guardar
+                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    //Verificacao se Tem os campos todos Preenchidos
+                    foreach (Control c in panelAnimador.Controls)
+                    {
+                        if (c is TextBox)
+                        {
+                            TextBox textBox = c as TextBox;
+                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
+                            {
+                                Animador animadorEditado = (Animador)listBoxAnimadores.SelectedItem;
+                                Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);
+                                if (RepoAnimadores.EditAnimador(animadorEditado.IdPessoa, animador))
+                                {
+                                    MessageBox.Show("Editada com Sucesso");
+                                    //Apagar campos do Form
+                                    foreach (var control in panelAnimador.Controls)
+                                    {
+                                        if (control is TextBox)
+                                            (control as TextBox).Clear();
+                                    }
+                                    refresh();
+                                    break;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ocorreu um erro ao tentar criar o Animador!");
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Erro. Preencher Todos os Campos.");
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            panelEditar.Enabled = true; // Ativa o painel
-            editar = true;
+            labelAnimador.Text = "Animador Editar";
 
+            panelAnimador.Enabled = true; // Ativa o painel
+            editar = true;
             textBoxNome.Focus(); // Coloca o cursor no painel
         }
 
@@ -137,7 +228,6 @@ namespace Bookids.Forms
                         MessageBox.Show("Ocorreu um erro ao tentar remover!");
                     }
                 }
-
                 listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores(); // Atualiza a lista de escolas
             }
             else
