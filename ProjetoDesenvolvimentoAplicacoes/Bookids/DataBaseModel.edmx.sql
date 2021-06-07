@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/19/2021 10:47:44
--- Generated from EDMX file: C:\Users\mrace\OneDrive\Ambiente de Trabalho\DA\ProjetoDA\projetoDesenvolvimentoAplicacoes_2020.2021\ProjetoDesenvolvimentoAplicacoes\Bookids\DataBaseModel.edmx
+-- Date Created: 06/07/2021 23:54:43
+-- Generated from EDMX file: D:\projetoDesenvolvimentoAplicacoes_2020.2021\ProjetoDesenvolvimentoAplicacoes\Bookids\DataBaseModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -137,7 +137,7 @@ GO
 CREATE TABLE [dbo].[Produtos] (
     [IdProduto] int IDENTITY(1,1) NOT NULL,
     [Designacao] nvarchar(max)  NOT NULL,
-    [Preco] decimal(18,0)  NOT NULL,
+    [Preco] decimal(18,2)  NOT NULL,
     [StockExistente] int  NOT NULL,
     [IdTipoProduto] int  NOT NULL
 );
@@ -170,7 +170,7 @@ CREATE TABLE [dbo].[Eventos] (
     [IdEvento] int IDENTITY(1,1) NOT NULL,
     [Descricao] nvarchar(max)  NOT NULL,
     [Local] nvarchar(max)  NOT NULL,
-    [DataHora] nvarchar(max)  NOT NULL,
+    [DataHora] datetime  NOT NULL,
     [LimiteParticipacao] int  NOT NULL,
     [IdadeInferiror] int  NOT NULL,
     [IdadeSuperior] int  NOT NULL,
@@ -207,7 +207,7 @@ GO
 
 -- Creating table 'Pessoas_Cliente'
 CREATE TABLE [dbo].[Pessoas_Cliente] (
-    [ValorOferta] decimal(18,0)  NULL,
+    [ValorOferta] decimal(18,2)  NULL,
     [NumCartao] int  NULL,
     [IdPessoa] int  NOT NULL
 );

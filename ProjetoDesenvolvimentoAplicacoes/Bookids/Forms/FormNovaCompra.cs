@@ -28,7 +28,7 @@ namespace Bookids
             DialogResult dialogResult = MessageBox.Show("Deseja Exportar?", "Exportar", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var exportForm = new ExportarFileCompras();
+                var exportForm = new ExportarFile();
                 exportForm.Show();
             }
             else if (dialogResult == DialogResult.No)

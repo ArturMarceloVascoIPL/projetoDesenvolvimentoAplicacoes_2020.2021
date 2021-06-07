@@ -143,7 +143,7 @@
     <Property Name="IdEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Local" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DataHora" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DataHora" Type="datetime" Nullable="false" />
     <Property Name="LimiteParticipacao" Type="int" Nullable="false" />
     <Property Name="IdadeInferiror" Type="int" Nullable="false" />
     <Property Name="IdadeSuperior" Type="int" Nullable="false" />
@@ -616,7 +616,7 @@
           <Property Name="IdEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Descricao" Type="String" Nullable="false" />
           <Property Name="Local" Type="String" Nullable="false" />
-          <Property Name="DataHora" Type="String" Nullable="false" />
+          <Property Name="DataHora" Type="DateTime" Nullable="false" />
           <Property Name="LimiteParticipacao" Type="Int32" Nullable="false" />
           <Property Name="IdadeInferiror" Type="Int32" Nullable="false" />
           <Property Name="IdadeSuperior" Type="Int32" Nullable="false" />

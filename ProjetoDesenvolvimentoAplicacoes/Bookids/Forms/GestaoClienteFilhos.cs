@@ -12,7 +12,7 @@ namespace Bookids.Forms
 {
     public partial class GestaoClienteFilhos : Form
     {
-        //Inicializacaoes dos repositiors
+        //Inicializacaoes dos repositorios
         RepositorioClientes repoCliente = new RepositorioClientes();
         RepositorioFilhos repoFilho = new RepositorioFilhos();
         RepositorioEscolas repoEscola = new RepositorioEscolas();
@@ -79,6 +79,11 @@ namespace Bookids.Forms
 
         public void refreshListas()
         {
+            //Inicializacaoes dos repositorios
+            RepositorioClientes repoCliente = new RepositorioClientes();
+            RepositorioFilhos repoFilho = new RepositorioFilhos();
+            RepositorioEscolas repoEscola = new RepositorioEscolas();
+
             //Lista Clientes
             listBoxClientes.DataSource = repoCliente.GetClientes();
 
@@ -396,7 +401,7 @@ namespace Bookids.Forms
             {
                 Filho filho = new Filho();
 
-                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Guardar Filho?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //Verificacao se Tem os campos todos Preenchidos
                     foreach (Control c in panelFilho.Controls)
@@ -447,7 +452,7 @@ namespace Bookids.Forms
             }
             else
             {
-                if (MessageBox.Show("Guardar Cliente Editado?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Guardar Filho Editado?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
 
                     Filho filho = (Filho)listBoxFilhos.SelectedItem;
@@ -505,10 +510,11 @@ namespace Bookids.Forms
                     }
                 }
 
-                //Lista Filhos
-                refreshListas();
-                listBoxFilhos.DataSource = cliente.Filhos.ToList();
             }
+
+            //Lista Filhos
+            refreshListas();
+            listBoxFilhos.DataSource = cliente.Filhos.ToList();
         }
 
         private void buttonApagarFilho_Click(object sender, EventArgs e)
@@ -548,6 +554,13 @@ namespace Bookids.Forms
                 panelConfirmacoes.Enabled = false;
 
         }
+        #endregion
+
+        private void GestaoClienteFilhos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            repoCliente.Dispose();
+            repoEscola.Dispose();
+            repoFilho.Dispose();
+        }
     }
-    #endregion
 }

@@ -12,7 +12,8 @@ namespace Bookids.Forms
 {
     public partial class GestaoAnimador : Form
     {
-        RepositorioAnimadores RepoAnimadores = new RepositorioAnimadores();
+        RepositorioAnimadores repoAnimadores = new RepositorioAnimadores();
+
         bool editar = true;
 
         public GestaoAnimador()
@@ -22,7 +23,7 @@ namespace Bookids.Forms
 
         public void refresh()
         {
-            listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores();
+            listBoxAnimadores.DataSource = repoAnimadores.GetAnimadores();
         }
 
         private void GestaoAnimador_Load(object sender, EventArgs e)
@@ -59,7 +60,7 @@ namespace Bookids.Forms
 
         private void panelBotaoPesquisa_Click(object sender, EventArgs e)
         {
-            listBoxAnimadores.DataSource = RepoAnimadores.SearchByName(textBoxPesquisa.Text);
+            listBoxAnimadores.DataSource = repoAnimadores.SearchByName(textBoxPesquisa.Text);
         }
 
         //Para Permitir apenas numeros quando a digitar nas Textbox
@@ -129,7 +130,7 @@ namespace Bookids.Forms
                             if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                             {
                                 Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);
-                                if (RepoAnimadores.AddAnimador(animador))
+                                if (repoAnimadores.AddAnimador(animador))
                                 {
                                     MessageBox.Show("Animador criado com sucesso");
 
@@ -173,7 +174,7 @@ namespace Bookids.Forms
                             {
                                 Animador animadorEditado = (Animador)listBoxAnimadores.SelectedItem;
                                 Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);
-                                if (RepoAnimadores.EditAnimador(animadorEditado.IdPessoa, animador))
+                                if (repoAnimadores.EditAnimador(animadorEditado.IdPessoa, animador))
                                 {
                                     MessageBox.Show("Editada com Sucesso");
                                     //Apagar campos do Form
@@ -219,7 +220,7 @@ namespace Bookids.Forms
             {
                 if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
                 {
-                    if (RepoAnimadores.RemoveAnimador(animador)) // Remove a escola
+                    if (repoAnimadores.RemoveAnimador(animador)) // Remove a escola
                     {
                         MessageBox.Show("Removida com Sucesso.");
                     }
@@ -228,7 +229,7 @@ namespace Bookids.Forms
                         MessageBox.Show("Ocorreu um erro ao tentar remover!");
                     }
                 }
-                listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores(); // Atualiza a lista de escolas
+                listBoxAnimadores.DataSource = repoAnimadores.GetAnimadores(); // Atualiza a lista de escolas
             }
             else
             {
@@ -238,7 +239,12 @@ namespace Bookids.Forms
 
         private void textBoxPesquisa_TextChanged(object sender, EventArgs e)
         {
-            listBoxAnimadores.DataSource = RepoAnimadores.SearchByName(textBoxPesquisa.Text);
+            listBoxAnimadores.DataSource = repoAnimadores.SearchByName(textBoxPesquisa.Text);
+        }
+
+        private void GestaoAnimador_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            repoAnimadores.Dispose();
         }
     }
 }

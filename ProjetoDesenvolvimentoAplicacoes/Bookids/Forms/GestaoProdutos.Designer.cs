@@ -142,14 +142,14 @@ namespace Bookids.Forms
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
             this.novoToolStripMenuItem1.Text = "Novo";
             this.novoToolStripMenuItem1.Click += new System.EventHandler(this.novoToolStripMenuItem1_Click);
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
             this.editarTiposToolStripMenuItem.Click += new System.EventHandler(this.editarTiposToolStripMenuItem_Click);
             // 
@@ -484,6 +484,7 @@ namespace Bookids.Forms
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GestaoProdutos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoProdutos_FormClosing);
             this.Load += new System.EventHandler(this.GestaoProdutos_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

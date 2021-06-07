@@ -97,11 +97,11 @@
     <Compile Include="Filho.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ExportarFileCompras.cs">
+    <Compile Include="Forms\ExportarFile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ExportarFileCompras.Designer.cs">
-      <DependentUpon>ExportarFileCompras.cs</DependentUpon>
+    <Compile Include="Forms\ExportarFile.Designer.cs">
+      <DependentUpon>ExportarFile.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormNovaCompra.cs">
       <SubType>Form</SubType>
@@ -173,14 +173,15 @@
     <Compile Include="Repositorios\RepositorioAnimadores.cs" />
     <Compile Include="Repositorios\RepositorioClientes.cs" />
     <Compile Include="Repositorios\RepositorioEscolas.cs" />
+    <Compile Include="Repositorios\RepositorioEventos.cs" />
     <Compile Include="Repositorios\RepositorioTipoProdutos.cs" />
     <Compile Include="Repositorios\RepositorioProdutos.cs" />
     <Compile Include="Repositorios\RepositorioFilhos.cs" />
     <Compile Include="TipoProduto.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\ExportarFileCompras.resx">
-      <DependentUpon>ExportarFileCompras.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ExportarFile.resx">
+      <DependentUpon>ExportarFile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormNovaCompra.resx">
       <DependentUpon>FormNovaCompra.cs</DependentUpon>

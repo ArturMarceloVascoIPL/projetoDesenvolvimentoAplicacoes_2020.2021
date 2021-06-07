@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bookids
 {
-    class RepositorioClientes
+    class RepositorioClientes : IDisposable
     {
         Model1Container model = new Model1Container();
 
@@ -45,6 +45,12 @@ namespace Bookids
             model.Pessoas.Remove(cliente);
             model.SaveChanges();
 
+        }
+
+        /* Fecha as ligacoes na base de dados e liberta os recursos do computador */
+        public void Dispose()
+        {
+            ((IDisposable)model).Dispose();
         }
     }
 }

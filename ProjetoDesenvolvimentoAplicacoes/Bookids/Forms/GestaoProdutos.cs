@@ -311,6 +311,12 @@ namespace Bookids.Forms
             textBoxDesignacao.Focus(); // Coloca o cursor no painel
         }
 
-        #endregion        
+        private void GestaoProdutos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            repoProdutos.Dispose();
+        }
+
+        #endregion
+
     }
 }

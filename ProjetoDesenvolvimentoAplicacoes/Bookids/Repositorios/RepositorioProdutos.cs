@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bookids
 {
-    class RepositorioProdutos
+    class RepositorioProdutos : IDisposable
     {
         Model1Container model = new Model1Container();
 
@@ -51,6 +51,12 @@ namespace Bookids
             return (from p in model.Produtos
                     where p.Designacao.Contains(nome)
                     select p).ToList<Produto>();
+        }
+
+        /* Fecha as ligacoes na base de dados e liberta os recursos do computador */
+        public void Dispose()
+        {
+            ((IDisposable)model).Dispose();
         }
     }
 }

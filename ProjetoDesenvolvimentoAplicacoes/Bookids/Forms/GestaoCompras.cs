@@ -26,5 +26,10 @@ namespace Bookids
         {
             Close();
         }
+
+        private void GestaoCompras_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }

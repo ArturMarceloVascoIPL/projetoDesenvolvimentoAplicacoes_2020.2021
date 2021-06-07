@@ -12,7 +12,7 @@ namespace Bookids.Forms
 {
     public partial class GestaoEscolas : Form
     {
-        RepositorioEscolas RepoEscolas = new RepositorioEscolas(); // Instancia o repositorio das escolas
+        RepositorioEscolas repoEscolas = new RepositorioEscolas(); // Instancia o repositorio das escolas
 
         bool editar = true; // Variavel para verificar se vai editar(true) ou criar(false) a escola
 
@@ -23,17 +23,20 @@ namespace Bookids.Forms
 
         private void GestaoEscolas_Load(object sender, EventArgs e)
         {
-            listBoxEscolas.DataSource = RepoEscolas.GetEscolas();
+            listBoxEscolas.DataSource = repoEscolas.GetEscolas();
 
-            toolTipPesquisa.SetToolTip(buttonPesquisarEscolas, "Case Sensitive");
             toolTipRefresh.SetToolTip(buttonRefresh, "Atualizar Lista");
         }
+
+        #region GestaoEscola
 
         /* Desbloqueia e Limpa o painel para inserir os dados da nova escola */
         private void buttonNovo_Click(object sender, EventArgs e)
         {
             editar = false; // Mete 'editar' a falso pois nao vai editar
 
+            labelEscola.Text = "Nova Escola";
+            buttonGuardarEscola.Text = "Criar";
             panelEscola.Enabled = true; // Ativa o painel
 
             // Limpa o painel
@@ -53,6 +56,8 @@ namespace Bookids.Forms
         {
             editar = true; // Mete 'editar' a verdadeiro pois vai editar
 
+            labelEscola.Text = "Editar Escola";
+            buttonGuardarEscola.Text = "Guardar";
             panelEscola.Enabled = true; // Ativa o painel
 
             textBoxNome.Focus(); // Coloca o cursor no painel
@@ -67,17 +72,19 @@ namespace Bookids.Forms
             {
                 if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
                 {
-                    if (RepoEscolas.RemoveEscola(escola)) // Remove a escola
+                    try
                     {
+                        repoEscolas.RemoveEscola(escola); // Remove a escola
                         MessageBox.Show("Removida com Sucesso.");
                     }
-                    else
+                    catch (Exception err)
                     {
-                        MessageBox.Show("Ocorreu um erro ao tentar remover!");
+                        MessageBox.Show($"Ocorreu um erro ao tentar remover!\n{err.Message}");
                     }
+
                 }
 
-                listBoxEscolas.DataSource = RepoEscolas.GetEscolas(); // Atualiza a lista de escolas
+                listBoxEscolas.DataSource = repoEscolas.GetEscolas(); // Atualiza a lista de escolas
             }
             else
             {
@@ -95,22 +102,23 @@ namespace Bookids.Forms
             {
                 Escola escolaEditada = (Escola)listBoxEscolas.SelectedItem; // Guarda a escola selecionada
 
-                RepoEscolas.EditEscola(escolaEditada.IdEscola, escola); // Edita a escola
+                repoEscolas.EditEscola(escolaEditada.IdEscola, escola); // Edita a escola
                 MessageBox.Show("Editada com Sucesso.");
             }
             else
             {
-                if (RepoEscolas.AddEscola(escola)) // Cria a escola
+                try
                 {
+                    repoEscolas.AddEscola(escola); // Cria a escola                
                     MessageBox.Show("Criada com Sucesso.");
                 }
-                else
+                catch (Exception err)
                 {
-                    MessageBox.Show("Ocorreu um erro ao tentar criar a escola!");
+                    MessageBox.Show($"Ocorreu um erro ao tentar criar a escola!\n{err.Message}");
                 }
             }
 
-            listBoxEscolas.DataSource = RepoEscolas.GetEscolas(); // Atualiza a lista de escolas
+            listBoxEscolas.DataSource = repoEscolas.GetEscolas(); // Atualiza a lista de escolas
         }
 
         /* Bloqueia o painel e Apresenta os dados da escola */
@@ -129,39 +137,52 @@ namespace Bookids.Forms
             textBoxEmail.Text = escola.Email;
 
             // Apresenta os alunos
-            if (escola.Filhos.ToList<Filho>() != null)
+            try
             {
                 listBoxAlunos.DataSource = escola.Filhos.ToList<Filho>();
             }
+            catch (Exception)
+            {
+
+            }
 
             // Apresenta os eventos planeados
-            listBoxEventos.DataSource = RepoEscolas.GetEventos(escola.IdEscola);
+            listBoxEventos.DataSource = repoEscolas.GetEventos(escola.IdEscola);
         }
 
-        /* Pesquisar as escolas por nome */
-        private void buttonPesquisarEscolas_Click(object sender, EventArgs e)
-        {
-            listBoxEscolas.DataSource = RepoEscolas.SearchByName(textBoxPesquisaEscolas.Text);
-        }
 
         /* Atualizar lista ou Limpar a pesquisa */
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
-            listBoxEscolas.DataSource = RepoEscolas.GetEscolas();
+            listBoxEscolas.DataSource = repoEscolas.GetEscolas();
         }
 
         /* Apenas permitir inserir numeros no campo do numero de telefone */
         private void textBoxTelefone_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
-            }            
+            }
         }
+        
+        /* Pesquisa escolas pelo NOME */
+        private void textBoxPesquisaEscolas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            listBoxEscolas.DataSource = repoEscolas.SearchByName(textBoxPesquisaEscolas.Text);
+        }
+
+        #endregion
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+        private void GestaoEscolas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            repoEscolas.Dispose();
+        }
+
     }
 }

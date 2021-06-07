@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bookids
 {
-    class RepositorioAnimadores
+    class RepositorioAnimadores : IDisposable
     {
         Model1Container model = new Model1Container();
-
-        public RepositorioAnimadores()
-        {
-            
-        }
 
         public List<Animador> GetAnimadores()
         {
@@ -85,5 +80,10 @@ namespace Bookids
             where animador.Nome.Contains(nome) select animador).ToList<Animador>();
         }
 
+        /* Fecha as ligacoes na base de dados e liberta os recursos do computador */
+        public void Dispose()
+        {
+            ((IDisposable)model).Dispose();
+        }
     }
 }
