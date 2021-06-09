@@ -39,7 +39,7 @@ namespace Bookids.Forms
         private void listBoxAnimadores_SelectedIndexChanged(object sender, EventArgs e)
         {
             panelAnimador.Enabled = false;
-            labelAnimador.Text = "Animador Detalhes";
+            labelAnimador.Text = "Animador";
 
             Animador animador = (Animador)listBoxAnimadores.SelectedItem;
 
@@ -78,7 +78,8 @@ namespace Bookids.Forms
         {
             editar = false;
             panelAnimador.Enabled = true;
-            labelAnimador.Text = "Animador Novo";
+            labelAnimador.Text = "Novo Animador";
+            buttonGuardar.Text = "Criar";
 
             //Apagar campos do Form
             foreach (var control in panelAnimador.Controls)
@@ -162,7 +163,7 @@ namespace Bookids.Forms
             else
             {
                 // Confirmacao para guardar
-                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Guardar Animador ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //Verificacao se Tem os campos todos Preenchidos
                     foreach (Control c in panelAnimador.Controls)
@@ -176,7 +177,7 @@ namespace Bookids.Forms
                                 Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);
                                 if (repoAnimadores.EditAnimador(animadorEditado.IdPessoa, animador))
                                 {
-                                    MessageBox.Show("Editada com Sucesso");
+                                    MessageBox.Show("Editado com Sucesso");
                                     //Apagar campos do Form
                                     foreach (var control in panelAnimador.Controls)
                                     {
@@ -188,7 +189,7 @@ namespace Bookids.Forms
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Ocorreu um erro ao tentar criar o Animador!");
+                                    MessageBox.Show("Ocorreu um erro ao tentar editar!");
                                     break;
                                 }
                             }

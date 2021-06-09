@@ -28,7 +28,8 @@ namespace Bookids.Forms
         }
 
 
-        #region Manipulacao Janela
+        #region MiscEvents
+
         private void GestaoClienteFilhos_Load(object sender, EventArgs e)
         {
             refreshListas();
@@ -97,24 +98,17 @@ namespace Bookids.Forms
         private void listBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
-            listBoxFilhos.DataSource = cliente.Filhos.ToList();
 
-            if (cliente != null && listBoxFilhos.Items.Count > 0)
+            if (cliente != null)
             {
+                listBoxFilhos.DataSource = cliente.Filhos.ToList();
+
                 buttonEditarCliente.Enabled = true;
                 buttonApagarCliente.Enabled = true;
 
-                buttonEditarFilho.Enabled = true;
-                buttonApagarFilho.Enabled = true;
-
-                panelFilhos.Enabled = true;
-
                 panelCliente.Enabled = false;
-                panelFilho.Enabled = false;
 
-                labelCliente.Text = "Cliente Detalhes";
-
-                textBoxNomeCliente.Focus();
+                labelCliente.Text = "Detalhes do Cliente";
 
                 textBoxNomeCliente.Text = cliente.Nome;
                 textBoxMorada.Text = cliente.Morada;
@@ -123,9 +117,28 @@ namespace Bookids.Forms
                 textBoxEmail.Text = cliente.Email;
                 textBoxTelemovel.Text = Convert.ToString(cliente.Telemovel);
                 textBoxTelefone.Text = Convert.ToString(cliente.Telefone);
+                if (cliente.NumCartao == 0)
+                {
+                    radioButtonNao.Checked = true;
+                }
+                else
+                {
+                    radioButtonSim.Checked = true;
+                    textBoxNumCartao.Text = Convert.ToString(cliente.NumCartao);
+                }
+
+                if (listBoxFilhos.Items.Count > 0)
+                {
+                    buttonEditarFilho.Enabled = true;
+                    buttonApagarFilho.Enabled = true;
+                }
             }
             else
             {
+                buttonEditarCliente.Enabled = false;
+                buttonApagarCliente.Enabled = false;
+
+                buttonNovoFilho.Enabled = false;
                 buttonEditarFilho.Enabled = false;
                 buttonApagarFilho.Enabled = false;
             }
@@ -142,7 +155,7 @@ namespace Bookids.Forms
 
             textBoxNomeCliente.Focus();
 
-            //Apagar as textbox
+            // Limpar as textbox
             foreach (var control in panelCliente.Controls)
             {
                 if (control is TextBox)
@@ -268,10 +281,14 @@ namespace Bookids.Forms
 
         private void buttonEditarCliente_Click(object sender, EventArgs e)
         {
+            editarCliente = true;
+
             panelCliente.Enabled = true;
             panelFilho.Enabled = false;
-            editarCliente = true;
-            labelCliente.Text = "Cliente Editar";
+
+            buttonNovoFilho.Enabled = true;
+
+            labelCliente.Text = "Editar Cliente";
 
             Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
 
@@ -352,11 +369,13 @@ namespace Bookids.Forms
 
         private void buttonNovoFilho_Click(object sender, EventArgs e)
         {
-            panelFilho.Enabled = true;
-            panelCliente.Enabled = false;
             editarFilho = false;
 
+            panelFilho.Enabled = true;
+            panelCliente.Enabled = false;
+
             labelFilho.Text = "Filho Novo";
+            buttonGuardarFilho.Text = "Criar";
 
             textBoxNomeCliente.Focus();
 
@@ -370,10 +389,13 @@ namespace Bookids.Forms
 
         private void buttonEditarFilho_Click(object sender, EventArgs e)
         {
+            editarFilho = true;
+
             panelFilho.Enabled = true;
             panelCliente.Enabled = false;
-            editarFilho = true;
-            labelFilho.Text = "Filho Editar";
+
+            labelFilho.Text = "Editar Filho";
+            buttonGuardarFilho.Text = "Guardar";
 
             Filho filho = (Filho)listBoxFilhos.SelectedItem;
 
@@ -519,9 +541,9 @@ namespace Bookids.Forms
 
         private void buttonApagarFilho_Click(object sender, EventArgs e)
         {
-            Filho filho = (Filho)listBoxFilhos.SelectedItem; // Guarda o cliente selecionado
+            Filho filho = (Filho)listBoxFilhos.SelectedItem; // Guarda o filho selecionado
 
-            if (filho != null) // Verifica se o cliente nao é null
+            if (filho != null) // Verifica se o filho não é null
             {
                 if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
                 {
@@ -554,6 +576,7 @@ namespace Bookids.Forms
                 panelConfirmacoes.Enabled = false;
 
         }
+
         #endregion
 
         private void GestaoClienteFilhos_FormClosing(object sender, FormClosingEventArgs e)

@@ -40,7 +40,7 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarTiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelEvento = new System.Windows.Forms.Label();
-            this.btnExportFichaInsc = new System.Windows.Forms.Button();
+            this.buttonExportFichaInsc = new System.Windows.Forms.Button();
             this.dateTimePickerData = new System.Windows.Forms.DateTimePicker();
             this.panelAnimadores = new System.Windows.Forms.Panel();
             this.comboBoxAnimadores = new System.Windows.Forms.ComboBox();
@@ -181,17 +181,17 @@ namespace Bookids.Forms
             this.labelEvento.TabIndex = 23;
             this.labelEvento.Text = "Evento";
             // 
-            // btnExportFichaInsc
+            // buttonExportFichaInsc
             // 
-            this.btnExportFichaInsc.BackColor = System.Drawing.Color.LightGreen;
-            this.btnExportFichaInsc.Location = new System.Drawing.Point(6, 133);
-            this.btnExportFichaInsc.Margin = new System.Windows.Forms.Padding(2);
-            this.btnExportFichaInsc.Name = "btnExportFichaInsc";
-            this.btnExportFichaInsc.Size = new System.Drawing.Size(100, 52);
-            this.btnExportFichaInsc.TabIndex = 51;
-            this.btnExportFichaInsc.Text = "Criar/Exportar Ficha de Inscrição";
-            this.btnExportFichaInsc.UseVisualStyleBackColor = false;
-            this.btnExportFichaInsc.Click += new System.EventHandler(this.btnExportFichaInsc_Click);
+            this.buttonExportFichaInsc.BackColor = System.Drawing.Color.Gold;
+            this.buttonExportFichaInsc.Location = new System.Drawing.Point(14, 331);
+            this.buttonExportFichaInsc.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonExportFichaInsc.Name = "buttonExportFichaInsc";
+            this.buttonExportFichaInsc.Size = new System.Drawing.Size(100, 52);
+            this.buttonExportFichaInsc.TabIndex = 51;
+            this.buttonExportFichaInsc.Text = "Criar/Exportar Ficha de Inscrição";
+            this.buttonExportFichaInsc.UseVisualStyleBackColor = false;
+            this.buttonExportFichaInsc.Click += new System.EventHandler(this.btnExportFichaInsc_Click);
             // 
             // dateTimePickerData
             // 
@@ -227,6 +227,8 @@ namespace Bookids.Forms
             // 
             // buttonRemoverAnimador
             // 
+            this.buttonRemoverAnimador.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonRemoverAnimador.ForeColor = System.Drawing.Color.White;
             this.buttonRemoverAnimador.Location = new System.Drawing.Point(243, 140);
             this.buttonRemoverAnimador.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRemoverAnimador.Name = "buttonRemoverAnimador";
@@ -234,9 +236,11 @@ namespace Bookids.Forms
             this.buttonRemoverAnimador.TabIndex = 20;
             this.buttonRemoverAnimador.Text = "Remover";
             this.buttonRemoverAnimador.UseVisualStyleBackColor = false;
+            this.buttonRemoverAnimador.Click += new System.EventHandler(this.buttonRemoverAnimador_Click);
             // 
             // buttonAdicionarAnimador
             // 
+            this.buttonAdicionarAnimador.BackColor = System.Drawing.Color.LightGreen;
             this.buttonAdicionarAnimador.Location = new System.Drawing.Point(169, 140);
             this.buttonAdicionarAnimador.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdicionarAnimador.Name = "buttonAdicionarAnimador";
@@ -244,6 +248,7 @@ namespace Bookids.Forms
             this.buttonAdicionarAnimador.TabIndex = 18;
             this.buttonAdicionarAnimador.Text = "Adicionar";
             this.buttonAdicionarAnimador.UseVisualStyleBackColor = false;
+            this.buttonAdicionarAnimador.Click += new System.EventHandler(this.buttonAdicionarAnimador_Click);
             // 
             // listBoxAnimadores
             // 
@@ -290,6 +295,8 @@ namespace Bookids.Forms
             // 
             // buttonRemoverEscola
             // 
+            this.buttonRemoverEscola.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonRemoverEscola.ForeColor = System.Drawing.Color.White;
             this.buttonRemoverEscola.Location = new System.Drawing.Point(243, 140);
             this.buttonRemoverEscola.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRemoverEscola.Name = "buttonRemoverEscola";
@@ -297,9 +304,11 @@ namespace Bookids.Forms
             this.buttonRemoverEscola.TabIndex = 20;
             this.buttonRemoverEscola.Text = "Remover";
             this.buttonRemoverEscola.UseVisualStyleBackColor = false;
+            this.buttonRemoverEscola.Click += new System.EventHandler(this.buttonRemoverEscola_Click);
             // 
             // buttonAdicionarEscola
             // 
+            this.buttonAdicionarEscola.BackColor = System.Drawing.Color.LightGreen;
             this.buttonAdicionarEscola.Location = new System.Drawing.Point(169, 140);
             this.buttonAdicionarEscola.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAdicionarEscola.Name = "buttonAdicionarEscola";
@@ -307,6 +316,7 @@ namespace Bookids.Forms
             this.buttonAdicionarEscola.TabIndex = 18;
             this.buttonAdicionarEscola.Text = "Adicionar";
             this.buttonAdicionarEscola.UseVisualStyleBackColor = false;
+            this.buttonAdicionarEscola.Click += new System.EventHandler(this.buttonAdicionarEscola_Click);
             // 
             // listBoxEscolas
             // 
@@ -335,6 +345,7 @@ namespace Bookids.Forms
             this.panelParticipantes.Controls.Add(this.buttonExportInscritos);
             this.panelParticipantes.Controls.Add(this.listBoxParticipantes);
             this.panelParticipantes.Controls.Add(this._labelParticipantes);
+            this.panelParticipantes.Controls.Add(this.buttonExportFichaInsc);
             this.panelParticipantes.Enabled = false;
             this.panelParticipantes.Location = new System.Drawing.Point(1051, 40);
             this.panelParticipantes.Margin = new System.Windows.Forms.Padding(2);
@@ -363,12 +374,13 @@ namespace Bookids.Forms
             // 
             // buttonExportInscritos
             // 
-            this.buttonExportInscritos.Location = new System.Drawing.Point(14, 331);
+            this.buttonExportInscritos.BackColor = System.Drawing.Color.Gold;
+            this.buttonExportInscritos.Location = new System.Drawing.Point(223, 331);
             this.buttonExportInscritos.Margin = new System.Windows.Forms.Padding(2);
             this.buttonExportInscritos.Name = "buttonExportInscritos";
             this.buttonExportInscritos.Size = new System.Drawing.Size(100, 52);
             this.buttonExportInscritos.TabIndex = 20;
-            this.buttonExportInscritos.Text = "Exportar";
+            this.buttonExportInscritos.Text = "Exportar Lista de Participantes";
             this.buttonExportInscritos.UseVisualStyleBackColor = false;
             this.buttonExportInscritos.Click += new System.EventHandler(this.btnExportInscritos_Click);
             // 
@@ -407,7 +419,8 @@ namespace Bookids.Forms
             // 
             // buttonApagarEvento
             // 
-            this.buttonApagarEvento.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonApagarEvento.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonApagarEvento.ForeColor = System.Drawing.Color.White;
             this.buttonApagarEvento.Location = new System.Drawing.Point(224, 367);
             this.buttonApagarEvento.Margin = new System.Windows.Forms.Padding(2);
             this.buttonApagarEvento.Name = "buttonApagarEvento";
@@ -415,6 +428,7 @@ namespace Bookids.Forms
             this.buttonApagarEvento.TabIndex = 3;
             this.buttonApagarEvento.Text = "Apagar";
             this.buttonApagarEvento.UseVisualStyleBackColor = false;
+            this.buttonApagarEvento.Click += new System.EventHandler(this.buttonApagarEvento_Click);
             // 
             // buttonEditar
             // 
@@ -477,7 +491,6 @@ namespace Bookids.Forms
             this.panelEvento.Controls.Add(this.textBoxIdadeMin);
             this.panelEvento.Controls.Add(this._labelIdadeMin);
             this.panelEvento.Controls.Add(this._labelIdades);
-            this.panelEvento.Controls.Add(this.btnExportFichaInsc);
             this.panelEvento.Controls.Add(this.textBoxTipoEvento);
             this.panelEvento.Controls.Add(this.buttonGuardarEvento);
             this.panelEvento.Controls.Add(this._labelDescrição);
@@ -500,6 +513,7 @@ namespace Bookids.Forms
             // 
             this.textBoxIdadeMax.Location = new System.Drawing.Point(301, 107);
             this.textBoxIdadeMax.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxIdadeMax.MaxLength = 3;
             this.textBoxIdadeMax.Name = "textBoxIdadeMax";
             this.textBoxIdadeMax.Size = new System.Drawing.Size(86, 20);
             this.textBoxIdadeMax.TabIndex = 56;
@@ -520,6 +534,7 @@ namespace Bookids.Forms
             // 
             this.textBoxIdadeMin.Location = new System.Drawing.Point(301, 83);
             this.textBoxIdadeMin.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxIdadeMin.MaxLength = 3;
             this.textBoxIdadeMin.Name = "textBoxIdadeMin";
             this.textBoxIdadeMin.Size = new System.Drawing.Size(86, 20);
             this.textBoxIdadeMin.TabIndex = 54;
@@ -551,7 +566,6 @@ namespace Bookids.Forms
             // 
             this.textBoxTipoEvento.Location = new System.Drawing.Point(108, 59);
             this.textBoxTipoEvento.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxTipoEvento.MaxLength = 9;
             this.textBoxTipoEvento.Name = "textBoxTipoEvento";
             this.textBoxTipoEvento.Size = new System.Drawing.Size(279, 20);
             this.textBoxTipoEvento.TabIndex = 6;
@@ -565,6 +579,7 @@ namespace Bookids.Forms
             this.buttonGuardarEvento.TabIndex = 44;
             this.buttonGuardarEvento.Text = "Guardar";
             this.buttonGuardarEvento.UseVisualStyleBackColor = false;
+            this.buttonGuardarEvento.Click += new System.EventHandler(this.buttonGuardarEvento_Click);
             // 
             // _labelDescrição
             // 
@@ -625,6 +640,7 @@ namespace Bookids.Forms
             // 
             this.textBoxMaxParticipantes.Location = new System.Drawing.Point(139, 83);
             this.textBoxMaxParticipantes.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxMaxParticipantes.MaxLength = 5;
             this.textBoxMaxParticipantes.Name = "textBoxMaxParticipantes";
             this.textBoxMaxParticipantes.Size = new System.Drawing.Size(59, 20);
             this.textBoxMaxParticipantes.TabIndex = 7;
@@ -681,8 +697,10 @@ namespace Bookids.Forms
             this.MaximizeBox = false;
             this.Name = "GestaoEventos";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestao de Eventos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoEventos_FormClosing);
+            this.Load += new System.EventHandler(this.GestaoEventos_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelAnimadores.ResumeLayout(false);
@@ -712,7 +730,7 @@ namespace Bookids.Forms
         private System.Windows.Forms.ToolStripMenuItem editarTiposToolStripMenuItem;
         private System.Windows.Forms.Label labelEvento;
         private System.Windows.Forms.DateTimePicker dateTimePickerData;
-        private System.Windows.Forms.Button btnExportFichaInsc;
+        private System.Windows.Forms.Button buttonExportFichaInsc;
         private System.Windows.Forms.Panel panelAnimadores;
         private System.Windows.Forms.Button buttonRemoverAnimador;
         private System.Windows.Forms.Button buttonAdicionarAnimador;

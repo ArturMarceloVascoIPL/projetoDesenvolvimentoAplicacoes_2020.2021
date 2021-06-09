@@ -68,7 +68,7 @@ namespace Bookids.Forms
         {
             Escola escola = (Escola)listBoxEscolas.SelectedItem; // Guarda a escola selecionada
 
-            if (escola != null) // Verifica se a escola nao e' null
+            if (escola != null) // Verifica se a escola não é null
             {
                 if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
                 {
@@ -81,7 +81,6 @@ namespace Bookids.Forms
                     {
                         MessageBox.Show($"Ocorreu um erro ao tentar remover!\n{err.Message}");
                     }
-
                 }
 
                 listBoxEscolas.DataSource = repoEscolas.GetEscolas(); // Atualiza a lista de escolas

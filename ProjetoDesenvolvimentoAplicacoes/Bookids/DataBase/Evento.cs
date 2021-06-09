@@ -21,7 +21,7 @@ namespace Bookids
 
         public override string ToString()
         {
-            return $"{Descricao}, {Local}, {DataHora}, {Inscricoes.Count}/{LimiteParticipacao}";
+            return $"{Descricao}, {Local}, {Inscricoes.Count}/{LimiteParticipacao}";
         }
     }
 }

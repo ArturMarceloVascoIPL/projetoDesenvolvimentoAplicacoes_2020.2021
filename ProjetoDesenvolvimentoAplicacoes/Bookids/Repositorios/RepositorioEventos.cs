@@ -10,10 +10,12 @@ namespace Bookids
     {
         Model1Container model = new Model1Container();
 
+        #region GetFunctions
+
         /* Retorna em Lista todos os dados dos Eventos */
         public List<Evento> GetEventos()
         {
-            return model.Eventos.ToList<Evento>();
+            return model.Eventos.ToList();
         }
 
         /* Retorna em Lista todas as Escolas que participam no Evento */
@@ -35,6 +37,20 @@ namespace Bookids
                     where c.IdEvento == id
                     select a).ToList<Pessoa>();
         }
+
+        /* Retorna em Lista todos os Filhos confirmados que participam no Evento */
+        public List<Pessoa> GetParticipantes(int id)
+        {
+            return (from i in model.Inscricoes
+                    join a in model.Pessoas.Where(a => a is Filho).Select(a => a)
+                    on i.IdFilho equals a.IdPessoa
+                    where i.IdEvento == id && i.Confirmada == true
+                    select a).ToList<Pessoa>();
+        } 
+
+        #endregion
+
+        #region Eventos
 
         public void AddEvento(Evento evento)
         {
@@ -64,6 +80,8 @@ namespace Bookids
 
             model.SaveChanges();
         }
+
+        #endregion
 
         public void Dispose()
         {

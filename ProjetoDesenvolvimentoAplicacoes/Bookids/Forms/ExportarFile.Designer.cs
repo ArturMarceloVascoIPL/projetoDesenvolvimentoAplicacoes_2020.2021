@@ -47,6 +47,7 @@ namespace Bookids.Forms
             this.buttonPdf.TabIndex = 2;
             this.buttonPdf.Text = "PDF";
             this.buttonPdf.UseVisualStyleBackColor = false;
+            this.buttonPdf.Click += new System.EventHandler(this.buttonPdf_Click);
             this.buttonPdf.MouseEnter += new System.EventHandler(this.buttonPdf_MouseEnter);
             this.buttonPdf.MouseLeave += new System.EventHandler(this.buttonPdf_MouseLeave);
             // 
@@ -88,6 +89,10 @@ namespace Bookids.Forms
             this.buttonClose.Text = "X";
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
+            // saveFileDialogExport
+            // 
+            this.saveFileDialogExport.FileName = "ExportFile";
             // 
             // ExportarFile
             // 

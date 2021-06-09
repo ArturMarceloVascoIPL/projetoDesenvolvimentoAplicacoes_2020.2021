@@ -613,7 +613,7 @@ namespace Bookids.Forms
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(118, 151);
+            this.label12.Location = new System.Drawing.Point(112, 151);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(79, 20);
@@ -624,7 +624,7 @@ namespace Bookids.Forms
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(85, 208);
+            this.label13.Location = new System.Drawing.Point(75, 208);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(116, 20);
@@ -664,6 +664,7 @@ namespace Bookids.Forms
             this.buttonParticipa.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttonParticipa.BackgroundImage = global::Bookids.Properties.Resources.baseline_arrow_upward_black_24dp;
             this.buttonParticipa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonParticipa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonParticipa.Location = new System.Drawing.Point(24, 150);
             this.buttonParticipa.Margin = new System.Windows.Forms.Padding(2);
             this.buttonParticipa.Name = "buttonParticipa";
@@ -675,6 +676,7 @@ namespace Bookids.Forms
             this.buttonNaoParticipa.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.buttonNaoParticipa.BackgroundImage = global::Bookids.Properties.Resources.baseline_arrow_downward_black_24dp;
             this.buttonNaoParticipa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonNaoParticipa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonNaoParticipa.Location = new System.Drawing.Point(24, 194);
             this.buttonNaoParticipa.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNaoParticipa.Name = "buttonNaoParticipa";
@@ -691,7 +693,6 @@ namespace Bookids.Forms
             this.panelFilhos.Controls.Add(this.textBoxPesquisaFilhos);
             this.panelFilhos.Controls.Add(this.buttonConfirmacoes);
             this.panelFilhos.Controls.Add(this.buttonPesquisarFilhos);
-            this.panelFilhos.Enabled = false;
             this.panelFilhos.Location = new System.Drawing.Point(328, 29);
             this.panelFilhos.Margin = new System.Windows.Forms.Padding(2);
             this.panelFilhos.Name = "panelFilhos";
@@ -701,6 +702,7 @@ namespace Bookids.Forms
             // buttonApagarFilho
             // 
             this.buttonApagarFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonApagarFilho.Enabled = false;
             this.buttonApagarFilho.Location = new System.Drawing.Point(215, 335);
             this.buttonApagarFilho.Margin = new System.Windows.Forms.Padding(2);
             this.buttonApagarFilho.Name = "buttonApagarFilho";
@@ -724,6 +726,7 @@ namespace Bookids.Forms
             // buttonEditarFilho
             // 
             this.buttonEditarFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditarFilho.Enabled = false;
             this.buttonEditarFilho.Location = new System.Drawing.Point(110, 335);
             this.buttonEditarFilho.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditarFilho.Name = "buttonEditarFilho";
@@ -746,6 +749,7 @@ namespace Bookids.Forms
             // buttonNovoFilho
             // 
             this.buttonNovoFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonNovoFilho.Enabled = false;
             this.buttonNovoFilho.Location = new System.Drawing.Point(6, 335);
             this.buttonNovoFilho.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNovoFilho.Name = "buttonNovoFilho";

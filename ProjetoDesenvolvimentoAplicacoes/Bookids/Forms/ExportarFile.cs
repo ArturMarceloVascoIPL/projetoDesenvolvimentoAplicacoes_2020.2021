@@ -17,23 +17,36 @@ namespace Bookids.Forms
         bool listaInsc = false;
         bool faturaVenda = false;
 
-        string descEvento;
-        string local;
+        Evento evento;
+        List<Pessoa> listaParticipantes;
 
         public ExportarFile()
         {
-            InitializeComponent();
+
         }
 
-        public ExportarFile(bool fichaInscricao, string descricaoEvento, string localizacao)
+        public ExportarFile(Evento evento)
         {
+            fichaInsc = true;
+            listaInsc = false;
+            faturaVenda = false;
+
+            this.evento = evento;
+
             InitializeComponent();
-
-            this.fichaInsc = fichaInscricao;
-
-            this.descEvento = descricaoEvento;
-            this.local = localizacao;
         }
+
+        public ExportarFile(List<Pessoa> listaParticipantes)
+        {
+            fichaInsc = false;
+            listaInsc = true;
+            faturaVenda = false;
+
+            this.listaParticipantes = listaParticipantes;
+
+            InitializeComponent();
+        }
+
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
@@ -80,7 +93,7 @@ namespace Bookids.Forms
             {
                 try
                 {
-                    string[] fileContent = new string[] { $"Evento: {descEvento}", $"Local: {local}", "\nFicha de Inscrição\n\nNome do Parente:\nNome do Filho:\n\nParticipa?\nSim__ Nao__" };
+                    string[] fileContent = new string[] { "Ficha de Incrição\n", $"Evento: {evento.Descricao}", $"Local: {evento.Local}", $"Tipo de Evento: {evento.TipoEvento}", "\nNome do Parente:\nNome do Filho:\n\nParticipa?\nSim__ Nao__" };
 
                     using (StreamWriter outputfile = new StreamWriter(filePath))
                     {
@@ -101,7 +114,24 @@ namespace Bookids.Forms
             {
                 if (listaInsc == true)
                 {
+                    try
+                    {
+                        using (StreamWriter outputfile = new StreamWriter(filePath))
+                        {
+                            outputfile.WriteLine("Lista de Participantes:\n");
 
+                            foreach (var item in listaParticipantes)
+                            {
+                                outputfile.WriteLine(item);
+                            }
+                        }
+
+                        MessageBox.Show($"Guardado com Sucesso em\n{filePath}", "Ficheiro Guardado");
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show($"Ocorreu um erro ao guardar o ficheiro!\n{err.Message}", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
@@ -116,6 +146,11 @@ namespace Bookids.Forms
                     }
                 }
             }
+        }
+
+        private void buttonPdf_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
