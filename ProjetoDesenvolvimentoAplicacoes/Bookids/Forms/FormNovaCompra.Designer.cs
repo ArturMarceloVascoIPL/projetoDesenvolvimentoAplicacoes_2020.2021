@@ -42,11 +42,12 @@ namespace Bookids
             this.panelCardYes = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.buttonInserir = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.buttonRetirar = new System.Windows.Forms.Panel();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +79,7 @@ namespace Bookids
             this.textBoxSearchClientes.Name = "textBoxSearchClientes";
             this.textBoxSearchClientes.Size = new System.Drawing.Size(219, 22);
             this.textBoxSearchClientes.TabIndex = 28;
+            this.textBoxSearchClientes.TextChanged += new System.EventHandler(this.textBoxSearchClientes_TextChanged);
             // 
             // listaProdutos
             // 
@@ -167,14 +169,15 @@ namespace Bookids
             this.panel5.Size = new System.Drawing.Size(50, 50);
             this.panel5.TabIndex = 32;
             // 
-            // panel4
+            // buttonInserir
             // 
-            this.panel4.BackgroundImage = global::Bookids.Properties.Resources.baseline_arrow_forward_black_24dp;
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel4.Location = new System.Drawing.Point(261, 228);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(37, 40);
-            this.panel4.TabIndex = 26;
+            this.buttonInserir.BackgroundImage = global::Bookids.Properties.Resources.baseline_arrow_forward_black_24dp;
+            this.buttonInserir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonInserir.Location = new System.Drawing.Point(261, 228);
+            this.buttonInserir.Name = "buttonInserir";
+            this.buttonInserir.Size = new System.Drawing.Size(37, 40);
+            this.buttonInserir.TabIndex = 26;
+            this.buttonInserir.Click += new System.EventHandler(this.buttonInserir_Click);
             // 
             // panel1
             // 
@@ -207,16 +210,27 @@ namespace Bookids
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // buttonRetirar
+            // 
+            this.buttonRetirar.BackgroundImage = global::Bookids.Properties.Resources.baseline_arrow_back_black_24dp;
+            this.buttonRetirar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonRetirar.Location = new System.Drawing.Point(261, 162);
+            this.buttonRetirar.Name = "buttonRetirar";
+            this.buttonRetirar.Size = new System.Drawing.Size(37, 40);
+            this.buttonRetirar.TabIndex = 36;
+            this.buttonRetirar.Click += new System.EventHandler(this.buttonRetirar_Click);
+            // 
             // FormNovaCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 522);
+            this.Controls.Add(this.buttonRetirar);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.labelHora);
             this.Controls.Add(this.labelData);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.buttonInserir);
             this.Controls.Add(this.listaCarrinho);
             this.Controls.Add(this.listaProdutos);
             this.Controls.Add(this.panel1);
@@ -246,7 +260,7 @@ namespace Bookids
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListBox listaProdutos;
         private System.Windows.Forms.ListBox listaCarrinho;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel buttonInserir;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label labelHora;
         private System.Windows.Forms.Label labelData;
@@ -255,5 +269,6 @@ namespace Bookids
         private System.Windows.Forms.Panel panelCardNo;
         private System.Windows.Forms.Panel panelCardYes;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel buttonRetirar;
     }
 }

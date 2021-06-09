@@ -59,6 +59,7 @@
     <Compile Include="Animador.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Carrinho.cs" />
     <Compile Include="Cliente.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
