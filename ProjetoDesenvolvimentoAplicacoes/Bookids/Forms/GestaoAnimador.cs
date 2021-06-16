@@ -53,11 +53,6 @@ namespace Bookids.Forms
             textBoxEspecialidade.Text = animador.Especialidade;
         }
 
-        private void buttonRefresh_Click(object sender, EventArgs e)
-        {
-            refresh();
-        }
-
         private void panelBotaoPesquisa_Click(object sender, EventArgs e)
         {
             listBoxAnimadores.DataSource = repoAnimadores.SearchByName(textBoxPesquisa.Text);
@@ -246,6 +241,11 @@ namespace Bookids.Forms
         private void GestaoAnimador_FormClosing(object sender, FormClosingEventArgs e)
         {
             repoAnimadores.Dispose();
+        }
+
+        private void panelRefresh_Click(object sender, EventArgs e)
+        {
+            refresh();
         }
     }
 }

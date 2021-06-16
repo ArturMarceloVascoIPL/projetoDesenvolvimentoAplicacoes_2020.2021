@@ -80,9 +80,9 @@ namespace Bookids.Forms
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panelConfirmacoes = new System.Windows.Forms.Panel();
+            this.buttonNaoParticipa = new System.Windows.Forms.Panel();
             this.buttonGuardarParticipacoes = new System.Windows.Forms.Button();
             this.buttonParticipa = new System.Windows.Forms.Panel();
-            this.buttonNaoParticipa = new System.Windows.Forms.Panel();
             this.panelFilhos = new System.Windows.Forms.Panel();
             this.buttonApagarFilho = new System.Windows.Forms.Button();
             this.l_labelFilhos = new System.Windows.Forms.Label();
@@ -648,6 +648,18 @@ namespace Bookids.Forms
             this.panelConfirmacoes.Size = new System.Drawing.Size(195, 380);
             this.panelConfirmacoes.TabIndex = 38;
             // 
+            // buttonNaoParticipa
+            // 
+            this.buttonNaoParticipa.BackColor = System.Drawing.Color.Brown;
+            this.buttonNaoParticipa.BackgroundImage = global::Bookids.Properties.Resources.baseline_arrow_downward_black_24dp;
+            this.buttonNaoParticipa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonNaoParticipa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonNaoParticipa.Location = new System.Drawing.Point(43, 173);
+            this.buttonNaoParticipa.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonNaoParticipa.Name = "buttonNaoParticipa";
+            this.buttonNaoParticipa.Size = new System.Drawing.Size(34, 34);
+            this.buttonNaoParticipa.TabIndex = 39;
+            // 
             // buttonGuardarParticipacoes
             // 
             this.buttonGuardarParticipacoes.BackColor = System.Drawing.SystemColors.Control;
@@ -672,18 +684,6 @@ namespace Bookids.Forms
             this.buttonParticipa.Name = "buttonParticipa";
             this.buttonParticipa.Size = new System.Drawing.Size(34, 34);
             this.buttonParticipa.TabIndex = 40;
-            // 
-            // buttonNaoParticipa
-            // 
-            this.buttonNaoParticipa.BackColor = System.Drawing.Color.Brown;
-            this.buttonNaoParticipa.BackgroundImage = global::Bookids.Properties.Resources.baseline_arrow_downward_black_24dp;
-            this.buttonNaoParticipa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonNaoParticipa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonNaoParticipa.Location = new System.Drawing.Point(43, 173);
-            this.buttonNaoParticipa.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonNaoParticipa.Name = "buttonNaoParticipa";
-            this.buttonNaoParticipa.Size = new System.Drawing.Size(34, 34);
-            this.buttonNaoParticipa.TabIndex = 39;
             // 
             // panelFilhos
             // 
@@ -781,7 +781,7 @@ namespace Bookids.Forms
             this.buttonConfirmacoes.TabIndex = 47;
             this.buttonConfirmacoes.Text = "Confirmações";
             this.buttonConfirmacoes.UseVisualStyleBackColor = false;
-            this.buttonConfirmacoes.Click += new System.EventHandler(this.buttonConfirmacoes_Click_1);
+            this.buttonConfirmacoes.Click += new System.EventHandler(this.buttonConfirmacoes_Click);
             // 
             // buttonPesquisarFilhos
             // 

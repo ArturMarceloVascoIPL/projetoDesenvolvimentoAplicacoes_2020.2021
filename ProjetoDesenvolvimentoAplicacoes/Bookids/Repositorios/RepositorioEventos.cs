@@ -18,24 +18,24 @@ namespace Bookids
             return model.Eventos.ToList();
         }
 
-        /* Retorna em Lista todas as Escolas que participam no Evento */
-        public List<Escola> GetEscolas(int id)
-        {
-            return (from p in model.Participacoes
-                    join e in model.Escolas
-                    on p.IdEscola equals e.IdEscola
-                    where p.IdEvento == id
-                    select e).ToList<Escola>();
-        }
-
         /* Retorna em Lista todos as Animadores que participam no Evento */
-        public List<Pessoa> GetAnimadores(int id)
+        public List<Pessoa> GetColaboradoresEvento(int id)
         {
             return (from c in model.Colaboracoes
                     join a in model.Pessoas.Where(a => a is Animador).Select(a => a)
                     on c.IdAnimador equals a.IdPessoa
                     where c.IdEvento == id
                     select a).ToList<Pessoa>();
+        }
+
+        /* Retorna em Lista todas as Escolas que participam no Evento */
+        public List<Escola> GetEscolasEvento(int id)
+        {
+            return (from p in model.Participacoes
+                    join e in model.Escolas
+                    on p.IdEscola equals e.IdEscola
+                    where p.IdEvento == id
+                    select e).ToList<Escola>();
         }
 
         /* Retorna em Lista todos os Filhos confirmados que participam no Evento */
@@ -46,7 +46,7 @@ namespace Bookids
                     on i.IdFilho equals a.IdPessoa
                     where i.IdEvento == id && i.Confirmada == true
                     select a).ToList<Pessoa>();
-        } 
+        }
 
         #endregion
 

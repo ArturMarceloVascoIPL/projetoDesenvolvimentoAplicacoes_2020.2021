@@ -20,7 +20,6 @@ namespace Bookids.Forms
         //Manipuacalo paneis
         bool editarCliente;
         bool editarFilho;
-        bool confirmPanel = false;
 
         public GestaoClienteFilhos()
         {
@@ -51,15 +50,6 @@ namespace Bookids.Forms
         {
             panelCliente.Enabled = true;
             panelFilho.Enabled = true;
-        }
-
-        private void buttonConfirmacoes_Click(object sender, EventArgs e)
-        {
-            if (!confirmPanel)
-                confirmPanel = true;
-            else
-                confirmPanel = false;
-
         }
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,6 +93,8 @@ namespace Bookids.Forms
             {
                 listBoxFilhos.DataSource = cliente.Filhos.ToList();
 
+                buttonNovoFilho.Enabled = true;
+
                 buttonEditarCliente.Enabled = true;
                 buttonApagarCliente.Enabled = true;
 
@@ -117,6 +109,7 @@ namespace Bookids.Forms
                 textBoxEmail.Text = cliente.Email;
                 textBoxTelemovel.Text = Convert.ToString(cliente.Telemovel);
                 textBoxTelefone.Text = Convert.ToString(cliente.Telefone);
+
                 if (cliente.NumCartao == 0)
                 {
                     radioButtonNao.Checked = true;
@@ -132,6 +125,8 @@ namespace Bookids.Forms
                     buttonEditarFilho.Enabled = true;
                     buttonApagarFilho.Enabled = true;
                 }
+
+                repoFilho.GetInscricoes(cliente.IdPessoa);
             }
             else
             {
@@ -348,16 +343,14 @@ namespace Bookids.Forms
                 textBoxNomeCliente.Focus();
 
                 textBoxNomeFilho.Text = filho.Nome;
-                dateTimePickerDataNascimento.Text = filho.DtaNascimento;
+                dateTimePickerDataNascimento.Value = filho.DtaNascimento;
                 if (filho.Sexo == "Masculino")
                     radioButtonMasculino.Checked = true;
                 else
                     radioButtonFeminino.Checked = true;
 
                 Escola escola = repoEscola.SearchById(filho.IdEscola);
-                comboBoxEscolas.Text = escola.Nome;
-
-                repoFilho.GetInscricoes(filho.IdPessoa);
+                comboBoxEscolas.Text = escola.Nome;                
 
                 if (filho.Inscricoes.Count > 0)
                 {
@@ -413,7 +406,7 @@ namespace Bookids.Forms
             else
                 radioButtonFeminino.Checked = true;
 
-            dateTimePickerDataNascimento.Text = filho.DtaNascimento;
+            dateTimePickerDataNascimento.Value = filho.DtaNascimento;
 
             Escola escola = repoEscola.SearchById(filho.IdEscola);
             comboBoxEscolas.Text = escola.Nome;
@@ -428,51 +421,48 @@ namespace Bookids.Forms
             {
                 Filho filho = new Filho();
 
-                if (MessageBox.Show("Guardar Filho?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                //Verificacao se Tem os campos todos Preenchidos
+                foreach (Control c in panelFilho.Controls)
                 {
-                    //Verificacao se Tem os campos todos Preenchidos
-                    foreach (Control c in panelFilho.Controls)
+                    if (c is TextBox)
                     {
-                        if (c is TextBox)
+                        TextBox textBox = c as TextBox;
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                         {
-                            TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
-                            {
-                                filho.Nome = textBoxNomeFilho.Text;
+                            filho.Nome = textBoxNomeFilho.Text;
 
-                                if (radioButtonMasculino.Checked)
-                                    filho.Sexo = "Masculino";
-                                else
-                                    filho.Sexo = "Feminino";
-
-                                filho.DtaNascimento = dateTimePickerDataNascimento.Text;
-
-                                Escola escola = (Escola)comboBoxEscolas.SelectedItem;
-                                filho.IdEscola = escola.IdEscola;
-
-                                filho.CodPostal = cliente.CodPostal;
-                                filho.Morada = cliente.Morada;
-                                filho.Localidade = cliente.Localidade;
-                                filho.Email = cliente.Email;
-                                filho.Telefone = cliente.Telefone;
-                                filho.Telemovel = cliente.Telemovel;
-                                filho.IdCliente = cliente.IdPessoa;
-
-                                try
-                                {
-                                    repoFilho.AddFilho(filho);
-                                    MessageBox.Show("Salvo com Sucesso.");
-                                }
-                                catch (Exception err)
-                                {
-                                    MessageBox.Show("Erro ao Salvar." + err.Message);
-                                }
-                            }
+                            if (radioButtonMasculino.Checked)
+                                filho.Sexo = "Masculino";
                             else
+                                filho.Sexo = "Feminino";
+
+                            filho.DtaNascimento = dateTimePickerDataNascimento.Value;
+
+                            Escola escola = (Escola)comboBoxEscolas.SelectedItem;
+                            filho.IdEscola = escola.IdEscola;
+
+                            filho.CodPostal = cliente.CodPostal;
+                            filho.Morada = cliente.Morada;
+                            filho.Localidade = cliente.Localidade;
+                            filho.Email = cliente.Email;
+                            filho.Telefone = cliente.Telefone;
+                            filho.Telemovel = cliente.Telemovel;
+                            filho.IdCliente = cliente.IdPessoa;
+
+                            try
                             {
-                                MessageBox.Show("Erro. Preencher Todos os Campos.");
-                                break;
+                                repoFilho.AddFilho(filho);
+                                MessageBox.Show("Salvo com Sucesso.");
                             }
+                            catch (Exception err)
+                            {
+                                MessageBox.Show("Erro ao Salvar." + err.Message);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro. Preencher Todos os Campos.");
+                            break;
                         }
                     }
                 }
@@ -497,7 +487,7 @@ namespace Bookids.Forms
                                 else
                                     filho.Sexo = "Feminino";
 
-                                filho.DtaNascimento = dateTimePickerDataNascimento.Text;
+                                filho.DtaNascimento = dateTimePickerDataNascimento.Value;
 
                                 Escola escola = (Escola)comboBoxEscolas.SelectedItem;
                                 filho.IdEscola = escola.IdEscola;
@@ -573,11 +563,6 @@ namespace Bookids.Forms
 
         }
 
-        private void buttonConfirmacoes_Click_1(object sender, EventArgs e)
-        {
-            panelConfirmacoes.Enabled = true;
-        }
-
         #endregion
 
         private void GestaoClienteFilhos_FormClosing(object sender, FormClosingEventArgs e)
@@ -589,10 +574,12 @@ namespace Bookids.Forms
 
         private void buttonGuardarParticipacoes_Click(object sender, EventArgs e)
         {
-            foreach (Filho filho in listBoxParticipa.Items)
-            {
+            panelConfirmacoes.Enabled = false;
+        }
 
-            }
+        private void buttonConfirmacoes_Click(object sender, EventArgs e)
+        {
+            panelConfirmacoes.Enabled = true;
         }
     }
 }

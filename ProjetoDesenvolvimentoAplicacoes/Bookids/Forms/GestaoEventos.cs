@@ -100,8 +100,8 @@ namespace Bookids.Forms
         {
             Evento evento = (Evento)listBoxEventos.SelectedItem;
 
-            listBoxAnimadores.DataSource = repoEventos.GetAnimadores(evento.IdEvento);
-            listBoxEscolas.DataSource = repoEventos.GetEscolas(evento.IdEvento);
+            listBoxAnimadores.DataSource = repoEventos.GetColaboradoresEvento(evento.IdEvento);
+            listBoxEscolas.DataSource = repoEventos.GetEscolasEvento(evento.IdEvento);
             listBoxParticipantes.DataSource = repoEventos.GetParticipantes(evento.IdEvento);
 
             textBoxDescricao.Text = evento.Descricao;
@@ -219,6 +219,12 @@ namespace Bookids.Forms
                 Colaboracao colaboracao = new Colaboracao(animador.IdPessoa, evento.IdEvento);
                 repoColaboracao.AddColaboracao(colaboracao);
             }
+
+            listBoxAnimadores.DataSource = repoEventos.GetColaboradoresEvento(evento.IdEvento);
+            listBoxEscolas.DataSource = repoEventos.GetEscolasEvento(evento.IdEvento);
+            listBoxParticipantes.DataSource = repoEventos.GetParticipantes(evento.IdEvento);
+
+            refreshListas();
         }
 
         private void buttonRemoverAnimador_Click(object sender, EventArgs e)
@@ -231,6 +237,11 @@ namespace Bookids.Forms
                 Colaboracao colaboracao = new Colaboracao(animador.IdPessoa, evento.IdEvento);
                 repoColaboracao.RemoveColaboracao(colaboracao);
             }
+
+            listBoxAnimadores.DataSource = repoEventos.GetColaboradoresEvento(evento.IdEvento);
+            listBoxEscolas.DataSource = repoEventos.GetEscolasEvento(evento.IdEvento);
+            listBoxParticipantes.DataSource = repoEventos.GetParticipantes(evento.IdEvento);
+            refreshListas();
         }
 
         #endregion
@@ -247,6 +258,12 @@ namespace Bookids.Forms
                 Participacao participacao = new Participacao(escola.IdEscola, evento.IdEvento);
                 repoParticipacao.AddParticipacao(participacao);
             }
+
+            listBoxAnimadores.DataSource = repoEventos.GetColaboradoresEvento(evento.IdEvento);
+            listBoxEscolas.DataSource = repoEventos.GetEscolasEvento(evento.IdEvento);
+            listBoxParticipantes.DataSource = repoEventos.GetParticipantes(evento.IdEvento);
+
+            refreshListas();
         }
 
         private void buttonRemoverEscola_Click(object sender, EventArgs e)
@@ -259,6 +276,12 @@ namespace Bookids.Forms
                 Participacao participacao = new Participacao(escola.IdEscola, evento.IdEvento);
                 repoParticipacao.RemoveParticipacao(participacao);
             }
+
+            listBoxAnimadores.DataSource = repoEventos.GetColaboradoresEvento(evento.IdEvento);
+            listBoxEscolas.DataSource = repoEventos.GetEscolasEvento(evento.IdEvento);
+            listBoxParticipantes.DataSource = repoEventos.GetParticipantes(evento.IdEvento);
+
+            refreshListas();
         }
 
         #endregion

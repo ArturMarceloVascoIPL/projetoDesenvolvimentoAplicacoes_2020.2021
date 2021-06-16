@@ -8,6 +8,11 @@ namespace Bookids
 {
     partial class Inscricao
     {
+        public Inscricao()
+        {
+
+        }
+
         public Inscricao(int idFilho, int idEvento, bool confirmada = false)
         {
             this.IdFilho = idFilho;

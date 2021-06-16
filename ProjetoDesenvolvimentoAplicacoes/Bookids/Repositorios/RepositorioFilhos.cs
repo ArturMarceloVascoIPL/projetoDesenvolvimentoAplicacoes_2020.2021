@@ -44,27 +44,34 @@ namespace Bookids
             ((IDisposable)model).Dispose();
         }
 
-        public void GetInscricoes(int idFilho)
+        public void GetInscricoes(int idCliente)
         {
-            Filho filho = (Filho)model.Pessoas.Single(o => o.IdPessoa == idFilho);
+            Cliente cliente = (Cliente)model.Pessoas.Single(o => o.IdPessoa == idCliente);
 
-            if (filho != null)
+            if (cliente.Filhos.Count > 0)
             {
-                Escola escola = (from e in model.Escolas
-                                 where e.IdEscola == filho.IdEscola
-                                 select e).Single();
-
-                if (escola != null)
+                foreach (Filho filho in cliente.Filhos)
                 {
-                    List<Participacao> participacoes = (from e in model.Participacoes
-                                                        where e.IdEscola == escola.IdEscola
-                                                        select e).ToList();
+                    Escola escola = (from e in model.Escolas
+                                     where e.IdEscola == filho.IdEscola
+                                     select e).Single();
 
-                    foreach (var participacao in participacoes)
+                    if (escola != null)
                     {
-                        Inscricao inscricao = new Inscricao(filho.IdPessoa, participacao.IdEvento);
+                        List<Participacao> participacoes = (from e in model.Participacoes
+                                                            where e.IdEscola == escola.IdEscola
+                                                            select e).ToList();
+
+                        foreach (var participacao in participacoes)
+                        {
+                            Inscricao inscricao = new Inscricao(filho.IdPessoa, participacao.IdEvento);
+
+                            model.Inscricoes.Add(inscricao);
+                        }
+
+                        model.SaveChanges();
                     }
-                }
+                } 
             }
         }
     }

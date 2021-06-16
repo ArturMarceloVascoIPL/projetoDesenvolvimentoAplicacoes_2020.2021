@@ -59,14 +59,14 @@ namespace Bookids.Forms
             this.l_2 = new System.Windows.Forms.Label();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonGuardar = new System.Windows.Forms.Button();
-            this.l_1 = new System.Windows.Forms.Label();
+            this._labelAnimadores = new System.Windows.Forms.Label();
             this.listBoxAnimadores = new System.Windows.Forms.ListBox();
-            this.textBoxPesquisa = new System.Windows.Forms.TextBox();
             this.buttonNovo = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
-            this.panelBotaoPesquisa = new System.Windows.Forms.Panel();
-            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.panelPesquisaEventos = new System.Windows.Forms.Panel();
+            this.panelRefresh = new System.Windows.Forms.Panel();
+            this.textBoxPesquisa = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
             this.panelAnimador.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +82,7 @@ namespace Bookids.Forms
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(816, 28);
+            this.menuStrip.Size = new System.Drawing.Size(745, 28);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -150,8 +150,7 @@ namespace Bookids.Forms
             // 
             // panelAnimador
             // 
-            this.panelAnimador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelAnimador.Controls.Add(this.labelAnimador);
+            this.panelAnimador.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelAnimador.Controls.Add(this.textBoxTelefone);
             this.panelAnimador.Controls.Add(this.l_7);
             this.panelAnimador.Controls.Add(this.textBoxCodPostal);
@@ -171,29 +170,29 @@ namespace Bookids.Forms
             this.panelAnimador.Controls.Add(this.buttonCancelar);
             this.panelAnimador.Controls.Add(this.buttonGuardar);
             this.panelAnimador.Enabled = false;
-            this.panelAnimador.Location = new System.Drawing.Point(370, 62);
-            this.panelAnimador.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelAnimador.Location = new System.Drawing.Point(339, 120);
+            this.panelAnimador.Margin = new System.Windows.Forms.Padding(2);
             this.panelAnimador.Name = "panelAnimador";
-            this.panelAnimador.Size = new System.Drawing.Size(423, 312);
+            this.panelAnimador.Size = new System.Drawing.Size(396, 235);
             this.panelAnimador.TabIndex = 13;
             // 
             // labelAnimador
             // 
             this.labelAnimador.AutoSize = true;
-            this.labelAnimador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAnimador.Location = new System.Drawing.Point(4, -1);
+            this.labelAnimador.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnimador.Location = new System.Drawing.Point(340, 93);
             this.labelAnimador.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelAnimador.Name = "labelAnimador";
-            this.labelAnimador.Size = new System.Drawing.Size(77, 20);
+            this.labelAnimador.Size = new System.Drawing.Size(104, 25);
             this.labelAnimador.TabIndex = 16;
             this.labelAnimador.Text = "Animador";
             // 
             // textBoxTelefone
             // 
-            this.textBoxTelefone.Location = new System.Drawing.Point(302, 116);
-            this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTelefone.Location = new System.Drawing.Point(302, 83);
+            this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTelefone.Name = "textBoxTelefone";
-            this.textBoxTelefone.Size = new System.Drawing.Size(76, 20);
+            this.textBoxTelefone.Size = new System.Drawing.Size(83, 20);
             this.textBoxTelefone.TabIndex = 27;
             this.textBoxTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumApena_KeyPress);
             // 
@@ -201,7 +200,7 @@ namespace Bookids.Forms
             // 
             this.l_7.AutoSize = true;
             this.l_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_7.Location = new System.Drawing.Point(227, 115);
+            this.l_7.Location = new System.Drawing.Point(230, 84);
             this.l_7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l_7.Name = "l_7";
             this.l_7.Size = new System.Drawing.Size(68, 17);
@@ -210,10 +209,10 @@ namespace Bookids.Forms
             // 
             // textBoxCodPostal
             // 
-            this.textBoxCodPostal.Location = new System.Drawing.Point(302, 88);
-            this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCodPostal.Location = new System.Drawing.Point(302, 59);
+            this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCodPostal.Name = "textBoxCodPostal";
-            this.textBoxCodPostal.Size = new System.Drawing.Size(76, 20);
+            this.textBoxCodPostal.Size = new System.Drawing.Size(83, 20);
             this.textBoxCodPostal.TabIndex = 25;
             this.textBoxCodPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumApena_KeyPress);
             // 
@@ -221,7 +220,7 @@ namespace Bookids.Forms
             // 
             this.l_5.AutoSize = true;
             this.l_5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_5.Location = new System.Drawing.Point(213, 88);
+            this.l_5.Location = new System.Drawing.Point(217, 60);
             this.l_5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l_5.Name = "l_5";
             this.l_5.Size = new System.Drawing.Size(81, 17);
@@ -230,49 +229,49 @@ namespace Bookids.Forms
             // 
             // textBoxEspecialidade
             // 
-            this.textBoxEspecialidade.Location = new System.Drawing.Point(98, 163);
-            this.textBoxEspecialidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxEspecialidade.Location = new System.Drawing.Point(106, 131);
+            this.textBoxEspecialidade.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEspecialidade.Name = "textBoxEspecialidade";
             this.textBoxEspecialidade.Size = new System.Drawing.Size(279, 20);
             this.textBoxEspecialidade.TabIndex = 29;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(98, 139);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxEmail.Location = new System.Drawing.Point(106, 107);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(279, 20);
             this.textBoxEmail.TabIndex = 28;
             // 
             // textBoxTelemovel
             // 
-            this.textBoxTelemovel.Location = new System.Drawing.Point(98, 115);
-            this.textBoxTelemovel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTelemovel.Location = new System.Drawing.Point(106, 84);
+            this.textBoxTelemovel.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTelemovel.Name = "textBoxTelemovel";
-            this.textBoxTelemovel.Size = new System.Drawing.Size(76, 20);
+            this.textBoxTelemovel.Size = new System.Drawing.Size(83, 20);
             this.textBoxTelemovel.TabIndex = 26;
             this.textBoxTelemovel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumApena_KeyPress);
             // 
             // textBoxLocalidade
             // 
-            this.textBoxLocalidade.Location = new System.Drawing.Point(98, 88);
-            this.textBoxLocalidade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxLocalidade.Location = new System.Drawing.Point(106, 60);
+            this.textBoxLocalidade.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxLocalidade.Name = "textBoxLocalidade";
-            this.textBoxLocalidade.Size = new System.Drawing.Size(76, 20);
+            this.textBoxLocalidade.Size = new System.Drawing.Size(83, 20);
             this.textBoxLocalidade.TabIndex = 24;
             // 
             // textBoxMorada
             // 
-            this.textBoxMorada.Location = new System.Drawing.Point(98, 57);
-            this.textBoxMorada.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMorada.Location = new System.Drawing.Point(106, 35);
+            this.textBoxMorada.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMorada.Name = "textBoxMorada";
             this.textBoxMorada.Size = new System.Drawing.Size(279, 20);
             this.textBoxMorada.TabIndex = 23;
             // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(98, 28);
-            this.textBoxNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNome.Location = new System.Drawing.Point(106, 11);
+            this.textBoxNome.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(279, 20);
             this.textBoxNome.TabIndex = 22;
@@ -281,7 +280,7 @@ namespace Bookids.Forms
             // 
             this.l_6.AutoSize = true;
             this.l_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_6.Location = new System.Drawing.Point(5, 115);
+            this.l_6.Location = new System.Drawing.Point(2, 84);
             this.l_6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l_6.Name = "l_6";
             this.l_6.Size = new System.Drawing.Size(77, 17);
@@ -292,7 +291,7 @@ namespace Bookids.Forms
             // 
             this.l_9.AutoSize = true;
             this.l_9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_9.Location = new System.Drawing.Point(5, 163);
+            this.l_9.Location = new System.Drawing.Point(2, 132);
             this.l_9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l_9.Name = "l_9";
             this.l_9.Size = new System.Drawing.Size(100, 17);
@@ -303,7 +302,7 @@ namespace Bookids.Forms
             // 
             this.l_8.AutoSize = true;
             this.l_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_8.Location = new System.Drawing.Point(5, 139);
+            this.l_8.Location = new System.Drawing.Point(2, 108);
             this.l_8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l_8.Name = "l_8";
             this.l_8.Size = new System.Drawing.Size(46, 17);
@@ -314,7 +313,7 @@ namespace Bookids.Forms
             // 
             this.l_4.AutoSize = true;
             this.l_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_4.Location = new System.Drawing.Point(5, 86);
+            this.l_4.Location = new System.Drawing.Point(2, 60);
             this.l_4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l_4.Name = "l_4";
             this.l_4.Size = new System.Drawing.Size(81, 17);
@@ -325,7 +324,7 @@ namespace Bookids.Forms
             // 
             this.l_3.AutoSize = true;
             this.l_3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_3.Location = new System.Drawing.Point(5, 57);
+            this.l_3.Location = new System.Drawing.Point(2, 36);
             this.l_3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l_3.Name = "l_3";
             this.l_3.Size = new System.Drawing.Size(60, 17);
@@ -336,7 +335,7 @@ namespace Bookids.Forms
             // 
             this.l_2.AutoSize = true;
             this.l_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_2.Location = new System.Drawing.Point(5, 27);
+            this.l_2.Location = new System.Drawing.Point(2, 12);
             this.l_2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.l_2.Name = "l_2";
             this.l_2.Size = new System.Drawing.Size(49, 17);
@@ -345,8 +344,8 @@ namespace Bookids.Forms
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(319, 256);
-            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCancelar.Location = new System.Drawing.Point(285, 173);
+            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(100, 52);
             this.buttonCancelar.TabIndex = 31;
@@ -356,8 +355,8 @@ namespace Bookids.Forms
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(2, 256);
-            this.buttonGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonGuardar.Location = new System.Drawing.Point(5, 173);
+            this.buttonGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(100, 52);
             this.buttonGuardar.TabIndex = 30;
@@ -365,40 +364,31 @@ namespace Bookids.Forms
             this.buttonGuardar.UseVisualStyleBackColor = false;
             this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
-            // l_1
+            // _labelAnimadores
             // 
-            this.l_1.AutoSize = true;
-            this.l_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.l_1.Location = new System.Drawing.Point(9, 41);
-            this.l_1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.l_1.Name = "l_1";
-            this.l_1.Size = new System.Drawing.Size(94, 20);
-            this.l_1.TabIndex = 7;
-            this.l_1.Text = "Animadores";
+            this._labelAnimadores.AutoSize = true;
+            this._labelAnimadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelAnimadores.Location = new System.Drawing.Point(9, 38);
+            this._labelAnimadores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelAnimadores.Name = "_labelAnimadores";
+            this._labelAnimadores.Size = new System.Drawing.Size(104, 20);
+            this._labelAnimadores.TabIndex = 7;
+            this._labelAnimadores.Text = "Animadores";
             // 
             // listBoxAnimadores
             // 
             this.listBoxAnimadores.FormattingEnabled = true;
             this.listBoxAnimadores.Location = new System.Drawing.Point(13, 84);
-            this.listBoxAnimadores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxAnimadores.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxAnimadores.Name = "listBoxAnimadores";
             this.listBoxAnimadores.Size = new System.Drawing.Size(309, 290);
             this.listBoxAnimadores.TabIndex = 8;
             this.listBoxAnimadores.SelectedIndexChanged += new System.EventHandler(this.listBoxAnimadores_SelectedIndexChanged);
             // 
-            // textBoxPesquisa
-            // 
-            this.textBoxPesquisa.Location = new System.Drawing.Point(33, 62);
-            this.textBoxPesquisa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBoxPesquisa.Name = "textBoxPesquisa";
-            this.textBoxPesquisa.Size = new System.Drawing.Size(289, 20);
-            this.textBoxPesquisa.TabIndex = 9;
-            this.textBoxPesquisa.TextChanged += new System.EventHandler(this.textBoxPesquisa_TextChanged);
-            // 
             // buttonNovo
             // 
             this.buttonNovo.Location = new System.Drawing.Point(13, 379);
-            this.buttonNovo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonNovo.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNovo.Name = "buttonNovo";
             this.buttonNovo.Size = new System.Drawing.Size(100, 52);
             this.buttonNovo.TabIndex = 10;
@@ -409,7 +399,7 @@ namespace Bookids.Forms
             // buttonEditar
             // 
             this.buttonEditar.Location = new System.Drawing.Point(117, 379);
-            this.buttonEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonEditar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(100, 52);
             this.buttonEditar.TabIndex = 11;
@@ -419,8 +409,11 @@ namespace Bookids.Forms
             // 
             // buttonApagar
             // 
+            this.buttonApagar.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonApagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApagar.ForeColor = System.Drawing.Color.White;
             this.buttonApagar.Location = new System.Drawing.Point(221, 379);
-            this.buttonApagar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonApagar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(100, 52);
             this.buttonApagar.TabIndex = 12;
@@ -428,46 +421,56 @@ namespace Bookids.Forms
             this.buttonApagar.UseVisualStyleBackColor = false;
             this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
-            // panelBotaoPesquisa
+            // panelPesquisaEventos
             // 
-            this.panelBotaoPesquisa.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
-            this.panelBotaoPesquisa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelBotaoPesquisa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panelBotaoPesquisa.Location = new System.Drawing.Point(13, 62);
-            this.panelBotaoPesquisa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelBotaoPesquisa.Name = "panelBotaoPesquisa";
-            this.panelBotaoPesquisa.Size = new System.Drawing.Size(22, 18);
-            this.panelBotaoPesquisa.TabIndex = 14;
-            this.panelBotaoPesquisa.Click += new System.EventHandler(this.panelBotaoPesquisa_Click);
+            this.panelPesquisaEventos.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
+            this.panelPesquisaEventos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelPesquisaEventos.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.panelPesquisaEventos.Location = new System.Drawing.Point(39, 60);
+            this.panelPesquisaEventos.Margin = new System.Windows.Forms.Padding(2);
+            this.panelPesquisaEventos.Name = "panelPesquisaEventos";
+            this.panelPesquisaEventos.Size = new System.Drawing.Size(22, 20);
+            this.panelPesquisaEventos.TabIndex = 73;
             // 
-            // buttonRefresh
+            // panelRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(689, 379);
-            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(100, 52);
-            this.buttonRefresh.TabIndex = 15;
-            this.buttonRefresh.Text = "Recarregar";
-            this.buttonRefresh.UseVisualStyleBackColor = false;
-            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            this.panelRefresh.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panelRefresh.BackgroundImage = global::Bookids.Properties.Resources.baseline_autorenew_black_24dp;
+            this.panelRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panelRefresh.Location = new System.Drawing.Point(13, 60);
+            this.panelRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.panelRefresh.Name = "panelRefresh";
+            this.panelRefresh.Size = new System.Drawing.Size(22, 20);
+            this.panelRefresh.TabIndex = 72;
+            this.panelRefresh.Click += new System.EventHandler(this.panelRefresh_Click);
+            // 
+            // textBoxPesquisa
+            // 
+            this.textBoxPesquisa.Location = new System.Drawing.Point(65, 60);
+            this.textBoxPesquisa.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPesquisa.Name = "textBoxPesquisa";
+            this.textBoxPesquisa.Size = new System.Drawing.Size(257, 20);
+            this.textBoxPesquisa.TabIndex = 71;
             // 
             // GestaoAnimador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 437);
+            this.ClientSize = new System.Drawing.Size(745, 437);
+            this.Controls.Add(this.labelAnimador);
+            this.Controls.Add(this.panelPesquisaEventos);
+            this.Controls.Add(this.panelRefresh);
             this.Controls.Add(this.textBoxPesquisa);
-            this.Controls.Add(this.buttonRefresh);
-            this.Controls.Add(this.panelBotaoPesquisa);
             this.Controls.Add(this.panelAnimador);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonNovo);
             this.Controls.Add(this.listBoxAnimadores);
-            this.Controls.Add(this.l_1);
+            this.Controls.Add(this._labelAnimadores);
             this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GestaoAnimador";
             this.Text = "GestaoAnimador";
@@ -513,14 +516,14 @@ namespace Bookids.Forms
         private System.Windows.Forms.Label l_7;
         private System.Windows.Forms.TextBox textBoxCodPostal;
         private System.Windows.Forms.Label l_5;
-        private System.Windows.Forms.Label l_1;
+        private System.Windows.Forms.Label _labelAnimadores;
         private System.Windows.Forms.ListBox listBoxAnimadores;
-        private System.Windows.Forms.TextBox textBoxPesquisa;
         private System.Windows.Forms.Button buttonNovo;
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonApagar;
-        private System.Windows.Forms.Panel panelBotaoPesquisa;
-        private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Label labelAnimador;
+        private System.Windows.Forms.Panel panelPesquisaEventos;
+        private System.Windows.Forms.Panel panelRefresh;
+        private System.Windows.Forms.TextBox textBoxPesquisa;
     }
 }

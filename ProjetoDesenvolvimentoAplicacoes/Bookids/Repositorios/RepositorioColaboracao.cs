@@ -8,7 +8,7 @@ namespace Bookids
 {
     class RepositorioColaboracao : IDisposable
     {
-        Model1Container model = new Model1Container();
+        Model1Container model = new Model1Container();        
 
         public void AddColaboracao(Colaboracao colaboracao)
         {

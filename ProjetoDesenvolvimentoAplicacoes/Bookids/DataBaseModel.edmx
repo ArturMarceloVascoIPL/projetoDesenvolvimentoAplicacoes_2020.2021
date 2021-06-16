@@ -191,7 +191,7 @@
       <PropertyRef Name="IdPessoa" />
     </Key>
     <Property Name="Sexo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="DtaNascimento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DtaNascimento" Type="datetime" Nullable="false" />
     <Property Name="IdCliente" Type="int" Nullable="false" />
     <Property Name="IdEscola" Type="int" Nullable="false" />
     <Property Name="IdPessoa" Type="int" Nullable="false" />
@@ -468,7 +468,7 @@
         </EntityType>
         <EntityType Name="Filho" BaseType="Model1.Pessoa" >
           <Property Name="Sexo" Type="String" Nullable="false" />
-          <Property Name="DtaNascimento" Type="String" Nullable="false" />
+          <Property Name="DtaNascimento" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Cliente" Relationship="Model1.ClienteFilho" FromRole="Filho" ToRole="Cliente" />
           <Property Name="IdCliente" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Escola" Relationship="Model1.FilhoEscola" FromRole="Filho" ToRole="Escola" />

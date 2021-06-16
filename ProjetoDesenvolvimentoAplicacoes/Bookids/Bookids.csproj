@@ -180,7 +180,6 @@
     <Compile Include="Repositorios\RepositorioColaboracao.cs" />
     <Compile Include="Repositorios\RepositorioEscolas.cs" />
     <Compile Include="Repositorios\RepositorioEventos.cs" />
-    <Compile Include="Repositorios\RepositorioInscricoes.cs" />
     <Compile Include="Repositorios\RepositorioParticipacao.cs" />
     <Compile Include="Repositorios\RepositorioTipoProdutos.cs" />
     <Compile Include="Repositorios\RepositorioProdutos.cs" />

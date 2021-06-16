@@ -93,7 +93,6 @@ namespace Bookids.Forms
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Enabled = false;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.HomeToolStripMenuItem,
@@ -423,6 +422,7 @@ namespace Bookids.Forms
             // buttonApagarEvento
             // 
             this.buttonApagarEvento.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonApagarEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonApagarEvento.ForeColor = System.Drawing.Color.White;
             this.buttonApagarEvento.Location = new System.Drawing.Point(224, 367);
             this.buttonApagarEvento.Margin = new System.Windows.Forms.Padding(2);
