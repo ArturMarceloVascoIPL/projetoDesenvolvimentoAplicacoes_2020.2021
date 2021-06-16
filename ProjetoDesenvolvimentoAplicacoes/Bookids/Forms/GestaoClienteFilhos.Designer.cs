@@ -80,7 +80,7 @@ namespace Bookids.Forms
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panelConfirmacoes = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonGuardarParticipacoes = new System.Windows.Forms.Button();
             this.buttonParticipa = new System.Windows.Forms.Panel();
             this.buttonNaoParticipa = new System.Windows.Forms.Panel();
             this.panelFilhos = new System.Windows.Forms.Panel();
@@ -122,7 +122,7 @@ namespace Bookids.Forms
             this.menuStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1294, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1277, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -614,7 +614,7 @@ namespace Bookids.Forms
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(112, 151);
+            this.label12.Location = new System.Drawing.Point(112, 148);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(79, 20);
@@ -625,7 +625,7 @@ namespace Bookids.Forms
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(75, 208);
+            this.label13.Location = new System.Drawing.Point(75, 210);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(116, 20);
@@ -635,38 +635,39 @@ namespace Bookids.Forms
             // panelConfirmacoes
             // 
             this.panelConfirmacoes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelConfirmacoes.Controls.Add(this.button1);
-            this.panelConfirmacoes.Controls.Add(this.buttonParticipa);
             this.panelConfirmacoes.Controls.Add(this.buttonNaoParticipa);
+            this.panelConfirmacoes.Controls.Add(this.buttonGuardarParticipacoes);
+            this.panelConfirmacoes.Controls.Add(this.buttonParticipa);
             this.panelConfirmacoes.Controls.Add(this.label12);
             this.panelConfirmacoes.Controls.Add(this.listBoxNaoParticipa);
             this.panelConfirmacoes.Controls.Add(this.label13);
             this.panelConfirmacoes.Controls.Add(this.listBoxParticipa);
             this.panelConfirmacoes.Enabled = false;
-            this.panelConfirmacoes.Location = new System.Drawing.Point(1083, 35);
+            this.panelConfirmacoes.Location = new System.Drawing.Point(1073, 36);
             this.panelConfirmacoes.Name = "panelConfirmacoes";
             this.panelConfirmacoes.Size = new System.Drawing.Size(195, 380);
             this.panelConfirmacoes.TabIndex = 38;
             // 
-            // button1
+            // buttonGuardarParticipacoes
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(81, 173);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 34);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonGuardarParticipacoes.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGuardarParticipacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardarParticipacoes.Location = new System.Drawing.Point(81, 173);
+            this.buttonGuardarParticipacoes.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonGuardarParticipacoes.Name = "buttonGuardarParticipacoes";
+            this.buttonGuardarParticipacoes.Size = new System.Drawing.Size(110, 34);
+            this.buttonGuardarParticipacoes.TabIndex = 39;
+            this.buttonGuardarParticipacoes.Text = "Guardar";
+            this.buttonGuardarParticipacoes.UseVisualStyleBackColor = false;
+            this.buttonGuardarParticipacoes.Click += new System.EventHandler(this.buttonGuardarParticipacoes_Click);
             // 
             // buttonParticipa
             // 
-            this.buttonParticipa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonParticipa.BackColor = System.Drawing.Color.OliveDrab;
             this.buttonParticipa.BackgroundImage = global::Bookids.Properties.Resources.baseline_arrow_upward_black_24dp;
             this.buttonParticipa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonParticipa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonParticipa.Location = new System.Drawing.Point(24, 150);
+            this.buttonParticipa.Location = new System.Drawing.Point(5, 173);
             this.buttonParticipa.Margin = new System.Windows.Forms.Padding(2);
             this.buttonParticipa.Name = "buttonParticipa";
             this.buttonParticipa.Size = new System.Drawing.Size(34, 34);
@@ -674,11 +675,11 @@ namespace Bookids.Forms
             // 
             // buttonNaoParticipa
             // 
-            this.buttonNaoParticipa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonNaoParticipa.BackColor = System.Drawing.Color.Brown;
             this.buttonNaoParticipa.BackgroundImage = global::Bookids.Properties.Resources.baseline_arrow_downward_black_24dp;
             this.buttonNaoParticipa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonNaoParticipa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonNaoParticipa.Location = new System.Drawing.Point(24, 194);
+            this.buttonNaoParticipa.Location = new System.Drawing.Point(43, 173);
             this.buttonNaoParticipa.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNaoParticipa.Name = "buttonNaoParticipa";
             this.buttonNaoParticipa.Size = new System.Drawing.Size(34, 34);
@@ -771,8 +772,9 @@ namespace Bookids.Forms
             // buttonConfirmacoes
             // 
             this.buttonConfirmacoes.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonConfirmacoes.Enabled = false;
             this.buttonConfirmacoes.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.buttonConfirmacoes.Location = new System.Drawing.Point(196, 1);
+            this.buttonConfirmacoes.Location = new System.Drawing.Point(197, 3);
             this.buttonConfirmacoes.Margin = new System.Windows.Forms.Padding(2);
             this.buttonConfirmacoes.Name = "buttonConfirmacoes";
             this.buttonConfirmacoes.Size = new System.Drawing.Size(118, 24);
@@ -889,7 +891,7 @@ namespace Bookids.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1294, 427);
+            this.ClientSize = new System.Drawing.Size(1277, 427);
             this.Controls.Add(this.panelClientes);
             this.Controls.Add(this.panelConfirmacoes);
             this.Controls.Add(this.labelFilho);
@@ -980,7 +982,7 @@ namespace Bookids.Forms
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panelConfirmacoes;
         private System.Windows.Forms.Panel buttonNaoParticipa;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonGuardarParticipacoes;
         private System.Windows.Forms.Panel buttonParticipa;
         private System.Windows.Forms.ComboBox comboBoxEscolas;
         private System.Windows.Forms.Label label14;

@@ -43,5 +43,29 @@ namespace Bookids
         {
             ((IDisposable)model).Dispose();
         }
+
+        public void GetInscricoes(int idFilho)
+        {
+            Filho filho = (Filho)model.Pessoas.Single(o => o.IdPessoa == idFilho);
+
+            if (filho != null)
+            {
+                Escola escola = (from e in model.Escolas
+                                 where e.IdEscola == filho.IdEscola
+                                 select e).Single();
+
+                if (escola != null)
+                {
+                    List<Participacao> participacoes = (from e in model.Participacoes
+                                                        where e.IdEscola == escola.IdEscola
+                                                        select e).ToList();
+
+                    foreach (var participacao in participacoes)
+                    {
+                        Inscricao inscricao = new Inscricao(filho.IdPessoa, participacao.IdEvento);
+                    }
+                }
+            }
+        }
     }
 }

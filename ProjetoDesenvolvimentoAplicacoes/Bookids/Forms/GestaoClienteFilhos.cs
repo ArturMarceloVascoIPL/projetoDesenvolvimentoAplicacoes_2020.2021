@@ -170,52 +170,50 @@ namespace Bookids.Forms
             {
                 Cliente cliente = new Cliente();
 
-                // Confirmacao para guardar
-                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                //Verificacao se Tem os campos todos Preenchidos
+                foreach (Control c in panelCliente.Controls)
                 {
-                    //Verificacao se Tem os campos todos Preenchidos
-                    foreach (Control c in panelCliente.Controls)
+                    if (c is TextBox)
                     {
-                        if (c is TextBox)
+                        TextBox textBox = c as TextBox;
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                         {
-                            TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
+                            cliente.Nome = textBoxNomeCliente.Text;
+                            cliente.Morada = textBoxMorada.Text;
+                            cliente.Localidade = textBoxLocalidade.Text;
+                            cliente.CodPostal = textBoxCodPostal.Text;
+                            cliente.Email = textBoxEmail.Text;
+                            cliente.Telemovel = int.Parse(textBoxTelemovel.Text);
+                            cliente.Telefone = int.Parse(textBoxTelefone.Text);
+
+                            if (radioButtonSim.Checked)
                             {
-                                cliente.Nome = textBoxNomeCliente.Text;
-                                cliente.Morada = textBoxMorada.Text;
-                                cliente.Localidade = textBoxLocalidade.Text;
-                                cliente.CodPostal = textBoxCodPostal.Text;
-                                cliente.Email = textBoxEmail.Text;
-                                cliente.Telemovel = int.Parse(textBoxTelemovel.Text);
-                                cliente.Telefone = int.Parse(textBoxTelefone.Text);
-
-                                if (radioButtonSim.Checked)
-                                {
-                                    cliente.NumCartao = int.Parse(textBoxNumCartao.Text);
-                                    cliente.ValorOferta = 0;
-                                }
-                                else //valor 0 (default) para salvar
-                                {
-                                    cliente.NumCartao = 0;
-                                    cliente.ValorOferta = 0;
-                                }
-
-                                repoCliente.AddCliente(cliente);
-                                MessageBox.Show("Salvo com Sucesso.");
-
-                                //Apagar campos do Form
-                                foreach (var control in panelCliente.Controls)
-                                {
-                                    if (control is TextBox)
-                                        (control as TextBox).Clear();
-                                }
-                                break;
+                                cliente.NumCartao = int.Parse(textBoxNumCartao.Text);
+                                cliente.ValorOferta = 0;
                             }
-                            else
+                            else //valor 0 (default) para salvar
                             {
-                                MessageBox.Show("Erro. Preencher Todos os Campos.");
-                                break;
+                                cliente.NumCartao = 0;
+                                cliente.ValorOferta = 0;
                             }
+
+                            repoCliente.AddCliente(cliente);
+                            MessageBox.Show("Salvo com Sucesso.");
+
+                            buttonNovoFilho.Enabled = true;
+
+                            //Apagar campos do Form
+                            foreach (var control in panelCliente.Controls)
+                            {
+                                if (control is TextBox)
+                                    (control as TextBox).Clear();
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro. Preencher Todos os Campos.");
+                            break;
                         }
                     }
                 }
@@ -358,6 +356,13 @@ namespace Bookids.Forms
 
                 Escola escola = repoEscola.SearchById(filho.IdEscola);
                 comboBoxEscolas.Text = escola.Nome;
+
+                repoFilho.GetInscricoes(filho.IdPessoa);
+
+                if (filho.Inscricoes.Count > 0)
+                {
+                    buttonConfirmacoes.Enabled = true;
+                }
             }
             else
             {
@@ -570,11 +575,7 @@ namespace Bookids.Forms
 
         private void buttonConfirmacoes_Click_1(object sender, EventArgs e)
         {
-            if (panelConfirmacoes.Enabled == false)
-                panelConfirmacoes.Enabled = true;
-            else
-                panelConfirmacoes.Enabled = false;
-
+            panelConfirmacoes.Enabled = true;
         }
 
         #endregion
@@ -584,6 +585,14 @@ namespace Bookids.Forms
             repoCliente.Dispose();
             repoEscola.Dispose();
             repoFilho.Dispose();
+        }
+
+        private void buttonGuardarParticipacoes_Click(object sender, EventArgs e)
+        {
+            foreach (Filho filho in listBoxParticipa.Items)
+            {
+
+            }
         }
     }
 }
