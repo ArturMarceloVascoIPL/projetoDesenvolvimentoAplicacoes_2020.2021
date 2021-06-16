@@ -16,6 +16,7 @@ namespace Bookids.Forms
         RepositorioClientes repoCliente = new RepositorioClientes();
         RepositorioFilhos repoFilho = new RepositorioFilhos();
         RepositorioEscolas repoEscola = new RepositorioEscolas();
+        RepositorioInscricoes repoInscricoes = new RepositorioInscricoes();
 
         //Manipuacalo paneis
         bool editarCliente;
@@ -74,6 +75,7 @@ namespace Bookids.Forms
             RepositorioClientes repoCliente = new RepositorioClientes();
             RepositorioFilhos repoFilho = new RepositorioFilhos();
             RepositorioEscolas repoEscola = new RepositorioEscolas();
+            RepositorioInscricoes repoInscricoes = new RepositorioInscricoes();
 
             //Lista Clientes
             listBoxClientes.DataSource = repoCliente.GetClientes();
@@ -125,8 +127,6 @@ namespace Bookids.Forms
                     buttonEditarFilho.Enabled = true;
                     buttonApagarFilho.Enabled = true;
                 }
-
-                repoFilho.GetInscricoes(cliente.IdPessoa);
             }
             else
             {
@@ -328,6 +328,10 @@ namespace Bookids.Forms
 
         private void listBoxFilhos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            buttonConfirmacoes.Enabled = false;
+            listBoxNaoParticipa.Items.Clear();
+            listBoxParticipa.Items.Clear();
+
             Filho filho = (Filho)listBoxFilhos.SelectedItem;
 
             if (filho != null && listBoxFilhos.Items.Count > 0)
@@ -350,15 +354,28 @@ namespace Bookids.Forms
                     radioButtonFeminino.Checked = true;
 
                 Escola escola = repoEscola.SearchById(filho.IdEscola);
-                comboBoxEscolas.Text = escola.Nome;                
+                comboBoxEscolas.Text = escola.Nome;
 
                 if (filho.Inscricoes.Count > 0)
                 {
+                    foreach (Inscricao inscricao in filho.Inscricoes)
+                    {
+                        if (inscricao.Confirmada == true)
+                        {
+                            listBoxParticipa.Items.Add(inscricao);
+                        }
+                        else
+                        {
+                            listBoxNaoParticipa.Items.Add(inscricao);
+                        }
+                    }
+
                     buttonConfirmacoes.Enabled = true;
                 }
             }
             else
             {
+                buttonConfirmacoes.Enabled = false;
                 buttonEditarFilho.Enabled = false;
                 buttonApagarFilho.Enabled = false;
                 panelFilho.Enabled = false;
@@ -572,14 +589,61 @@ namespace Bookids.Forms
             repoFilho.Dispose();
         }
 
-        private void buttonGuardarParticipacoes_Click(object sender, EventArgs e)
-        {
-            panelConfirmacoes.Enabled = false;
-        }
-
         private void buttonConfirmacoes_Click(object sender, EventArgs e)
         {
             panelConfirmacoes.Enabled = true;
         }
+
+        #region Participacoes
+
+        private void buttonGuardarParticipacoes_Click(object sender, EventArgs e)
+        {
+            panelConfirmacoes.Enabled = false;
+
+            foreach (Inscricao inscricao in listBoxNaoParticipa.Items)
+            {
+                repoInscricoes.EditConfirmacao(inscricao);
+            }
+            foreach (Inscricao inscricao in listBoxParticipa.Items)
+            {
+                repoInscricoes.EditConfirmacao(inscricao);
+            }
+        }
+
+        private void buttonParticipa_Click(object sender, EventArgs e)
+        {
+            Inscricao inscricao = (Inscricao)listBoxNaoParticipa.SelectedItem;
+
+            if (inscricao != null)
+            {
+                inscricao.Confirmada = true;
+
+                listBoxNaoParticipa.Items.Remove(inscricao);
+                listBoxParticipa.Items.Add(inscricao); 
+            }
+            else
+            {
+                MessageBox.Show("Tem de selecionar 1!");
+            }
+        }
+
+        private void buttonNaoParticipa_Click(object sender, EventArgs e)
+        {
+            Inscricao inscricao = (Inscricao)listBoxNaoParticipa.SelectedItem;
+
+            if (inscricao != null)
+            {
+                inscricao.Confirmada = false;
+
+                listBoxParticipa.Items.Remove(inscricao);
+                listBoxNaoParticipa.Items.Add(inscricao); 
+            }
+            else
+            {
+                MessageBox.Show("Tem de selecionar 1!");
+            }
+        }
+
+        #endregion
     }
 }

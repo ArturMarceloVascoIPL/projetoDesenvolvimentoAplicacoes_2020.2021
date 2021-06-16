@@ -61,11 +61,7 @@ namespace Bookids.Forms
         //Para Permitir apenas numeros quando a digitar nas Textbox
         private void textBoxNumApena_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-                e.Handled = true;
-
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
         }
 
@@ -114,42 +110,38 @@ namespace Bookids.Forms
 
             if (!editar)
             {
-                // Confirmacao para guardar
-                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                //Verificacao se Tem os campos todos Preenchidos
+                foreach (Control c in panelAnimador.Controls)
                 {
-                    //Verificacao se Tem os campos todos Preenchidos
-                    foreach (Control c in panelAnimador.Controls)
+                    if (c is TextBox)
                     {
-                        if (c is TextBox)
+                        TextBox textBox = c as TextBox;
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                         {
-                            TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
+                            Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);
+                            if (repoAnimadores.AddAnimador(animador))
                             {
-                                Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);
-                                if (repoAnimadores.AddAnimador(animador))
-                                {
-                                    MessageBox.Show("Animador criado com sucesso");
+                                MessageBox.Show("Criado com sucesso");
 
-                                    //Apagar campos do Form
-                                    foreach (var control in panelAnimador.Controls)
-                                    {
-                                        if (control is TextBox)
-                                            (control as TextBox).Clear();
-                                    }
-                                    refresh();
-                                    break;
-                                }
-                                else
+                                //Apagar campos do Form
+                                foreach (var control in panelAnimador.Controls)
                                 {
-                                    MessageBox.Show("Ocorreu um erro ao tentar criar o Animador!");
-                                    break;
+                                    if (control is TextBox)
+                                        (control as TextBox).Clear();
                                 }
+                                refresh();
+                                break;
                             }
                             else
                             {
-                                MessageBox.Show("Erro. Preencher Todos os Campos.");
+                                MessageBox.Show("Ocorreu um erro ao tentar Criar!");
                                 break;
                             }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro. Preencher Todos os Campos.");
+                            break;
                         }
                     }
                 }
@@ -158,7 +150,7 @@ namespace Bookids.Forms
             else
             {
                 // Confirmacao para guardar
-                if (MessageBox.Show("Guardar Animador ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Guardar ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //Verificacao se Tem os campos todos Preenchidos
                     foreach (Control c in panelAnimador.Controls)
@@ -201,7 +193,7 @@ namespace Bookids.Forms
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            labelAnimador.Text = "Animador Editar";
+            labelAnimador.Text = "Editar Animador";
 
             panelAnimador.Enabled = true; // Ativa o painel
             editar = true;
@@ -218,7 +210,7 @@ namespace Bookids.Forms
                 {
                     if (repoAnimadores.RemoveAnimador(animador)) // Remove a escola
                     {
-                        MessageBox.Show("Removida com Sucesso.");
+                        MessageBox.Show("Removido com Sucesso.");
                     }
                     else
                     {
@@ -229,7 +221,7 @@ namespace Bookids.Forms
             }
             else
             {
-                MessageBox.Show("Tem de selecionar uma escola!");
+                MessageBox.Show("Tem de selecionar um Animador!");
             }
         }
 

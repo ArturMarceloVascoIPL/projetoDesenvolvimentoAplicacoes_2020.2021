@@ -17,6 +17,7 @@ namespace Bookids.Forms
         RepositorioEscolas repoEscolas = new RepositorioEscolas();
         RepositorioColaboracao repoColaboracao = new RepositorioColaboracao();
         RepositorioParticipacao repoParticipacao = new RepositorioParticipacao();
+        RepositorioInscricoes repoInscricoes = new RepositorioInscricoes();
 
         bool editar = false;
 
@@ -36,6 +37,7 @@ namespace Bookids.Forms
             repoEscolas.Dispose();
             repoColaboracao.Dispose();
             repoParticipacao.Dispose();
+            repoInscricoes.Dispose();
         }
 
         private void btnExportFichaInsc_Click(object sender, EventArgs e)
@@ -257,6 +259,13 @@ namespace Bookids.Forms
             {
                 Participacao participacao = new Participacao(escola.IdEscola, evento.IdEvento);
                 repoParticipacao.AddParticipacao(participacao);
+
+                foreach (Filho filho in escola.Filhos)
+                {
+                    Inscricao inscricao = new Inscricao(filho.IdPessoa, evento.IdEvento);
+
+                    repoInscricoes.AddIncricao(inscricao);
+                }
             }
 
             listBoxAnimadores.DataSource = repoEventos.GetColaboradoresEvento(evento.IdEvento);
@@ -275,6 +284,13 @@ namespace Bookids.Forms
             {
                 Participacao participacao = new Participacao(escola.IdEscola, evento.IdEvento);
                 repoParticipacao.RemoveParticipacao(participacao);
+
+                foreach (Filho filho in escola.Filhos)
+                {
+                    Inscricao inscricao = new Inscricao(filho.IdPessoa, evento.IdEvento);
+
+                    repoInscricoes.RemoveIncricao(inscricao);
+                }
             }
 
             listBoxAnimadores.DataSource = repoEventos.GetColaboradoresEvento(evento.IdEvento);

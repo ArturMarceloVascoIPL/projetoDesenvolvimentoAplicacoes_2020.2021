@@ -462,7 +462,6 @@ namespace Bookids.Forms
             // labelEscola
             // 
             this.labelEscola.AutoSize = true;
-            this.labelEscola.Enabled = false;
             this.labelEscola.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEscola.Location = new System.Drawing.Point(328, 95);
             this.labelEscola.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);

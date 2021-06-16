@@ -659,6 +659,7 @@ namespace Bookids.Forms
             this.buttonNaoParticipa.Name = "buttonNaoParticipa";
             this.buttonNaoParticipa.Size = new System.Drawing.Size(34, 34);
             this.buttonNaoParticipa.TabIndex = 39;
+            this.buttonNaoParticipa.Click += new System.EventHandler(this.buttonNaoParticipa_Click);
             // 
             // buttonGuardarParticipacoes
             // 
@@ -684,6 +685,7 @@ namespace Bookids.Forms
             this.buttonParticipa.Name = "buttonParticipa";
             this.buttonParticipa.Size = new System.Drawing.Size(34, 34);
             this.buttonParticipa.TabIndex = 40;
+            this.buttonParticipa.Click += new System.EventHandler(this.buttonParticipa_Click);
             // 
             // panelFilhos
             // 

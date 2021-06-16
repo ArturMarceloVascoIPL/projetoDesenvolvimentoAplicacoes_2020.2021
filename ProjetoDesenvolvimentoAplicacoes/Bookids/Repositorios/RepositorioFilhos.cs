@@ -43,36 +43,5 @@ namespace Bookids
         {
             ((IDisposable)model).Dispose();
         }
-
-        public void GetInscricoes(int idCliente)
-        {
-            Cliente cliente = (Cliente)model.Pessoas.Single(o => o.IdPessoa == idCliente);
-
-            if (cliente.Filhos.Count > 0)
-            {
-                foreach (Filho filho in cliente.Filhos)
-                {
-                    Escola escola = (from e in model.Escolas
-                                     where e.IdEscola == filho.IdEscola
-                                     select e).Single();
-
-                    if (escola != null)
-                    {
-                        List<Participacao> participacoes = (from e in model.Participacoes
-                                                            where e.IdEscola == escola.IdEscola
-                                                            select e).ToList();
-
-                        foreach (var participacao in participacoes)
-                        {
-                            Inscricao inscricao = new Inscricao(filho.IdPessoa, participacao.IdEvento);
-
-                            model.Inscricoes.Add(inscricao);
-                        }
-
-                        model.SaveChanges();
-                    }
-                } 
-            }
-        }
     }
 }

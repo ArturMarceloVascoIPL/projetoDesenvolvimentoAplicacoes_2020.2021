@@ -40,7 +40,6 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarTiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelAnimador = new System.Windows.Forms.Panel();
-            this.labelAnimador = new System.Windows.Forms.Label();
             this.textBoxTelefone = new System.Windows.Forms.TextBox();
             this.l_7 = new System.Windows.Forms.Label();
             this.textBoxCodPostal = new System.Windows.Forms.TextBox();
@@ -59,6 +58,7 @@ namespace Bookids.Forms
             this.l_2 = new System.Windows.Forms.Label();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonGuardar = new System.Windows.Forms.Button();
+            this.labelAnimador = new System.Windows.Forms.Label();
             this._labelAnimadores = new System.Windows.Forms.Label();
             this.listBoxAnimadores = new System.Windows.Forms.ListBox();
             this.buttonNovo = new System.Windows.Forms.Button();
@@ -176,21 +176,11 @@ namespace Bookids.Forms
             this.panelAnimador.Size = new System.Drawing.Size(396, 235);
             this.panelAnimador.TabIndex = 13;
             // 
-            // labelAnimador
-            // 
-            this.labelAnimador.AutoSize = true;
-            this.labelAnimador.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAnimador.Location = new System.Drawing.Point(340, 93);
-            this.labelAnimador.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelAnimador.Name = "labelAnimador";
-            this.labelAnimador.Size = new System.Drawing.Size(104, 25);
-            this.labelAnimador.TabIndex = 16;
-            this.labelAnimador.Text = "Animador";
-            // 
             // textBoxTelefone
             // 
             this.textBoxTelefone.Location = new System.Drawing.Point(302, 83);
             this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxTelefone.MaxLength = 9;
             this.textBoxTelefone.Name = "textBoxTelefone";
             this.textBoxTelefone.Size = new System.Drawing.Size(83, 20);
             this.textBoxTelefone.TabIndex = 27;
@@ -211,6 +201,7 @@ namespace Bookids.Forms
             // 
             this.textBoxCodPostal.Location = new System.Drawing.Point(302, 59);
             this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCodPostal.MaxLength = 9;
             this.textBoxCodPostal.Name = "textBoxCodPostal";
             this.textBoxCodPostal.Size = new System.Drawing.Size(83, 20);
             this.textBoxCodPostal.TabIndex = 25;
@@ -247,6 +238,7 @@ namespace Bookids.Forms
             // 
             this.textBoxTelemovel.Location = new System.Drawing.Point(106, 84);
             this.textBoxTelemovel.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxTelemovel.MaxLength = 9;
             this.textBoxTelemovel.Name = "textBoxTelemovel";
             this.textBoxTelemovel.Size = new System.Drawing.Size(83, 20);
             this.textBoxTelemovel.TabIndex = 26;
@@ -363,6 +355,17 @@ namespace Bookids.Forms
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = false;
             this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
+            // 
+            // labelAnimador
+            // 
+            this.labelAnimador.AutoSize = true;
+            this.labelAnimador.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnimador.Location = new System.Drawing.Point(340, 93);
+            this.labelAnimador.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelAnimador.Name = "labelAnimador";
+            this.labelAnimador.Size = new System.Drawing.Size(104, 25);
+            this.labelAnimador.TabIndex = 16;
+            this.labelAnimador.Text = "Animador";
             // 
             // _labelAnimadores
             // 
