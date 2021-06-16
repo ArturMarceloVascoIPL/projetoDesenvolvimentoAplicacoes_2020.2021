@@ -42,16 +42,22 @@ namespace Bookids.Forms
         {
             Evento evento = (Evento)listBoxEventos.SelectedItem;
 
-            var exportarFichaInscricao = new ExportarFile(evento);
-            exportarFichaInscricao.ShowDialog();
+            if (evento != null)
+            {
+                var exportarFichaInscricao = new ExportarFile(evento);
+                exportarFichaInscricao.ShowDialog();
+            }
         }
 
         private void btnExportInscritos_Click(object sender, EventArgs e)
         {
             Evento evento = (Evento)listBoxEventos.SelectedItem;
 
-            var exportarInscritos = new ExportarFile(repoEventos.GetParticipantes(evento.IdEvento));
-            exportarInscritos.ShowDialog();
+            if (evento != null)
+            {
+                var exportarInscritos = new ExportarFile(repoEventos.GetParticipantes(evento.IdEvento));
+                exportarInscritos.ShowDialog(); 
+            }
         }
 
         #region GestaoEventos
@@ -90,11 +96,92 @@ namespace Bookids.Forms
             textBoxDescricao.Focus();
         }
 
+        private void listBoxEventos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Evento evento = (Evento)listBoxEventos.SelectedItem;
+
+            listBoxAnimadores.DataSource = repoEventos.GetAnimadores(evento.IdEvento);
+            listBoxEscolas.DataSource = repoEventos.GetEscolas(evento.IdEvento);
+            listBoxParticipantes.DataSource = repoEventos.GetParticipantes(evento.IdEvento);
+
+            textBoxDescricao.Text = evento.Descricao;
+            textBoxLocal.Text = evento.Local;
+            textBoxTipoEvento.Text = evento.TipoEvento;
+            textBoxMaxParticipantes.Text = evento.LimiteParticipacao.ToString();
+            textBoxIdadeMin.Text = evento.IdadeInferiror.ToString();
+            textBoxIdadeMax.Text = evento.IdadeSuperior.ToString();
+            dateTimePickerData.Value = evento.DataHora;
+
+            buttonExportFichaInsc.Enabled = true;
+            buttonExportInscritos.Enabled = true;
+        }
+
+        /* Edita ou Cria o Evento */
+        private void buttonGuardarEvento_Click(object sender, EventArgs e)
+        {
+            // Verificar que a data é superior á data atual
+            if (dateTimePickerData.Value > DateTime.Now)
+            {
+                // Verificar se tem todos os campos preenchidos 
+                if (!String.IsNullOrWhiteSpace(textBoxMaxParticipantes.Text) && !String.IsNullOrWhiteSpace(textBoxIdadeMin.Text) 
+                    && !String.IsNullOrWhiteSpace(textBoxIdadeMax.Text) && !String.IsNullOrWhiteSpace(textBoxDescricao.Text)
+                    && !String.IsNullOrWhiteSpace(textBoxLocal.Text) && !String.IsNullOrWhiteSpace(textBoxTipoEvento.Text))
+                {
+                    // Convert os valores das TextBox
+                    int maxParticipantes = Convert.ToInt32(textBoxMaxParticipantes.Text);
+                    int idadeMin = Convert.ToInt32(textBoxIdadeMin.Text);
+                    int idadeMax = Convert.ToInt32(textBoxIdadeMax.Text);
+
+                    Evento evento = new Evento(textBoxDescricao.Text, textBoxLocal.Text, textBoxTipoEvento.Text, maxParticipantes, idadeMin, idadeMax, dateTimePickerData.Value); // Guarda o novo Evento
+
+                    if (editar == true)
+                    {
+                        try
+                        {
+                            Evento eventoEditado = (Evento)listBoxEventos.SelectedItem; // Guarda o Evento selecionado
+
+                            repoEventos.EditEvento(eventoEditado.IdEvento, evento); // Edita o Evento
+                            MessageBox.Show("Editado com Sucesso.");
+                        }
+                        catch (Exception err)
+                        {
+                            MessageBox.Show($"Ocorreu um erro ao tentar editar!\n{err.Message}");
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            repoEventos.AddEvento(evento); // Cria o Evento                
+                            MessageBox.Show("Criado com Sucesso.");
+
+                            panelAnimadores.Enabled = true;
+                            panelEscolas.Enabled = true;
+                        }
+                        catch (Exception err)
+                        {
+                            MessageBox.Show($"Ocorreu um erro ao tentar criar!\n{err.Message}");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tem campos inválidos ou não preenchidos!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("A data inserida já passou!");
+            }
+
+            refreshListas();
+        }
+
         private void buttonApagarEvento_Click(object sender, EventArgs e)
         {
             Evento evento = (Evento)listBoxEventos.SelectedItem; // Guarda o evento selecionado
 
-            if (evento == null) // Verifica se não é null
+            if (evento != null) // Verifica se não é null
             {
                 if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
                 {
@@ -117,61 +204,9 @@ namespace Bookids.Forms
             }
         }
 
-        private void listBoxEventos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Evento evento = (Evento)listBoxEventos.SelectedItem;
-
-            listBoxAnimadores.DataSource = repoEventos.GetAnimadores(evento.IdEvento);
-            listBoxEscolas.DataSource = repoEventos.GetEscolas(evento.IdEvento);
-            listBoxParticipantes.DataSource = repoEventos.GetParticipantes(evento.IdEvento);
-
-            textBoxDescricao.Text = evento.Descricao;
-            textBoxLocal.Text = evento.Local;
-            textBoxTipoEvento.Text = evento.TipoEvento;
-            textBoxMaxParticipantes.Text = evento.LimiteParticipacao.ToString();
-            textBoxIdadeMin.Text = evento.IdadeInferiror.ToString();
-            textBoxIdadeMax.Text = evento.IdadeSuperior.ToString();
-            dateTimePickerData.Value = evento.DataHora;
-        }
-
-        /* Edita ou Cria o Evento */
-        private void buttonGuardarEvento_Click(object sender, EventArgs e)
-        {
-            // Convert os valores das TextBox
-            int maxParticipantes = Convert.ToInt32(textBoxMaxParticipantes.Text);
-            int idadeMin = Convert.ToInt32(textBoxIdadeMin.Text);
-            int idadeMax = Convert.ToInt32(textBoxIdadeMax.Text);
-
-            Evento evento = new Evento(textBoxDescricao.Text, textBoxLocal.Text, textBoxTipoEvento.Text, maxParticipantes, idadeMin, idadeMax, dateTimePickerData.Value); // Guarda o novo Evento
-
-            if (editar == true)
-            {
-                Evento eventoEditado = (Evento)listBoxEventos.SelectedItem; // Guarda o Evento selecionado
-
-                repoEventos.EditEvento(eventoEditado.IdEvento, evento); // Edita o Evento
-                MessageBox.Show("Editado com Sucesso.");
-            }
-            else
-            {
-                try
-                {
-                    repoEventos.AddEvento(evento); // Cria o Evento                
-                    MessageBox.Show("Criado com Sucesso.");
-
-                    panelAnimadores.Enabled = true;
-                    panelEscolas.Enabled = true;
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show($"Ocorreu um erro ao tentar criar!\n{err.Message}");
-                }
-            }
-
-            refreshListas();
-        }
-
         #endregion
 
+        /* Animadores do Evento */
         #region GestaoColaboracao
 
         private void buttonAdicionarAnimador_Click(object sender, EventArgs e)
@@ -179,9 +214,11 @@ namespace Bookids.Forms
             Evento evento = (Evento)listBoxEventos.SelectedItem;
             Animador animador = (Animador)comboBoxAnimadores.SelectedItem;
 
-            Colaboracao colaboracao = new Colaboracao(animador.IdPessoa, evento.IdEvento);
-
-            repoColaboracao.AddColaboracao(colaboracao);
+            if (animador != null || evento != null)
+            {
+                Colaboracao colaboracao = new Colaboracao(animador.IdPessoa, evento.IdEvento);
+                repoColaboracao.AddColaboracao(colaboracao);
+            }
         }
 
         private void buttonRemoverAnimador_Click(object sender, EventArgs e)
@@ -189,22 +226,27 @@ namespace Bookids.Forms
             Evento evento = (Evento)listBoxEventos.SelectedItem;
             Animador animador = (Animador)listBoxAnimadores.SelectedItem;
 
-            Colaboracao colaboracao = new Colaboracao(animador.IdPessoa, evento.IdEvento);
-
-            repoColaboracao.RemoveColaboracao(colaboracao);
+            if (animador != null || evento != null)
+            {
+                Colaboracao colaboracao = new Colaboracao(animador.IdPessoa, evento.IdEvento);
+                repoColaboracao.RemoveColaboracao(colaboracao);
+            }
         }
 
         #endregion
 
+        /* Escolas e Filhos do Evento */
         #region GestaoParticipacao
         private void buttonAdicionarEscola_Click(object sender, EventArgs e)
         {
             Evento evento = (Evento)listBoxEventos.SelectedItem;
             Escola escola = (Escola)comboBoxEscolas.SelectedItem;
 
-            Participacao participacao = new Participacao(escola.IdEscola, evento.IdEvento);
-
-            repoParticipacao.AddParticipacao(participacao);
+            if (escola != null || evento != null)
+            {
+                Participacao participacao = new Participacao(escola.IdEscola, evento.IdEvento);
+                repoParticipacao.AddParticipacao(participacao);
+            }
         }
 
         private void buttonRemoverEscola_Click(object sender, EventArgs e)
@@ -212,9 +254,11 @@ namespace Bookids.Forms
             Evento evento = (Evento)listBoxEventos.SelectedItem;
             Escola escola = (Escola)listBoxEscolas.SelectedItem;
 
-            Participacao participacao = new Participacao(escola.IdEscola, evento.IdEvento);
-
-            repoParticipacao.RemoveParticipacao(participacao);
+            if (escola != null || evento != null)
+            {
+                Participacao participacao = new Participacao(escola.IdEscola, evento.IdEvento);
+                repoParticipacao.RemoveParticipacao(participacao);
+            }
         }
 
         #endregion

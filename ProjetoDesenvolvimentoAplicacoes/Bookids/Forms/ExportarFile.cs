@@ -93,7 +93,7 @@ namespace Bookids.Forms
             {
                 try
                 {
-                    string[] fileContent = new string[] { "Ficha de Incrição\n", $"Evento: {evento.Descricao}", $"Local: {evento.Local}", $"Tipo de Evento: {evento.TipoEvento}", "\nNome do Parente:\nNome do Filho:\n\nParticipa?\nSim__ Nao__" };
+                    string[] fileContent = new string[] { "Ficha de Incrição\n", $"Evento: {evento.Descricao}", $"Local: {evento.Local}", $"Tipo de Evento: {evento.TipoEvento}", "\nNome do Parente: __________\nNome do Filho: __________\n\nParticipa?\nSim __ Nao __" };
 
                     using (StreamWriter outputfile = new StreamWriter(filePath))
                     {

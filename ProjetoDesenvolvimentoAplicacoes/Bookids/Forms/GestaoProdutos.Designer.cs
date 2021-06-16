@@ -321,6 +321,7 @@ namespace Bookids.Forms
             // 
             // comboBoxTipoProduto
             // 
+            this.comboBoxTipoProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipoProduto.FormattingEnabled = true;
             this.comboBoxTipoProduto.Location = new System.Drawing.Point(93, 61);
             this.comboBoxTipoProduto.Margin = new System.Windows.Forms.Padding(2);

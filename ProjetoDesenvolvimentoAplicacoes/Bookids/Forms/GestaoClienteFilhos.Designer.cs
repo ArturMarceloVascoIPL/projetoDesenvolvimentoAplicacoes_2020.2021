@@ -457,6 +457,7 @@ namespace Bookids.Forms
             // 
             // comboBoxEscolas
             // 
+            this.comboBoxEscolas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEscolas.FormattingEnabled = true;
             this.comboBoxEscolas.Location = new System.Drawing.Point(98, 94);
             this.comboBoxEscolas.Name = "comboBoxEscolas";

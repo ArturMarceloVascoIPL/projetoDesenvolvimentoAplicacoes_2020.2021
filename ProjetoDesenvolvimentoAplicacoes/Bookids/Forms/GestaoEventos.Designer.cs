@@ -184,6 +184,7 @@ namespace Bookids.Forms
             // buttonExportFichaInsc
             // 
             this.buttonExportFichaInsc.BackColor = System.Drawing.Color.Gold;
+            this.buttonExportFichaInsc.Enabled = false;
             this.buttonExportFichaInsc.Location = new System.Drawing.Point(14, 331);
             this.buttonExportFichaInsc.Margin = new System.Windows.Forms.Padding(2);
             this.buttonExportFichaInsc.Name = "buttonExportFichaInsc";
@@ -219,6 +220,7 @@ namespace Bookids.Forms
             // 
             // comboBoxAnimadores
             // 
+            this.comboBoxAnimadores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAnimadores.FormattingEnabled = true;
             this.comboBoxAnimadores.Location = new System.Drawing.Point(14, 156);
             this.comboBoxAnimadores.Name = "comboBoxAnimadores";
@@ -287,6 +289,7 @@ namespace Bookids.Forms
             // 
             // comboBoxEscolas
             // 
+            this.comboBoxEscolas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEscolas.FormattingEnabled = true;
             this.comboBoxEscolas.Location = new System.Drawing.Point(14, 156);
             this.comboBoxEscolas.Name = "comboBoxEscolas";
@@ -346,7 +349,6 @@ namespace Bookids.Forms
             this.panelParticipantes.Controls.Add(this.listBoxParticipantes);
             this.panelParticipantes.Controls.Add(this._labelParticipantes);
             this.panelParticipantes.Controls.Add(this.buttonExportFichaInsc);
-            this.panelParticipantes.Enabled = false;
             this.panelParticipantes.Location = new System.Drawing.Point(1051, 40);
             this.panelParticipantes.Margin = new System.Windows.Forms.Padding(2);
             this.panelParticipantes.Name = "panelParticipantes";
@@ -375,6 +377,7 @@ namespace Bookids.Forms
             // buttonExportInscritos
             // 
             this.buttonExportInscritos.BackColor = System.Drawing.Color.Gold;
+            this.buttonExportInscritos.Enabled = false;
             this.buttonExportInscritos.Location = new System.Drawing.Point(223, 331);
             this.buttonExportInscritos.Margin = new System.Windows.Forms.Padding(2);
             this.buttonExportInscritos.Name = "buttonExportInscritos";
