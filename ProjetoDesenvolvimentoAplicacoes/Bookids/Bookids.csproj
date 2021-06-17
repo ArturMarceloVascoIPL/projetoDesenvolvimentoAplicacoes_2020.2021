@@ -82,6 +82,7 @@
     <Compile Include="DataBase\Animador.cs" />
     <Compile Include="DataBase\Cliente.cs" />
     <Compile Include="DataBase\Compra.cs" />
+    <Compile Include="DataBase\DetalheCompra.cs" />
     <Compile Include="DataBase\Escola.cs" />
     <Compile Include="DataBase\Evento.cs" />
     <Compile Include="DataBase\Filho.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="Repositorios\RepositorioAnimadores.cs" />
     <Compile Include="Repositorios\RepositorioClientes.cs" />
     <Compile Include="Repositorios\RepositorioCompras.cs" />
+    <Compile Include="Repositorios\RepositorioDetalhesCompras.cs" />
     <Compile Include="Repositorios\RepositorioEscolas.cs" />
     <Compile Include="Repositorios\RepositorioFilhos.cs" />
     <Compile Include="Repositorios\RepositorioTipoProdutos.cs" />

@@ -11,16 +11,20 @@ namespace Bookids
     public partial class FormNovaCompra : Form
     {
         RepositorioProdutos repoProdutos = new RepositorioProdutos();
+        RepositorioDetalhesCompras repositorioDetalhesCompras = new RepositorioDetalhesCompras();
+        RepositorioCompras repositorioCompras = new RepositorioCompras();
 
+        int idCliente=0;
         bool card;
 
 
-        public FormNovaCompra()
+        public FormNovaCompra(Cliente cliente)
         {
             InitializeComponent();
             timer1.Start();
             panelCardNo.BackColor = Color.Red;
             panelCardYes.BackColor = Color.White;
+            idCliente = cliente.IdPessoa;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -33,7 +37,33 @@ namespace Bookids
             }
             else if (dialogResult == DialogResult.No)
             {
-                //do something else
+                string data = DateTime.Today.ToString("dd/MM/yyyy");
+                bool utilizouCartao;
+                if(panelCardYes.BackColor == Color.Green)
+                {
+                    utilizouCartao = true;
+                }
+                else
+                {
+                    utilizouCartao = false;
+                }
+                Compra compra = new Compra(data,utilizouCartao,idCliente);
+                repositorioCompras.AddCompras(compra);
+
+
+                foreach (Carrinho itensCarrinho in listaCarrinho.Items)
+                {
+                    DetalheCompra detalheCompra = new DetalheCompra(compra.IdCompra,itensCarrinho.IdProduto,itensCarrinho.Quantidade);
+                    repositorioDetalhesCompras.AddDetalheCompra(detalheCompra);
+                }
+
+                foreach (Produto itensProduto in listaProdutos.Items)
+                {
+                    repoProdutos.EditProduto(itensProduto.IdProduto,itensProduto);
+                }
+
+                MessageBox.Show("Inserido com sucesso");
+                this.Close();
             }
         }
 
@@ -165,6 +195,7 @@ namespace Bookids
                         carrinho = new Carrinho(produto.IdProduto, produto.Designacao, produto.Preco, produto.IdTipoProduto, 1);
                         listCarrinho.Add(carrinho);
                         produto.StockExistente--;
+                        Model1Container model = new Model1Container();
                         RefreshProdutos();
                         RefreshCarrinho<Carrinho>(listCarrinho,-1);
                         calcularTotal<Carrinho>(listCarrinho);
@@ -199,7 +230,7 @@ namespace Bookids
                         RefreshProdutos();
                         RefreshCarrinho<Carrinho>(listCarrinho,index);
                         calcularTotal<Carrinho>(listCarrinho);
-                        
+
                     }
                     else
                     {

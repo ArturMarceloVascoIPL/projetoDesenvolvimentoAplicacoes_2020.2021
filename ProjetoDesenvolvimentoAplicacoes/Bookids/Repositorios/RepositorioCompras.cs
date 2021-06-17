@@ -14,9 +14,22 @@ namespace Bookids
         {
 
         }
+
         public List<Compra> GetCompras(int id)
         {
-            return model.Compras.Where(c => c.IdCliente == id).ToList<Compra>();
+            
+            return model.Compras.Where(c => c.IdCliente == id).ToList();
+        }
+
+        public void AddCompras (Compra compra)
+        {
+            model.Compras.Add(compra);
+            model.SaveChanges();
+        }
+
+        public void DeleteCompras (Compra compra)
+        {
+
         }
     }
 }

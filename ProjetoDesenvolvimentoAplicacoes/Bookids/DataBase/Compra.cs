@@ -14,5 +14,18 @@ namespace Bookids
             this.UtilizouCartao = UtilizouCartao;
             this.IdCliente = IdCliente;
         }
+
+        public override string ToString()
+        {
+            string cartao;
+            if (UtilizouCartao == true)
+            {
+                cartao = "Utilizou cartão";
+            }else
+            {
+                cartao = "Não utilizou cartão";
+            }
+            return $"{Data}, {cartao}, {Cliente.Nome}";
+        }
     }
 }
