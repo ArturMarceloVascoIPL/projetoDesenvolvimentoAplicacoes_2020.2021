@@ -291,7 +291,7 @@ namespace Bookids
                 fc.Focus();
             else
             {
-                GestaoProdutos produtoForm = new GestaoProdutos();
+                GestaoProdutos produtoForm = new GestaoProdutos(false);
                 produtoForm.Show();
             }
         }

@@ -42,6 +42,7 @@ namespace Bookids
             this.editarTiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panelClock = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelHora = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@ namespace Bookids
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panelClock = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -75,7 +75,7 @@ namespace Bookids
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(901, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(888, 31);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -99,14 +99,14 @@ namespace Bookids
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
             this.novoToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
             this.novoToolStripMenuItem.Text = "Novo";
-            this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
+            this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoEventoToolStripMenuItem_Click);
             // 
             // editarRecenteToolStripMenuItem
             // 
             this.editarRecenteToolStripMenuItem.Name = "editarRecenteToolStripMenuItem";
             this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
             this.editarRecenteToolStripMenuItem.Text = "Editar Recente";
-            this.editarRecenteToolStripMenuItem.Click += new System.EventHandler(this.editarRecenteToolStripMenuItem_Click);
+            this.editarRecenteToolStripMenuItem.Click += new System.EventHandler(this.editarRecenteEventoToolStripMenuItem_Click);
             // 
             // comprasToolStripMenuItem
             // 
@@ -119,9 +119,9 @@ namespace Bookids
             // verRecenteToolStripMenuItem
             // 
             this.verRecenteToolStripMenuItem.Name = "verRecenteToolStripMenuItem";
-            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(185, 28);
+            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.verRecenteToolStripMenuItem.Text = "Ver Recente";
-            this.verRecenteToolStripMenuItem.Click += new System.EventHandler(this.verRecenteToolStripMenuItem_Click);
+            this.verRecenteToolStripMenuItem.Click += new System.EventHandler(this.verCompraRecenteToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
@@ -135,14 +135,14 @@ namespace Bookids
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(183, 28);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(224, 28);
             this.novoToolStripMenuItem1.Text = "Novo";
-            this.novoToolStripMenuItem1.Click += new System.EventHandler(this.novoToolStripMenuItem1_Click);
+            this.novoToolStripMenuItem1.Click += new System.EventHandler(this.novoTipoToolStripMenuItem_Click);
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
             this.editarTiposToolStripMenuItem.Click += new System.EventHandler(this.editarTiposToolStripMenuItem_Click);
             // 
@@ -173,8 +173,18 @@ namespace Bookids
             this.panel2.Location = new System.Drawing.Point(427, 43);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(446, 443);
+            this.panel2.Size = new System.Drawing.Size(441, 443);
             this.panel2.TabIndex = 4;
+            // 
+            // panelClock
+            // 
+            this.panelClock.BackgroundImage = global::Bookids.Properties.Resources.baseline_watch_later_black_24dp;
+            this.panelClock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelClock.Location = new System.Drawing.Point(296, 377);
+            this.panelClock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelClock.Name = "panelClock";
+            this.panelClock.Size = new System.Drawing.Size(51, 42);
+            this.panelClock.TabIndex = 1;
             // 
             // label3
             // 
@@ -199,7 +209,7 @@ namespace Bookids
             // 
             this.labelHora.AutoSize = true;
             this.labelHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHora.Location = new System.Drawing.Point(292, 346);
+            this.labelHora.Location = new System.Drawing.Point(292, 334);
             this.labelHora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelHora.Name = "labelHora";
             this.labelHora.Size = new System.Drawing.Size(50, 20);
@@ -210,7 +220,7 @@ namespace Bookids
             // 
             this.labelData.AutoSize = true;
             this.labelData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelData.Location = new System.Drawing.Point(292, 314);
+            this.labelData.Location = new System.Drawing.Point(292, 302);
             this.labelData.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelData.Name = "labelData";
             this.labelData.Size = new System.Drawing.Size(93, 20);
@@ -356,22 +366,12 @@ namespace Bookids
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panelClock
-            // 
-            this.panelClock.BackgroundImage = global::Bookids.Properties.Resources.baseline_watch_later_black_24dp;
-            this.panelClock.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelClock.Location = new System.Drawing.Point(296, 377);
-            this.panelClock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelClock.Name = "panelClock";
-            this.panelClock.Size = new System.Drawing.Size(51, 42);
-            this.panelClock.TabIndex = 1;
-            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(901, 514);
+            this.ClientSize = new System.Drawing.Size(888, 514);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
@@ -380,7 +380,7 @@ namespace Bookids
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
