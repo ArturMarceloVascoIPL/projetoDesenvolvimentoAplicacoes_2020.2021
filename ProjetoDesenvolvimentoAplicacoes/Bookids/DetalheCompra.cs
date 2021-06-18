@@ -14,6 +14,10 @@ namespace Bookids
     
     public partial class DetalheCompra
     {
+        public DetalheCompra()
+        {
+
+        }
         public int IdProduto { get; set; }
         public int IdCompra { get; set; }
         public int Quantidade { get; set; }

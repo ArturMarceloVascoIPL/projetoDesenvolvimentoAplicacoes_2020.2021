@@ -1,4 +1,4 @@
-﻿
+
 namespace Bookids.Forms
 {
     partial class GestaoProdutos
@@ -142,16 +142,14 @@ namespace Bookids.Forms
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
             this.novoToolStripMenuItem1.Text = "Novo";
-            this.novoToolStripMenuItem1.Click += new System.EventHandler(this.novoToolStripMenuItem1_Click);
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
-            this.editarTiposToolStripMenuItem.Click += new System.EventHandler(this.editarTiposToolStripMenuItem_Click);
             // 
             // panelProdutos
             // 

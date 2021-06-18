@@ -15,6 +15,7 @@ namespace Bookids
             return model.Pessoas.Where(p => p is Cliente).Select(p => p).ToList().Select(p => (Cliente)p).ToList();
         }
 
+
         public void AddCliente(Cliente cliente)
         {
             model.Pessoas.Add(cliente);
@@ -45,6 +46,13 @@ namespace Bookids
             model.Pessoas.Remove(cliente);
             model.SaveChanges();
 
+        }
+
+        public List<Cliente> SearchByName(string nome)
+        {
+            return (from animador in model.Pessoas.Where(a => a is Cliente).Select(a => a).ToList().Select(a => (Cliente)a).ToList()
+                    where animador.Nome.ToLower().Contains(nome.ToLower())
+                    select animador).ToList<Cliente>();
         }
     }
 }
