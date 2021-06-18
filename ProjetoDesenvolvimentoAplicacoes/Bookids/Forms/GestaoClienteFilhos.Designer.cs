@@ -79,7 +79,7 @@ namespace Bookids.Forms
             this.listBoxNaoParticipa = new System.Windows.Forms.ListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelConfirmacoes = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonParticipa = new System.Windows.Forms.Panel();
             this.buttonNaoParticipa = new System.Windows.Forms.Panel();
@@ -90,7 +90,7 @@ namespace Bookids.Forms
             this.listBoxFilhos = new System.Windows.Forms.ListBox();
             this.buttonNovoFilho = new System.Windows.Forms.Button();
             this.textBoxPesquisaFilhos = new System.Windows.Forms.TextBox();
-            this.btnConfirmacoes = new System.Windows.Forms.Button();
+            this.buttonConfirmacoes = new System.Windows.Forms.Button();
             this.buttonPesquisarFilhos = new System.Windows.Forms.Panel();
             this.panelClientes = new System.Windows.Forms.Panel();
             this.buttonApagarCliente = new System.Windows.Forms.Button();
@@ -105,7 +105,7 @@ namespace Bookids.Forms
             this.panel2.SuspendLayout();
             this.panelFilho.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelConfirmacoes.SuspendLayout();
             this.panelFilhos.SuspendLayout();
             this.panelClientes.SuspendLayout();
             this.SuspendLayout();
@@ -626,21 +626,22 @@ namespace Bookids.Forms
             this.label13.TabIndex = 37;
             this.label13.Text = "Não Participa";
             // 
-            // panel1
+            // panelConfirmacoes
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.buttonParticipa);
-            this.panel1.Controls.Add(this.buttonNaoParticipa);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.listBoxNaoParticipa);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.listBoxParticipa);
-            this.panel1.Location = new System.Drawing.Point(1444, 43);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(259, 467);
-            this.panel1.TabIndex = 38;
+            this.panelConfirmacoes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelConfirmacoes.Controls.Add(this.button1);
+            this.panelConfirmacoes.Controls.Add(this.buttonParticipa);
+            this.panelConfirmacoes.Controls.Add(this.buttonNaoParticipa);
+            this.panelConfirmacoes.Controls.Add(this.label12);
+            this.panelConfirmacoes.Controls.Add(this.listBoxNaoParticipa);
+            this.panelConfirmacoes.Controls.Add(this.label13);
+            this.panelConfirmacoes.Controls.Add(this.listBoxParticipa);
+            this.panelConfirmacoes.Enabled = false;
+            this.panelConfirmacoes.Location = new System.Drawing.Point(1444, 43);
+            this.panelConfirmacoes.Margin = new System.Windows.Forms.Padding(4);
+            this.panelConfirmacoes.Name = "panelConfirmacoes";
+            this.panelConfirmacoes.Size = new System.Drawing.Size(259, 467);
+            this.panelConfirmacoes.TabIndex = 38;
             // 
             // button1
             // 
@@ -684,7 +685,7 @@ namespace Bookids.Forms
             this.panelFilhos.Controls.Add(this.listBoxFilhos);
             this.panelFilhos.Controls.Add(this.buttonNovoFilho);
             this.panelFilhos.Controls.Add(this.textBoxPesquisaFilhos);
-            this.panelFilhos.Controls.Add(this.btnConfirmacoes);
+            this.panelFilhos.Controls.Add(this.buttonConfirmacoes);
             this.panelFilhos.Controls.Add(this.buttonPesquisarFilhos);
             this.panelFilhos.Enabled = false;
             this.panelFilhos.Location = new System.Drawing.Point(438, 36);
@@ -757,18 +758,18 @@ namespace Bookids.Forms
             this.textBoxPesquisaFilhos.Size = new System.Drawing.Size(376, 22);
             this.textBoxPesquisaFilhos.TabIndex = 45;
             // 
-            // btnConfirmacoes
+            // buttonConfirmacoes
             // 
-            this.btnConfirmacoes.BackColor = System.Drawing.SystemColors.Control;
-            this.btnConfirmacoes.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnConfirmacoes.Location = new System.Drawing.Point(261, 1);
-            this.btnConfirmacoes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnConfirmacoes.Name = "btnConfirmacoes";
-            this.btnConfirmacoes.Size = new System.Drawing.Size(158, 30);
-            this.btnConfirmacoes.TabIndex = 47;
-            this.btnConfirmacoes.Text = "Confirmações";
-            this.btnConfirmacoes.UseVisualStyleBackColor = false;
-
+            this.buttonConfirmacoes.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonConfirmacoes.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.buttonConfirmacoes.Location = new System.Drawing.Point(261, 1);
+            this.buttonConfirmacoes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonConfirmacoes.Name = "buttonConfirmacoes";
+            this.buttonConfirmacoes.Size = new System.Drawing.Size(158, 30);
+            this.buttonConfirmacoes.TabIndex = 47;
+            this.buttonConfirmacoes.Text = "Confirmações";
+            this.buttonConfirmacoes.UseVisualStyleBackColor = false;
+            this.buttonConfirmacoes.Click += new System.EventHandler(this.buttonConfirmacoes_Click_1);
             // 
             // buttonPesquisarFilhos
             // 
@@ -879,7 +880,7 @@ namespace Bookids.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1725, 526);
             this.Controls.Add(this.panelClientes);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelConfirmacoes);
             this.Controls.Add(this.labelFilho);
             this.Controls.Add(this.labelCliente);
             this.Controls.Add(this.panelFilho);
@@ -904,8 +905,8 @@ namespace Bookids.Forms
             this.panelFilho.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelConfirmacoes.ResumeLayout(false);
+            this.panelConfirmacoes.PerformLayout();
             this.panelFilhos.ResumeLayout(false);
             this.panelFilhos.PerformLayout();
             this.panelClientes.ResumeLayout(false);
@@ -965,7 +966,7 @@ namespace Bookids.Forms
         private System.Windows.Forms.ListBox listBoxNaoParticipa;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelConfirmacoes;
         private System.Windows.Forms.Panel buttonNaoParticipa;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel buttonParticipa;
@@ -978,7 +979,7 @@ namespace Bookids.Forms
         private System.Windows.Forms.ListBox listBoxFilhos;
         private System.Windows.Forms.Button buttonNovoFilho;
         private System.Windows.Forms.TextBox textBoxPesquisaFilhos;
-        private System.Windows.Forms.Button btnConfirmacoes;
+        private System.Windows.Forms.Button buttonConfirmacoes;
         private System.Windows.Forms.Panel buttonPesquisarFilhos;
         private System.Windows.Forms.Panel panelClientes;
         private System.Windows.Forms.Button buttonApagarCliente;

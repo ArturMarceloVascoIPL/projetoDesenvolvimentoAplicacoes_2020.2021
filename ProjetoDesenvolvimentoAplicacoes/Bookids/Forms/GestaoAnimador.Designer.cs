@@ -39,7 +39,7 @@ namespace Bookids.Forms
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarTiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelEditar = new System.Windows.Forms.Panel();
+            this.panelAnimador = new System.Windows.Forms.Panel();
             this.textBoxTelefone = new System.Windows.Forms.TextBox();
             this.l_7 = new System.Windows.Forms.Label();
             this.textBoxCodPostal = new System.Windows.Forms.TextBox();
@@ -66,8 +66,9 @@ namespace Bookids.Forms
             this.buttonApagar = new System.Windows.Forms.Button();
             this.panelBotaoPesquisa = new System.Windows.Forms.Panel();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.labelAnimador = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
-            this.panelEditar.SuspendLayout();
+            this.panelAnimador.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -81,7 +82,7 @@ namespace Bookids.Forms
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1088, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1088, 31);
             this.menuStrip.TabIndex = 2;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -89,7 +90,7 @@ namespace Bookids.Forms
             // 
             this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 24);
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
             // 
             // eventosToolStripMenuItem
             // 
@@ -97,19 +98,19 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem,
             this.editarRecenteToolStripMenuItem});
             this.eventosToolStripMenuItem.Name = "eventosToolStripMenuItem";
-            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(83, 27);
             this.eventosToolStripMenuItem.Text = "Eventos";
             // 
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
             this.novoToolStripMenuItem.Text = "Novo";
             // 
             // editarRecenteToolStripMenuItem
             // 
             this.editarRecenteToolStripMenuItem.Name = "editarRecenteToolStripMenuItem";
-            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
+            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
             this.editarRecenteToolStripMenuItem.Text = "Editar Recente";
             // 
             // comprasToolStripMenuItem
@@ -117,13 +118,13 @@ namespace Bookids.Forms
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verRecenteToolStripMenuItem});
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(92, 27);
             this.comprasToolStripMenuItem.Text = "Compras";
             // 
             // verRecenteToolStripMenuItem
             // 
             this.verRecenteToolStripMenuItem.Name = "verRecenteToolStripMenuItem";
-            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
+            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(185, 28);
             this.verRecenteToolStripMenuItem.Text = "Ver Recente";
             // 
             // produtosToolStripMenuItem
@@ -132,48 +133,49 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem1,
             this.editarTiposToolStripMenuItem});
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(93, 27);
             this.produtosToolStripMenuItem.Text = "Produtos";
             // 
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(171, 26);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(183, 28);
             this.novoToolStripMenuItem1.Text = "Novo";
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
             // 
-            // panelEditar
+            // panelAnimador
             // 
-            this.panelEditar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelEditar.Controls.Add(this.textBoxTelefone);
-            this.panelEditar.Controls.Add(this.l_7);
-            this.panelEditar.Controls.Add(this.textBoxCodPostal);
-            this.panelEditar.Controls.Add(this.l_5);
-            this.panelEditar.Controls.Add(this.textBoxEspecialidade);
-            this.panelEditar.Controls.Add(this.textBoxEmail);
-            this.panelEditar.Controls.Add(this.textBoxTelemovel);
-            this.panelEditar.Controls.Add(this.textBoxLocalidade);
-            this.panelEditar.Controls.Add(this.textBoxMorada);
-            this.panelEditar.Controls.Add(this.textBoxNome);
-            this.panelEditar.Controls.Add(this.l_6);
-            this.panelEditar.Controls.Add(this.l_9);
-            this.panelEditar.Controls.Add(this.l_8);
-            this.panelEditar.Controls.Add(this.l_4);
-            this.panelEditar.Controls.Add(this.l_3);
-            this.panelEditar.Controls.Add(this.l_2);
-            this.panelEditar.Controls.Add(this.buttonCancelar);
-            this.panelEditar.Controls.Add(this.buttonGuardar);
-            this.panelEditar.Enabled = false;
-            this.panelEditar.Location = new System.Drawing.Point(493, 76);
-            this.panelEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelEditar.Name = "panelEditar";
-            this.panelEditar.Size = new System.Drawing.Size(563, 384);
-            this.panelEditar.TabIndex = 13;
+            this.panelAnimador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelAnimador.Controls.Add(this.labelAnimador);
+            this.panelAnimador.Controls.Add(this.textBoxTelefone);
+            this.panelAnimador.Controls.Add(this.l_7);
+            this.panelAnimador.Controls.Add(this.textBoxCodPostal);
+            this.panelAnimador.Controls.Add(this.l_5);
+            this.panelAnimador.Controls.Add(this.textBoxEspecialidade);
+            this.panelAnimador.Controls.Add(this.textBoxEmail);
+            this.panelAnimador.Controls.Add(this.textBoxTelemovel);
+            this.panelAnimador.Controls.Add(this.textBoxLocalidade);
+            this.panelAnimador.Controls.Add(this.textBoxMorada);
+            this.panelAnimador.Controls.Add(this.textBoxNome);
+            this.panelAnimador.Controls.Add(this.l_6);
+            this.panelAnimador.Controls.Add(this.l_9);
+            this.panelAnimador.Controls.Add(this.l_8);
+            this.panelAnimador.Controls.Add(this.l_4);
+            this.panelAnimador.Controls.Add(this.l_3);
+            this.panelAnimador.Controls.Add(this.l_2);
+            this.panelAnimador.Controls.Add(this.buttonCancelar);
+            this.panelAnimador.Controls.Add(this.buttonGuardar);
+            this.panelAnimador.Enabled = false;
+            this.panelAnimador.Location = new System.Drawing.Point(493, 76);
+            this.panelAnimador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelAnimador.Name = "panelAnimador";
+            this.panelAnimador.Size = new System.Drawing.Size(563, 384);
+            this.panelAnimador.TabIndex = 13;
             // 
             // textBoxTelefone
             // 
@@ -181,7 +183,8 @@ namespace Bookids.Forms
             this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTelefone.Name = "textBoxTelefone";
             this.textBoxTelefone.Size = new System.Drawing.Size(100, 22);
-            this.textBoxTelefone.TabIndex = 31;
+            this.textBoxTelefone.TabIndex = 27;
+            this.textBoxTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumApena_KeyPress);
             // 
             // l_7
             // 
@@ -199,7 +202,8 @@ namespace Bookids.Forms
             this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxCodPostal.Name = "textBoxCodPostal";
             this.textBoxCodPostal.Size = new System.Drawing.Size(100, 22);
-            this.textBoxCodPostal.TabIndex = 29;
+            this.textBoxCodPostal.TabIndex = 25;
+            this.textBoxCodPostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumApena_KeyPress);
             // 
             // l_5
             // 
@@ -217,7 +221,7 @@ namespace Bookids.Forms
             this.textBoxEspecialidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEspecialidade.Name = "textBoxEspecialidade";
             this.textBoxEspecialidade.Size = new System.Drawing.Size(371, 22);
-            this.textBoxEspecialidade.TabIndex = 27;
+            this.textBoxEspecialidade.TabIndex = 29;
             // 
             // textBoxEmail
             // 
@@ -225,7 +229,7 @@ namespace Bookids.Forms
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(371, 22);
-            this.textBoxEmail.TabIndex = 26;
+            this.textBoxEmail.TabIndex = 28;
             // 
             // textBoxTelemovel
             // 
@@ -233,7 +237,8 @@ namespace Bookids.Forms
             this.textBoxTelemovel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTelemovel.Name = "textBoxTelemovel";
             this.textBoxTelemovel.Size = new System.Drawing.Size(100, 22);
-            this.textBoxTelemovel.TabIndex = 25;
+            this.textBoxTelemovel.TabIndex = 26;
+            this.textBoxTelemovel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNumApena_KeyPress);
             // 
             // textBoxLocalidade
             // 
@@ -325,9 +330,10 @@ namespace Bookids.Forms
             this.buttonCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(133, 64);
-            this.buttonCancelar.TabIndex = 15;
+            this.buttonCancelar.TabIndex = 31;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = false;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonGuardar
             // 
@@ -335,7 +341,7 @@ namespace Bookids.Forms
             this.buttonGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(133, 64);
-            this.buttonGuardar.TabIndex = 14;
+            this.buttonGuardar.TabIndex = 30;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.UseVisualStyleBackColor = false;
             this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
@@ -426,18 +432,28 @@ namespace Bookids.Forms
             this.buttonRefresh.UseVisualStyleBackColor = false;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
+            // labelAnimador
+            // 
+            this.labelAnimador.AutoSize = true;
+            this.labelAnimador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnimador.Location = new System.Drawing.Point(6, -1);
+            this.labelAnimador.Name = "labelAnimador";
+            this.labelAnimador.Size = new System.Drawing.Size(96, 25);
+            this.labelAnimador.TabIndex = 16;
+            this.labelAnimador.Text = "Animador";
+            // 
             // GestaoAnimador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1088, 538);
+            this.Controls.Add(this.textBoxPesquisa);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.panelBotaoPesquisa);
-            this.Controls.Add(this.panelEditar);
+            this.Controls.Add(this.panelAnimador);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonNovo);
-            this.Controls.Add(this.textBoxPesquisa);
             this.Controls.Add(this.listBoxAnimadores);
             this.Controls.Add(this.l_1);
             this.Controls.Add(this.menuStrip);
@@ -449,8 +465,8 @@ namespace Bookids.Forms
             this.Load += new System.EventHandler(this.GestaoAnimador_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.panelEditar.ResumeLayout(false);
-            this.panelEditar.PerformLayout();
+            this.panelAnimador.ResumeLayout(false);
+            this.panelAnimador.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,7 +484,7 @@ namespace Bookids.Forms
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editarTiposToolStripMenuItem;
-        private System.Windows.Forms.Panel panelEditar;
+        private System.Windows.Forms.Panel panelAnimador;
         private System.Windows.Forms.Label l_6;
         private System.Windows.Forms.Label l_9;
         private System.Windows.Forms.Label l_8;
@@ -495,5 +511,6 @@ namespace Bookids.Forms
         private System.Windows.Forms.Button buttonApagar;
         private System.Windows.Forms.Panel panelBotaoPesquisa;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Label labelAnimador;
     }
 }
