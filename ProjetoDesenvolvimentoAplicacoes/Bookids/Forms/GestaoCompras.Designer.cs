@@ -293,6 +293,7 @@ namespace Bookids
             this.btnVerDetalhes.TabIndex = 22;
             this.btnVerDetalhes.Text = "Detalhes";
             this.btnVerDetalhes.UseVisualStyleBackColor = false;
+            this.btnVerDetalhes.Click += new System.EventHandler(this.btnVerDetalhes_Click);
             // 
             // listaCompras
             // 

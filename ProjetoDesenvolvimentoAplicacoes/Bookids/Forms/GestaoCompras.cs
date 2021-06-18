@@ -68,7 +68,18 @@ namespace Bookids
 
         private void btnApagarCompra_Click(object sender, EventArgs e)
         {
+            Compra compra = (Compra)listaCompras.SelectedItem;
+            Cliente cliente = (Cliente)listaClientes.SelectedItem;
 
+            repoCompras.DeleteCompras(compra);
+
+            listaCompras.DataSource = repoCompras.GetCompras(cliente.IdPessoa);
+        }
+
+        private void btnVerDetalhes_Click(object sender, EventArgs e)
+        {
+            Compra compra = (Compra)listaCompras.SelectedItem;
+            
         }
     }
 }

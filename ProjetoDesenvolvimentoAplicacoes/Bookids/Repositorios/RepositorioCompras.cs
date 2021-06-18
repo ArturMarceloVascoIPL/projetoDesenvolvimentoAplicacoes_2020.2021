@@ -29,7 +29,14 @@ namespace Bookids
 
         public void DeleteCompras (Compra compra)
         {
+            foreach (var item in model.DetalhesCompras.Where(c => c.IdCompra == compra.IdCompra).ToList())
+            {
+                model.DetalhesCompras.Remove(item);
+            }
 
+            model.Compras.Remove(compra);
+            
+            model.SaveChanges();
         }
     }
 }
