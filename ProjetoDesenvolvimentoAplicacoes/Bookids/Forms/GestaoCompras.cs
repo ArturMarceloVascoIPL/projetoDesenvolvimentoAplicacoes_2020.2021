@@ -79,7 +79,15 @@ namespace Bookids
         private void btnVerDetalhes_Click(object sender, EventArgs e)
         {
             Compra compra = (Compra)listaCompras.SelectedItem;
-            
+
+            var formMostraDetlahesCompra = new Forms.MostraDetalhesCompra(compra);
+            formMostraDetlahesCompra.ShowDialog();
+
+        }
+
+        private void textBoxSearchClientes_TextChanged(object sender, EventArgs e)
+        {
+            listaClientes.DataSource = repoClientes.SearchByName(textBoxSearchClientes.Text);
         }
     }
 }

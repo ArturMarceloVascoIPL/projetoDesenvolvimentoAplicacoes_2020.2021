@@ -14,5 +14,10 @@ namespace Bookids
             this.IdProduto = IdProduto;
             this.Quantidade = Quantidade; 
         }
+
+        public override string ToString()
+        {
+            return $"{Produto.Designacao} - {Quantidade} Preço: {Produto.Preco}";
+        }
     }
 }

@@ -192,6 +192,7 @@ namespace Bookids
             this.textBoxSearchClientes.Name = "textBoxSearchClientes";
             this.textBoxSearchClientes.Size = new System.Drawing.Size(289, 20);
             this.textBoxSearchClientes.TabIndex = 17;
+            this.textBoxSearchClientes.TextChanged += new System.EventHandler(this.textBoxSearchClientes_TextChanged);
             // 
             // listaClientes
             // 
