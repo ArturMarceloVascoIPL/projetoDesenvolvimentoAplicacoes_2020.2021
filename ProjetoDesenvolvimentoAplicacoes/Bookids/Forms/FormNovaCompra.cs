@@ -15,7 +15,7 @@ namespace Bookids
         RepositorioCompras repositorioCompras = new RepositorioCompras();
         Model1Container model = new Model1Container();
 
-        int idCliente=0;
+        int idCliente = 0;
         bool card;
 
 
@@ -73,7 +73,7 @@ namespace Bookids
             {
                 string data = DateTime.Today.ToString("dd/MM/yyyy");
                 bool utilizouCartao;
-                if(panelCardYes.BackColor == Color.Green && panel6.Enabled == true)
+                if (panelCardYes.BackColor == Color.Green && panel6.Enabled == true)
                 {
                     utilizouCartao = true;
                 }
@@ -81,19 +81,19 @@ namespace Bookids
                 {
                     utilizouCartao = false;
                 }
-                Compra compra = new Compra(data,utilizouCartao,idCliente);
+                Compra compra = new Compra(data, utilizouCartao, idCliente);
                 repositorioCompras.AddCompras(compra);
 
 
                 foreach (Carrinho itensCarrinho in listaCarrinho.Items)
                 {
-                    DetalheCompra detalheCompra = new DetalheCompra(compra.IdCompra,itensCarrinho.IdProduto,itensCarrinho.Quantidade);
+                    DetalheCompra detalheCompra = new DetalheCompra(compra.IdCompra, itensCarrinho.IdProduto, itensCarrinho.Quantidade);
                     repositorioDetalhesCompras.AddDetalheCompra(detalheCompra);
                 }
 
                 foreach (Produto itensProduto in listaProdutos.Items)
                 {
-                    repoProdutos.EditProduto(itensProduto.IdProduto,itensProduto);
+                    repoProdutos.EditProduto(itensProduto.IdProduto, itensProduto);
                 }
 
                 MessageBox.Show("Inserido com sucesso");
@@ -169,19 +169,19 @@ namespace Bookids
                 if (itemProduto.IdProduto == id)
                 {
                     return itemProduto;
-                }
+            }
             }
             return null;
         }
 
-        public void RefreshCarrinho<T>(List<Carrinho> listCarrinho,int index)
+        public void RefreshCarrinho<T>(List<Carrinho> listCarrinho, int index)
         {
             listaCarrinho.Items.Clear();
             foreach (var itemCarrinho in listCarrinho)
             {
                 listaCarrinho.Items.Add(itemCarrinho);
             }
-            if(index != -1)
+            if (index != -1)
             {
                 listaCarrinho.SelectedIndex = index;
             }
@@ -214,7 +214,7 @@ namespace Bookids
                         carrinho.Quantidade++;
                         produto.StockExistente--;
                         RefreshProdutos();
-                        RefreshCarrinho<Carrinho>(listCarrinho,-1);
+                        RefreshCarrinho<Carrinho>(listCarrinho, -1);
                         calcularTotal<Carrinho>(listCarrinho);
                     }
                     else
@@ -231,7 +231,7 @@ namespace Bookids
                         produto.StockExistente--;
                         Model1Container model = new Model1Container();
                         RefreshProdutos();
-                        RefreshCarrinho<Carrinho>(listCarrinho,-1);
+                        RefreshCarrinho<Carrinho>(listCarrinho, -1);
                         calcularTotal<Carrinho>(listCarrinho);
                     }
                     else
@@ -262,7 +262,7 @@ namespace Bookids
                             index = -1;
                         }
                         RefreshProdutos();
-                        RefreshCarrinho<Carrinho>(listCarrinho,index);
+                        RefreshCarrinho<Carrinho>(listCarrinho, index);
                         calcularTotal<Carrinho>(listCarrinho);
 
                     }
@@ -278,8 +278,21 @@ namespace Bookids
         {
             listaProdutos.Items.Clear();
             foreach (var itemProdutos in repoProdutos.SearchByDesignacao(listaProdutos.Text))
-            {  
+            {
                 listaProdutos.Items.Add(itemProdutos);
+            }
+        }
+
+        private void buttonProdutosAtalho_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoProdutos"];
+
+            if (fc != null)
+                fc.Focus();
+            else
+            {
+                GestaoProdutos produtoForm = new GestaoProdutos();
+                produtoForm.Show();
             }
         }
     }

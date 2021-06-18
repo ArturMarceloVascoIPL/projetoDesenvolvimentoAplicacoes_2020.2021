@@ -55,7 +55,7 @@ namespace Bookids
                 }
                 panelCompras.Enabled = true;
 
-                labelNomeCliente.Text = cliente.Nome; 
+                labelNomeCliente.Text = cliente.Nome;
             }
         }
 
