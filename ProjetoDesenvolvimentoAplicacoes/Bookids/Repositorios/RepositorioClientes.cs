@@ -15,6 +15,7 @@ namespace Bookids
             return model.Pessoas.Where(p => p is Cliente).Select(p => p).ToList().Select(p => (Cliente)p).ToList();
         }
 
+
         public void AddCliente(Cliente cliente)
         {
             model.Pessoas.Add(cliente);

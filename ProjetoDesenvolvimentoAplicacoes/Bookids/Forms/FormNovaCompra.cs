@@ -13,6 +13,7 @@ namespace Bookids
         RepositorioProdutos repoProdutos = new RepositorioProdutos();
         RepositorioDetalhesCompras repositorioDetalhesCompras = new RepositorioDetalhesCompras();
         RepositorioCompras repositorioCompras = new RepositorioCompras();
+        Model1Container model = new Model1Container();
 
         int idCliente=0;
         bool card;
@@ -23,6 +24,10 @@ namespace Bookids
             InitializeComponent();
             timer1.Start();
             panelCardNo.BackColor = Color.Red;
+            if (cliente.NumCartao == null)
+            {
+                panel6.Enabled = false;
+            }
             panelCardYes.BackColor = Color.White;
             idCliente = cliente.IdPessoa;
         }
@@ -34,12 +39,41 @@ namespace Bookids
             {
                 var exportForm = new ExportarFileCompras();
                 exportForm.Show();
+
+                string data = DateTime.Today.ToString("dd/MM/yyyy");
+                bool utilizouCartao;
+                if (panelCardYes.BackColor == Color.Green && panel6.Enabled == true)
+                {
+                    utilizouCartao = true;
+                }
+                else
+                {
+                    utilizouCartao = false;
+                }
+                Compra compra = new Compra(data, utilizouCartao, idCliente);
+                repositorioCompras.AddCompras(compra);
+
+
+                foreach (Carrinho itensCarrinho in listaCarrinho.Items)
+                {
+                    DetalheCompra detalheCompra = new DetalheCompra(compra.IdCompra, itensCarrinho.IdProduto, itensCarrinho.Quantidade);
+                    repositorioDetalhesCompras.AddDetalheCompra(detalheCompra);
+                }
+
+                foreach (Produto itensProduto in listaProdutos.Items)
+                {
+                    repoProdutos.EditProduto(itensProduto.IdProduto, itensProduto);
+                }
+
+                MessageBox.Show("Inserido com sucesso");
+                this.Close();
+
             }
             else if (dialogResult == DialogResult.No)
             {
                 string data = DateTime.Today.ToString("dd/MM/yyyy");
                 bool utilizouCartao;
-                if(panelCardYes.BackColor == Color.Green)
+                if(panelCardYes.BackColor == Color.Green && panel6.Enabled == true)
                 {
                     utilizouCartao = true;
                 }

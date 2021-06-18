@@ -49,6 +49,10 @@ namespace Bookids
             if (cliente != null)
             {
                 listaCompras.DataSource = repoCompras.GetCompras(cliente.IdPessoa);
+                if(listaCompras.Items.Count == 0)
+                {
+                    labelPrecoTotalCompra.Text = "-,-- €";
+                }
                 panelCompras.Enabled = true;
 
                 labelNomeCliente.Text = cliente.Nome; 
