@@ -12,15 +12,15 @@ namespace Bookids.Forms
 {
     public partial class GestaoClienteFilhos : Form
     {
-        //Inicializacaoes dos repositiors
+        //Inicializacaoes dos repositorios
         RepositorioClientes repoCliente = new RepositorioClientes();
         RepositorioFilhos repoFilho = new RepositorioFilhos();
         RepositorioEscolas repoEscola = new RepositorioEscolas();
+        RepositorioInscricoes repoInscricoes = new RepositorioInscricoes();
 
         //Manipuacalo paneis
         bool editarCliente;
         bool editarFilho;
-        bool confirmPanel = false;
 
         public GestaoClienteFilhos()
         {
@@ -28,7 +28,8 @@ namespace Bookids.Forms
         }
 
 
-        #region Manipulacao Janela
+        #region MiscEvents
+
         private void GestaoClienteFilhos_Load(object sender, EventArgs e)
         {
             refreshListas();
@@ -52,15 +53,6 @@ namespace Bookids.Forms
             panelFilho.Enabled = true;
         }
 
-        private void buttonConfirmacoes_Click(object sender, EventArgs e)
-        {
-            if (!confirmPanel)
-                confirmPanel = true;
-            else
-                confirmPanel = false;
-
-        }
-
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
@@ -79,6 +71,12 @@ namespace Bookids.Forms
 
         public void refreshListas()
         {
+            //Inicializacaoes dos repositorios
+            RepositorioClientes repoCliente = new RepositorioClientes();
+            RepositorioFilhos repoFilho = new RepositorioFilhos();
+            RepositorioEscolas repoEscola = new RepositorioEscolas();
+            RepositorioInscricoes repoInscricoes = new RepositorioInscricoes();
+
             //Lista Clientes
             listBoxClientes.DataSource = repoCliente.GetClientes();
 
@@ -92,24 +90,19 @@ namespace Bookids.Forms
         private void listBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
-            listBoxFilhos.DataSource = cliente.Filhos.ToList();
 
-            if (cliente != null && listBoxFilhos.Items.Count > 0)
+            if (cliente != null)
             {
+                listBoxFilhos.DataSource = cliente.Filhos.ToList();
+
+                buttonNovoFilho.Enabled = true;
+
                 buttonEditarCliente.Enabled = true;
                 buttonApagarCliente.Enabled = true;
 
-                buttonEditarFilho.Enabled = true;
-                buttonApagarFilho.Enabled = true;
-
-                panelFilhos.Enabled = true;
-
                 panelCliente.Enabled = false;
-                panelFilho.Enabled = false;
 
-                labelCliente.Text = "Cliente Detalhes";
-
-                textBoxNomeCliente.Focus();
+                labelCliente.Text = "Detalhes do Cliente";
 
                 textBoxNomeCliente.Text = cliente.Nome;
                 textBoxMorada.Text = cliente.Morada;
@@ -118,9 +111,29 @@ namespace Bookids.Forms
                 textBoxEmail.Text = cliente.Email;
                 textBoxTelemovel.Text = Convert.ToString(cliente.Telemovel);
                 textBoxTelefone.Text = Convert.ToString(cliente.Telefone);
+
+                if (cliente.NumCartao == 0)
+                {
+                    radioButtonNao.Checked = true;
+                }
+                else
+                {
+                    radioButtonSim.Checked = true;
+                    textBoxNumCartao.Text = Convert.ToString(cliente.NumCartao);
+                }
+
+                if (listBoxFilhos.Items.Count > 0)
+                {
+                    buttonEditarFilho.Enabled = true;
+                    buttonApagarFilho.Enabled = true;
+                }
             }
             else
             {
+                buttonEditarCliente.Enabled = false;
+                buttonApagarCliente.Enabled = false;
+
+                buttonNovoFilho.Enabled = false;
                 buttonEditarFilho.Enabled = false;
                 buttonApagarFilho.Enabled = false;
             }
@@ -137,7 +150,7 @@ namespace Bookids.Forms
 
             textBoxNomeCliente.Focus();
 
-            //Apagar as textbox
+            // Limpar as textbox
             foreach (var control in panelCliente.Controls)
             {
                 if (control is TextBox)
@@ -152,52 +165,50 @@ namespace Bookids.Forms
             {
                 Cliente cliente = new Cliente();
 
-                // Confirmacao para guardar
-                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                //Verificacao se Tem os campos todos Preenchidos
+                foreach (Control c in panelCliente.Controls)
                 {
-                    //Verificacao se Tem os campos todos Preenchidos
-                    foreach (Control c in panelCliente.Controls)
+                    if (c is TextBox)
                     {
-                        if (c is TextBox)
+                        TextBox textBox = c as TextBox;
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                         {
-                            TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
+                            cliente.Nome = textBoxNomeCliente.Text;
+                            cliente.Morada = textBoxMorada.Text;
+                            cliente.Localidade = textBoxLocalidade.Text;
+                            cliente.CodPostal = textBoxCodPostal.Text;
+                            cliente.Email = textBoxEmail.Text;
+                            cliente.Telemovel = int.Parse(textBoxTelemovel.Text);
+                            cliente.Telefone = int.Parse(textBoxTelefone.Text);
+
+                            if (radioButtonSim.Checked)
                             {
-                                cliente.Nome = textBoxNomeCliente.Text;
-                                cliente.Morada = textBoxMorada.Text;
-                                cliente.Localidade = textBoxLocalidade.Text;
-                                cliente.CodPostal = textBoxCodPostal.Text;
-                                cliente.Email = textBoxEmail.Text;
-                                cliente.Telemovel = int.Parse(textBoxTelemovel.Text);
-                                cliente.Telefone = int.Parse(textBoxTelefone.Text);
-
-                                if (radioButtonSim.Checked)
-                                {
-                                    cliente.NumCartao = int.Parse(textBoxNumCartao.Text);
-                                    cliente.ValorOferta = 0;
-                                }
-                                else //valor 0 (default) para salvar
-                                {
-                                    cliente.NumCartao = 0;
-                                    cliente.ValorOferta = 0;
-                                }
-
-                                repoCliente.AddCliente(cliente);
-                                MessageBox.Show("Salvo com Sucesso.");
-
-                                //Apagar campos do Form
-                                foreach (var control in panelCliente.Controls)
-                                {
-                                    if (control is TextBox)
-                                        (control as TextBox).Clear();
-                                }
-                                break;
+                                cliente.NumCartao = int.Parse(textBoxNumCartao.Text);
+                                cliente.ValorOferta = 0;
                             }
-                            else
+                            else //valor 0 (default) para salvar
                             {
-                                MessageBox.Show("Erro. Preencher Todos os Campos.");
-                                break;
+                                cliente.NumCartao = 0;
+                                cliente.ValorOferta = 0;
                             }
+
+                            repoCliente.AddCliente(cliente);
+                            MessageBox.Show("Salvo com Sucesso.");
+
+                            buttonNovoFilho.Enabled = true;
+
+                            //Apagar campos do Form
+                            foreach (var control in panelCliente.Controls)
+                            {
+                                if (control is TextBox)
+                                    (control as TextBox).Clear();
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro. Preencher Todos os Campos.");
+                            break;
                         }
                     }
                 }
@@ -263,10 +274,14 @@ namespace Bookids.Forms
 
         private void buttonEditarCliente_Click(object sender, EventArgs e)
         {
+            editarCliente = true;
+
             panelCliente.Enabled = true;
             panelFilho.Enabled = false;
-            editarCliente = true;
-            labelCliente.Text = "Cliente Editar";
+
+            buttonNovoFilho.Enabled = true;
+
+            labelCliente.Text = "Editar Cliente";
 
             Cliente cliente = (Cliente)listBoxClientes.SelectedItem;
 
@@ -313,6 +328,10 @@ namespace Bookids.Forms
 
         private void listBoxFilhos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            buttonConfirmacoes.Enabled = false;
+            listBoxNaoParticipa.Items.Clear();
+            listBoxParticipa.Items.Clear();
+
             Filho filho = (Filho)listBoxFilhos.SelectedItem;
 
             if (filho != null && listBoxFilhos.Items.Count > 0)
@@ -328,7 +347,7 @@ namespace Bookids.Forms
                 textBoxNomeCliente.Focus();
 
                 textBoxNomeFilho.Text = filho.Nome;
-                dateTimePickerDataNascimento.Text = filho.DtaNascimento;
+                dateTimePickerDataNascimento.Value = filho.DtaNascimento;
                 if (filho.Sexo == "Masculino")
                     radioButtonMasculino.Checked = true;
                 else
@@ -336,9 +355,27 @@ namespace Bookids.Forms
 
                 Escola escola = repoEscola.SearchById(filho.IdEscola);
                 comboBoxEscolas.Text = escola.Nome;
+
+                if (filho.Inscricoes.Count > 0)
+                {
+                    foreach (Inscricao inscricao in filho.Inscricoes)
+                    {
+                        if (inscricao.Confirmada == true)
+                        {
+                            listBoxParticipa.Items.Add(inscricao);
+                        }
+                        else
+                        {
+                            listBoxNaoParticipa.Items.Add(inscricao);
+                        }
+                    }
+
+                    buttonConfirmacoes.Enabled = true;
+                }
             }
             else
             {
+                buttonConfirmacoes.Enabled = false;
                 buttonEditarFilho.Enabled = false;
                 buttonApagarFilho.Enabled = false;
                 panelFilho.Enabled = false;
@@ -347,11 +384,13 @@ namespace Bookids.Forms
 
         private void buttonNovoFilho_Click(object sender, EventArgs e)
         {
-            panelFilho.Enabled = true;
-            panelCliente.Enabled = false;
             editarFilho = false;
 
+            panelFilho.Enabled = true;
+            panelCliente.Enabled = false;
+
             labelFilho.Text = "Filho Novo";
+            buttonGuardarFilho.Text = "Criar";
 
             textBoxNomeCliente.Focus();
 
@@ -365,10 +404,13 @@ namespace Bookids.Forms
 
         private void buttonEditarFilho_Click(object sender, EventArgs e)
         {
+            editarFilho = true;
+
             panelFilho.Enabled = true;
             panelCliente.Enabled = false;
-            editarFilho = true;
-            labelFilho.Text = "Filho Editar";
+
+            labelFilho.Text = "Editar Filho";
+            buttonGuardarFilho.Text = "Guardar";
 
             Filho filho = (Filho)listBoxFilhos.SelectedItem;
 
@@ -381,7 +423,7 @@ namespace Bookids.Forms
             else
                 radioButtonFeminino.Checked = true;
 
-            dateTimePickerDataNascimento.Text = filho.DtaNascimento;
+            dateTimePickerDataNascimento.Value = filho.DtaNascimento;
 
             Escola escola = repoEscola.SearchById(filho.IdEscola);
             comboBoxEscolas.Text = escola.Nome;
@@ -396,58 +438,55 @@ namespace Bookids.Forms
             {
                 Filho filho = new Filho();
 
-                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                //Verificacao se Tem os campos todos Preenchidos
+                foreach (Control c in panelFilho.Controls)
                 {
-                    //Verificacao se Tem os campos todos Preenchidos
-                    foreach (Control c in panelFilho.Controls)
+                    if (c is TextBox)
                     {
-                        if (c is TextBox)
+                        TextBox textBox = c as TextBox;
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                         {
-                            TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
-                            {
-                                filho.Nome = textBoxNomeFilho.Text;
+                            filho.Nome = textBoxNomeFilho.Text;
 
-                                if (radioButtonMasculino.Checked)
-                                    filho.Sexo = "Masculino";
-                                else
-                                    filho.Sexo = "Feminino";
-
-                                filho.DtaNascimento = dateTimePickerDataNascimento.Text;
-
-                                Escola escola = (Escola)comboBoxEscolas.SelectedItem;
-                                filho.IdEscola = escola.IdEscola;
-
-                                filho.CodPostal = cliente.CodPostal;
-                                filho.Morada = cliente.Morada;
-                                filho.Localidade = cliente.Localidade;
-                                filho.Email = cliente.Email;
-                                filho.Telefone = cliente.Telefone;
-                                filho.Telemovel = cliente.Telemovel;
-                                filho.IdCliente = cliente.IdPessoa;
-
-                                try
-                                {
-                                    repoFilho.AddFilho(filho);
-                                    MessageBox.Show("Salvo com Sucesso.");
-                                }
-                                catch (Exception err)
-                                {
-                                    MessageBox.Show("Erro ao Salvar." + err.Message);
-                                }
-                            }
+                            if (radioButtonMasculino.Checked)
+                                filho.Sexo = "Masculino";
                             else
+                                filho.Sexo = "Feminino";
+
+                            filho.DtaNascimento = dateTimePickerDataNascimento.Value;
+
+                            Escola escola = (Escola)comboBoxEscolas.SelectedItem;
+                            filho.IdEscola = escola.IdEscola;
+
+                            filho.CodPostal = cliente.CodPostal;
+                            filho.Morada = cliente.Morada;
+                            filho.Localidade = cliente.Localidade;
+                            filho.Email = cliente.Email;
+                            filho.Telefone = cliente.Telefone;
+                            filho.Telemovel = cliente.Telemovel;
+                            filho.IdCliente = cliente.IdPessoa;
+
+                            try
                             {
-                                MessageBox.Show("Erro. Preencher Todos os Campos.");
-                                break;
+                                repoFilho.AddFilho(filho);
+                                MessageBox.Show("Salvo com Sucesso.");
                             }
+                            catch (Exception err)
+                            {
+                                MessageBox.Show("Erro ao Salvar." + err.Message);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro. Preencher Todos os Campos.");
+                            break;
                         }
                     }
                 }
             }
             else
             {
-                if (MessageBox.Show("Guardar Cliente Editado?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Guardar Filho Editado?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
 
                     Filho filho = (Filho)listBoxFilhos.SelectedItem;
@@ -465,7 +504,7 @@ namespace Bookids.Forms
                                 else
                                     filho.Sexo = "Feminino";
 
-                                filho.DtaNascimento = dateTimePickerDataNascimento.Text;
+                                filho.DtaNascimento = dateTimePickerDataNascimento.Value;
 
                                 Escola escola = (Escola)comboBoxEscolas.SelectedItem;
                                 filho.IdEscola = escola.IdEscola;
@@ -505,17 +544,18 @@ namespace Bookids.Forms
                     }
                 }
 
-                //Lista Filhos
-                refreshListas();
-                listBoxFilhos.DataSource = cliente.Filhos.ToList();
             }
+
+            //Lista Filhos
+            refreshListas();
+            listBoxFilhos.DataSource = cliente.Filhos.ToList();
         }
 
         private void buttonApagarFilho_Click(object sender, EventArgs e)
         {
-            Filho filho = (Filho)listBoxFilhos.SelectedItem; // Guarda o cliente selecionado
+            Filho filho = (Filho)listBoxFilhos.SelectedItem; // Guarda o filho selecionado
 
-            if (filho != null) // Verifica se o cliente nao é null
+            if (filho != null) // Verifica se o filho não é null
             {
                 if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
                 {
@@ -540,14 +580,70 @@ namespace Bookids.Forms
 
         }
 
-        private void buttonConfirmacoes_Click_1(object sender, EventArgs e)
-        {
-            if (panelConfirmacoes.Enabled == false)
-                panelConfirmacoes.Enabled = true;
-            else
-                panelConfirmacoes.Enabled = false;
+        #endregion
 
+        private void GestaoClienteFilhos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            repoCliente.Dispose();
+            repoEscola.Dispose();
+            repoFilho.Dispose();
         }
+
+        private void buttonConfirmacoes_Click(object sender, EventArgs e)
+        {
+            panelConfirmacoes.Enabled = true;
+        }
+
+        #region Participacoes
+
+        private void buttonGuardarParticipacoes_Click(object sender, EventArgs e)
+        {
+            panelConfirmacoes.Enabled = false;
+
+            foreach (Inscricao inscricao in listBoxNaoParticipa.Items)
+            {
+                repoInscricoes.EditConfirmacao(inscricao);
+            }
+            foreach (Inscricao inscricao in listBoxParticipa.Items)
+            {
+                repoInscricoes.EditConfirmacao(inscricao);
+            }
+        }
+
+        private void buttonParticipa_Click(object sender, EventArgs e)
+        {
+            Inscricao inscricao = (Inscricao)listBoxNaoParticipa.SelectedItem;
+
+            if (inscricao != null)
+            {
+                inscricao.Confirmada = true;
+
+                listBoxNaoParticipa.Items.Remove(inscricao);
+                listBoxParticipa.Items.Add(inscricao); 
+            }
+            else
+            {
+                MessageBox.Show("Tem de selecionar 1!");
+            }
+        }
+
+        private void buttonNaoParticipa_Click(object sender, EventArgs e)
+        {
+            Inscricao inscricao = (Inscricao)listBoxNaoParticipa.SelectedItem;
+
+            if (inscricao != null)
+            {
+                inscricao.Confirmada = false;
+
+                listBoxParticipa.Items.Remove(inscricao);
+                listBoxNaoParticipa.Items.Add(inscricao); 
+            }
+            else
+            {
+                MessageBox.Show("Tem de selecionar 1!");
+            }
+        }
+
+        #endregion
     }
-    #endregion
 }

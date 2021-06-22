@@ -319,6 +319,7 @@ namespace Bookids.Forms
             // 
             // comboBoxTipoProduto
             // 
+            this.comboBoxTipoProduto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipoProduto.FormattingEnabled = true;
             this.comboBoxTipoProduto.Location = new System.Drawing.Point(93, 61);
             this.comboBoxTipoProduto.Margin = new System.Windows.Forms.Padding(2);
@@ -482,6 +483,7 @@ namespace Bookids.Forms
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GestaoProdutos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoProdutos_FormClosing);
             this.Load += new System.EventHandler(this.GestaoProdutos_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

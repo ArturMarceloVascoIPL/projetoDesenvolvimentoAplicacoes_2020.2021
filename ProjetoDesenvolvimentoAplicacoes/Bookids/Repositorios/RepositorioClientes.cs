@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bookids
 {
-    class RepositorioClientes
+    class RepositorioClientes : IDisposable
     {
         Model1Container model = new Model1Container();
 
@@ -53,6 +53,11 @@ namespace Bookids
             return (from animador in model.Pessoas.Where(a => a is Cliente).Select(a => a).ToList().Select(a => (Cliente)a).ToList()
                     where animador.Nome.ToLower().Contains(nome.ToLower())
                     select animador).ToList<Cliente>();
+        }
+        
+        public void Dispose()
+        {
+            ((IDisposable)model).Dispose();
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Bookids
         }
     
         public string Sexo { get; set; }
-        public string DtaNascimento { get; set; }
+        public System.DateTime DtaNascimento { get; set; }
         public int IdCliente { get; set; }
         public int IdEscola { get; set; }
     

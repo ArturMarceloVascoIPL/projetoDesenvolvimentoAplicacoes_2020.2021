@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/19/2021 10:47:44
--- Generated from EDMX file: C:\Users\mrace\OneDrive\Ambiente de Trabalho\DA\ProjetoDA\projetoDesenvolvimentoAplicacoes_2020.2021\ProjetoDesenvolvimentoAplicacoes\Bookids\DataBaseModel.edmx
+-- Date Created: 06/16/2021 19:19:07
+-- Generated from EDMX file: D:\projetoDesenvolvimentoAplicacoes_2020.2021\ProjetoDesenvolvimentoAplicacoes\Bookids\DataBaseModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -170,7 +170,7 @@ CREATE TABLE [dbo].[Eventos] (
     [IdEvento] int IDENTITY(1,1) NOT NULL,
     [Descricao] nvarchar(max)  NOT NULL,
     [Local] nvarchar(max)  NOT NULL,
-    [DataHora] nvarchar(max)  NOT NULL,
+    [DataHora] datetime  NOT NULL,
     [LimiteParticipacao] int  NOT NULL,
     [IdadeInferiror] int  NOT NULL,
     [IdadeSuperior] int  NOT NULL,
@@ -216,7 +216,7 @@ GO
 -- Creating table 'Pessoas_Filho'
 CREATE TABLE [dbo].[Pessoas_Filho] (
     [Sexo] nvarchar(max)  NOT NULL,
-    [DtaNascimento] nvarchar(max)  NOT NULL,
+    [DtaNascimento] datetime  NOT NULL,
     [IdCliente] int  NOT NULL,
     [IdEscola] int  NOT NULL,
     [IdPessoa] int  NOT NULL

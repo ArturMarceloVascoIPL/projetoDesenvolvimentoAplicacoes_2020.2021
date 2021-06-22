@@ -1,7 +1,6 @@
-﻿
 namespace Bookids.Forms
 {
-    partial class ExportarFileCompras
+    partial class ExportarFile
     {
         /// <summary>
         /// Required designer variable.
@@ -45,6 +44,7 @@ namespace Bookids.Forms
             this.buttonPDF.TabIndex = 1;
             this.buttonPDF.Text = "PDF";
             this.buttonPDF.UseVisualStyleBackColor = false;
+            this.buttonPDF.Click += new System.EventHandler(this.buttonPDF_Click);
             this.buttonPDF.MouseEnter += new System.EventHandler(this.buttonPDF_MouseHover);
             this.buttonPDF.MouseLeave += new System.EventHandler(this.buttonPDF_MouseHover);
             this.buttonPDF.MouseHover += new System.EventHandler(this.buttonPDF_MouseHover);
@@ -59,6 +59,7 @@ namespace Bookids.Forms
             this.buttonTXT.TabIndex = 2;
             this.buttonTXT.Text = "TXT";
             this.buttonTXT.UseVisualStyleBackColor = false;
+            this.buttonTXT.Click += new System.EventHandler(this.buttonTXT_Click);
             this.buttonTXT.MouseEnter += new System.EventHandler(this.buttonTXT_MouseHover);
             this.buttonTXT.MouseLeave += new System.EventHandler(this.buttonTXT_MouseLeave);
             this.buttonTXT.MouseHover += new System.EventHandler(this.buttonTXT_MouseHover);
@@ -84,7 +85,7 @@ namespace Bookids.Forms
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
-            // ExportarFileCompras
+            // ExportarFile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -94,7 +95,7 @@ namespace Bookids.Forms
             this.Controls.Add(this.buttonTXT);
             this.Controls.Add(this.buttonPDF);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ExportarFileCompras";
+            this.Name = "ExportarFile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ExportarFileCompras";
             this.ResumeLayout(false);

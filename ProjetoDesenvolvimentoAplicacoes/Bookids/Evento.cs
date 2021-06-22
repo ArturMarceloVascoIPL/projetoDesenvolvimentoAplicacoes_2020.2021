@@ -25,7 +25,7 @@ namespace Bookids
         public int IdEvento { get; set; }
         public string Descricao { get; set; }
         public string Local { get; set; }
-        public string DataHora { get; set; }
+        public System.DateTime DataHora { get; set; }
         public int LimiteParticipacao { get; set; }
         public int IdadeInferiror { get; set; }
         public int IdadeSuperior { get; set; }

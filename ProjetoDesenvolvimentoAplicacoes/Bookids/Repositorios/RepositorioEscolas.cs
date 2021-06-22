@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bookids
 {
-    class RepositorioEscolas
+    class RepositorioEscolas : IDisposable
     {
         Model1Container model = new Model1Container();
 
@@ -26,62 +26,35 @@ namespace Bookids
                     select e).ToList<Evento>();
         }
 
-        /* Adiciona uma escola, retorna true(sucesso) ou false(erro) */
-        public bool AddEscola(Escola escola)
+        /* Adiciona uma escola */
+        public void AddEscola(Escola escola)
         {
-            try
-            {
-                model.Escolas.Add(escola);
-                model.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
+            model.Escolas.Add(escola);
+            model.SaveChanges();
         }
 
-        /* Remove uma escola, retorna true(sucesso) ou false(erro) */
-        public bool RemoveEscola(Escola escola)
+        /* Remove uma escola */
+        public void RemoveEscola(Escola escola)
         {
-            try
-            {
-                model.Escolas.Remove(escola);
-                model.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            
-            return true;
+            model.Escolas.Remove(escola);
+            model.SaveChanges();
         }
 
-        /* Edita uma escola, retorna true(sucesso) ou false(erro) */
-        public bool EditEscola(int id, Escola escolaEditada)
+        /* Edita uma escola */
+        public void EditEscola(int id, Escola escolaEditada)
         {
-            try
-            {
-                Escola escolaEncontrada = (from e in model.Escolas
-                                           where e.IdEscola == id
-                                           select e).Single();
+            Escola escolaEncontrada = (from e in model.Escolas
+                                        where e.IdEscola == id
+                                        select e).Single();
 
-                escolaEncontrada.Nome = escolaEditada.Nome;
-                escolaEncontrada.Morada = escolaEditada.Morada;
-                escolaEncontrada.Localidade = escolaEditada.Localidade;
-                escolaEncontrada.CodPostal = escolaEditada.CodPostal;
-                escolaEncontrada.Telefone = escolaEditada.Telefone;
-                escolaEncontrada.Email = escolaEditada.Email;
+            escolaEncontrada.Nome = escolaEditada.Nome;
+            escolaEncontrada.Morada = escolaEditada.Morada;
+            escolaEncontrada.Localidade = escolaEditada.Localidade;
+            escolaEncontrada.CodPostal = escolaEditada.CodPostal;
+            escolaEncontrada.Telefone = escolaEditada.Telefone;
+            escolaEncontrada.Email = escolaEditada.Email;
 
-                model.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-                
-            return true;
+            model.SaveChanges();
         }
 
         /* Faz uma pesquisa pelo NOME e retorna a lista de escolas encontradas */
@@ -92,19 +65,17 @@ namespace Bookids
                     select escola).ToList<Escola>();
         }
 
-        /* Faz uma pesquisa pela LOCALIDADE e retorna a lista de escolas encontradas */
-        public List<Escola> SearchByLocalidade(string local)
-        {
-            return (from escola in model.Escolas
-                    where escola.Localidade.Contains(local)
-                    select escola).ToList<Escola>();
-        }
-
         public Escola SearchById(int id)
         {
             return (from escola in model.Escolas
                     where escola.IdEscola == id
                     select escola).Single<Escola>();
+        }
+
+        /* Fecha as ligacoes na base de dados e liberta os recursos do computador */
+        public void Dispose()
+        {
+            ((IDisposable)model).Dispose();
         }
     }
 }

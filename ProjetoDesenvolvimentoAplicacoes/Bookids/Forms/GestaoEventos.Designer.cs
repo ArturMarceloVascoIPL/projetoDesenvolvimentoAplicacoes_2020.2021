@@ -39,69 +39,60 @@ namespace Bookids.Forms
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarTiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelEventos = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnApagarEvento = new System.Windows.Forms.Button();
-            this.btnEditarEvento = new System.Windows.Forms.Button();
-            this.btnNovoEvento = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listaEventos = new System.Windows.Forms.ListBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.labelEvento = new System.Windows.Forms.Label();
-            this.panelEditEvento = new System.Windows.Forms.Panel();
-            this.btnExportFichaInsc = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnCancelarEvento = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePickerDataNascimento = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBoxCodPostal = new System.Windows.Forms.TextBox();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.textBoxMorada = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.listaAnimadores = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.listaEscolas = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnExportInscritos = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.listaParticipantes = new System.Windows.Forms.ListBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panelEditEventoExtend = new System.Windows.Forms.Panel();
+            this.buttonExportFichaInsc = new System.Windows.Forms.Button();
+            this.dateTimePickerData = new System.Windows.Forms.DateTimePicker();
+            this.panelAnimadores = new System.Windows.Forms.Panel();
+            this.comboBoxAnimadores = new System.Windows.Forms.ComboBox();
+            this.buttonRemoverAnimador = new System.Windows.Forms.Button();
+            this.buttonAdicionarAnimador = new System.Windows.Forms.Button();
+            this.listBoxAnimadores = new System.Windows.Forms.ListBox();
+            this._labelAnimadores = new System.Windows.Forms.Label();
+            this.panelEscolas = new System.Windows.Forms.Panel();
+            this.comboBoxEscolas = new System.Windows.Forms.ComboBox();
+            this.buttonRemoverEscola = new System.Windows.Forms.Button();
+            this.buttonAdicionarEscola = new System.Windows.Forms.Button();
+            this.listBoxEscolas = new System.Windows.Forms.ListBox();
+            this._labelEscolas = new System.Windows.Forms.Label();
+            this.panelParticipantes = new System.Windows.Forms.Panel();
+            this.panelPesquisaParticipantes = new System.Windows.Forms.Panel();
+            this.textBoxPesquisaParticipantes = new System.Windows.Forms.TextBox();
+            this.buttonExportInscritos = new System.Windows.Forms.Button();
+            this.listBoxParticipantes = new System.Windows.Forms.ListBox();
+            this._labelParticipantes = new System.Windows.Forms.Label();
+            this.buttonRefresh = new System.Windows.Forms.Panel();
+            this.buttonApagarEvento = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonNovo = new System.Windows.Forms.Button();
+            this.textBoxPesquisaEventos = new System.Windows.Forms.TextBox();
+            this.listBoxEventos = new System.Windows.Forms.ListBox();
+            this._labelEventos = new System.Windows.Forms.Label();
+            this.panelEvento = new System.Windows.Forms.Panel();
+            this.textBoxIdadeMax = new System.Windows.Forms.TextBox();
+            this._labelIdadeMax = new System.Windows.Forms.Label();
+            this.textBoxIdadeMin = new System.Windows.Forms.TextBox();
+            this._labelIdadeMin = new System.Windows.Forms.Label();
+            this._labelIdades = new System.Windows.Forms.Label();
+            this.textBoxTipoEvento = new System.Windows.Forms.TextBox();
+            this.buttonGuardarEvento = new System.Windows.Forms.Button();
+            this._labelDescrição = new System.Windows.Forms.Label();
+            this._labelTipoEvento = new System.Windows.Forms.Label();
+            this._labelLocal = new System.Windows.Forms.Label();
+            this._labelDataHora = new System.Windows.Forms.Label();
+            this._labelMaxParticipantes = new System.Windows.Forms.Label();
+            this.textBoxMaxParticipantes = new System.Windows.Forms.TextBox();
+            this.textBoxDescricao = new System.Windows.Forms.TextBox();
+            this.textBoxLocal = new System.Windows.Forms.TextBox();
+            this.panelPesquisaEventos = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
-            this.panelEventos.SuspendLayout();
-            this.panelEditEvento.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panelEditEventoExtend.SuspendLayout();
+            this.panelAnimadores.SuspendLayout();
+            this.panelEscolas.SuspendLayout();
+            this.panelParticipantes.SuspendLayout();
+            this.panelEvento.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Enabled = false;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.HomeToolStripMenuItem,
@@ -110,7 +101,8 @@ namespace Bookids.Forms
             this.produtosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1926, 31);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1387, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -118,7 +110,7 @@ namespace Bookids.Forms
             // 
             this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
-            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
+            this.HomeToolStripMenuItem.Size = new System.Drawing.Size(32, 24);
             this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // eventosToolStripMenuItem
@@ -127,19 +119,19 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem,
             this.editarRecenteToolStripMenuItem});
             this.eventosToolStripMenuItem.Name = "eventosToolStripMenuItem";
-            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(83, 27);
+            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.eventosToolStripMenuItem.Text = "Eventos";
             // 
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.novoToolStripMenuItem.Text = "Novo";
             // 
             // editarRecenteToolStripMenuItem
             // 
             this.editarRecenteToolStripMenuItem.Name = "editarRecenteToolStripMenuItem";
-            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.editarRecenteToolStripMenuItem.Text = "Editar Recente";
             // 
             // comprasToolStripMenuItem
@@ -147,13 +139,13 @@ namespace Bookids.Forms
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verRecenteToolStripMenuItem});
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(92, 27);
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.comprasToolStripMenuItem.Text = "Compras";
             // 
             // verRecenteToolStripMenuItem
             // 
             this.verRecenteToolStripMenuItem.Name = "verRecenteToolStripMenuItem";
-            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(185, 28);
+            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.verRecenteToolStripMenuItem.Text = "Ver Recente";
             // 
             // produtosToolStripMenuItem
@@ -162,553 +154,566 @@ namespace Bookids.Forms
             this.novoToolStripMenuItem1,
             this.editarTiposToolStripMenuItem});
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(93, 27);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.produtosToolStripMenuItem.Text = "Produtos";
             // 
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(183, 28);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(135, 22);
             this.novoToolStripMenuItem1.Text = "Novo";
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
-            // 
-            // panelEventos
-            // 
-            this.panelEventos.Controls.Add(this.panel2);
-            this.panelEventos.Controls.Add(this.btnApagarEvento);
-            this.panelEventos.Controls.Add(this.btnEditarEvento);
-            this.panelEventos.Controls.Add(this.btnNovoEvento);
-            this.panelEventos.Controls.Add(this.textBox1);
-            this.panelEventos.Controls.Add(this.listaEventos);
-            this.panelEventos.Controls.Add(this.label4);
-            this.panelEventos.Location = new System.Drawing.Point(12, 34);
-            this.panelEventos.Name = "panelEventos";
-            this.panelEventos.Size = new System.Drawing.Size(445, 497);
-            this.panelEventos.TabIndex = 5;
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Location = new System.Drawing.Point(18, 33);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(29, 22);
-            this.panel2.TabIndex = 21;
-            // 
-            // btnApagarEvento
-            // 
-            this.btnApagarEvento.Location = new System.Drawing.Point(296, 424);
-            this.btnApagarEvento.Name = "btnApagarEvento";
-            this.btnApagarEvento.Size = new System.Drawing.Size(133, 64);
-            this.btnApagarEvento.TabIndex = 20;
-            this.btnApagarEvento.Text = "Apagar";
-            this.btnApagarEvento.UseVisualStyleBackColor = false;
-            // 
-            // btnEditarEvento
-            // 
-            this.btnEditarEvento.Location = new System.Drawing.Point(157, 424);
-            this.btnEditarEvento.Name = "btnEditarEvento";
-            this.btnEditarEvento.Size = new System.Drawing.Size(133, 64);
-            this.btnEditarEvento.TabIndex = 19;
-            this.btnEditarEvento.Text = "Editar";
-            this.btnEditarEvento.UseVisualStyleBackColor = false;
-            // 
-            // btnNovoEvento
-            // 
-            this.btnNovoEvento.Location = new System.Drawing.Point(18, 424);
-            this.btnNovoEvento.Name = "btnNovoEvento";
-            this.btnNovoEvento.Size = new System.Drawing.Size(133, 64);
-            this.btnNovoEvento.TabIndex = 18;
-            this.btnNovoEvento.Text = "Novo";
-            this.btnNovoEvento.UseVisualStyleBackColor = false;
-            this.btnNovoEvento.Click += new System.EventHandler(this.btnNovoEvento_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(45, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(384, 22);
-            this.textBox1.TabIndex = 17;
-            // 
-            // listaEventos
-            // 
-            this.listaEventos.FormattingEnabled = true;
-            this.listaEventos.ItemHeight = 16;
-            this.listaEventos.Location = new System.Drawing.Point(18, 61);
-            this.listaEventos.Name = "listaEventos";
-            this.listaEventos.Size = new System.Drawing.Size(411, 356);
-            this.listaEventos.TabIndex = 16;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 25);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Eventos";
             // 
             // labelEvento
             // 
             this.labelEvento.AutoSize = true;
-            this.labelEvento.Enabled = false;
             this.labelEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEvento.Location = new System.Drawing.Point(480, 62);
+            this.labelEvento.Location = new System.Drawing.Point(328, 106);
+            this.labelEvento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEvento.Name = "labelEvento";
-            this.labelEvento.Size = new System.Drawing.Size(98, 29);
+            this.labelEvento.Size = new System.Drawing.Size(79, 25);
             this.labelEvento.TabIndex = 23;
             this.labelEvento.Text = "Evento";
             // 
-            // panelEditEvento
-            // 
-            this.panelEditEvento.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelEditEvento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelEditEvento.Controls.Add(this.btnExportFichaInsc);
-            this.panelEditEvento.Controls.Add(this.button1);
-            this.panelEditEvento.Controls.Add(this.btnCancelarEvento);
-            this.panelEditEvento.Controls.Add(this.textBox4);
-            this.panelEditEvento.Controls.Add(this.label12);
-            this.panelEditEvento.Controls.Add(this.label9);
-            this.panelEditEvento.Controls.Add(this.label8);
-            this.panelEditEvento.Controls.Add(this.textBox3);
-            this.panelEditEvento.Controls.Add(this.label7);
-            this.panelEditEvento.Controls.Add(this.textBox2);
-            this.panelEditEvento.Controls.Add(this.label3);
-            this.panelEditEvento.Controls.Add(this.dateTimePickerDataNascimento);
-            this.panelEditEvento.Controls.Add(this.label11);
-            this.panelEditEvento.Controls.Add(this.richTextBox1);
-            this.panelEditEvento.Controls.Add(this.textBoxCodPostal);
-            this.panelEditEvento.Controls.Add(this.textBoxEmail);
-            this.panelEditEvento.Controls.Add(this.textBoxMorada);
-            this.panelEditEvento.Controls.Add(this.label5);
-            this.panelEditEvento.Controls.Add(this.label2);
-            this.panelEditEvento.Controls.Add(this.label10);
-            this.panelEditEvento.Enabled = false;
-            this.panelEditEvento.Location = new System.Drawing.Point(481, 95);
-            this.panelEditEvento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panelEditEvento.Name = "panelEditEvento";
-            this.panelEditEvento.Size = new System.Drawing.Size(521, 396);
-            this.panelEditEvento.TabIndex = 22;
-            // 
-            // btnExportFichaInsc
-            // 
-            this.btnExportFichaInsc.Location = new System.Drawing.Point(3, 311);
-            this.btnExportFichaInsc.Name = "btnExportFichaInsc";
-            this.btnExportFichaInsc.Size = new System.Drawing.Size(133, 64);
-            this.btnExportFichaInsc.TabIndex = 51;
-            this.btnExportFichaInsc.Text = "Exportar";
-            this.btnExportFichaInsc.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(387, 311);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 64);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Salvar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelarEvento
-            // 
-            this.btnCancelarEvento.Location = new System.Drawing.Point(248, 311);
-            this.btnCancelarEvento.Name = "btnCancelarEvento";
-            this.btnCancelarEvento.Size = new System.Drawing.Size(133, 64);
-            this.btnCancelarEvento.TabIndex = 22;
-            this.btnCancelarEvento.Text = "Cancelar";
-            this.btnCancelarEvento.UseVisualStyleBackColor = false;
-            this.btnCancelarEvento.Click += new System.EventHandler(this.btnCancelarEvento_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(156, 250);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(56, 22);
-            this.textBox4.TabIndex = 50;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(7, 252);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(143, 20);
-            this.label12.TabIndex = 49;
-            this.label12.Text = "Max Participantes";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(251, 231);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 20);
-            this.label9.TabIndex = 48;
-            this.label9.Text = "IDADE";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(251, 252);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 20);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "Min:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(298, 250);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(68, 22);
-            this.textBox3.TabIndex = 46;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(383, 252);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 20);
-            this.label7.TabIndex = 45;
-            this.label7.Text = "Max:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(436, 252);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(68, 22);
-            this.textBox2.TabIndex = 44;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(294, 170);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 20);
-            this.label3.TabIndex = 43;
-            this.label3.Text = "Hora:";
-            // 
-            // dateTimePickerDataNascimento
-            // 
-            this.dateTimePickerDataNascimento.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePickerDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDataNascimento.Location = new System.Drawing.Point(131, 170);
-            this.dateTimePickerDataNascimento.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePickerDataNascimento.Name = "dateTimePickerDataNascimento";
-            this.dateTimePickerDataNascimento.Size = new System.Drawing.Size(141, 22);
-            this.dateTimePickerDataNascimento.TabIndex = 42;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(46, 172);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(50, 20);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "Data:";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(131, 14);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(370, 105);
-            this.richTextBox1.TabIndex = 33;
-            this.richTextBox1.Text = "";
-            // 
-            // textBoxCodPostal
-            // 
-            this.textBoxCodPostal.Location = new System.Drawing.Point(376, 168);
-            this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxCodPostal.Name = "textBoxCodPostal";
-            this.textBoxCodPostal.Size = new System.Drawing.Size(125, 22);
-            this.textBoxCodPostal.TabIndex = 31;
-            // 
-            // textBoxEmail
-            // 
-            this.textBoxEmail.Location = new System.Drawing.Point(130, 207);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(371, 22);
-            this.textBoxEmail.TabIndex = 26;
-            // 
-            // textBoxMorada
-            // 
-            this.textBoxMorada.Location = new System.Drawing.Point(131, 142);
-            this.textBoxMorada.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxMorada.Name = "textBoxMorada";
-            this.textBoxMorada.Size = new System.Drawing.Size(371, 22);
-            this.textBoxMorada.TabIndex = 23;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(42, 209);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 20);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Tipo:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(41, 142);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Local:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(7, 14);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 20);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Descrição:";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.listaAnimadores);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(14, 23);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(445, 275);
-            this.panel1.TabIndex = 22;
-            // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel3.Location = new System.Drawing.Point(18, 33);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(29, 22);
-            this.panel3.TabIndex = 21;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(296, 199);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 64);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Apagar";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(18, 199);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(133, 64);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "Novo";
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(45, 33);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(384, 22);
-            this.textBox5.TabIndex = 17;
-            // 
-            // listaAnimadores
-            // 
-            this.listaAnimadores.FormattingEnabled = true;
-            this.listaAnimadores.ItemHeight = 16;
-            this.listaAnimadores.Location = new System.Drawing.Point(18, 61);
-            this.listaAnimadores.Name = "listaAnimadores";
-            this.listaAnimadores.Size = new System.Drawing.Size(411, 132);
-            this.listaAnimadores.TabIndex = 16;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 25);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Animadores";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.button5);
-            this.panel4.Controls.Add(this.button7);
-            this.panel4.Controls.Add(this.textBox6);
-            this.panel4.Controls.Add(this.listaEscolas);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Enabled = false;
-            this.panel4.Location = new System.Drawing.Point(14, 304);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(445, 275);
-            this.panel4.TabIndex = 23;
-            // 
-            // panel5
-            // 
-            this.panel5.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel5.Location = new System.Drawing.Point(18, 33);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(29, 22);
-            this.panel5.TabIndex = 21;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(296, 199);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(133, 64);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "Apagar";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(18, 199);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(133, 64);
-            this.button7.TabIndex = 18;
-            this.button7.Text = "Novo";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(45, 33);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(384, 22);
-            this.textBox6.TabIndex = 17;
-            // 
-            // listaEscolas
-            // 
-            this.listaEscolas.FormattingEnabled = true;
-            this.listaEscolas.ItemHeight = 16;
-            this.listaEscolas.Location = new System.Drawing.Point(18, 61);
-            this.listaEscolas.Name = "listaEscolas";
-            this.listaEscolas.Size = new System.Drawing.Size(411, 132);
-            this.listaEscolas.TabIndex = 16;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 7);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 25);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Escolas";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Controls.Add(this.btnExportInscritos);
-            this.panel6.Controls.Add(this.textBox7);
-            this.panel6.Controls.Add(this.listaParticipantes);
-            this.panel6.Controls.Add(this.label13);
-            this.panel6.Enabled = false;
-            this.panel6.Location = new System.Drawing.Point(449, 13);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(445, 556);
-            this.panel6.TabIndex = 24;
-            // 
-            // panel7
-            // 
-            this.panel7.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
-            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel7.Location = new System.Drawing.Point(18, 33);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(29, 22);
-            this.panel7.TabIndex = 21;
-            // 
-            // btnExportInscritos
-            // 
-            this.btnExportInscritos.Location = new System.Drawing.Point(296, 480);
-            this.btnExportInscritos.Name = "btnExportInscritos";
-            this.btnExportInscritos.Size = new System.Drawing.Size(133, 64);
-            this.btnExportInscritos.TabIndex = 20;
-            this.btnExportInscritos.Text = "Exportar";
-            this.btnExportInscritos.UseVisualStyleBackColor = false;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(45, 33);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(384, 22);
-            this.textBox7.TabIndex = 17;
-            // 
-            // listaParticipantes
-            // 
-            this.listaParticipantes.FormattingEnabled = true;
-            this.listaParticipantes.ItemHeight = 16;
-            this.listaParticipantes.Location = new System.Drawing.Point(18, 61);
-            this.listaParticipantes.Name = "listaParticipantes";
-            this.listaParticipantes.Size = new System.Drawing.Size(411, 404);
-            this.listaParticipantes.TabIndex = 16;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(13, 7);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(124, 25);
-            this.label13.TabIndex = 15;
-            this.label13.Text = "Participantes";
-            // 
-            // panelEditEventoExtend
-            // 
-            this.panelEditEventoExtend.Controls.Add(this.panel6);
-            this.panelEditEventoExtend.Controls.Add(this.panel1);
-            this.panelEditEventoExtend.Controls.Add(this.panel4);
-            this.panelEditEventoExtend.Location = new System.Drawing.Point(1008, 28);
-            this.panelEditEventoExtend.Name = "panelEditEventoExtend";
-            this.panelEditEventoExtend.Size = new System.Drawing.Size(900, 573);
-            this.panelEditEventoExtend.TabIndex = 22;
+            // buttonExportFichaInsc
+            // 
+            this.buttonExportFichaInsc.BackColor = System.Drawing.Color.Gold;
+            this.buttonExportFichaInsc.Enabled = false;
+            this.buttonExportFichaInsc.Location = new System.Drawing.Point(14, 331);
+            this.buttonExportFichaInsc.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonExportFichaInsc.Name = "buttonExportFichaInsc";
+            this.buttonExportFichaInsc.Size = new System.Drawing.Size(100, 52);
+            this.buttonExportFichaInsc.TabIndex = 51;
+            this.buttonExportFichaInsc.Text = "Criar/Exportar Ficha de Inscrição";
+            this.buttonExportFichaInsc.UseVisualStyleBackColor = false;
+            this.buttonExportFichaInsc.Click += new System.EventHandler(this.btnExportFichaInsc_Click);
+            // 
+            // dateTimePickerData
+            // 
+            this.dateTimePickerData.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateTimePickerData.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerData.Location = new System.Drawing.Point(108, 108);
+            this.dateTimePickerData.Name = "dateTimePickerData";
+            this.dateTimePickerData.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePickerData.TabIndex = 42;
+            // 
+            // panelAnimadores
+            // 
+            this.panelAnimadores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelAnimadores.Controls.Add(this.comboBoxAnimadores);
+            this.panelAnimadores.Controls.Add(this.buttonRemoverAnimador);
+            this.panelAnimadores.Controls.Add(this.buttonAdicionarAnimador);
+            this.panelAnimadores.Controls.Add(this.listBoxAnimadores);
+            this.panelAnimadores.Controls.Add(this._labelAnimadores);
+            this.panelAnimadores.Enabled = false;
+            this.panelAnimadores.Location = new System.Drawing.Point(727, 40);
+            this.panelAnimadores.Margin = new System.Windows.Forms.Padding(2);
+            this.panelAnimadores.Name = "panelAnimadores";
+            this.panelAnimadores.Size = new System.Drawing.Size(320, 196);
+            this.panelAnimadores.TabIndex = 22;
+            // 
+            // comboBoxAnimadores
+            // 
+            this.comboBoxAnimadores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAnimadores.FormattingEnabled = true;
+            this.comboBoxAnimadores.Location = new System.Drawing.Point(14, 156);
+            this.comboBoxAnimadores.Name = "comboBoxAnimadores";
+            this.comboBoxAnimadores.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxAnimadores.TabIndex = 21;
+            // 
+            // buttonRemoverAnimador
+            // 
+            this.buttonRemoverAnimador.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonRemoverAnimador.ForeColor = System.Drawing.Color.White;
+            this.buttonRemoverAnimador.Location = new System.Drawing.Point(243, 140);
+            this.buttonRemoverAnimador.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonRemoverAnimador.Name = "buttonRemoverAnimador";
+            this.buttonRemoverAnimador.Size = new System.Drawing.Size(70, 50);
+            this.buttonRemoverAnimador.TabIndex = 20;
+            this.buttonRemoverAnimador.Text = "Remover";
+            this.buttonRemoverAnimador.UseVisualStyleBackColor = false;
+            this.buttonRemoverAnimador.Click += new System.EventHandler(this.buttonRemoverAnimador_Click);
+            // 
+            // buttonAdicionarAnimador
+            // 
+            this.buttonAdicionarAnimador.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonAdicionarAnimador.Location = new System.Drawing.Point(169, 140);
+            this.buttonAdicionarAnimador.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAdicionarAnimador.Name = "buttonAdicionarAnimador";
+            this.buttonAdicionarAnimador.Size = new System.Drawing.Size(70, 50);
+            this.buttonAdicionarAnimador.TabIndex = 18;
+            this.buttonAdicionarAnimador.Text = "Adicionar";
+            this.buttonAdicionarAnimador.UseVisualStyleBackColor = false;
+            this.buttonAdicionarAnimador.Click += new System.EventHandler(this.buttonAdicionarAnimador_Click);
+            // 
+            // listBoxAnimadores
+            // 
+            this.listBoxAnimadores.FormattingEnabled = true;
+            this.listBoxAnimadores.Location = new System.Drawing.Point(13, 28);
+            this.listBoxAnimadores.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxAnimadores.Name = "listBoxAnimadores";
+            this.listBoxAnimadores.Size = new System.Drawing.Size(300, 108);
+            this.listBoxAnimadores.TabIndex = 16;
+            // 
+            // _labelAnimadores
+            // 
+            this._labelAnimadores.AutoSize = true;
+            this._labelAnimadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelAnimadores.Location = new System.Drawing.Point(10, 6);
+            this._labelAnimadores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelAnimadores.Name = "_labelAnimadores";
+            this._labelAnimadores.Size = new System.Drawing.Size(94, 20);
+            this._labelAnimadores.TabIndex = 15;
+            this._labelAnimadores.Text = "Animadores";
+            // 
+            // panelEscolas
+            // 
+            this.panelEscolas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelEscolas.Controls.Add(this.comboBoxEscolas);
+            this.panelEscolas.Controls.Add(this.buttonRemoverEscola);
+            this.panelEscolas.Controls.Add(this.buttonAdicionarEscola);
+            this.panelEscolas.Controls.Add(this.listBoxEscolas);
+            this.panelEscolas.Controls.Add(this._labelEscolas);
+            this.panelEscolas.Enabled = false;
+            this.panelEscolas.Location = new System.Drawing.Point(727, 242);
+            this.panelEscolas.Margin = new System.Windows.Forms.Padding(2);
+            this.panelEscolas.Name = "panelEscolas";
+            this.panelEscolas.Size = new System.Drawing.Size(320, 196);
+            this.panelEscolas.TabIndex = 23;
+            // 
+            // comboBoxEscolas
+            // 
+            this.comboBoxEscolas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEscolas.FormattingEnabled = true;
+            this.comboBoxEscolas.Location = new System.Drawing.Point(14, 156);
+            this.comboBoxEscolas.Name = "comboBoxEscolas";
+            this.comboBoxEscolas.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxEscolas.TabIndex = 21;
+            // 
+            // buttonRemoverEscola
+            // 
+            this.buttonRemoverEscola.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonRemoverEscola.ForeColor = System.Drawing.Color.White;
+            this.buttonRemoverEscola.Location = new System.Drawing.Point(243, 140);
+            this.buttonRemoverEscola.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonRemoverEscola.Name = "buttonRemoverEscola";
+            this.buttonRemoverEscola.Size = new System.Drawing.Size(70, 50);
+            this.buttonRemoverEscola.TabIndex = 20;
+            this.buttonRemoverEscola.Text = "Remover";
+            this.buttonRemoverEscola.UseVisualStyleBackColor = false;
+            this.buttonRemoverEscola.Click += new System.EventHandler(this.buttonRemoverEscola_Click);
+            // 
+            // buttonAdicionarEscola
+            // 
+            this.buttonAdicionarEscola.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonAdicionarEscola.Location = new System.Drawing.Point(169, 140);
+            this.buttonAdicionarEscola.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAdicionarEscola.Name = "buttonAdicionarEscola";
+            this.buttonAdicionarEscola.Size = new System.Drawing.Size(70, 50);
+            this.buttonAdicionarEscola.TabIndex = 18;
+            this.buttonAdicionarEscola.Text = "Adicionar";
+            this.buttonAdicionarEscola.UseVisualStyleBackColor = false;
+            this.buttonAdicionarEscola.Click += new System.EventHandler(this.buttonAdicionarEscola_Click);
+            // 
+            // listBoxEscolas
+            // 
+            this.listBoxEscolas.FormattingEnabled = true;
+            this.listBoxEscolas.Location = new System.Drawing.Point(13, 28);
+            this.listBoxEscolas.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxEscolas.Name = "listBoxEscolas";
+            this.listBoxEscolas.Size = new System.Drawing.Size(300, 108);
+            this.listBoxEscolas.TabIndex = 16;
+            // 
+            // _labelEscolas
+            // 
+            this._labelEscolas.AutoSize = true;
+            this._labelEscolas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelEscolas.Location = new System.Drawing.Point(10, 6);
+            this._labelEscolas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelEscolas.Name = "_labelEscolas";
+            this._labelEscolas.Size = new System.Drawing.Size(65, 20);
+            this._labelEscolas.TabIndex = 15;
+            this._labelEscolas.Text = "Escolas";
+            // 
+            // panelParticipantes
+            // 
+            this.panelParticipantes.Controls.Add(this.panelPesquisaParticipantes);
+            this.panelParticipantes.Controls.Add(this.textBoxPesquisaParticipantes);
+            this.panelParticipantes.Controls.Add(this.buttonExportInscritos);
+            this.panelParticipantes.Controls.Add(this.listBoxParticipantes);
+            this.panelParticipantes.Controls.Add(this._labelParticipantes);
+            this.panelParticipantes.Controls.Add(this.buttonExportFichaInsc);
+            this.panelParticipantes.Location = new System.Drawing.Point(1051, 40);
+            this.panelParticipantes.Margin = new System.Windows.Forms.Padding(2);
+            this.panelParticipantes.Name = "panelParticipantes";
+            this.panelParticipantes.Size = new System.Drawing.Size(334, 398);
+            this.panelParticipantes.TabIndex = 24;
+            // 
+            // panelPesquisaParticipantes
+            // 
+            this.panelPesquisaParticipantes.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
+            this.panelPesquisaParticipantes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelPesquisaParticipantes.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.panelPesquisaParticipantes.Location = new System.Drawing.Point(14, 28);
+            this.panelPesquisaParticipantes.Margin = new System.Windows.Forms.Padding(2);
+            this.panelPesquisaParticipantes.Name = "panelPesquisaParticipantes";
+            this.panelPesquisaParticipantes.Size = new System.Drawing.Size(22, 20);
+            this.panelPesquisaParticipantes.TabIndex = 69;
+            // 
+            // textBoxPesquisaParticipantes
+            // 
+            this.textBoxPesquisaParticipantes.Location = new System.Drawing.Point(40, 28);
+            this.textBoxPesquisaParticipantes.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPesquisaParticipantes.Name = "textBoxPesquisaParticipantes";
+            this.textBoxPesquisaParticipantes.Size = new System.Drawing.Size(283, 20);
+            this.textBoxPesquisaParticipantes.TabIndex = 68;
+            // 
+            // buttonExportInscritos
+            // 
+            this.buttonExportInscritos.BackColor = System.Drawing.Color.Gold;
+            this.buttonExportInscritos.Enabled = false;
+            this.buttonExportInscritos.Location = new System.Drawing.Point(223, 331);
+            this.buttonExportInscritos.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonExportInscritos.Name = "buttonExportInscritos";
+            this.buttonExportInscritos.Size = new System.Drawing.Size(100, 52);
+            this.buttonExportInscritos.TabIndex = 20;
+            this.buttonExportInscritos.Text = "Exportar Lista de Participantes";
+            this.buttonExportInscritos.UseVisualStyleBackColor = false;
+            this.buttonExportInscritos.Click += new System.EventHandler(this.btnExportInscritos_Click);
+            // 
+            // listBoxParticipantes
+            // 
+            this.listBoxParticipantes.FormattingEnabled = true;
+            this.listBoxParticipantes.Location = new System.Drawing.Point(14, 50);
+            this.listBoxParticipantes.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxParticipantes.Name = "listBoxParticipantes";
+            this.listBoxParticipantes.Size = new System.Drawing.Size(309, 277);
+            this.listBoxParticipantes.TabIndex = 16;
+            // 
+            // _labelParticipantes
+            // 
+            this._labelParticipantes.AutoSize = true;
+            this._labelParticipantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelParticipantes.Location = new System.Drawing.Point(10, 6);
+            this._labelParticipantes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelParticipantes.Name = "_labelParticipantes";
+            this._labelParticipantes.Size = new System.Drawing.Size(101, 20);
+            this._labelParticipantes.TabIndex = 15;
+            this._labelParticipantes.Text = "Participantes";
+            // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonRefresh.BackgroundImage = global::Bookids.Properties.Resources.baseline_autorenew_black_24dp;
+            this.buttonRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRefresh.Location = new System.Drawing.Point(15, 55);
+            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(22, 20);
+            this.buttonRefresh.TabIndex = 66;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
+            // buttonApagarEvento
+            // 
+            this.buttonApagarEvento.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonApagarEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApagarEvento.ForeColor = System.Drawing.Color.White;
+            this.buttonApagarEvento.Location = new System.Drawing.Point(224, 367);
+            this.buttonApagarEvento.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonApagarEvento.Name = "buttonApagarEvento";
+            this.buttonApagarEvento.Size = new System.Drawing.Size(100, 52);
+            this.buttonApagarEvento.TabIndex = 3;
+            this.buttonApagarEvento.Text = "Apagar";
+            this.buttonApagarEvento.UseVisualStyleBackColor = false;
+            this.buttonApagarEvento.Click += new System.EventHandler(this.buttonApagarEvento_Click);
+            // 
+            // buttonEditar
+            // 
+            this.buttonEditar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditar.Location = new System.Drawing.Point(119, 367);
+            this.buttonEditar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(101, 52);
+            this.buttonEditar.TabIndex = 2;
+            this.buttonEditar.Text = "Editar";
+            this.buttonEditar.UseVisualStyleBackColor = false;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
+            // 
+            // buttonNovo
+            // 
+            this.buttonNovo.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonNovo.Location = new System.Drawing.Point(15, 367);
+            this.buttonNovo.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonNovo.Name = "buttonNovo";
+            this.buttonNovo.Size = new System.Drawing.Size(100, 52);
+            this.buttonNovo.TabIndex = 1;
+            this.buttonNovo.Text = "Novo";
+            this.buttonNovo.UseVisualStyleBackColor = false;
+            this.buttonNovo.Click += new System.EventHandler(this.buttonNovo_Click);
+            // 
+            // textBoxPesquisaEventos
+            // 
+            this.textBoxPesquisaEventos.Location = new System.Drawing.Point(67, 55);
+            this.textBoxPesquisaEventos.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPesquisaEventos.Name = "textBoxPesquisaEventos";
+            this.textBoxPesquisaEventos.Size = new System.Drawing.Size(257, 20);
+            this.textBoxPesquisaEventos.TabIndex = 61;
+            // 
+            // listBoxEventos
+            // 
+            this.listBoxEventos.FormattingEnabled = true;
+            this.listBoxEventos.Location = new System.Drawing.Point(15, 77);
+            this.listBoxEventos.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxEventos.Name = "listBoxEventos";
+            this.listBoxEventos.Size = new System.Drawing.Size(309, 277);
+            this.listBoxEventos.TabIndex = 60;
+            this.listBoxEventos.SelectedIndexChanged += new System.EventHandler(this.listBoxEventos_SelectedIndexChanged);
+            // 
+            // _labelEventos
+            // 
+            this._labelEventos.AutoSize = true;
+            this._labelEventos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelEventos.Location = new System.Drawing.Point(11, 34);
+            this._labelEventos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelEventos.Name = "_labelEventos";
+            this._labelEventos.Size = new System.Drawing.Size(74, 20);
+            this._labelEventos.TabIndex = 59;
+            this._labelEventos.Text = "Eventos";
+            // 
+            // panelEvento
+            // 
+            this.panelEvento.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelEvento.Controls.Add(this.textBoxIdadeMax);
+            this.panelEvento.Controls.Add(this._labelIdadeMax);
+            this.panelEvento.Controls.Add(this.textBoxIdadeMin);
+            this.panelEvento.Controls.Add(this._labelIdadeMin);
+            this.panelEvento.Controls.Add(this._labelIdades);
+            this.panelEvento.Controls.Add(this.textBoxTipoEvento);
+            this.panelEvento.Controls.Add(this.buttonGuardarEvento);
+            this.panelEvento.Controls.Add(this._labelDescrição);
+            this.panelEvento.Controls.Add(this._labelTipoEvento);
+            this.panelEvento.Controls.Add(this._labelLocal);
+            this.panelEvento.Controls.Add(this._labelDataHora);
+            this.panelEvento.Controls.Add(this._labelMaxParticipantes);
+            this.panelEvento.Controls.Add(this.textBoxMaxParticipantes);
+            this.panelEvento.Controls.Add(this.textBoxDescricao);
+            this.panelEvento.Controls.Add(this.dateTimePickerData);
+            this.panelEvento.Controls.Add(this.textBoxLocal);
+            this.panelEvento.Enabled = false;
+            this.panelEvento.Location = new System.Drawing.Point(327, 133);
+            this.panelEvento.Margin = new System.Windows.Forms.Padding(2);
+            this.panelEvento.Name = "panelEvento";
+            this.panelEvento.Size = new System.Drawing.Size(396, 193);
+            this.panelEvento.TabIndex = 67;
+            // 
+            // textBoxIdadeMax
+            // 
+            this.textBoxIdadeMax.Location = new System.Drawing.Point(301, 107);
+            this.textBoxIdadeMax.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxIdadeMax.MaxLength = 3;
+            this.textBoxIdadeMax.Name = "textBoxIdadeMax";
+            this.textBoxIdadeMax.Size = new System.Drawing.Size(86, 20);
+            this.textBoxIdadeMax.TabIndex = 56;
+            this.textBoxIdadeMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxIdadeMax_KeyPress);
+            // 
+            // _labelIdadeMax
+            // 
+            this._labelIdadeMax.AutoSize = true;
+            this._labelIdadeMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelIdadeMax.Location = new System.Drawing.Point(260, 108);
+            this._labelIdadeMax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelIdadeMax.Name = "_labelIdadeMax";
+            this._labelIdadeMax.Size = new System.Drawing.Size(37, 17);
+            this._labelIdadeMax.TabIndex = 55;
+            this._labelIdadeMax.Text = "Max:";
+            // 
+            // textBoxIdadeMin
+            // 
+            this.textBoxIdadeMin.Location = new System.Drawing.Point(301, 83);
+            this.textBoxIdadeMin.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxIdadeMin.MaxLength = 3;
+            this.textBoxIdadeMin.Name = "textBoxIdadeMin";
+            this.textBoxIdadeMin.Size = new System.Drawing.Size(86, 20);
+            this.textBoxIdadeMin.TabIndex = 54;
+            this.textBoxIdadeMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxIdadeMin_KeyPress);
+            // 
+            // _labelIdadeMin
+            // 
+            this._labelIdadeMin.AutoSize = true;
+            this._labelIdadeMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelIdadeMin.Location = new System.Drawing.Point(263, 84);
+            this._labelIdadeMin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelIdadeMin.Name = "_labelIdadeMin";
+            this._labelIdadeMin.Size = new System.Drawing.Size(34, 17);
+            this._labelIdadeMin.TabIndex = 53;
+            this._labelIdadeMin.Text = "Min:";
+            // 
+            // _labelIdades
+            // 
+            this._labelIdades.AutoSize = true;
+            this._labelIdades.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelIdades.Location = new System.Drawing.Point(205, 84);
+            this._labelIdades.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelIdades.Name = "_labelIdades";
+            this._labelIdades.Size = new System.Drawing.Size(54, 17);
+            this._labelIdades.TabIndex = 52;
+            this._labelIdades.Text = "Idades:";
+            // 
+            // textBoxTipoEvento
+            // 
+            this.textBoxTipoEvento.Location = new System.Drawing.Point(108, 59);
+            this.textBoxTipoEvento.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxTipoEvento.Name = "textBoxTipoEvento";
+            this.textBoxTipoEvento.Size = new System.Drawing.Size(279, 20);
+            this.textBoxTipoEvento.TabIndex = 6;
+            // 
+            // buttonGuardarEvento
+            // 
+            this.buttonGuardarEvento.Location = new System.Drawing.Point(287, 133);
+            this.buttonGuardarEvento.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonGuardarEvento.Name = "buttonGuardarEvento";
+            this.buttonGuardarEvento.Size = new System.Drawing.Size(100, 52);
+            this.buttonGuardarEvento.TabIndex = 44;
+            this.buttonGuardarEvento.Text = "Guardar";
+            this.buttonGuardarEvento.UseVisualStyleBackColor = false;
+            this.buttonGuardarEvento.Click += new System.EventHandler(this.buttonGuardarEvento_Click);
+            // 
+            // _labelDescrição
+            // 
+            this._labelDescrição.AutoSize = true;
+            this._labelDescrição.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelDescrição.Location = new System.Drawing.Point(12, 12);
+            this._labelDescrição.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelDescrição.Name = "_labelDescrição";
+            this._labelDescrição.Size = new System.Drawing.Size(75, 17);
+            this._labelDescrição.TabIndex = 32;
+            this._labelDescrição.Text = "Descrição:";
+            // 
+            // _labelTipoEvento
+            // 
+            this._labelTipoEvento.AutoSize = true;
+            this._labelTipoEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelTipoEvento.Location = new System.Drawing.Point(12, 61);
+            this._labelTipoEvento.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelTipoEvento.Name = "_labelTipoEvento";
+            this._labelTipoEvento.Size = new System.Drawing.Size(40, 17);
+            this._labelTipoEvento.TabIndex = 46;
+            this._labelTipoEvento.Text = "Tipo:";
+            // 
+            // _labelLocal
+            // 
+            this._labelLocal.AutoSize = true;
+            this._labelLocal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelLocal.Location = new System.Drawing.Point(12, 36);
+            this._labelLocal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelLocal.Name = "_labelLocal";
+            this._labelLocal.Size = new System.Drawing.Size(46, 17);
+            this._labelLocal.TabIndex = 33;
+            this._labelLocal.Text = "Local:";
+            // 
+            // _labelDataHora
+            // 
+            this._labelDataHora.AutoSize = true;
+            this._labelDataHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelDataHora.Location = new System.Drawing.Point(12, 109);
+            this._labelDataHora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelDataHora.Name = "_labelDataHora";
+            this._labelDataHora.Size = new System.Drawing.Size(89, 17);
+            this._labelDataHora.TabIndex = 34;
+            this._labelDataHora.Text = "Data e Hora:";
+            // 
+            // _labelMaxParticipantes
+            // 
+            this._labelMaxParticipantes.AutoSize = true;
+            this._labelMaxParticipantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelMaxParticipantes.Location = new System.Drawing.Point(12, 84);
+            this._labelMaxParticipantes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this._labelMaxParticipantes.Name = "_labelMaxParticipantes";
+            this._labelMaxParticipantes.Size = new System.Drawing.Size(123, 17);
+            this._labelMaxParticipantes.TabIndex = 35;
+            this._labelMaxParticipantes.Text = "Max Participantes:";
+            // 
+            // textBoxMaxParticipantes
+            // 
+            this.textBoxMaxParticipantes.Location = new System.Drawing.Point(139, 83);
+            this.textBoxMaxParticipantes.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxMaxParticipantes.MaxLength = 5;
+            this.textBoxMaxParticipantes.Name = "textBoxMaxParticipantes";
+            this.textBoxMaxParticipantes.Size = new System.Drawing.Size(59, 20);
+            this.textBoxMaxParticipantes.TabIndex = 7;
+            this.textBoxMaxParticipantes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMaxParticipantes_KeyPress);
+            // 
+            // textBoxDescricao
+            // 
+            this.textBoxDescricao.Location = new System.Drawing.Point(108, 11);
+            this.textBoxDescricao.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxDescricao.Name = "textBoxDescricao";
+            this.textBoxDescricao.Size = new System.Drawing.Size(279, 20);
+            this.textBoxDescricao.TabIndex = 4;
+            // 
+            // textBoxLocal
+            // 
+            this.textBoxLocal.Location = new System.Drawing.Point(108, 35);
+            this.textBoxLocal.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxLocal.Name = "textBoxLocal";
+            this.textBoxLocal.Size = new System.Drawing.Size(279, 20);
+            this.textBoxLocal.TabIndex = 5;
+            // 
+            // panelPesquisaEventos
+            // 
+            this.panelPesquisaEventos.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
+            this.panelPesquisaEventos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelPesquisaEventos.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.panelPesquisaEventos.Location = new System.Drawing.Point(41, 55);
+            this.panelPesquisaEventos.Margin = new System.Windows.Forms.Padding(2);
+            this.panelPesquisaEventos.Name = "panelPesquisaEventos";
+            this.panelPesquisaEventos.Size = new System.Drawing.Size(22, 20);
+            this.panelPesquisaEventos.TabIndex = 70;
             // 
             // GestaoEventos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1926, 613);
+            this.ClientSize = new System.Drawing.Size(1387, 442);
+            this.Controls.Add(this.panelPesquisaEventos);
+            this.Controls.Add(this.panelParticipantes);
+            this.Controls.Add(this.panelEvento);
+            this.Controls.Add(this.panelAnimadores);
+            this.Controls.Add(this.buttonRefresh);
+            this.Controls.Add(this.panelEscolas);
+            this.Controls.Add(this.buttonApagarEvento);
+            this.Controls.Add(this.buttonEditar);
+            this.Controls.Add(this.buttonNovo);
+            this.Controls.Add(this.textBoxPesquisaEventos);
+            this.Controls.Add(this.listBoxEventos);
+            this.Controls.Add(this._labelEventos);
             this.Controls.Add(this.labelEvento);
-            this.Controls.Add(this.panelEditEvento);
-            this.Controls.Add(this.panelEventos);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.panelEditEventoExtend);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GestaoEventos";
             this.ShowInTaskbar = false;
-            this.Text = "GestaoEventos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gestao de Eventos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoEventos_FormClosing);
+            this.Load += new System.EventHandler(this.GestaoEventos_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panelEventos.ResumeLayout(false);
-            this.panelEventos.PerformLayout();
-            this.panelEditEvento.ResumeLayout(false);
-            this.panelEditEvento.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panelEditEventoExtend.ResumeLayout(false);
+            this.panelAnimadores.ResumeLayout(false);
+            this.panelAnimadores.PerformLayout();
+            this.panelEscolas.ResumeLayout(false);
+            this.panelEscolas.PerformLayout();
+            this.panelParticipantes.ResumeLayout(false);
+            this.panelParticipantes.PerformLayout();
+            this.panelEvento.ResumeLayout(false);
+            this.panelEvento.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -726,56 +731,50 @@ namespace Bookids.Forms
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem editarTiposToolStripMenuItem;
-        private System.Windows.Forms.Panel panelEventos;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnApagarEvento;
-        private System.Windows.Forms.Button btnEditarEvento;
-        private System.Windows.Forms.Button btnNovoEvento;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listaEventos;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelEvento;
-        private System.Windows.Forms.Panel panelEditEvento;
-        private System.Windows.Forms.TextBox textBoxCodPostal;
-        private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.TextBox textBoxMorada;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePickerDataNascimento;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnCancelarEvento;
-        private System.Windows.Forms.Button btnExportFichaInsc;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ListBox listaAnimadores;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.ListBox listaEscolas;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btnExportInscritos;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ListBox listaParticipantes;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panelEditEventoExtend;
+        private System.Windows.Forms.DateTimePicker dateTimePickerData;
+        private System.Windows.Forms.Button buttonExportFichaInsc;
+        private System.Windows.Forms.Panel panelAnimadores;
+        private System.Windows.Forms.Button buttonRemoverAnimador;
+        private System.Windows.Forms.Button buttonAdicionarAnimador;
+        private System.Windows.Forms.ListBox listBoxAnimadores;
+        private System.Windows.Forms.Label _labelAnimadores;
+        private System.Windows.Forms.Panel panelEscolas;
+        private System.Windows.Forms.Button buttonRemoverEscola;
+        private System.Windows.Forms.Button buttonAdicionarEscola;
+        private System.Windows.Forms.ListBox listBoxEscolas;
+        private System.Windows.Forms.Label _labelEscolas;
+        private System.Windows.Forms.Panel panelParticipantes;
+        private System.Windows.Forms.Button buttonExportInscritos;
+        private System.Windows.Forms.ListBox listBoxParticipantes;
+        private System.Windows.Forms.Label _labelParticipantes;
+        private System.Windows.Forms.Panel buttonRefresh;
+        private System.Windows.Forms.Button buttonApagarEvento;
+        private System.Windows.Forms.Button buttonEditar;
+        private System.Windows.Forms.Button buttonNovo;
+        private System.Windows.Forms.TextBox textBoxPesquisaEventos;
+        private System.Windows.Forms.ListBox listBoxEventos;
+        private System.Windows.Forms.Label _labelEventos;
+        private System.Windows.Forms.Panel panelEvento;
+        private System.Windows.Forms.TextBox textBoxTipoEvento;
+        private System.Windows.Forms.Button buttonGuardarEvento;
+        private System.Windows.Forms.Label _labelDescrição;
+        private System.Windows.Forms.Label _labelTipoEvento;
+        private System.Windows.Forms.Label _labelLocal;
+        private System.Windows.Forms.Label _labelDataHora;
+        private System.Windows.Forms.Label _labelMaxParticipantes;
+        private System.Windows.Forms.TextBox textBoxMaxParticipantes;
+        private System.Windows.Forms.TextBox textBoxDescricao;
+        private System.Windows.Forms.TextBox textBoxLocal;
+        private System.Windows.Forms.TextBox textBoxIdadeMax;
+        private System.Windows.Forms.Label _labelIdadeMax;
+        private System.Windows.Forms.TextBox textBoxIdadeMin;
+        private System.Windows.Forms.Label _labelIdadeMin;
+        private System.Windows.Forms.Label _labelIdades;
+        private System.Windows.Forms.Panel panelPesquisaParticipantes;
+        private System.Windows.Forms.TextBox textBoxPesquisaParticipantes;
+        private System.Windows.Forms.Panel panelPesquisaEventos;
+        private System.Windows.Forms.ComboBox comboBoxAnimadores;
+        private System.Windows.Forms.ComboBox comboBoxEscolas;
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +10,14 @@ using System.Windows.Forms;
 
 namespace Bookids.Forms
 {
-    public partial class ExportarFileCompras : Form
+    public partial class ExportarFile : Form
     {
-        public ExportarFileCompras()
+        public ExportarFile()
         {
             InitializeComponent();
         }
+
+        public string option { get; set; }
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
@@ -44,6 +46,20 @@ namespace Bookids.Forms
         {
             buttonPDF.BackColor = Color.White;
             buttonTXT.BackColor = Color.White;
+        }
+
+        private void buttonPDF_Click(object sender, EventArgs e)
+        {
+            option = "PDF";
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void buttonTXT_Click(object sender, EventArgs e)
+        {
+            option = "TXT";
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

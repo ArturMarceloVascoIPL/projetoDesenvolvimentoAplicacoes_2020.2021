@@ -12,7 +12,8 @@ namespace Bookids.Forms
 {
     public partial class GestaoAnimador : Form
     {
-        RepositorioAnimadores RepoAnimadores = new RepositorioAnimadores();
+        RepositorioAnimadores repoAnimadores = new RepositorioAnimadores();
+
         bool editar = true;
 
         public GestaoAnimador()
@@ -22,7 +23,7 @@ namespace Bookids.Forms
 
         public void refresh()
         {
-            listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores();
+            listBoxAnimadores.DataSource = repoAnimadores.GetAnimadores();
         }
 
         private void GestaoAnimador_Load(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace Bookids.Forms
         private void listBoxAnimadores_SelectedIndexChanged(object sender, EventArgs e)
         {
             panelAnimador.Enabled = false;
-            labelAnimador.Text = "Animador Detalhes";
+            labelAnimador.Text = "Animador";
 
             Animador animador = (Animador)listBoxAnimadores.SelectedItem;
 
@@ -52,24 +53,15 @@ namespace Bookids.Forms
             textBoxEspecialidade.Text = animador.Especialidade;
         }
 
-        private void buttonRefresh_Click(object sender, EventArgs e)
-        {
-            refresh();
-        }
-
         private void panelBotaoPesquisa_Click(object sender, EventArgs e)
         {
-            listBoxAnimadores.DataSource = RepoAnimadores.SearchByName(textBoxPesquisa.Text);
+            listBoxAnimadores.DataSource = repoAnimadores.SearchByName(textBoxPesquisa.Text);
         }
 
         //Para Permitir apenas numeros quando a digitar nas Textbox
         private void textBoxNumApena_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-                e.Handled = true;
-
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
         }
 
@@ -77,7 +69,8 @@ namespace Bookids.Forms
         {
             editar = false;
             panelAnimador.Enabled = true;
-            labelAnimador.Text = "Animador Novo";
+            labelAnimador.Text = "Novo Animador";
+            buttonGuardar.Text = "Criar";
 
             //Apagar campos do Form
             foreach (var control in panelAnimador.Controls)
@@ -117,42 +110,38 @@ namespace Bookids.Forms
 
             if (!editar)
             {
-                // Confirmacao para guardar
-                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                //Verificacao se Tem os campos todos Preenchidos
+                foreach (Control c in panelAnimador.Controls)
                 {
-                    //Verificacao se Tem os campos todos Preenchidos
-                    foreach (Control c in panelAnimador.Controls)
+                    if (c is TextBox)
                     {
-                        if (c is TextBox)
+                        TextBox textBox = c as TextBox;
+                        if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
                         {
-                            TextBox textBox = c as TextBox;
-                            if (!string.IsNullOrWhiteSpace(Convert.ToString(textBox.Text)))
+                            Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);
+                            if (repoAnimadores.AddAnimador(animador))
                             {
-                                Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);
-                                if (RepoAnimadores.AddAnimador(animador))
-                                {
-                                    MessageBox.Show("Animador criado com sucesso");
+                                MessageBox.Show("Criado com sucesso");
 
-                                    //Apagar campos do Form
-                                    foreach (var control in panelAnimador.Controls)
-                                    {
-                                        if (control is TextBox)
-                                            (control as TextBox).Clear();
-                                    }
-                                    refresh();
-                                    break;
-                                }
-                                else
+                                //Apagar campos do Form
+                                foreach (var control in panelAnimador.Controls)
                                 {
-                                    MessageBox.Show("Ocorreu um erro ao tentar criar o Animador!");
-                                    break;
+                                    if (control is TextBox)
+                                        (control as TextBox).Clear();
                                 }
+                                refresh();
+                                break;
                             }
                             else
                             {
-                                MessageBox.Show("Erro. Preencher Todos os Campos.");
+                                MessageBox.Show("Ocorreu um erro ao tentar Criar!");
                                 break;
                             }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Erro. Preencher Todos os Campos.");
+                            break;
                         }
                     }
                 }
@@ -161,7 +150,7 @@ namespace Bookids.Forms
             else
             {
                 // Confirmacao para guardar
-                if (MessageBox.Show("Guardar Cliente ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Guardar ?", "Guardar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //Verificacao se Tem os campos todos Preenchidos
                     foreach (Control c in panelAnimador.Controls)
@@ -173,9 +162,9 @@ namespace Bookids.Forms
                             {
                                 Animador animadorEditado = (Animador)listBoxAnimadores.SelectedItem;
                                 Animador animador = new Animador(textBoxNome.Text, textBoxMorada.Text, textBoxLocalidade.Text, textBoxCodPostal.Text, telefone, telemovel, textBoxEmail.Text, textBoxEspecialidade.Text);
-                                if (RepoAnimadores.EditAnimador(animadorEditado.IdPessoa, animador))
+                                if (repoAnimadores.EditAnimador(animadorEditado.IdPessoa, animador))
                                 {
-                                    MessageBox.Show("Editada com Sucesso");
+                                    MessageBox.Show("Editado com Sucesso");
                                     //Apagar campos do Form
                                     foreach (var control in panelAnimador.Controls)
                                     {
@@ -187,7 +176,7 @@ namespace Bookids.Forms
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Ocorreu um erro ao tentar criar o Animador!");
+                                    MessageBox.Show("Ocorreu um erro ao tentar editar!");
                                     break;
                                 }
                             }
@@ -204,7 +193,7 @@ namespace Bookids.Forms
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            labelAnimador.Text = "Animador Editar";
+            labelAnimador.Text = "Editar Animador";
 
             panelAnimador.Enabled = true; // Ativa o painel
             editar = true;
@@ -219,26 +208,36 @@ namespace Bookids.Forms
             {
                 if (MessageBox.Show("Quer mesmo apagar?", "Apagar", MessageBoxButtons.YesNo) == DialogResult.Yes) // Confirmacao para apagar
                 {
-                    if (RepoAnimadores.RemoveAnimador(animador)) // Remove a escola
+                    if (repoAnimadores.RemoveAnimador(animador)) // Remove a escola
                     {
-                        MessageBox.Show("Removida com Sucesso.");
+                        MessageBox.Show("Removido com Sucesso.");
                     }
                     else
                     {
                         MessageBox.Show("Ocorreu um erro ao tentar remover!");
                     }
                 }
-                listBoxAnimadores.DataSource = RepoAnimadores.GetAnimadores(); // Atualiza a lista de escolas
+                listBoxAnimadores.DataSource = repoAnimadores.GetAnimadores(); // Atualiza a lista de escolas
             }
             else
             {
-                MessageBox.Show("Tem de selecionar uma escola!");
+                MessageBox.Show("Tem de selecionar um Animador!");
             }
         }
 
         private void textBoxPesquisa_TextChanged(object sender, EventArgs e)
         {
-            listBoxAnimadores.DataSource = RepoAnimadores.SearchByName(textBoxPesquisa.Text);
+            listBoxAnimadores.DataSource = repoAnimadores.SearchByName(textBoxPesquisa.Text);
+        }
+
+        private void GestaoAnimador_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            repoAnimadores.Dispose();
+        }
+
+        private void panelRefresh_Click(object sender, EventArgs e)
+        {
+            refresh();
         }
     }
 }
