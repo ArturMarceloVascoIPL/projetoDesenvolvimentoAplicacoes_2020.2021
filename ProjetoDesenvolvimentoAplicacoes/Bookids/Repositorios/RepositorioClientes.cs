@@ -15,6 +15,7 @@ namespace Bookids
             return model.Pessoas.Where(p => p is Cliente).Select(p => p).ToList().Select(p => (Cliente)p).ToList();
         }
 
+
         public void AddCliente(Cliente cliente)
         {
             model.Pessoas.Add(cliente);
@@ -47,7 +48,13 @@ namespace Bookids
 
         }
 
-        /* Fecha as ligacoes na base de dados e liberta os recursos do computador */
+        public List<Cliente> SearchByName(string nome)
+        {
+            return (from animador in model.Pessoas.Where(a => a is Cliente).Select(a => a).ToList().Select(a => (Cliente)a).ToList()
+                    where animador.Nome.ToLower().Contains(nome.ToLower())
+                    select animador).ToList<Cliente>();
+        }
+        
         public void Dispose()
         {
             ((IDisposable)model).Dispose();
