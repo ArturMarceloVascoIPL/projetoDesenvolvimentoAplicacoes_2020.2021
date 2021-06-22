@@ -3,8 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using UglyToad.PdfPig.Content;
+using UglyToad.PdfPig.Core;
+using UglyToad.PdfPig.Fonts.Standard14Fonts;
+using UglyToad.PdfPig.Writer;
 
 namespace Bookids
 {
@@ -25,20 +30,17 @@ namespace Bookids
             timer1.Start();
             panelCardNo.BackColor = Color.Red;
             if (cliente.NumCartao == null)
-            {
                 panel6.Enabled = false;
-            }
+
             panelCardYes.BackColor = Color.White;
             idCliente = cliente.IdPessoa;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Deseja Exportar?", "Exportar", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            DialogResult salvarDialog = MessageBox.Show("Deseja Guardar?", "Exportar", MessageBoxButtons.YesNo);
+            if (salvarDialog == DialogResult.Yes)
             {
-                var exportForm = new ExportarFile();
-                exportForm.Show();
 
                 string data = DateTime.Today.ToString("dd/MM/yyyy");
                 bool utilizouCartao;
@@ -66,38 +68,87 @@ namespace Bookids
                 }
 
                 MessageBox.Show("Inserido com sucesso");
-                this.Close();
 
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                string data = DateTime.Today.ToString("dd/MM/yyyy");
-                bool utilizouCartao;
-                if (panelCardYes.BackColor == Color.Green && panel6.Enabled == true)
+
+                //exportar ficheiro apos guardar compra
+                DialogResult exportarDialog = MessageBox.Show("Deseja Exportar?", "Exportar", MessageBoxButtons.YesNo);
+                if (exportarDialog == DialogResult.Yes)
                 {
-                    utilizouCartao = true;
-                }
-                else
-                {
-                    utilizouCartao = false;
-                }
-                Compra compra = new Compra(data, utilizouCartao, idCliente);
-                repositorioCompras.AddCompras(compra);
+                    using (var form = new ExportarFile())
+                    {
+                        string val;
+                        var result = form.ShowDialog();
+                        if (result == DialogResult.OK)
+                        {
+                            val = form.option;
 
+                            if (val == "TXT")
+                            {
+                                SaveFileDialog saveFile = new SaveFileDialog();
+                                saveFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                                saveFile.RestoreDirectory = true;
+                                saveFile.Title = "Selecionar localização e nome para o ficheiro";
+                                saveFile.Filter = "Ficheiro TXT(*.txt)|*.txt  ";
 
-                foreach (Carrinho itensCarrinho in listaCarrinho.Items)
-                {
-                    DetalheCompra detalheCompra = new DetalheCompra(compra.IdCompra, itensCarrinho.IdProduto, itensCarrinho.Quantidade);
-                    repositorioDetalhesCompras.AddDetalheCompra(detalheCompra);
+                                if (saveFile.ShowDialog() == DialogResult.OK)
+                                {
+                                    string filePath = Path.Combine(saveFile.FileName, saveFile.FileName);
+
+                                    FileStream fs = new FileStream(filePath, FileMode.Append, FileAccess.Write);
+                                    // Criar o buffer de texto de escrita
+                                    StreamWriter sw = new StreamWriter(fs);
+                                    // Guardar os dados no ficheio com string delimitados por ;
+
+                                    sw.WriteLine("Cliente:\t" + compra.Cliente + "\n-----------------------------\n");
+
+                                    foreach (var item in listaCarrinho.Items)
+                                        sw.WriteLine(item);
+
+                                    sw.WriteLine("\n-----------------------------\nPreço Total:\t" + labelPrecoTotalCompra.Text);
+
+                                    // Fechar o ficheiro e o stream
+                                    sw.Close();
+                                    fs.Close();
+                                }
+                            }
+                            else if (val == "PDF")
+                            {
+                                SaveFileDialog saveFile = new SaveFileDialog();
+                                saveFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                                saveFile.RestoreDirectory = true;
+                                saveFile.Title = "Selecionar localização e nome para o ficheiro";
+                                saveFile.Filter = "Ficheiro PDF(*.pdf)|*.pdf";
+                                if (saveFile.ShowDialog() == DialogResult.OK)
+                                {
+                                    PdfDocumentBuilder builder = new PdfDocumentBuilder();
+
+                                    PdfDocumentBuilder.AddedFont helvetica = builder.AddStandard14Font(Standard14Font.Helvetica);
+                                    PdfDocumentBuilder.AddedFont helveticaBold = builder.AddStandard14Font(Standard14Font.HelveticaBold);
+
+                                    PdfPageBuilder page = builder.AddPage(PageSize.A4);
+
+                                    PdfPoint closeToTop = new PdfPoint(15, page.PageSize.Top - 25);
+
+                                    page.AddText("Cliente: <error>", 12, closeToTop, helveticaBold);
+                                    int lineSpaceCounter = 0;
+                                    foreach (var item in listaProdutos.Items)
+                                    {
+                                        lineSpaceCounter -= 25;
+                                        page.AddText(Convert.ToString(item), 10, closeToTop.Translate(0, lineSpaceCounter), helvetica);
+                                    }
+
+                                    string precototal = labelPrecoTotalCompra.Text.Replace("€", string.Empty);
+                                    page.AddText("Preco Total: " + precototal + " Euros", 12, closeToTop.Translate(0, lineSpaceCounter - 25), helveticaBold);
+
+                                    string filePath = Path.Combine(saveFile.FileName, saveFile.FileName);
+                                    File.WriteAllBytes(filePath, builder.Build());
+                                }
+                            }
+                            MessageBox.Show("Salvo com Sucesso");
+                        }
+                    }
                 }
-
-                foreach (Produto itensProduto in listaProdutos.Items)
-                {
-                    repoProdutos.EditProduto(itensProduto.IdProduto, itensProduto);
-                }
-
-                MessageBox.Show("Inserido com sucesso");
-                this.Close();
+                Close();
             }
         }
 
@@ -169,7 +220,7 @@ namespace Bookids
                 if (itemProduto.IdProduto == id)
                 {
                     return itemProduto;
-            }
+                }
             }
             return null;
         }
@@ -291,7 +342,7 @@ namespace Bookids
                 fc.Focus();
             else
             {
-                GestaoProdutos produtoForm = new GestaoProdutos();
+                GestaoProdutos produtoForm = new GestaoProdutos(false);
                 produtoForm.Show();
             }
         }

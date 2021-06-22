@@ -42,24 +42,12 @@ namespace Bookids.Forms
 
         private void btnExportFichaInsc_Click(object sender, EventArgs e)
         {
-            Evento evento = (Evento)listBoxEventos.SelectedItem;
-
-            if (evento != null)
-            {
-                var exportarFichaInscricao = new ExportarFile(evento);
-                exportarFichaInscricao.ShowDialog();
-            }
+            
         }
 
         private void btnExportInscritos_Click(object sender, EventArgs e)
         {
-            Evento evento = (Evento)listBoxEventos.SelectedItem;
-
-            if (evento != null)
-            {
-                var exportarInscritos = new ExportarFile(repoEventos.GetParticipantes(evento.IdEvento));
-                exportarInscritos.ShowDialog(); 
-            }
+            
         }
 
         #region GestaoEventos

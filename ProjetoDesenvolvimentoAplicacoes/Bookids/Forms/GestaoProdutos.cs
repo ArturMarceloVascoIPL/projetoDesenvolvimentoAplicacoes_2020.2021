@@ -19,9 +19,15 @@ namespace Bookids.Forms
         bool editar = true; // Variavel para verificar se vai editar(true) ou criar(false) o produto
 
         /* Construtor */
-        public GestaoProdutos()
+        public GestaoProdutos(bool tipos)
         {
-            InitializeComponent();            
+            InitializeComponent();
+
+            if (tipos)
+            {
+                panelEditTipos.Enabled = true; // Desbloqueia o painel
+                textBoxNomeTipo.Focus(); // Coloca o cursor no painel
+            }
         }
 
         /* Funções relacionadas com as gestão de produtos */
@@ -133,7 +139,7 @@ namespace Bookids.Forms
                 {
                     refreshListas();
                 }
-            }            
+            }
         }
 
         /* Pesquisar os produtos por designação */
@@ -163,7 +169,6 @@ namespace Bookids.Forms
         private void btnAddTipos_Click(object sender, EventArgs e)
         {
             panelEditTipos.Enabled = true; // Desbloqueia o painel
-
             textBoxNomeTipo.Focus(); // Coloca o cursor no painel
         }
 
@@ -223,7 +228,7 @@ namespace Bookids.Forms
             }
         }
 
-        #endregion               
+        #endregion
 
         /* Funções relacionadas com a validação do texto inserido em alguns campos */
         #region TextBoxValidation
