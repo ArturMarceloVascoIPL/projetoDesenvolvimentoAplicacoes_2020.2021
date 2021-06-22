@@ -17,8 +17,8 @@ namespace Bookids
             this.DtaNascimento = dtaNascimento;
 
             var hoje = DateTime.Today;
-            this.Idade = hoje.Year - DtaNascimento.Year;
-            if (DtaNascimento.Date > hoje.AddYears(-Idade))
+            this.Idade = hoje.Year - dtaNascimento.Year;
+            if (dtaNascimento.Date > hoje.AddYears(-Idade))
             {
                 Idade--;
             }
