@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UglyToad.PdfPig.Content;
+using UglyToad.PdfPig.Core;
+using UglyToad.PdfPig.Fonts.Standard14Fonts;
+using UglyToad.PdfPig.Writer;
 
 namespace Bookids.Forms
 {
     public partial class GestaoEventos : Form
     {
-        RepositorioEventos repoEventos = new RepositorioEventos();
         RepositorioAnimadores repoAnimadores = new RepositorioAnimadores();
-        RepositorioEscolas repoEscolas = new RepositorioEscolas();
         RepositorioColaboracao repoColaboracao = new RepositorioColaboracao();
-        RepositorioParticipacao repoParticipacao = new RepositorioParticipacao();
+        RepositorioEscolas repoEscolas = new RepositorioEscolas();
+        RepositorioEventos repoEventos = new RepositorioEventos();
         RepositorioInscricoes repoInscricoes = new RepositorioInscricoes();
+        RepositorioParticipacao repoParticipacao = new RepositorioParticipacao();
 
         bool editar = false;
 
@@ -32,22 +37,182 @@ namespace Bookids.Forms
 
         private void GestaoEventos_FormClosing(object sender, FormClosingEventArgs e)
         {
-            repoEventos.Dispose();
             repoAnimadores.Dispose();
-            repoEscolas.Dispose();
             repoColaboracao.Dispose();
-            repoParticipacao.Dispose();
+            repoEscolas.Dispose();
+            repoEventos.Dispose();
             repoInscricoes.Dispose();
+            repoParticipacao.Dispose();
         }
 
         private void btnExportFichaInsc_Click(object sender, EventArgs e)
         {
-            
+            using (var form = new ExportarFile())
+            {
+                Evento fichaInscricao = (Evento)listBoxEventos.SelectedItem;
+
+                string val;
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    val = form.option;
+
+                    if (val == "TXT")
+                    {
+                        SaveFileDialog saveFile = new SaveFileDialog();
+                        saveFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                        saveFile.RestoreDirectory = true;
+                        saveFile.Title = "Selecionar localização e nome para o ficheiro";
+                        saveFile.Filter = "Ficheiro TXT(*.txt)|*.txt  ";
+
+                        if (saveFile.ShowDialog() == DialogResult.OK)
+                        {
+                            string filePath = Path.Combine(saveFile.FileName, saveFile.FileName);
+
+                            FileStream fs = new FileStream(filePath, FileMode.Append, FileAccess.Write);
+                            // Criar o buffer de texto de escrita
+                            StreamWriter sw = new StreamWriter(fs);
+                            // Guardar os dados no ficheio com string delimitados por ;
+
+                            sw.WriteLine("EVENTO");
+                            sw.WriteLine("\n------------------\n\n");
+
+                            sw.WriteLine("Descricao: " + Convert.ToString(fichaInscricao.Descricao));
+                            sw.WriteLine("\nLocal: " + Convert.ToString(fichaInscricao.Local));
+                            sw.WriteLine("\nTipo de Evento: " + Convert.ToString(fichaInscricao.TipoEvento));
+                            sw.WriteLine("\nLimite de Participantes: " + Convert.ToString(fichaInscricao.LimiteParticipacao));
+                            sw.WriteLine("\nIdade Mínima: " + Convert.ToString(fichaInscricao.IdadeInferiror + " | Idade Máxima: " + Convert.ToString(fichaInscricao.IdadeInferiror)));
+                            sw.WriteLine("\nData e Hora: " + Convert.ToString(fichaInscricao.DataHora));
+
+                            sw.WriteLine("\n\n------------------");
+
+                            // Fechar o ficheiro e o stream
+                            sw.Close();
+                            fs.Close();
+                        }
+                    }
+                    else if (val == "PDF")
+                    {
+                        SaveFileDialog saveFile = new SaveFileDialog();
+                        saveFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                        saveFile.RestoreDirectory = true;
+                        saveFile.Title = "Selecionar localização e nome para o ficheiro";
+                        saveFile.Filter = "Ficheiro PDF(*.pdf)|*.pdf";
+                        if (saveFile.ShowDialog() == DialogResult.OK)
+                        {
+                            PdfDocumentBuilder builder = new PdfDocumentBuilder();
+
+                            PdfDocumentBuilder.AddedFont helvetica = builder.AddStandard14Font(Standard14Font.Helvetica);
+                            PdfDocumentBuilder.AddedFont helveticaBold = builder.AddStandard14Font(Standard14Font.HelveticaBold);
+
+                            PdfPageBuilder page = builder.AddPage(PageSize.A4);
+
+                            PdfPoint closeToTop = new PdfPoint(15, page.PageSize.Top - 25);
+
+                            page.AddText("EVENTO: " + Convert.ToString(fichaInscricao.Descricao), 12, closeToTop, helveticaBold);
+
+                            page.AddText("Local: " + Convert.ToString(fichaInscricao.Local), 10, closeToTop.Translate(0, -25), helvetica);
+
+                            page.AddText("Tipo de Evento: " + Convert.ToString(fichaInscricao.TipoEvento), 10, closeToTop.Translate(0, -50), helvetica);
+
+                            page.AddText("Limite de Participantes: " + Convert.ToString(fichaInscricao.LimiteParticipacao), 10, closeToTop.Translate(0, -75), helvetica);
+
+                            page.AddText("Idade Minima: " + Convert.ToString(fichaInscricao.IdadeInferiror + " | Idade Maxima: " + Convert.ToString(fichaInscricao.IdadeInferiror)), 10, closeToTop.Translate(0, -100), helveticaBold);
+
+                            page.AddText("Data e Hora: " + Convert.ToString(fichaInscricao.DataHora), 10, closeToTop.Translate(0, -125), helvetica);
+
+                            string filePath = Path.Combine(saveFile.FileName, saveFile.FileName);
+                            File.WriteAllBytes(filePath, builder.Build());
+                        }
+                    }
+                    MessageBox.Show("Salvo com Sucesso");
+                }
+            }
         }
 
         private void btnExportInscritos_Click(object sender, EventArgs e)
         {
-            
+            using (var form = new ExportarFile())
+            {
+                Evento exportInscritos = (Evento)listBoxEventos.SelectedItem;
+
+                string val;
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    val = form.option;
+
+                    if (val == "TXT")
+                    {
+                        SaveFileDialog saveFile = new SaveFileDialog();
+                        saveFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                        saveFile.RestoreDirectory = true;
+                        saveFile.Title = "Selecionar localização e nome para o ficheiro";
+                        saveFile.Filter = "Ficheiro TXT(*.txt)|*.txt  ";
+
+                        if (saveFile.ShowDialog() == DialogResult.OK)
+                        {
+                            string filePath = Path.Combine(saveFile.FileName, saveFile.FileName);
+
+                            FileStream fs = new FileStream(filePath, FileMode.Append, FileAccess.Write);
+                            // Criar o buffer de texto de escrita
+                            StreamWriter sw = new StreamWriter(fs);
+                            // Guardar os dados no ficheio com string delimitados por ;
+
+                            sw.WriteLine("Lista de Participantes\nEVENTO: " + Convert.ToString(exportInscritos.Descricao));
+                            sw.WriteLine("\n------------------\n\n");
+
+                            int c = 0;
+                            foreach (var item in listBoxParticipantes.Items)
+                            {
+                                c++;
+                                sw.WriteLine("\t Participante {0} {1}\n", c, item);
+                            }
+
+                            sw.WriteLine("\nData e Hora: " + Convert.ToString(exportInscritos.DataHora));
+                            sw.WriteLine("\n\n------------------");
+
+                            // Fechar o ficheiro e o stream
+                            sw.Close();
+                            fs.Close();
+                        }
+                    }
+                    else if (val == "PDF")
+                    {
+                        SaveFileDialog saveFile = new SaveFileDialog();
+                        saveFile.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                        saveFile.RestoreDirectory = true;
+                        saveFile.Title = "Selecionar localização e nome para o ficheiro";
+                        saveFile.Filter = "Ficheiro PDF(*.pdf)|*.pdf";
+                        if (saveFile.ShowDialog() == DialogResult.OK)
+                        {
+                            PdfDocumentBuilder builder = new PdfDocumentBuilder();
+
+                            PdfDocumentBuilder.AddedFont helvetica = builder.AddStandard14Font(Standard14Font.Helvetica);
+                            PdfDocumentBuilder.AddedFont helveticaBold = builder.AddStandard14Font(Standard14Font.HelveticaBold);
+
+                            PdfPageBuilder page = builder.AddPage(PageSize.A4);
+
+                            PdfPoint closeToTop = new PdfPoint(15, page.PageSize.Top - 25);
+
+                            page.AddText("Lista de Participantes | EVENTO: " + Convert.ToString(exportInscritos.Descricao), 12, closeToTop, helveticaBold);
+
+                            int pageLiner = 0;
+                            foreach (var item in listBoxParticipantes.Items)
+                            {
+                                pageLiner += 25;
+                                page.AddText("   Participante: " + item, 10, closeToTop.Translate(0, -pageLiner), helvetica);
+                            }
+                            page.AddText("Data e Hora: " + Convert.ToString(exportInscritos.DataHora), 10, closeToTop.Translate(0, -125), helvetica);
+
+                            string filePath = Path.Combine(saveFile.FileName, saveFile.FileName);
+                            File.WriteAllBytes(filePath, builder.Build());
+                        }
+                    }
+                    MessageBox.Show("Salvo com Sucesso");
+                }
+            }
+
         }
 
         #region GestaoEventos
@@ -113,7 +278,7 @@ namespace Bookids.Forms
             if (dateTimePickerData.Value > DateTime.Now)
             {
                 // Verificar se tem todos os campos preenchidos 
-                if (!String.IsNullOrWhiteSpace(textBoxMaxParticipantes.Text) && !String.IsNullOrWhiteSpace(textBoxIdadeMin.Text) 
+                if (!String.IsNullOrWhiteSpace(textBoxMaxParticipantes.Text) && !String.IsNullOrWhiteSpace(textBoxIdadeMin.Text)
                     && !String.IsNullOrWhiteSpace(textBoxIdadeMax.Text) && !String.IsNullOrWhiteSpace(textBoxDescricao.Text)
                     && !String.IsNullOrWhiteSpace(textBoxLocal.Text) && !String.IsNullOrWhiteSpace(textBoxTipoEvento.Text))
                 {
