@@ -101,7 +101,7 @@ namespace Bookids
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(135, 28);
             this.novoToolStripMenuItem.Text = "Novo";
             this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoEventoToolStripMenuItem_Click);
             // 
@@ -327,6 +327,7 @@ namespace Bookids
             this.listEventosNext.ItemHeight = 16;
             this.listEventosNext.Location = new System.Drawing.Point(7, 34);
             this.listEventosNext.Name = "listEventosNext";
+            this.listEventosNext.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.listEventosNext.Size = new System.Drawing.Size(255, 196);
             this.listEventosNext.TabIndex = 7;
             this.listEventosNext.ValueMember = "IdEvento";
@@ -398,6 +399,7 @@ namespace Bookids
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

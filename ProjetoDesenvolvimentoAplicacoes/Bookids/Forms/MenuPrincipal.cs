@@ -29,6 +29,7 @@ namespace Bookids
         {
             labelHora.Text = Convert.ToString(DateTime.Now.ToString("HH:mm:ss"));
             labelData.Text = DateTime.Now.ToString("d");
+            eventosTableAdapter.FillBy(bookidsDBDataSet.Eventos);
         }
 
         private void btnAnimadores_Click(object sender, EventArgs e)
@@ -118,8 +119,12 @@ namespace Bookids
                 produtoForm.Show();
             }
         }
+
         #endregion
 
-
+        private void MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bookidsDBDataSet.Dispose();
+        }
     }
 }
