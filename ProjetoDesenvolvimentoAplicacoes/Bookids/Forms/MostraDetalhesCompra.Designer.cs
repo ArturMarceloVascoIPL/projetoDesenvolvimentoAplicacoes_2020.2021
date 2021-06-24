@@ -42,7 +42,7 @@ namespace Bookids.Forms
             this.listBoxDetalhesCompras.FormattingEnabled = true;
             this.listBoxDetalhesCompras.ItemHeight = 16;
             this.listBoxDetalhesCompras.Location = new System.Drawing.Point(16, 79);
-            this.listBoxDetalhesCompras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxDetalhesCompras.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxDetalhesCompras.Name = "listBoxDetalhesCompras";
             this.listBoxDetalhesCompras.Size = new System.Drawing.Size(361, 388);
             this.listBoxDetalhesCompras.TabIndex = 0;
@@ -112,8 +112,11 @@ namespace Bookids.Forms
             this.Controls.Add(this.panelImagemCliente);
             this.Controls.Add(this.labelNome);
             this.Controls.Add(this.listBoxDetalhesCompras);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "MostraDetalhesCompra";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MostraDetalhesCompra";
             this.ResumeLayout(false);
             this.PerformLayout();

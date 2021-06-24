@@ -31,11 +31,6 @@ namespace Bookids.Forms
             refresh();
         }
 
-        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void listBoxAnimadores_SelectedIndexChanged(object sender, EventArgs e)
         {
             panelAnimador.Enabled = false;
@@ -239,5 +234,58 @@ namespace Bookids.Forms
         {
             refresh();
         }
+
+        #region Menu Tool Strip
+
+        //HomePage
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        //Eventos
+        private void novoEventoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoEventos"];
+        }
+
+        //Compras
+        private void verCompraRecenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepositorioClientes repoClientes = new RepositorioClientes();
+            RepositorioCompras repoCompras = new RepositorioCompras();
+            RepositorioDetalhesCompras repositorioDetalhesCompras = new RepositorioDetalhesCompras();
+
+            MessageBox.Show("trolling");
+        }
+
+        // Produtos
+        private void novoTipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoProdutos"];
+
+            if (fc != null)
+                fc.Focus();
+            else
+            {
+                GestaoProdutos produtoForm = new GestaoProdutos(false);
+                produtoForm.Show();
+            }
+        }
+
+        private void editarTiposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoProdutos"];
+
+            if (fc != null)
+                fc.Focus();
+            else
+            {
+                GestaoProdutos produtoForm = new GestaoProdutos(true);
+                produtoForm.Show();
+            }
+        }
+        #endregion
+
     }
 }

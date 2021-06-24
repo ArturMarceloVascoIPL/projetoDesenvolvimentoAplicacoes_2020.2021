@@ -69,15 +69,17 @@ namespace Bookids
         }
 
         #region Menu Tool Strip
+
+        //HomeButton
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
         //Eventos
         private void novoEventoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void editarRecenteEventoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            Form fc = Application.OpenForms["GestaoEventos"];
         }
 
         //Compras
@@ -86,6 +88,8 @@ namespace Bookids
             RepositorioClientes repoClientes = new RepositorioClientes();
             RepositorioCompras repoCompras = new RepositorioCompras();
             RepositorioDetalhesCompras repositorioDetalhesCompras = new RepositorioDetalhesCompras();
+
+            MessageBox.Show("trolling");
         }
 
         // Produtos
@@ -113,7 +117,9 @@ namespace Bookids
                 GestaoProdutos produtoForm = new GestaoProdutos(true);
                 produtoForm.Show();
             }
-            #endregion
         }
+        #endregion
+
+
     }
 }

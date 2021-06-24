@@ -30,10 +30,6 @@ namespace Bookids.Forms
         {
             InitializeComponent();
         }
-        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
 
         private void GestaoEventos_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -506,6 +502,52 @@ namespace Bookids.Forms
             refreshListas();
         }
 
+        #endregion
+
+        #region MenuStrip
+
+        //MenuStrip
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        //Compras
+        private void verCompraRecenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepositorioClientes repoClientes = new RepositorioClientes();
+            RepositorioCompras repoCompras = new RepositorioCompras();
+            RepositorioDetalhesCompras repositorioDetalhesCompras = new RepositorioDetalhesCompras();
+
+            MessageBox.Show("trolling");
+        }
+
+        // Produtos
+        private void novoTipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoProdutos"];
+
+            if (fc != null)
+                fc.Focus();
+            else
+            {
+                GestaoProdutos produtoForm = new GestaoProdutos(false);
+                produtoForm.Show();
+            }
+        }
+
+        private void editarTiposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoProdutos"];
+
+            if (fc != null)
+                fc.Focus();
+            else
+            {
+                GestaoProdutos produtoForm = new GestaoProdutos(true);
+                produtoForm.Show();
+            }
+        }
         #endregion
     }
 }

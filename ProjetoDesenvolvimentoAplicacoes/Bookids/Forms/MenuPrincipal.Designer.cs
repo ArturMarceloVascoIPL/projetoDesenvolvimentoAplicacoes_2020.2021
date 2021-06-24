@@ -34,7 +34,6 @@ namespace Bookids
             this.HomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarRecenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verRecenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,12 +88,12 @@ namespace Bookids
             this.HomeToolStripMenuItem.Image = global::Bookids.Properties.Resources.baseline_home_black_24dp;
             this.HomeToolStripMenuItem.Name = "HomeToolStripMenuItem";
             this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
+            this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
             // eventosToolStripMenuItem
             // 
             this.eventosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novoToolStripMenuItem,
-            this.editarRecenteToolStripMenuItem});
+            this.novoToolStripMenuItem});
             this.eventosToolStripMenuItem.Name = "eventosToolStripMenuItem";
             this.eventosToolStripMenuItem.Size = new System.Drawing.Size(83, 27);
             this.eventosToolStripMenuItem.Text = "Eventos";
@@ -102,16 +101,9 @@ namespace Bookids
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.novoToolStripMenuItem.Text = "Novo";
             this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoEventoToolStripMenuItem_Click);
-            // 
-            // editarRecenteToolStripMenuItem
-            // 
-            this.editarRecenteToolStripMenuItem.Name = "editarRecenteToolStripMenuItem";
-            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
-            this.editarRecenteToolStripMenuItem.Text = "Editar Recente";
-            this.editarRecenteToolStripMenuItem.Click += new System.EventHandler(this.editarRecenteEventoToolStripMenuItem_Click);
             // 
             // comprasToolStripMenuItem
             // 
@@ -426,7 +418,6 @@ namespace Bookids
         private System.Windows.Forms.ToolStripMenuItem HomeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eventosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarRecenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verRecenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;

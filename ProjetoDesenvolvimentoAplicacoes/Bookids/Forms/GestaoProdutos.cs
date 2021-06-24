@@ -276,12 +276,6 @@ namespace Bookids.Forms
             refreshListas();
         }
 
-        /* Fecha a janela e volta ao Menu Inicial */
-        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         /* Atualizar as listas */
         private void refreshListas()
         {
@@ -323,5 +317,30 @@ namespace Bookids.Forms
 
         #endregion
 
+        #region Menu Tool Strip
+
+        //HomePage
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        //Eventos
+        private void novoEventoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoEventos"];
+        }
+
+        //Compras
+        private void verCompraRecenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepositorioClientes repoClientes = new RepositorioClientes();
+            RepositorioCompras repoCompras = new RepositorioCompras();
+            RepositorioDetalhesCompras repositorioDetalhesCompras = new RepositorioDetalhesCompras();
+
+            MessageBox.Show("trolling");
+        }
+
+        #endregion
     }
 }

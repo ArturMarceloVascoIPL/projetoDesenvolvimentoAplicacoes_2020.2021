@@ -31,9 +31,6 @@ namespace Bookids.Forms
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.HomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarRecenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verRecenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +93,6 @@ namespace Bookids.Forms
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.HomeToolStripMenuItem,
-            this.eventosToolStripMenuItem,
             this.comprasToolStripMenuItem,
             this.produtosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -113,27 +109,6 @@ namespace Bookids.Forms
             this.HomeToolStripMenuItem.Size = new System.Drawing.Size(34, 27);
             this.HomeToolStripMenuItem.Click += new System.EventHandler(this.HomeToolStripMenuItem_Click);
             // 
-            // eventosToolStripMenuItem
-            // 
-            this.eventosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.novoToolStripMenuItem,
-            this.editarRecenteToolStripMenuItem});
-            this.eventosToolStripMenuItem.Name = "eventosToolStripMenuItem";
-            this.eventosToolStripMenuItem.Size = new System.Drawing.Size(83, 27);
-            this.eventosToolStripMenuItem.Text = "Eventos";
-            // 
-            // novoToolStripMenuItem
-            // 
-            this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
-            this.novoToolStripMenuItem.Text = "Novo";
-            // 
-            // editarRecenteToolStripMenuItem
-            // 
-            this.editarRecenteToolStripMenuItem.Name = "editarRecenteToolStripMenuItem";
-            this.editarRecenteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
-            this.editarRecenteToolStripMenuItem.Text = "Editar Recente";
-            // 
             // comprasToolStripMenuItem
             // 
             this.comprasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -147,6 +122,7 @@ namespace Bookids.Forms
             this.verRecenteToolStripMenuItem.Name = "verRecenteToolStripMenuItem";
             this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(185, 28);
             this.verRecenteToolStripMenuItem.Text = "Ver Recente";
+            this.verRecenteToolStripMenuItem.Click += new System.EventHandler(this.verCompraRecenteToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
@@ -160,14 +136,16 @@ namespace Bookids.Forms
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(183, 28);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(224, 28);
             this.novoToolStripMenuItem1.Text = "Novo";
+            this.novoToolStripMenuItem1.Click += new System.EventHandler(this.novoTipoToolStripMenuItem_Click);
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
+            this.editarTiposToolStripMenuItem.Click += new System.EventHandler(this.editarTiposToolStripMenuItem_Click);
             // 
             // labelEvento
             // 
@@ -197,7 +175,7 @@ namespace Bookids.Forms
             this.dateTimePickerData.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dateTimePickerData.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerData.Location = new System.Drawing.Point(144, 133);
-            this.dateTimePickerData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerData.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerData.Name = "dateTimePickerData";
             this.dateTimePickerData.Size = new System.Drawing.Size(175, 22);
             this.dateTimePickerData.TabIndex = 42;
@@ -222,7 +200,7 @@ namespace Bookids.Forms
             this.comboBoxAnimadores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAnimadores.FormattingEnabled = true;
             this.comboBoxAnimadores.Location = new System.Drawing.Point(19, 192);
-            this.comboBoxAnimadores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxAnimadores.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxAnimadores.Name = "comboBoxAnimadores";
             this.comboBoxAnimadores.Size = new System.Drawing.Size(160, 24);
             this.comboBoxAnimadores.TabIndex = 21;
@@ -292,7 +270,7 @@ namespace Bookids.Forms
             this.comboBoxEscolas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEscolas.FormattingEnabled = true;
             this.comboBoxEscolas.Location = new System.Drawing.Point(19, 192);
-            this.comboBoxEscolas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxEscolas.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxEscolas.Name = "comboBoxEscolas";
             this.comboBoxEscolas.Size = new System.Drawing.Size(160, 24);
             this.comboBoxEscolas.TabIndex = 21;
@@ -717,9 +695,6 @@ namespace Bookids.Forms
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem HomeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eventosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarRecenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verRecenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
