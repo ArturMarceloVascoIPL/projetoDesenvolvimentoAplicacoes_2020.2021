@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,12 @@ namespace Bookids.Forms
 
             toolTipRefresh.SetToolTip(buttonRefresh, "Atualizar Lista");
         }
+
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
 
         #region GestaoEscola
 
@@ -173,15 +180,22 @@ namespace Bookids.Forms
 
         #endregion
 
-        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        #region MiscFunctions
+
+        // Cria um gradiente como fundo do Form 
+        private void GestaoEscolas_Paint(object sender, PaintEventArgs e)
         {
-            Close();
-        }
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.WhiteSmoke, Color.FromArgb(157, 131, 235), 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        } 
 
         private void GestaoEscolas_FormClosing(object sender, FormClosingEventArgs e)
         {
             repoEscolas.Dispose();
         }
 
+        #endregion
     }
 }

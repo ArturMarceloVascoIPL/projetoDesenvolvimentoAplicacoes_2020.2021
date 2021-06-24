@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Linq;
 
 namespace Bookids
 {
@@ -25,11 +25,7 @@ namespace Bookids
             eventosTableAdapter.FillBy(bookidsDBDataSet.Eventos);
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            labelHora.Text = Convert.ToString(DateTime.Now.ToString("HH:mm:ss"));
-            labelData.Text = DateTime.Now.ToString("d");
-        }
+        #region Butoes
 
         private void btnAnimadores_Click(object sender, EventArgs e)
         {
@@ -66,9 +62,12 @@ namespace Bookids
         {
             var formClientesFilhos = new GestaoClienteFilhos();
             formClientesFilhos.ShowDialog();
-        }
+        } 
+
+        #endregion
 
         #region Menu Tool Strip
+
         //Eventos
         private void novoEventoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -113,7 +112,20 @@ namespace Bookids
                 GestaoProdutos produtoForm = new GestaoProdutos(true);
                 produtoForm.Show();
             }
-            #endregion
+            
         }
+
+        #endregion
+
+        #region MiscFunctions
+
+        // Apresenta a hora
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelHora.Text = Convert.ToString(DateTime.Now.ToString("HH:mm:ss"));
+            labelData.Text = DateTime.Now.ToString("d");
+        }
+
+        #endregion
     }
 }

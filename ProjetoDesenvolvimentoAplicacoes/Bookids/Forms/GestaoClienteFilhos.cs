@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,8 +28,16 @@ namespace Bookids.Forms
             InitializeComponent();
         }
 
-
         #region MiscEvents
+
+        // Cria um gradiente como fundo do Form
+        private void GestaoClienteFilhos_Paint(object sender, PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.WhiteSmoke, Color.FromArgb(235, 131, 157), 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        }
 
         private void GestaoClienteFilhos_Load(object sender, EventArgs e)
         {
@@ -82,6 +91,13 @@ namespace Bookids.Forms
 
             //Lista Escolas
             comboBoxEscolas.DataSource = repoEscola.GetEscolas();
+        }
+
+        private void GestaoClienteFilhos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            repoCliente.Dispose();
+            repoEscola.Dispose();
+            repoFilho.Dispose();
         }
 
         #endregion
@@ -582,19 +598,12 @@ namespace Bookids.Forms
 
         #endregion
 
-        private void GestaoClienteFilhos_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            repoCliente.Dispose();
-            repoEscola.Dispose();
-            repoFilho.Dispose();
-        }
+        #region Participacoes
 
         private void buttonConfirmacoes_Click(object sender, EventArgs e)
         {
             panelConfirmacoes.Enabled = true;
         }
-
-        #region Participacoes
 
         private void buttonGuardarParticipacoes_Click(object sender, EventArgs e)
         {
@@ -644,6 +653,6 @@ namespace Bookids.Forms
             }
         }
 
-        #endregion
+        #endregion        
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -344,6 +345,15 @@ namespace Bookids
             {
                 GestaoProdutos produtoForm = new GestaoProdutos(false);
                 produtoForm.Show();
+            }
+        }
+
+        // Cria um gradiente como fundo do Form
+        private void FormNovaCompra_Paint(object sender, PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.WhiteSmoke, Color.FromArgb(43, 177, 222), 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
         }
     }

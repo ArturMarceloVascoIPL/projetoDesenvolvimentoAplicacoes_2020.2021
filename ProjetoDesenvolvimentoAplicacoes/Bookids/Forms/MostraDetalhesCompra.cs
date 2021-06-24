@@ -12,6 +12,7 @@ using UglyToad.PdfPig.Content;
 using UglyToad.PdfPig.Core;
 using UglyToad.PdfPig.Fonts.Standard14Fonts;
 using UglyToad.PdfPig.Writer;
+using System.Drawing.Drawing2D;
 
 namespace Bookids.Forms
 {
@@ -117,6 +118,15 @@ namespace Bookids.Forms
                     }
                     MessageBox.Show("Salvo com Sucesso");
                 }
+            }
+        }
+
+        // Cria um gradiente como fundo do Form
+        private void MostraDetalhesCompra_Paint(object sender, PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.WhiteSmoke, Color.FromArgb(43, 177, 222), 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
         }
     }

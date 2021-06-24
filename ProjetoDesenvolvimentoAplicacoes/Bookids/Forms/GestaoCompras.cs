@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,6 +93,15 @@ namespace Bookids
         private void textBoxSearchClientes_TextChanged(object sender, EventArgs e)
         {
             listaClientes.DataSource = repoClientes.SearchByName(textBoxSearchClientes.Text);
+        }
+
+        // Cria um gradiente como fundo do Form
+        private void GestaoCompras_Paint(object sender, PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.WhiteSmoke, Color.FromArgb(131, 209, 235), 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
         }
     }
 }

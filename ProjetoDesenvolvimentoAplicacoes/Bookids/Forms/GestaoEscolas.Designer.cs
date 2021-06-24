@@ -189,6 +189,9 @@ namespace Bookids.Forms
             // 
             // buttonGuardarEscola
             // 
+            this.buttonGuardarEscola.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonGuardarEscola.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardarEscola.ForeColor = System.Drawing.Color.White;
             this.buttonGuardarEscola.Location = new System.Drawing.Point(287, 133);
             this.buttonGuardarEscola.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGuardarEscola.Name = "buttonGuardarEscola";
@@ -235,6 +238,7 @@ namespace Bookids.Forms
             // 
             this.textBoxCodPostal.Location = new System.Drawing.Point(292, 59);
             this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCodPostal.MaxLength = 10;
             this.textBoxCodPostal.Name = "textBoxCodPostal";
             this.textBoxCodPostal.Size = new System.Drawing.Size(95, 20);
             this.textBoxCodPostal.TabIndex = 41;
@@ -306,6 +310,7 @@ namespace Bookids.Forms
             // 
             // panelAlunos
             // 
+            this.panelAlunos.BackColor = System.Drawing.Color.Transparent;
             this.panelAlunos.Controls.Add(this.listBoxAlunos);
             this.panelAlunos.Controls.Add(this.l_labelAlunos);
             this.panelAlunos.Location = new System.Drawing.Point(726, 35);
@@ -336,7 +341,9 @@ namespace Bookids.Forms
             // 
             // buttonApagarEscola
             // 
-            this.buttonApagarEscola.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonApagarEscola.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonApagarEscola.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApagarEscola.ForeColor = System.Drawing.Color.White;
             this.buttonApagarEscola.Location = new System.Drawing.Point(224, 368);
             this.buttonApagarEscola.Margin = new System.Windows.Forms.Padding(2);
             this.buttonApagarEscola.Name = "buttonApagarEscola";
@@ -348,7 +355,9 @@ namespace Bookids.Forms
             // 
             // buttonEditar
             // 
-            this.buttonEditar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditar.ForeColor = System.Drawing.Color.White;
             this.buttonEditar.Location = new System.Drawing.Point(119, 368);
             this.buttonEditar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditar.Name = "buttonEditar";
@@ -360,7 +369,9 @@ namespace Bookids.Forms
             // 
             // buttonNovo
             // 
-            this.buttonNovo.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonNovo.BackColor = System.Drawing.Color.SeaGreen;
+            this.buttonNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNovo.ForeColor = System.Drawing.Color.White;
             this.buttonNovo.Location = new System.Drawing.Point(15, 368);
             this.buttonNovo.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNovo.Name = "buttonNovo";
@@ -392,6 +403,7 @@ namespace Bookids.Forms
             // l_labelEscolas
             // 
             this.l_labelEscolas.AutoSize = true;
+            this.l_labelEscolas.BackColor = System.Drawing.Color.Transparent;
             this.l_labelEscolas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_labelEscolas.Location = new System.Drawing.Point(11, 35);
             this.l_labelEscolas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -402,6 +414,7 @@ namespace Bookids.Forms
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.listBoxEventos);
             this.panel1.Controls.Add(this.l_labelEventos);
             this.panel1.Location = new System.Drawing.Point(726, 232);
@@ -445,6 +458,7 @@ namespace Bookids.Forms
             // 
             // buttonPesquisarEscolas
             // 
+            this.buttonPesquisarEscolas.BackColor = System.Drawing.Color.Transparent;
             this.buttonPesquisarEscolas.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
             this.buttonPesquisarEscolas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonPesquisarEscolas.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -462,6 +476,7 @@ namespace Bookids.Forms
             // labelEscola
             // 
             this.labelEscola.AutoSize = true;
+            this.labelEscola.BackColor = System.Drawing.Color.Transparent;
             this.labelEscola.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEscola.Location = new System.Drawing.Point(328, 95);
             this.labelEscola.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -493,9 +508,10 @@ namespace Bookids.Forms
             this.MaximizeBox = false;
             this.Name = "GestaoEscolas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestao Escolas";
+            this.Text = "Gestão de Escolas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoEscolas_FormClosing);
             this.Load += new System.EventHandler(this.GestaoEscolas_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GestaoEscolas_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelEscola.ResumeLayout(false);
