@@ -173,7 +173,7 @@ namespace Bookids.Forms
             this.panelAnimador.Location = new System.Drawing.Point(339, 120);
             this.panelAnimador.Margin = new System.Windows.Forms.Padding(2);
             this.panelAnimador.Name = "panelAnimador";
-            this.panelAnimador.Size = new System.Drawing.Size(396, 235);
+            this.panelAnimador.Size = new System.Drawing.Size(396, 229);
             this.panelAnimador.TabIndex = 13;
             // 
             // textBoxTelefone
@@ -201,7 +201,7 @@ namespace Bookids.Forms
             // 
             this.textBoxCodPostal.Location = new System.Drawing.Point(302, 59);
             this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxCodPostal.MaxLength = 9;
+            this.textBoxCodPostal.MaxLength = 10;
             this.textBoxCodPostal.Name = "textBoxCodPostal";
             this.textBoxCodPostal.Size = new System.Drawing.Size(83, 20);
             this.textBoxCodPostal.TabIndex = 25;
@@ -336,6 +336,9 @@ namespace Bookids.Forms
             // 
             // buttonCancelar
             // 
+            this.buttonCancelar.BackColor = System.Drawing.Color.Orange;
+            this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancelar.ForeColor = System.Drawing.Color.Black;
             this.buttonCancelar.Location = new System.Drawing.Point(285, 173);
             this.buttonCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCancelar.Name = "buttonCancelar";
@@ -347,6 +350,9 @@ namespace Bookids.Forms
             // 
             // buttonGuardar
             // 
+            this.buttonGuardar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardar.ForeColor = System.Drawing.Color.White;
             this.buttonGuardar.Location = new System.Drawing.Point(5, 173);
             this.buttonGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGuardar.Name = "buttonGuardar";
@@ -359,6 +365,7 @@ namespace Bookids.Forms
             // labelAnimador
             // 
             this.labelAnimador.AutoSize = true;
+            this.labelAnimador.BackColor = System.Drawing.Color.Transparent;
             this.labelAnimador.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAnimador.Location = new System.Drawing.Point(340, 93);
             this.labelAnimador.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -370,6 +377,7 @@ namespace Bookids.Forms
             // _labelAnimadores
             // 
             this._labelAnimadores.AutoSize = true;
+            this._labelAnimadores.BackColor = System.Drawing.Color.Transparent;
             this._labelAnimadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._labelAnimadores.Location = new System.Drawing.Point(9, 38);
             this._labelAnimadores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -390,6 +398,9 @@ namespace Bookids.Forms
             // 
             // buttonNovo
             // 
+            this.buttonNovo.BackColor = System.Drawing.Color.SeaGreen;
+            this.buttonNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNovo.ForeColor = System.Drawing.Color.White;
             this.buttonNovo.Location = new System.Drawing.Point(13, 379);
             this.buttonNovo.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNovo.Name = "buttonNovo";
@@ -401,6 +412,9 @@ namespace Bookids.Forms
             // 
             // buttonEditar
             // 
+            this.buttonEditar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditar.ForeColor = System.Drawing.Color.White;
             this.buttonEditar.Location = new System.Drawing.Point(117, 379);
             this.buttonEditar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditar.Name = "buttonEditar";
@@ -426,6 +440,7 @@ namespace Bookids.Forms
             // 
             // panelPesquisaEventos
             // 
+            this.panelPesquisaEventos.BackColor = System.Drawing.Color.Transparent;
             this.panelPesquisaEventos.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
             this.panelPesquisaEventos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelPesquisaEventos.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -455,6 +470,7 @@ namespace Bookids.Forms
             this.textBoxPesquisa.Name = "textBoxPesquisa";
             this.textBoxPesquisa.Size = new System.Drawing.Size(257, 20);
             this.textBoxPesquisa.TabIndex = 71;
+            this.textBoxPesquisa.TextChanged += new System.EventHandler(this.textBoxPesquisa_TextChanged);
             // 
             // GestaoAnimador
             // 
@@ -476,9 +492,11 @@ namespace Bookids.Forms
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GestaoAnimador";
-            this.Text = "GestaoAnimador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gestão de Animadores";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoAnimador_FormClosing);
             this.Load += new System.EventHandler(this.GestaoAnimador_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GestaoAnimador_Paint);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.panelAnimador.ResumeLayout(false);

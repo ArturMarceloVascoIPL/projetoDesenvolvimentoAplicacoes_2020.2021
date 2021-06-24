@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +22,6 @@ namespace Bookids.Forms
             InitializeComponent();
         }
 
-        public void refresh()
-        {
-            listBoxAnimadores.DataSource = repoAnimadores.GetAnimadores();
-        }
-
         private void GestaoAnimador_Load(object sender, EventArgs e)
         {
             refresh();
@@ -35,6 +31,18 @@ namespace Bookids.Forms
         {
             Close();
         }
+
+        #region TextBoxValidations
+
+        //Para Permitir apenas numeros quando a digitar nas Textbox
+        private void textBoxNumApena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        } 
+        #endregion
+
+        #region Animadores
 
         private void listBoxAnimadores_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -51,18 +59,6 @@ namespace Bookids.Forms
             textBoxTelemovel.Text = animador.Telemovel.ToString();
             textBoxEmail.Text = animador.Email;
             textBoxEspecialidade.Text = animador.Especialidade;
-        }
-
-        private void panelBotaoPesquisa_Click(object sender, EventArgs e)
-        {
-            listBoxAnimadores.DataSource = repoAnimadores.SearchByName(textBoxPesquisa.Text);
-        }
-
-        //Para Permitir apenas numeros quando a digitar nas Textbox
-        private void textBoxNumApena_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                e.Handled = true;
         }
 
         private void buttonNovo_Click(object sender, EventArgs e)
@@ -230,6 +226,15 @@ namespace Bookids.Forms
             listBoxAnimadores.DataSource = repoAnimadores.SearchByName(textBoxPesquisa.Text);
         }
 
+        #endregion
+
+        #region MiscFunctions
+
+        public void refresh()
+        {
+            listBoxAnimadores.DataSource = repoAnimadores.GetAnimadores();
+        }
+
         private void GestaoAnimador_FormClosing(object sender, FormClosingEventArgs e)
         {
             repoAnimadores.Dispose();
@@ -239,5 +244,16 @@ namespace Bookids.Forms
         {
             refresh();
         }
+
+        // Cria um gradiente como fundo do Form
+        private void GestaoAnimador_Paint(object sender, PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.WhiteSmoke, Color.FromArgb(235, 209, 131), 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
+        } 
+
+        #endregion
     }
 }
