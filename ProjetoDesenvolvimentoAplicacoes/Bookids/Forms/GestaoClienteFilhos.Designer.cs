@@ -246,6 +246,7 @@ namespace Bookids.Forms
             this.textBoxNumCartao.Enabled = false;
             this.textBoxNumCartao.Location = new System.Drawing.Point(136, 30);
             this.textBoxNumCartao.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxNumCartao.MaxLength = 6;
             this.textBoxNumCartao.Name = "textBoxNumCartao";
             this.textBoxNumCartao.Size = new System.Drawing.Size(128, 20);
             this.textBoxNumCartao.TabIndex = 30;
@@ -291,6 +292,7 @@ namespace Bookids.Forms
             // 
             this.textBoxTelefone.Location = new System.Drawing.Point(282, 83);
             this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxTelefone.MaxLength = 9;
             this.textBoxTelefone.Name = "textBoxTelefone";
             this.textBoxTelefone.Size = new System.Drawing.Size(95, 20);
             this.textBoxTelefone.TabIndex = 27;
@@ -300,6 +302,7 @@ namespace Bookids.Forms
             // 
             this.textBoxCodPostal.Location = new System.Drawing.Point(282, 59);
             this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxCodPostal.MaxLength = 10;
             this.textBoxCodPostal.Name = "textBoxCodPostal";
             this.textBoxCodPostal.Size = new System.Drawing.Size(95, 20);
             this.textBoxCodPostal.TabIndex = 25;
@@ -339,6 +342,7 @@ namespace Bookids.Forms
             // 
             this.textBoxTelemovel.Location = new System.Drawing.Point(98, 82);
             this.textBoxTelemovel.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxTelemovel.MaxLength = 9;
             this.textBoxTelemovel.Name = "textBoxTelemovel";
             this.textBoxTelemovel.Size = new System.Drawing.Size(95, 20);
             this.textBoxTelemovel.TabIndex = 26;
@@ -425,7 +429,9 @@ namespace Bookids.Forms
             // 
             // buttonGuardarCliente
             // 
-            this.buttonGuardarCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGuardarCliente.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonGuardarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardarCliente.ForeColor = System.Drawing.Color.White;
             this.buttonGuardarCliente.Location = new System.Drawing.Point(283, 132);
             this.buttonGuardarCliente.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGuardarCliente.Name = "buttonGuardarCliente";
@@ -459,9 +465,9 @@ namespace Bookids.Forms
             // 
             this.comboBoxEscolas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEscolas.FormattingEnabled = true;
-            this.comboBoxEscolas.Location = new System.Drawing.Point(98, 94);
+            this.comboBoxEscolas.Location = new System.Drawing.Point(98, 95);
             this.comboBoxEscolas.Name = "comboBoxEscolas";
-            this.comboBoxEscolas.Size = new System.Drawing.Size(187, 21);
+            this.comboBoxEscolas.Size = new System.Drawing.Size(180, 21);
             this.comboBoxEscolas.TabIndex = 44;
             // 
             // label14
@@ -481,7 +487,7 @@ namespace Bookids.Forms
             this.dateTimePickerDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDataNascimento.Location = new System.Drawing.Point(150, 67);
             this.dateTimePickerDataNascimento.Name = "dateTimePickerDataNascimento";
-            this.dateTimePickerDataNascimento.Size = new System.Drawing.Size(107, 20);
+            this.dateTimePickerDataNascimento.Size = new System.Drawing.Size(95, 20);
             this.dateTimePickerDataNascimento.TabIndex = 43;
             // 
             // label11
@@ -497,8 +503,10 @@ namespace Bookids.Forms
             // 
             // buttonGuardarFilho
             // 
-            this.buttonGuardarFilho.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGuardarFilho.Location = new System.Drawing.Point(292, 67);
+            this.buttonGuardarFilho.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonGuardarFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardarFilho.ForeColor = System.Drawing.Color.White;
+            this.buttonGuardarFilho.Location = new System.Drawing.Point(283, 58);
             this.buttonGuardarFilho.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGuardarFilho.Name = "buttonGuardarFilho";
             this.buttonGuardarFilho.Size = new System.Drawing.Size(95, 58);
@@ -526,7 +534,7 @@ namespace Bookids.Forms
             this.panel4.Controls.Add(this.radioButtonMasculino);
             this.panel4.Location = new System.Drawing.Point(98, 35);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(187, 27);
+            this.panel4.Size = new System.Drawing.Size(180, 27);
             this.panel4.TabIndex = 15;
             // 
             // radioButtonFeminino
@@ -573,6 +581,7 @@ namespace Bookids.Forms
             // labelCliente
             // 
             this.labelCliente.AutoSize = true;
+            this.labelCliente.BackColor = System.Drawing.Color.Transparent;
             this.labelCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCliente.Location = new System.Drawing.Point(658, 29);
             this.labelCliente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -584,6 +593,7 @@ namespace Bookids.Forms
             // labelFilho
             // 
             this.labelFilho.AutoSize = true;
+            this.labelFilho.BackColor = System.Drawing.Color.Transparent;
             this.labelFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFilho.Location = new System.Drawing.Point(658, 258);
             this.labelFilho.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -634,7 +644,6 @@ namespace Bookids.Forms
             // 
             // panelConfirmacoes
             // 
-            this.panelConfirmacoes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelConfirmacoes.Controls.Add(this.buttonNaoParticipa);
             this.panelConfirmacoes.Controls.Add(this.buttonGuardarParticipacoes);
             this.panelConfirmacoes.Controls.Add(this.buttonParticipa);
@@ -663,8 +672,9 @@ namespace Bookids.Forms
             // 
             // buttonGuardarParticipacoes
             // 
-            this.buttonGuardarParticipacoes.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGuardarParticipacoes.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.buttonGuardarParticipacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardarParticipacoes.ForeColor = System.Drawing.Color.Black;
             this.buttonGuardarParticipacoes.Location = new System.Drawing.Point(81, 173);
             this.buttonGuardarParticipacoes.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGuardarParticipacoes.Name = "buttonGuardarParticipacoes";
@@ -689,6 +699,7 @@ namespace Bookids.Forms
             // 
             // panelFilhos
             // 
+            this.panelFilhos.BackColor = System.Drawing.Color.Transparent;
             this.panelFilhos.Controls.Add(this.buttonApagarFilho);
             this.panelFilhos.Controls.Add(this.l_labelFilhos);
             this.panelFilhos.Controls.Add(this.buttonEditarFilho);
@@ -705,8 +716,10 @@ namespace Bookids.Forms
             // 
             // buttonApagarFilho
             // 
-            this.buttonApagarFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonApagarFilho.BackColor = System.Drawing.Color.Firebrick;
             this.buttonApagarFilho.Enabled = false;
+            this.buttonApagarFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApagarFilho.ForeColor = System.Drawing.Color.White;
             this.buttonApagarFilho.Location = new System.Drawing.Point(215, 335);
             this.buttonApagarFilho.Margin = new System.Windows.Forms.Padding(2);
             this.buttonApagarFilho.Name = "buttonApagarFilho";
@@ -719,6 +732,7 @@ namespace Bookids.Forms
             // l_labelFilhos
             // 
             this.l_labelFilhos.AutoSize = true;
+            this.l_labelFilhos.BackColor = System.Drawing.Color.Transparent;
             this.l_labelFilhos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_labelFilhos.Location = new System.Drawing.Point(2, 7);
             this.l_labelFilhos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -729,8 +743,10 @@ namespace Bookids.Forms
             // 
             // buttonEditarFilho
             // 
-            this.buttonEditarFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditarFilho.BackColor = System.Drawing.Color.DodgerBlue;
             this.buttonEditarFilho.Enabled = false;
+            this.buttonEditarFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditarFilho.ForeColor = System.Drawing.Color.White;
             this.buttonEditarFilho.Location = new System.Drawing.Point(110, 335);
             this.buttonEditarFilho.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditarFilho.Name = "buttonEditarFilho";
@@ -752,8 +768,10 @@ namespace Bookids.Forms
             // 
             // buttonNovoFilho
             // 
-            this.buttonNovoFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonNovoFilho.BackColor = System.Drawing.Color.SeaGreen;
             this.buttonNovoFilho.Enabled = false;
+            this.buttonNovoFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNovoFilho.ForeColor = System.Drawing.Color.White;
             this.buttonNovoFilho.Location = new System.Drawing.Point(6, 335);
             this.buttonNovoFilho.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNovoFilho.Name = "buttonNovoFilho";
@@ -787,7 +805,7 @@ namespace Bookids.Forms
             // 
             // buttonPesquisarFilhos
             // 
-            this.buttonPesquisarFilhos.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonPesquisarFilhos.BackColor = System.Drawing.Color.Transparent;
             this.buttonPesquisarFilhos.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
             this.buttonPesquisarFilhos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonPesquisarFilhos.Location = new System.Drawing.Point(6, 28);
@@ -798,6 +816,7 @@ namespace Bookids.Forms
             // 
             // panelClientes
             // 
+            this.panelClientes.BackColor = System.Drawing.Color.Transparent;
             this.panelClientes.Controls.Add(this.buttonApagarCliente);
             this.panelClientes.Controls.Add(this.buttonEditarCliente);
             this.panelClientes.Controls.Add(this.buttonNovoCliente);
@@ -813,8 +832,10 @@ namespace Bookids.Forms
             // 
             // buttonApagarCliente
             // 
-            this.buttonApagarCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonApagarCliente.BackColor = System.Drawing.Color.Firebrick;
             this.buttonApagarCliente.Enabled = false;
+            this.buttonApagarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApagarCliente.ForeColor = System.Drawing.Color.White;
             this.buttonApagarCliente.Location = new System.Drawing.Point(212, 334);
             this.buttonApagarCliente.Margin = new System.Windows.Forms.Padding(2);
             this.buttonApagarCliente.Name = "buttonApagarCliente";
@@ -826,8 +847,10 @@ namespace Bookids.Forms
             // 
             // buttonEditarCliente
             // 
-            this.buttonEditarCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditarCliente.BackColor = System.Drawing.Color.DodgerBlue;
             this.buttonEditarCliente.Enabled = false;
+            this.buttonEditarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditarCliente.ForeColor = System.Drawing.Color.White;
             this.buttonEditarCliente.Location = new System.Drawing.Point(106, 334);
             this.buttonEditarCliente.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditarCliente.Name = "buttonEditarCliente";
@@ -839,7 +862,9 @@ namespace Bookids.Forms
             // 
             // buttonNovoCliente
             // 
-            this.buttonNovoCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonNovoCliente.BackColor = System.Drawing.Color.SeaGreen;
+            this.buttonNovoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNovoCliente.ForeColor = System.Drawing.Color.White;
             this.buttonNovoCliente.Location = new System.Drawing.Point(2, 334);
             this.buttonNovoCliente.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNovoCliente.Name = "buttonNovoCliente";
@@ -851,7 +876,7 @@ namespace Bookids.Forms
             // 
             // buttonPesquisarClientes
             // 
-            this.buttonPesquisarClientes.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonPesquisarClientes.BackColor = System.Drawing.Color.Transparent;
             this.buttonPesquisarClientes.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
             this.buttonPesquisarClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonPesquisarClientes.Location = new System.Drawing.Point(4, 28);
@@ -881,6 +906,7 @@ namespace Bookids.Forms
             // l_labelClientes
             // 
             this.l_labelClientes.AutoSize = true;
+            this.l_labelClientes.BackColor = System.Drawing.Color.Transparent;
             this.l_labelClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_labelClientes.Location = new System.Drawing.Point(1, 7);
             this.l_labelClientes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -908,9 +934,10 @@ namespace Bookids.Forms
             this.Name = "GestaoClienteFilhos";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Clientes | Filhos";
+            this.Text = "Gestão de Clientes | Gestão de Filhos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoClienteFilhos_FormClosing);
             this.Load += new System.EventHandler(this.GestaoClienteFilhos_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GestaoClienteFilhos_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelCliente.ResumeLayout(false);
