@@ -25,7 +25,20 @@ namespace Bookids
             eventosTableAdapter.FillBy(bookidsDBDataSet.Eventos);
         }
 
-        #region Butoes
+
+
+        #region MiscFunctions
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelHora.Text = Convert.ToString(DateTime.Now.ToString("HH:mm:ss"));
+            labelData.Text = DateTime.Now.ToString("d");
+            eventosTableAdapter.FillBy(bookidsDBDataSet.Eventos);
+        }
+
+        #endregion
+        #region Butoes 
 
         private void btnAnimadores_Click(object sender, EventArgs e)
         {
@@ -62,21 +75,24 @@ namespace Bookids
         {
             var formClientesFilhos = new GestaoClienteFilhos();
             formClientesFilhos.ShowDialog();
-        } 
+        }
+
+
 
         #endregion
 
         #region Menu Tool Strip
 
+        //HomeButton
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //
+        }
+
         //Eventos
         private void novoEventoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void editarRecenteEventoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            Form fc = Application.OpenForms["GestaoEventos"];
         }
 
         //Compras
@@ -112,20 +128,13 @@ namespace Bookids
                 GestaoProdutos produtoForm = new GestaoProdutos(true);
                 produtoForm.Show();
             }
-            
         }
 
         #endregion
 
-        #region MiscFunctions
-
-        // Apresenta a hora
-        private void timer1_Tick(object sender, EventArgs e)
+        private void MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            labelHora.Text = Convert.ToString(DateTime.Now.ToString("HH:mm:ss"));
-            labelData.Text = DateTime.Now.ToString("d");
+            bookidsDBDataSet.Dispose();
         }
-
-        #endregion
     }
 }

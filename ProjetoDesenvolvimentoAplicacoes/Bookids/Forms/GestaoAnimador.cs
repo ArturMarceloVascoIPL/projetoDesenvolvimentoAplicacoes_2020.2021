@@ -27,11 +27,6 @@ namespace Bookids.Forms
             refresh();
         }
 
-        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         #region TextBoxValidations
 
         //Para Permitir apenas numeros quando a digitar nas Textbox
@@ -39,7 +34,7 @@ namespace Bookids.Forms
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
-        } 
+        }
         #endregion
 
         #region Animadores
@@ -225,7 +220,6 @@ namespace Bookids.Forms
         {
             listBoxAnimadores.DataSource = repoAnimadores.SearchByName(textBoxPesquisa.Text);
         }
-
         #endregion
 
         #region MiscFunctions
@@ -252,8 +246,58 @@ namespace Bookids.Forms
             {
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
-        } 
+        }
 
         #endregion
+
+        #region MenuToolStrip
+
+        //HomePage
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        //Eventos
+        private void novoEventoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoEventos"];
+        }
+
+        //Compras
+        private void verCompraRecenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RepositorioClientes repoClientes = new RepositorioClientes();
+            RepositorioCompras repoCompras = new RepositorioCompras();
+            RepositorioDetalhesCompras repositorioDetalhesCompras = new RepositorioDetalhesCompras();
+        }
+
+        // Produtos
+        private void novoTipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoProdutos"];
+
+            if (fc != null)
+                fc.Focus();
+            else
+            {
+                GestaoProdutos produtoForm = new GestaoProdutos(false);
+                produtoForm.Show();
+            }
+        }
+
+        private void editarTiposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoProdutos"];
+
+            if (fc != null)
+                fc.Focus();
+            else
+            {
+                GestaoProdutos produtoForm = new GestaoProdutos(true);
+                produtoForm.Show();
+            }
+        }
+        #endregion 
     }
 }

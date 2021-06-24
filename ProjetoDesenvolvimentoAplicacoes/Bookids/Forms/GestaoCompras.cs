@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bookids.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,18 +21,12 @@ namespace Bookids
         public GestaoCompras()
         {
             InitializeComponent();
-            
-
         }
 
         private void btnNovaCompra_Click(object sender, EventArgs e)
         {
             var formNovaCompra = new FormNovaCompra((Cliente)listaClientes.SelectedItem);
             formNovaCompra.ShowDialog();
-        }
-        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         public void refreshClientes()
@@ -50,7 +45,7 @@ namespace Bookids
             if (cliente != null)
             {
                 listaCompras.DataSource = repoCompras.GetCompras(cliente.IdPessoa);
-                if(listaCompras.Items.Count == 0)
+                if (listaCompras.Items.Count == 0)
                 {
                     labelPrecoTotalCompra.Text = "-,-- €";
                 }
@@ -94,7 +89,6 @@ namespace Bookids
         {
             listaClientes.DataSource = repoClientes.SearchByName(textBoxSearchClientes.Text);
         }
-
         // Cria um gradiente como fundo do Form
         private void GestaoCompras_Paint(object sender, PaintEventArgs e)
         {
@@ -103,5 +97,47 @@ namespace Bookids
                 e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
         }
+        #region Menu Tool Strip
+
+        //HomePage
+        private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        //Eventos
+        private void novoEventoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoEventos"];
+        }
+
+        // Produtos
+        private void novoTipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoProdutos"];
+
+            if (fc != null)
+                fc.Focus();
+            else
+            {
+                GestaoProdutos produtoForm = new GestaoProdutos(false);
+                produtoForm.Show();
+            }
+        }
+
+        private void editarTiposToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fc = Application.OpenForms["GestaoProdutos"];
+
+            if (fc != null)
+                fc.Focus();
+            else
+            {
+                GestaoProdutos produtoForm = new GestaoProdutos(true);
+                produtoForm.Show();
+            }
+        }
+        #endregion
+
     }
 }
