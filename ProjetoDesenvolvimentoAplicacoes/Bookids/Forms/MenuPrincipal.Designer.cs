@@ -16,7 +16,14 @@ namespace Bookids
         {
             if (disposing && (components != null))
             {
+                try
+            {
                 components.Dispose();
+            }
+                catch (System.Exception)
+                {
+
+                }
             }
             base.Dispose(disposing);
         }
