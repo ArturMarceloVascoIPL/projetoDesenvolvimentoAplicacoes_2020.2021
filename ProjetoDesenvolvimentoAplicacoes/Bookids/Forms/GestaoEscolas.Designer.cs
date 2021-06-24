@@ -508,7 +508,7 @@ namespace Bookids.Forms
             this.MaximizeBox = false;
             this.Name = "GestaoEscolas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestao Escolas";
+            this.Text = "Gestão de Escolas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoEscolas_FormClosing);
             this.Load += new System.EventHandler(this.GestaoEscolas_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GestaoEscolas_Paint);
