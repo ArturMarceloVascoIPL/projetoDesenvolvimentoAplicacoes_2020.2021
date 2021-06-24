@@ -518,8 +518,6 @@ namespace Bookids.Forms
             RepositorioClientes repoClientes = new RepositorioClientes();
             RepositorioCompras repoCompras = new RepositorioCompras();
             RepositorioDetalhesCompras repositorioDetalhesCompras = new RepositorioDetalhesCompras();
-
-            MessageBox.Show("trolling");
         }
 
         // Produtos
