@@ -348,6 +348,7 @@ namespace Bookids.Forms
             // labelAnimador
             // 
             this.labelAnimador.AutoSize = true;
+            this.labelAnimador.BackColor = System.Drawing.Color.Transparent;
             this.labelAnimador.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelAnimador.Location = new System.Drawing.Point(453, 114);
             this.labelAnimador.Name = "labelAnimador";
@@ -358,6 +359,7 @@ namespace Bookids.Forms
             // _labelAnimadores
             // 
             this._labelAnimadores.AutoSize = true;
+            this._labelAnimadores.BackColor = System.Drawing.Color.Transparent;
             this._labelAnimadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._labelAnimadores.Location = new System.Drawing.Point(12, 47);
             this._labelAnimadores.Name = "_labelAnimadores";
@@ -414,6 +416,7 @@ namespace Bookids.Forms
             // 
             // panelPesquisaEventos
             // 
+            this.panelPesquisaEventos.BackColor = System.Drawing.Color.Transparent;
             this.panelPesquisaEventos.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
             this.panelPesquisaEventos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelPesquisaEventos.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -443,6 +446,7 @@ namespace Bookids.Forms
             this.textBoxPesquisa.Name = "textBoxPesquisa";
             this.textBoxPesquisa.Size = new System.Drawing.Size(341, 22);
             this.textBoxPesquisa.TabIndex = 71;
+            this.textBoxPesquisa.TextChanged += new System.EventHandler(this.textBoxPesquisa_TextChanged);
             // 
             // GestaoAnimador
             // 
@@ -464,9 +468,11 @@ namespace Bookids.Forms
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "GestaoAnimador";
-            this.Text = "GestaoAnimador";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gestão de Animadores";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoAnimador_FormClosing);
             this.Load += new System.EventHandler(this.GestaoAnimador_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GestaoAnimador_Paint);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.panelAnimador.ResumeLayout(false);

@@ -153,8 +153,9 @@ namespace Bookids
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 40);
+            this.label1.Location = new System.Drawing.Point(12, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 39);
             this.label1.TabIndex = 3;
@@ -174,7 +175,7 @@ namespace Bookids
             this.panel2.Controls.Add(this.btnProdutos);
             this.panel2.Controls.Add(this.btnEscolas);
             this.panel2.Controls.Add(this.btnAnimadores);
-            this.panel2.Location = new System.Drawing.Point(427, 40);
+            this.panel2.Location = new System.Drawing.Point(427, 39);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(441, 443);
@@ -233,9 +234,10 @@ namespace Bookids
             // 
             // btnEventos
             // 
-            this.btnEventos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEventos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(225)))), ((int)(((byte)(65)))));
             this.btnEventos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEventos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEventos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEventos.ForeColor = System.Drawing.Color.White;
             this.btnEventos.Location = new System.Drawing.Point(16, 302);
             this.btnEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEventos.Name = "btnEventos";
@@ -247,9 +249,10 @@ namespace Bookids
             // 
             // btnCLientesFilhos
             // 
-            this.btnCLientesFilhos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCLientesFilhos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))));
             this.btnCLientesFilhos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCLientesFilhos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCLientesFilhos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCLientesFilhos.ForeColor = System.Drawing.Color.White;
             this.btnCLientesFilhos.Location = new System.Drawing.Point(16, 14);
             this.btnCLientesFilhos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCLientesFilhos.Name = "btnCLientesFilhos";
@@ -261,9 +264,10 @@ namespace Bookids
             // 
             // btnCompras
             // 
-            this.btnCompras.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(185)))), ((int)(((byte)(225)))));
             this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompras.ForeColor = System.Drawing.Color.White;
             this.btnCompras.Location = new System.Drawing.Point(16, 160);
             this.btnCompras.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCompras.Name = "btnCompras";
@@ -275,9 +279,10 @@ namespace Bookids
             // 
             // btnProdutos
             // 
-            this.btnProdutos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnProdutos.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnProdutos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProdutos.ForeColor = System.Drawing.Color.White;
             this.btnProdutos.Location = new System.Drawing.Point(156, 160);
             this.btnProdutos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProdutos.Name = "btnProdutos";
@@ -289,9 +294,10 @@ namespace Bookids
             // 
             // btnEscolas
             // 
-            this.btnEscolas.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEscolas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(65)))), ((int)(((byte)(225)))));
             this.btnEscolas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEscolas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscolas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEscolas.ForeColor = System.Drawing.Color.White;
             this.btnEscolas.Location = new System.Drawing.Point(296, 160);
             this.btnEscolas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEscolas.Name = "btnEscolas";
@@ -303,9 +309,10 @@ namespace Bookids
             // 
             // btnAnimadores
             // 
-            this.btnAnimadores.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAnimadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(185)))), ((int)(((byte)(65)))));
             this.btnAnimadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnimadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnimadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnimadores.ForeColor = System.Drawing.Color.White;
             this.btnAnimadores.Location = new System.Drawing.Point(296, 14);
             this.btnAnimadores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnimadores.Name = "btnAnimadores";
@@ -320,22 +327,24 @@ namespace Bookids
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.listEventosNext);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(20, 119);
+            this.panel4.Location = new System.Drawing.Point(21, 119);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(272, 244);
+            this.panel4.Size = new System.Drawing.Size(267, 217);
             this.panel4.TabIndex = 5;
             // 
             // listEventosNext
             // 
+            this.listEventosNext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listEventosNext.DataSource = this.eventosBindingSource;
             this.listEventosNext.DisplayMember = "Descricao";
             this.listEventosNext.FormattingEnabled = true;
             this.listEventosNext.ItemHeight = 16;
-            this.listEventosNext.Location = new System.Drawing.Point(7, 34);
+            this.listEventosNext.Location = new System.Drawing.Point(3, 34);
+            this.listEventosNext.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listEventosNext.Name = "listEventosNext";
             this.listEventosNext.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listEventosNext.Size = new System.Drawing.Size(255, 196);
+            this.listEventosNext.Size = new System.Drawing.Size(259, 178);
             this.listEventosNext.TabIndex = 7;
             this.listEventosNext.ValueMember = "IdEvento";
             // 
@@ -362,6 +371,7 @@ namespace Bookids
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(16, 79);
             this.label4.Name = "label4";
@@ -371,9 +381,10 @@ namespace Bookids
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::Bookids.Properties.Resources.baseline_home_black_24dp1;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Location = new System.Drawing.Point(20, 387);
+            this.panel1.Location = new System.Drawing.Point(20, 386);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(120, 111);
@@ -391,7 +402,6 @@ namespace Bookids
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(888, 511);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label4);
@@ -401,7 +411,7 @@ namespace Bookids
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

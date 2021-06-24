@@ -144,7 +144,7 @@ namespace Bookids.Forms
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(135, 28);
             this.novoToolStripMenuItem.Text = "Novo";
             this.novoToolStripMenuItem.Click += new System.EventHandler(this.verCompraRecenteToolStripMenuItem_Click);
             // 
@@ -159,7 +159,7 @@ namespace Bookids.Forms
             // verRecenteToolStripMenuItem
             // 
             this.verRecenteToolStripMenuItem.Name = "verRecenteToolStripMenuItem";
-            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(185, 28);
             this.verRecenteToolStripMenuItem.Text = "Ver Recente";
             this.verRecenteToolStripMenuItem.Click += new System.EventHandler(this.novoTipoToolStripMenuItem_Click);
             // 
@@ -175,14 +175,14 @@ namespace Bookids.Forms
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(224, 28);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(183, 28);
             this.novoToolStripMenuItem1.Text = "Novo";
             this.novoToolStripMenuItem1.Click += new System.EventHandler(this.editarTiposToolStripMenuItem_Click);
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
             this.editarTiposToolStripMenuItem.Click += new System.EventHandler(this.editarTiposToolStripMenuItem_Click);
             // 
@@ -223,7 +223,7 @@ namespace Bookids.Forms
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.radioButtonSim);
             this.panel2.Location = new System.Drawing.Point(11, 162);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(359, 71);
             this.panel2.TabIndex = 15;
@@ -242,7 +242,8 @@ namespace Bookids.Forms
             // 
             this.textBoxNumCartao.Enabled = false;
             this.textBoxNumCartao.Location = new System.Drawing.Point(181, 37);
-            this.textBoxNumCartao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxNumCartao.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxNumCartao.MaxLength = 6;
             this.textBoxNumCartao.Name = "textBoxNumCartao";
             this.textBoxNumCartao.Size = new System.Drawing.Size(169, 22);
             this.textBoxNumCartao.TabIndex = 30;
@@ -254,7 +255,7 @@ namespace Bookids.Forms
             this.radioButtonNao.Checked = true;
             this.radioButtonNao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonNao.Location = new System.Drawing.Point(203, 9);
-            this.radioButtonNao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonNao.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonNao.Name = "radioButtonNao";
             this.radioButtonNao.Size = new System.Drawing.Size(60, 24);
             this.radioButtonNao.TabIndex = 29;
@@ -278,7 +279,7 @@ namespace Bookids.Forms
             this.radioButtonSim.AutoSize = true;
             this.radioButtonSim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonSim.Location = new System.Drawing.Point(129, 9);
-            this.radioButtonSim.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonSim.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonSim.Name = "radioButtonSim";
             this.radioButtonSim.Size = new System.Drawing.Size(59, 24);
             this.radioButtonSim.TabIndex = 0;
@@ -288,7 +289,8 @@ namespace Bookids.Forms
             // textBoxTelefone
             // 
             this.textBoxTelefone.Location = new System.Drawing.Point(376, 102);
-            this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTelefone.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxTelefone.MaxLength = 9;
             this.textBoxTelefone.Name = "textBoxTelefone";
             this.textBoxTelefone.Size = new System.Drawing.Size(125, 22);
             this.textBoxTelefone.TabIndex = 27;
@@ -296,8 +298,9 @@ namespace Bookids.Forms
             // 
             // textBoxCodPostal
             // 
-            this.textBoxCodPostal.Location = new System.Drawing.Point(376, 73);
+            this.textBoxCodPostal.Location = new System.Drawing.Point(376, 71);
             this.textBoxCodPostal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxCodPostal.MaxLength = 10;
             this.textBoxCodPostal.Name = "textBoxCodPostal";
             this.textBoxCodPostal.Size = new System.Drawing.Size(125, 22);
             this.textBoxCodPostal.TabIndex = 25;
@@ -333,8 +336,9 @@ namespace Bookids.Forms
             // 
             // textBoxTelemovel
             // 
-            this.textBoxTelemovel.Location = new System.Drawing.Point(131, 101);
-            this.textBoxTelemovel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTelemovel.Location = new System.Drawing.Point(98, 82);
+            this.textBoxTelemovel.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxTelemovel.MaxLength = 9;
             this.textBoxTelemovel.Name = "textBoxTelemovel";
             this.textBoxTelemovel.Size = new System.Drawing.Size(125, 22);
             this.textBoxTelemovel.TabIndex = 26;
@@ -416,9 +420,11 @@ namespace Bookids.Forms
             // 
             // buttonGuardarCliente
             // 
-            this.buttonGuardarCliente.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGuardarCliente.Location = new System.Drawing.Point(377, 162);
-            this.buttonGuardarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonGuardarCliente.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonGuardarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardarCliente.ForeColor = System.Drawing.Color.White;
+            this.buttonGuardarCliente.Location = new System.Drawing.Point(375, 158);
+            this.buttonGuardarCliente.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGuardarCliente.Name = "buttonGuardarCliente";
             this.buttonGuardarCliente.Size = new System.Drawing.Size(127, 71);
             this.buttonGuardarCliente.TabIndex = 31;
@@ -451,9 +457,9 @@ namespace Bookids.Forms
             this.comboBoxEscolas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEscolas.FormattingEnabled = true;
             this.comboBoxEscolas.Location = new System.Drawing.Point(131, 116);
-            this.comboBoxEscolas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxEscolas.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxEscolas.Name = "comboBoxEscolas";
-            this.comboBoxEscolas.Size = new System.Drawing.Size(248, 24);
+            this.comboBoxEscolas.Size = new System.Drawing.Size(227, 24);
             this.comboBoxEscolas.TabIndex = 44;
             // 
             // label14
@@ -471,9 +477,9 @@ namespace Bookids.Forms
             this.dateTimePickerDataNascimento.CustomFormat = "dd/MM/yyyy";
             this.dateTimePickerDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDataNascimento.Location = new System.Drawing.Point(200, 82);
-            this.dateTimePickerDataNascimento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerDataNascimento.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerDataNascimento.Name = "dateTimePickerDataNascimento";
-            this.dateTimePickerDataNascimento.Size = new System.Drawing.Size(141, 22);
+            this.dateTimePickerDataNascimento.Size = new System.Drawing.Size(158, 22);
             this.dateTimePickerDataNascimento.TabIndex = 43;
             // 
             // label11
@@ -488,9 +494,11 @@ namespace Bookids.Forms
             // 
             // buttonGuardarFilho
             // 
-            this.buttonGuardarFilho.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGuardarFilho.Location = new System.Drawing.Point(389, 82);
-            this.buttonGuardarFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonGuardarFilho.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonGuardarFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardarFilho.ForeColor = System.Drawing.Color.White;
+            this.buttonGuardarFilho.Location = new System.Drawing.Point(376, 82);
+            this.buttonGuardarFilho.Margin = new System.Windows.Forms.Padding(2);
             this.buttonGuardarFilho.Name = "buttonGuardarFilho";
             this.buttonGuardarFilho.Size = new System.Drawing.Size(127, 71);
             this.buttonGuardarFilho.TabIndex = 45;
@@ -515,29 +523,30 @@ namespace Bookids.Forms
             this.panel4.Controls.Add(this.radioButtonFeminino);
             this.panel4.Controls.Add(this.radioButtonMasculino);
             this.panel4.Location = new System.Drawing.Point(131, 43);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(249, 33);
+            this.panel4.Size = new System.Drawing.Size(227, 27);
             this.panel4.TabIndex = 15;
             // 
             // radioButtonFeminino
             // 
             this.radioButtonFeminino.AutoSize = true;
             this.radioButtonFeminino.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonFeminino.Location = new System.Drawing.Point(131, 4);
-            this.radioButtonFeminino.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonFeminino.Location = new System.Drawing.Point(118, 2);
+            this.radioButtonFeminino.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonFeminino.Name = "radioButtonFeminino";
             this.radioButtonFeminino.Size = new System.Drawing.Size(98, 24);
             this.radioButtonFeminino.TabIndex = 42;
             this.radioButtonFeminino.Text = "Feminino";
             this.radioButtonFeminino.UseVisualStyleBackColor = true;
+            this.radioButtonFeminino.CheckedChanged += new System.EventHandler(this.radioButtonFeminino_CheckedChanged);
             // 
             // radioButtonMasculino
             // 
             this.radioButtonMasculino.AutoSize = true;
             this.radioButtonMasculino.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonMasculino.Location = new System.Drawing.Point(4, 4);
-            this.radioButtonMasculino.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioButtonMasculino.Location = new System.Drawing.Point(4, 2);
+            this.radioButtonMasculino.Margin = new System.Windows.Forms.Padding(4);
             this.radioButtonMasculino.Name = "radioButtonMasculino";
             this.radioButtonMasculino.Size = new System.Drawing.Size(106, 24);
             this.radioButtonMasculino.TabIndex = 41;
@@ -565,6 +574,7 @@ namespace Bookids.Forms
             // labelCliente
             // 
             this.labelCliente.AutoSize = true;
+            this.labelCliente.BackColor = System.Drawing.Color.Transparent;
             this.labelCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCliente.Location = new System.Drawing.Point(877, 36);
             this.labelCliente.Name = "labelCliente";
@@ -575,6 +585,7 @@ namespace Bookids.Forms
             // labelFilho
             // 
             this.labelFilho.AutoSize = true;
+            this.labelFilho.BackColor = System.Drawing.Color.Transparent;
             this.labelFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFilho.Location = new System.Drawing.Point(877, 318);
             this.labelFilho.Name = "labelFilho";
@@ -616,7 +627,7 @@ namespace Bookids.Forms
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(100, 258);
+            this.label13.Location = new System.Drawing.Point(115, 258);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(141, 25);
             this.label13.TabIndex = 37;
@@ -624,17 +635,16 @@ namespace Bookids.Forms
             // 
             // panelConfirmacoes
             // 
-            this.panelConfirmacoes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelConfirmacoes.Controls.Add(this.listBoxParticipa);
+            this.panelConfirmacoes.Controls.Add(this.listBoxNaoParticipa);
             this.panelConfirmacoes.Controls.Add(this.buttonNaoParticipa);
             this.panelConfirmacoes.Controls.Add(this.buttonGuardarParticipacoes);
             this.panelConfirmacoes.Controls.Add(this.buttonParticipa);
             this.panelConfirmacoes.Controls.Add(this.label12);
-            this.panelConfirmacoes.Controls.Add(this.listBoxNaoParticipa);
             this.panelConfirmacoes.Controls.Add(this.label13);
-            this.panelConfirmacoes.Controls.Add(this.listBoxParticipa);
             this.panelConfirmacoes.Enabled = false;
             this.panelConfirmacoes.Location = new System.Drawing.Point(1431, 44);
-            this.panelConfirmacoes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelConfirmacoes.Margin = new System.Windows.Forms.Padding(4);
             this.panelConfirmacoes.Name = "panelConfirmacoes";
             this.panelConfirmacoes.Size = new System.Drawing.Size(259, 467);
             this.panelConfirmacoes.TabIndex = 38;
@@ -654,10 +664,11 @@ namespace Bookids.Forms
             // 
             // buttonGuardarParticipacoes
             // 
-            this.buttonGuardarParticipacoes.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGuardarParticipacoes.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.buttonGuardarParticipacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGuardarParticipacoes.Location = new System.Drawing.Point(108, 213);
-            this.buttonGuardarParticipacoes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonGuardarParticipacoes.ForeColor = System.Drawing.Color.Black;
+            this.buttonGuardarParticipacoes.Location = new System.Drawing.Point(110, 214);
+            this.buttonGuardarParticipacoes.Margin = new System.Windows.Forms.Padding(2, 3, 2, 2);
             this.buttonGuardarParticipacoes.Name = "buttonGuardarParticipacoes";
             this.buttonGuardarParticipacoes.Size = new System.Drawing.Size(147, 42);
             this.buttonGuardarParticipacoes.TabIndex = 39;
@@ -680,6 +691,7 @@ namespace Bookids.Forms
             // 
             // panelFilhos
             // 
+            this.panelFilhos.BackColor = System.Drawing.Color.Transparent;
             this.panelFilhos.Controls.Add(this.buttonApagarFilho);
             this.panelFilhos.Controls.Add(this.l_labelFilhos);
             this.panelFilhos.Controls.Add(this.buttonEditarFilho);
@@ -696,10 +708,12 @@ namespace Bookids.Forms
             // 
             // buttonApagarFilho
             // 
-            this.buttonApagarFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonApagarFilho.BackColor = System.Drawing.Color.Firebrick;
             this.buttonApagarFilho.Enabled = false;
-            this.buttonApagarFilho.Location = new System.Drawing.Point(287, 412);
-            this.buttonApagarFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonApagarFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApagarFilho.ForeColor = System.Drawing.Color.White;
+            this.buttonApagarFilho.Location = new System.Drawing.Point(286, 410);
+            this.buttonApagarFilho.Margin = new System.Windows.Forms.Padding(2);
             this.buttonApagarFilho.Name = "buttonApagarFilho";
             this.buttonApagarFilho.Size = new System.Drawing.Size(133, 64);
             this.buttonApagarFilho.TabIndex = 50;
@@ -710,6 +724,7 @@ namespace Bookids.Forms
             // l_labelFilhos
             // 
             this.l_labelFilhos.AutoSize = true;
+            this.l_labelFilhos.BackColor = System.Drawing.Color.Transparent;
             this.l_labelFilhos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_labelFilhos.Location = new System.Drawing.Point(3, 9);
             this.l_labelFilhos.Name = "l_labelFilhos";
@@ -719,10 +734,12 @@ namespace Bookids.Forms
             // 
             // buttonEditarFilho
             // 
-            this.buttonEditarFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditarFilho.BackColor = System.Drawing.Color.DodgerBlue;
             this.buttonEditarFilho.Enabled = false;
-            this.buttonEditarFilho.Location = new System.Drawing.Point(147, 412);
-            this.buttonEditarFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonEditarFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditarFilho.ForeColor = System.Drawing.Color.White;
+            this.buttonEditarFilho.Location = new System.Drawing.Point(146, 410);
+            this.buttonEditarFilho.Margin = new System.Windows.Forms.Padding(2);
             this.buttonEditarFilho.Name = "buttonEditarFilho";
             this.buttonEditarFilho.Size = new System.Drawing.Size(135, 64);
             this.buttonEditarFilho.TabIndex = 49;
@@ -743,7 +760,7 @@ namespace Bookids.Forms
             // 
             // buttonNovoFilho
             // 
-            this.buttonNovoFilho.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonNovoFilho.BackColor = System.Drawing.Color.SeaGreen;
             this.buttonNovoFilho.Enabled = false;
             this.buttonNovoFilho.Location = new System.Drawing.Point(8, 412);
             this.buttonNovoFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -778,7 +795,7 @@ namespace Bookids.Forms
             // 
             // buttonPesquisarFilhos
             // 
-            this.buttonPesquisarFilhos.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonPesquisarFilhos.BackColor = System.Drawing.Color.Transparent;
             this.buttonPesquisarFilhos.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
             this.buttonPesquisarFilhos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonPesquisarFilhos.Location = new System.Drawing.Point(8, 34);
@@ -789,6 +806,7 @@ namespace Bookids.Forms
             // 
             // panelClientes
             // 
+            this.panelClientes.BackColor = System.Drawing.Color.Transparent;
             this.panelClientes.Controls.Add(this.buttonApagarCliente);
             this.panelClientes.Controls.Add(this.buttonEditarCliente);
             this.panelClientes.Controls.Add(this.buttonNovoCliente);
@@ -804,7 +822,7 @@ namespace Bookids.Forms
             // 
             // buttonApagarCliente
             // 
-            this.buttonApagarCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonApagarCliente.BackColor = System.Drawing.Color.Firebrick;
             this.buttonApagarCliente.Enabled = false;
             this.buttonApagarCliente.Location = new System.Drawing.Point(283, 411);
             this.buttonApagarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -817,7 +835,7 @@ namespace Bookids.Forms
             // 
             // buttonEditarCliente
             // 
-            this.buttonEditarCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditarCliente.BackColor = System.Drawing.Color.DodgerBlue;
             this.buttonEditarCliente.Enabled = false;
             this.buttonEditarCliente.Location = new System.Drawing.Point(141, 411);
             this.buttonEditarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -830,9 +848,11 @@ namespace Bookids.Forms
             // 
             // buttonNovoCliente
             // 
-            this.buttonNovoCliente.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonNovoCliente.Location = new System.Drawing.Point(3, 411);
-            this.buttonNovoCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonNovoCliente.BackColor = System.Drawing.Color.SeaGreen;
+            this.buttonNovoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNovoCliente.ForeColor = System.Drawing.Color.White;
+            this.buttonNovoCliente.Location = new System.Drawing.Point(6, 411);
+            this.buttonNovoCliente.Margin = new System.Windows.Forms.Padding(2);
             this.buttonNovoCliente.Name = "buttonNovoCliente";
             this.buttonNovoCliente.Size = new System.Drawing.Size(133, 64);
             this.buttonNovoCliente.TabIndex = 30;
@@ -842,7 +862,7 @@ namespace Bookids.Forms
             // 
             // buttonPesquisarClientes
             // 
-            this.buttonPesquisarClientes.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonPesquisarClientes.BackColor = System.Drawing.Color.Transparent;
             this.buttonPesquisarClientes.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
             this.buttonPesquisarClientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonPesquisarClientes.Location = new System.Drawing.Point(5, 34);
@@ -873,6 +893,7 @@ namespace Bookids.Forms
             // l_labelClientes
             // 
             this.l_labelClientes.AutoSize = true;
+            this.l_labelClientes.BackColor = System.Drawing.Color.Transparent;
             this.l_labelClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.l_labelClientes.Location = new System.Drawing.Point(1, 9);
             this.l_labelClientes.Name = "l_labelClientes";
@@ -899,9 +920,10 @@ namespace Bookids.Forms
             this.Name = "GestaoClienteFilhos";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Clientes | Filhos";
+            this.Text = "Gestão de Clientes | Gestão de Filhos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoClienteFilhos_FormClosing);
             this.Load += new System.EventHandler(this.GestaoClienteFilhos_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GestaoClienteFilhos_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelCliente.ResumeLayout(false);

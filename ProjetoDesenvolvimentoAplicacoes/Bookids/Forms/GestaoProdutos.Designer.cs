@@ -122,6 +122,7 @@ namespace Bookids.Forms
             // 
             // panelProdutos
             // 
+            this.panelProdutos.BackColor = System.Drawing.Color.Transparent;
             this.panelProdutos.Controls.Add(this.buttonRefresh);
             this.panelProdutos.Controls.Add(this.buttonPesquisarProdutos);
             this.panelProdutos.Controls.Add(this.textBoxPesquisaProdutos);
@@ -151,6 +152,7 @@ namespace Bookids.Forms
             // 
             // buttonPesquisarProdutos
             // 
+            this.buttonPesquisarProdutos.BackColor = System.Drawing.Color.Transparent;
             this.buttonPesquisarProdutos.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
             this.buttonPesquisarProdutos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonPesquisarProdutos.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -173,6 +175,9 @@ namespace Bookids.Forms
             // 
             this.buttonApagar.Location = new System.Drawing.Point(296, 423);
             this.buttonApagar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonApagar.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonApagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApagar.ForeColor = System.Drawing.Color.White;
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(133, 64);
             this.buttonApagar.TabIndex = 20;
@@ -184,6 +189,9 @@ namespace Bookids.Forms
             // 
             this.buttonEditar.Location = new System.Drawing.Point(157, 423);
             this.buttonEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonEditar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditar.ForeColor = System.Drawing.Color.White;
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(133, 64);
             this.buttonEditar.TabIndex = 19;
@@ -195,6 +203,9 @@ namespace Bookids.Forms
             // 
             this.buttonNovo.Location = new System.Drawing.Point(19, 423);
             this.buttonNovo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonNovo.BackColor = System.Drawing.Color.SeaGreen;
+            this.buttonNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNovo.ForeColor = System.Drawing.Color.White;
             this.buttonNovo.Name = "buttonNovo";
             this.buttonNovo.Size = new System.Drawing.Size(133, 64);
             this.buttonNovo.TabIndex = 18;
@@ -216,6 +227,7 @@ namespace Bookids.Forms
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(13, 5);
             this.label4.Name = "label4";
@@ -257,6 +269,8 @@ namespace Bookids.Forms
             // 
             this.buttonCancelar.Location = new System.Drawing.Point(247, 153);
             this.buttonCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCancelar.BackColor = System.Drawing.Color.Orange;
+            this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(133, 64);
             this.buttonCancelar.TabIndex = 23;
@@ -268,6 +282,9 @@ namespace Bookids.Forms
             // 
             this.buttonSalvar.Location = new System.Drawing.Point(3, 153);
             this.buttonSalvar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSalvar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalvar.ForeColor = System.Drawing.Color.White;
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(133, 64);
             this.buttonSalvar.TabIndex = 22;
@@ -310,6 +327,7 @@ namespace Bookids.Forms
             // 
             this.textBoxStock.Location = new System.Drawing.Point(124, 106);
             this.textBoxStock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxStock.MaxLength = 5;
             this.textBoxStock.Name = "textBoxStock";
             this.textBoxStock.Size = new System.Drawing.Size(127, 22);
             this.textBoxStock.TabIndex = 29;
@@ -339,6 +357,7 @@ namespace Bookids.Forms
             // 
             this.textBoxPreco.Location = new System.Drawing.Point(124, 46);
             this.textBoxPreco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxPreco.MaxLength = 7;
             this.textBoxPreco.Name = "textBoxPreco";
             this.textBoxPreco.Size = new System.Drawing.Size(127, 22);
             this.textBoxPreco.TabIndex = 26;
@@ -356,7 +375,7 @@ namespace Bookids.Forms
             // 
             // panelEditTipos
             // 
-            this.panelEditTipos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelEditTipos.BackColor = System.Drawing.Color.Transparent;
             this.panelEditTipos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelEditTipos.Controls.Add(this.buttonApagarTipo);
             this.panelEditTipos.Controls.Add(this.textBoxNomeTipo);
@@ -375,6 +394,9 @@ namespace Bookids.Forms
             // 
             this.buttonApagarTipo.Location = new System.Drawing.Point(125, 324);
             this.buttonApagarTipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonApagarTipo.BackColor = System.Drawing.Color.Firebrick;
+            this.buttonApagarTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonApagarTipo.ForeColor = System.Drawing.Color.White;
             this.buttonApagarTipo.Name = "buttonApagarTipo";
             this.buttonApagarTipo.Size = new System.Drawing.Size(93, 43);
             this.buttonApagarTipo.TabIndex = 35;
@@ -414,6 +436,9 @@ namespace Bookids.Forms
             // 
             this.buttonSalvarTipo.Location = new System.Drawing.Point(9, 324);
             this.buttonSalvarTipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSalvarTipo.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonSalvarTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalvarTipo.ForeColor = System.Drawing.Color.White;
             this.buttonSalvarTipo.Name = "buttonSalvarTipo";
             this.buttonSalvarTipo.Size = new System.Drawing.Size(93, 43);
             this.buttonSalvarTipo.TabIndex = 22;
@@ -445,10 +470,11 @@ namespace Bookids.Forms
             this.MaximizeBox = false;
             this.Name = "GestaoProdutos";
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GestaoProdutos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gestão de Produtos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoProdutos_FormClosing);
             this.Load += new System.EventHandler(this.GestaoProdutos_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GestaoProdutos_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelProdutos.ResumeLayout(false);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -479,7 +480,7 @@ namespace Bookids.Forms
 
         #endregion
 
-        #region MiscFuncoes
+        #region MiscFunctions
 
         void refreshListas()
         {
@@ -500,6 +501,15 @@ namespace Bookids.Forms
         private void GestaoEventos_Load(object sender, EventArgs e)
         {
             refreshListas();
+        }
+
+        // Cria um gradiente como fundo do Form
+        private void GestaoEventos_Paint(object sender, PaintEventArgs e)
+        {
+            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.WhiteSmoke, Color.FromArgb(157, 235, 131), 90F))
+            {
+                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+            }
         }
 
         #endregion
@@ -546,6 +556,6 @@ namespace Bookids.Forms
                 produtoForm.Show();
             }
         }
-        #endregion
+        #endregion 
     }
 }

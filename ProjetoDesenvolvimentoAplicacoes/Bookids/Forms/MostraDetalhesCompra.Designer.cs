@@ -41,8 +41,8 @@ namespace Bookids.Forms
             // 
             this.listBoxDetalhesCompras.FormattingEnabled = true;
             this.listBoxDetalhesCompras.ItemHeight = 16;
-            this.listBoxDetalhesCompras.Location = new System.Drawing.Point(16, 79);
-            this.listBoxDetalhesCompras.Margin = new System.Windows.Forms.Padding(4);
+            this.listBoxDetalhesCompras.Location = new System.Drawing.Point(18, 80);
+            this.listBoxDetalhesCompras.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.listBoxDetalhesCompras.Name = "listBoxDetalhesCompras";
             this.listBoxDetalhesCompras.Size = new System.Drawing.Size(361, 388);
             this.listBoxDetalhesCompras.TabIndex = 0;
@@ -50,19 +50,21 @@ namespace Bookids.Forms
             // 
             // panelImagemCliente
             // 
+            this.panelImagemCliente.BackColor = System.Drawing.Color.Transparent;
             this.panelImagemCliente.BackgroundImage = global::Bookids.Properties.Resources.baseline_person_black_24dp;
             this.panelImagemCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelImagemCliente.Location = new System.Drawing.Point(16, 9);
+            this.panelImagemCliente.Location = new System.Drawing.Point(16, 11);
             this.panelImagemCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelImagemCliente.Name = "panelImagemCliente";
-            this.panelImagemCliente.Size = new System.Drawing.Size(53, 64);
+            this.panelImagemCliente.Size = new System.Drawing.Size(67, 62);
             this.panelImagemCliente.TabIndex = 2;
             // 
             // labelNome
             // 
             this.labelNome.AutoSize = true;
+            this.labelNome.BackColor = System.Drawing.Color.Transparent;
             this.labelNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNome.Location = new System.Drawing.Point(83, 9);
+            this.labelNome.Location = new System.Drawing.Point(88, 11);
             this.labelNome.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.labelNome.Name = "labelNome";
             this.labelNome.Size = new System.Drawing.Size(157, 25);
@@ -72,9 +74,10 @@ namespace Bookids.Forms
             // labelPrecoDetalhe
             // 
             this.labelPrecoDetalhe.AutoSize = true;
+            this.labelPrecoDetalhe.BackColor = System.Drawing.Color.Transparent;
             this.labelPrecoDetalhe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelPrecoDetalhe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPrecoDetalhe.Location = new System.Drawing.Point(88, 46);
+            this.labelPrecoDetalhe.Location = new System.Drawing.Point(93, 46);
             this.labelPrecoDetalhe.Name = "labelPrecoDetalhe";
             this.labelPrecoDetalhe.Size = new System.Drawing.Size(63, 27);
             this.labelPrecoDetalhe.TabIndex = 24;
@@ -83,9 +86,10 @@ namespace Bookids.Forms
             // labelPrecoTotal
             // 
             this.labelPrecoTotal.AutoSize = true;
+            this.labelPrecoTotal.BackColor = System.Drawing.Color.Transparent;
             this.labelPrecoTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.labelPrecoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPrecoTotal.Location = new System.Drawing.Point(311, 11);
+            this.labelPrecoTotal.Location = new System.Drawing.Point(305, 11);
             this.labelPrecoTotal.Name = "labelPrecoTotal";
             this.labelPrecoTotal.Size = new System.Drawing.Size(63, 27);
             this.labelPrecoTotal.TabIndex = 25;
@@ -93,19 +97,23 @@ namespace Bookids.Forms
             // 
             // buttonExportarVenda
             // 
+            this.buttonExportarVenda.BackColor = System.Drawing.Color.Gold;
+            this.buttonExportarVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExportarVenda.ForeColor = System.Drawing.Color.Black;
             this.buttonExportarVenda.Location = new System.Drawing.Point(16, 475);
+            this.buttonExportarVenda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonExportarVenda.Name = "buttonExportarVenda";
-            this.buttonExportarVenda.Size = new System.Drawing.Size(358, 33);
+            this.buttonExportarVenda.Size = new System.Drawing.Size(363, 33);
             this.buttonExportarVenda.TabIndex = 26;
             this.buttonExportarVenda.Text = "Exportar Venda";
-            this.buttonExportarVenda.UseVisualStyleBackColor = true;
+            this.buttonExportarVenda.UseVisualStyleBackColor = false;
             this.buttonExportarVenda.Click += new System.EventHandler(this.buttonExportarVenda_Click);
             // 
             // MostraDetalhesCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 520);
+            this.ClientSize = new System.Drawing.Size(393, 519);
             this.Controls.Add(this.buttonExportarVenda);
             this.Controls.Add(this.labelPrecoTotal);
             this.Controls.Add(this.labelPrecoDetalhe);
@@ -113,7 +121,7 @@ namespace Bookids.Forms
             this.Controls.Add(this.labelNome);
             this.Controls.Add(this.listBoxDetalhesCompras);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.Name = "MostraDetalhesCompra";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

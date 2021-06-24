@@ -136,20 +136,21 @@ namespace Bookids.Forms
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(224, 28);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(183, 28);
             this.novoToolStripMenuItem1.Text = "Novo";
             this.novoToolStripMenuItem1.Click += new System.EventHandler(this.novoTipoToolStripMenuItem_Click);
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
             this.editarTiposToolStripMenuItem.Click += new System.EventHandler(this.editarTiposToolStripMenuItem_Click);
             // 
             // labelEvento
             // 
             this.labelEvento.AutoSize = true;
+            this.labelEvento.BackColor = System.Drawing.Color.Transparent;
             this.labelEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEvento.Location = new System.Drawing.Point(437, 130);
             this.labelEvento.Name = "labelEvento";
@@ -174,14 +175,15 @@ namespace Bookids.Forms
             // 
             this.dateTimePickerData.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dateTimePickerData.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerData.Location = new System.Drawing.Point(144, 133);
-            this.dateTimePickerData.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePickerData.Location = new System.Drawing.Point(192, 164);
+            this.dateTimePickerData.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.dateTimePickerData.Name = "dateTimePickerData";
-            this.dateTimePickerData.Size = new System.Drawing.Size(175, 22);
+            this.dateTimePickerData.Size = new System.Drawing.Size(163, 22);
             this.dateTimePickerData.TabIndex = 42;
             // 
             // panelAnimadores
             // 
+            this.panelAnimadores.BackColor = System.Drawing.Color.Transparent;
             this.panelAnimadores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelAnimadores.Controls.Add(this.comboBoxAnimadores);
             this.panelAnimadores.Controls.Add(this.buttonRemoverAnimador);
@@ -199,8 +201,8 @@ namespace Bookids.Forms
             // 
             this.comboBoxAnimadores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAnimadores.FormattingEnabled = true;
-            this.comboBoxAnimadores.Location = new System.Drawing.Point(19, 192);
-            this.comboBoxAnimadores.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxAnimadores.Location = new System.Drawing.Point(18, 192);
+            this.comboBoxAnimadores.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.comboBoxAnimadores.Name = "comboBoxAnimadores";
             this.comboBoxAnimadores.Size = new System.Drawing.Size(160, 24);
             this.comboBoxAnimadores.TabIndex = 21;
@@ -252,6 +254,7 @@ namespace Bookids.Forms
             // 
             // panelEscolas
             // 
+            this.panelEscolas.BackColor = System.Drawing.Color.Transparent;
             this.panelEscolas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelEscolas.Controls.Add(this.comboBoxEscolas);
             this.panelEscolas.Controls.Add(this.buttonRemoverEscola);
@@ -269,8 +272,8 @@ namespace Bookids.Forms
             // 
             this.comboBoxEscolas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEscolas.FormattingEnabled = true;
-            this.comboBoxEscolas.Location = new System.Drawing.Point(19, 192);
-            this.comboBoxEscolas.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxEscolas.Location = new System.Drawing.Point(18, 192);
+            this.comboBoxEscolas.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.comboBoxEscolas.Name = "comboBoxEscolas";
             this.comboBoxEscolas.Size = new System.Drawing.Size(160, 24);
             this.comboBoxEscolas.TabIndex = 21;
@@ -322,6 +325,7 @@ namespace Bookids.Forms
             // 
             // panelParticipantes
             // 
+            this.panelParticipantes.BackColor = System.Drawing.Color.Transparent;
             this.panelParticipantes.Controls.Add(this.panelPesquisaParticipantes);
             this.panelParticipantes.Controls.Add(this.textBoxPesquisaParticipantes);
             this.panelParticipantes.Controls.Add(this.buttonExportInscritos);
@@ -415,7 +419,9 @@ namespace Bookids.Forms
             // 
             // buttonEditar
             // 
-            this.buttonEditar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonEditar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditar.ForeColor = System.Drawing.Color.White;
             this.buttonEditar.Location = new System.Drawing.Point(159, 452);
             this.buttonEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEditar.Name = "buttonEditar";
@@ -427,7 +433,9 @@ namespace Bookids.Forms
             // 
             // buttonNovo
             // 
-            this.buttonNovo.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonNovo.BackColor = System.Drawing.Color.SeaGreen;
+            this.buttonNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNovo.ForeColor = System.Drawing.Color.White;
             this.buttonNovo.Location = new System.Drawing.Point(20, 452);
             this.buttonNovo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNovo.Name = "buttonNovo";
@@ -459,6 +467,7 @@ namespace Bookids.Forms
             // _labelEventos
             // 
             this._labelEventos.AutoSize = true;
+            this._labelEventos.BackColor = System.Drawing.Color.Transparent;
             this._labelEventos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._labelEventos.Location = new System.Drawing.Point(15, 42);
             this._labelEventos.Name = "_labelEventos";
@@ -535,10 +544,10 @@ namespace Bookids.Forms
             // _labelIdades
             // 
             this._labelIdades.AutoSize = true;
-            this._labelIdades.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._labelIdades.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._labelIdades.Location = new System.Drawing.Point(273, 103);
             this._labelIdades.Name = "_labelIdades";
-            this._labelIdades.Size = new System.Drawing.Size(63, 20);
+            this._labelIdades.Size = new System.Drawing.Size(70, 20);
             this._labelIdades.TabIndex = 52;
             this._labelIdades.Text = "Idades:";
             // 
@@ -552,6 +561,9 @@ namespace Bookids.Forms
             // 
             // buttonGuardarEvento
             // 
+            this.buttonGuardarEvento.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonGuardarEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardarEvento.ForeColor = System.Drawing.Color.White;
             this.buttonGuardarEvento.Location = new System.Drawing.Point(383, 164);
             this.buttonGuardarEvento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonGuardarEvento.Name = "buttonGuardarEvento";
@@ -639,6 +651,7 @@ namespace Bookids.Forms
             // 
             // panelPesquisaEventos
             // 
+            this.panelPesquisaEventos.BackColor = System.Drawing.Color.Transparent;
             this.panelPesquisaEventos.BackgroundImage = global::Bookids.Properties.Resources.baseline_search_black_24dp;
             this.panelPesquisaEventos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelPesquisaEventos.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -673,9 +686,10 @@ namespace Bookids.Forms
             this.Name = "GestaoEventos";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestao de Eventos";
+            this.Text = "Gestão de Eventos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GestaoEventos_FormClosing);
             this.Load += new System.EventHandler(this.GestaoEventos_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GestaoEventos_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelAnimadores.ResumeLayout(false);
