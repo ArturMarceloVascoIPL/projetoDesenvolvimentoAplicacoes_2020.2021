@@ -417,7 +417,6 @@ namespace Bookids
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuPrincipal_Paint);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);

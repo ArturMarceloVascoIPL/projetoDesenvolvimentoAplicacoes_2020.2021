@@ -126,15 +126,6 @@ namespace Bookids
             labelData.Text = DateTime.Now.ToString("d");
         }
 
-        // Cria um gradiente como fundo do Form
-        private void MenuPrincipal_Paint(object sender, PaintEventArgs e)
-        {
-            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.WhiteSmoke, Color.LightSteelBlue, 90F))
-            {
-                e.Graphics.FillRectangle(brush, this.ClientRectangle);
-            }
-        } 
-
         #endregion
     }
 }
