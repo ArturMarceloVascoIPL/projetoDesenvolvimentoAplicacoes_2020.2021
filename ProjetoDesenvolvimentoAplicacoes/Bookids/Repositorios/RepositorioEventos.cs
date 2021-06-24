@@ -60,7 +60,11 @@ namespace Bookids
 
         public void RemoveEvento(Evento evento)
         {
-            model.Eventos.Remove(evento);
+            Evento eventoEncontrado = (from e in model.Eventos
+                                       where e.IdEvento == evento.IdEvento
+                                       select e).Single();
+
+            model.Eventos.Remove(eventoEncontrado);
             model.SaveChanges();
         }
 
