@@ -86,6 +86,14 @@
     <Compile Include="Animador.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BookidsDBDataSet.cs">
+      <DependentUpon>BookidsDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BookidsDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookidsDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Carrinho.cs" />
     <Compile Include="Cliente.cs">
       <DependentUpon>DataBaseModel.tt</DependentUpon>
@@ -272,6 +280,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataBaseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="BookidsDBDataSet.xsc">
+      <DependentUpon>BookidsDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BookidsDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BookidsDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BookidsDBDataSet.xss">
+      <DependentUpon>BookidsDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="DataBaseModel.edmx.diagram">
       <DependentUpon>DataBaseModel.edmx</DependentUpon>
     </None>

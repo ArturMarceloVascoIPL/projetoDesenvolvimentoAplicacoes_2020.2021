@@ -54,14 +54,19 @@ namespace Bookids
             this.btnEscolas = new System.Windows.Forms.Button();
             this.btnAnimadores = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listEventosNext = new System.Windows.Forms.ListBox();
+            this.eventosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookidsDBDataSet = new Bookids.BookidsDBDataSet();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.eventosTableAdapter = new Bookids.BookidsDBDataSetTableAdapters.EventosTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookidsDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -119,7 +124,7 @@ namespace Bookids
             // verRecenteToolStripMenuItem
             // 
             this.verRecenteToolStripMenuItem.Name = "verRecenteToolStripMenuItem";
-            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.verRecenteToolStripMenuItem.Size = new System.Drawing.Size(185, 28);
             this.verRecenteToolStripMenuItem.Text = "Ver Recente";
             this.verRecenteToolStripMenuItem.Click += new System.EventHandler(this.verCompraRecenteToolStripMenuItem_Click);
             // 
@@ -135,14 +140,14 @@ namespace Bookids
             // novoToolStripMenuItem1
             // 
             this.novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
-            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(224, 28);
+            this.novoToolStripMenuItem1.Size = new System.Drawing.Size(183, 28);
             this.novoToolStripMenuItem1.Text = "Novo";
             this.novoToolStripMenuItem1.Click += new System.EventHandler(this.novoTipoToolStripMenuItem_Click);
             // 
             // editarTiposToolStripMenuItem
             // 
             this.editarTiposToolStripMenuItem.Name = "editarTiposToolStripMenuItem";
-            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.editarTiposToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
             this.editarTiposToolStripMenuItem.Text = "Editar Tipos";
             this.editarTiposToolStripMenuItem.Click += new System.EventHandler(this.editarTiposToolStripMenuItem_Click);
             // 
@@ -150,7 +155,7 @@ namespace Bookids
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 43);
+            this.label1.Location = new System.Drawing.Point(12, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(184, 39);
             this.label1.TabIndex = 3;
@@ -170,7 +175,7 @@ namespace Bookids
             this.panel2.Controls.Add(this.btnProdutos);
             this.panel2.Controls.Add(this.btnEscolas);
             this.panel2.Controls.Add(this.btnAnimadores);
-            this.panel2.Location = new System.Drawing.Point(427, 43);
+            this.panel2.Location = new System.Drawing.Point(427, 40);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(441, 443);
@@ -314,23 +319,35 @@ namespace Bookids
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.listView1);
+            this.panel4.Controls.Add(this.listEventosNext);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(20, 122);
+            this.panel4.Location = new System.Drawing.Point(20, 119);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(277, 244);
+            this.panel4.Size = new System.Drawing.Size(272, 244);
             this.panel4.TabIndex = 5;
             // 
-            // listView1
+            // listEventosNext
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(3, 34);
-            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(268, 205);
-            this.listView1.TabIndex = 8;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listEventosNext.DataSource = this.eventosBindingSource;
+            this.listEventosNext.DisplayMember = "Descricao";
+            this.listEventosNext.FormattingEnabled = true;
+            this.listEventosNext.ItemHeight = 16;
+            this.listEventosNext.Location = new System.Drawing.Point(7, 34);
+            this.listEventosNext.Name = "listEventosNext";
+            this.listEventosNext.Size = new System.Drawing.Size(255, 196);
+            this.listEventosNext.TabIndex = 7;
+            this.listEventosNext.ValueMember = "IdEvento";
+            // 
+            // eventosBindingSource
+            // 
+            this.eventosBindingSource.DataMember = "Eventos";
+            this.eventosBindingSource.DataSource = this.bookidsDBDataSet;
+            // 
+            // bookidsDBDataSet
+            // 
+            this.bookidsDBDataSet.DataSetName = "BookidsDBDataSet";
+            this.bookidsDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label5
             // 
@@ -346,7 +363,7 @@ namespace Bookids
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 82);
+            this.label4.Location = new System.Drawing.Point(16, 79);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 25);
             this.label4.TabIndex = 6;
@@ -356,7 +373,7 @@ namespace Bookids
             // 
             this.panel1.BackgroundImage = global::Bookids.Properties.Resources.baseline_home_black_24dp1;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.Location = new System.Drawing.Point(20, 390);
+            this.panel1.Location = new System.Drawing.Point(20, 387);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(120, 111);
@@ -366,18 +383,22 @@ namespace Bookids
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // eventosTableAdapter
+            // 
+            this.eventosTableAdapter.ClearBeforeFill = true;
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(888, 514);
+            this.ClientSize = new System.Drawing.Size(888, 511);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -385,12 +406,15 @@ namespace Bookids
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
+            this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookidsDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,12 +445,15 @@ namespace Bookids
         private System.Windows.Forms.Label labelData;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panelClock;
+        private System.Windows.Forms.ListBox listEventosNext;
+        private BookidsDBDataSet bookidsDBDataSet;
+        private System.Windows.Forms.BindingSource eventosBindingSource;
+        private BookidsDBDataSetTableAdapters.EventosTableAdapter eventosTableAdapter;
     }
 }
 

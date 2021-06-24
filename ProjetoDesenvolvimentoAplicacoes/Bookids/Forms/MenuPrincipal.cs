@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Bookids
 {
@@ -17,6 +18,11 @@ namespace Bookids
         {
             InitializeComponent();
             timer1.Start();
+        }
+
+        private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            eventosTableAdapter.FillBy(bookidsDBDataSet.Eventos);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -52,14 +58,12 @@ namespace Bookids
 
         private void btnEventos_Click(object sender, EventArgs e)
         {
-
             var formEventos = new GestaoEventos();
             formEventos.ShowDialog();
         }
 
         private void btnCLientesFilhos_Click(object sender, EventArgs e)
         {
-
             var formClientesFilhos = new GestaoClienteFilhos();
             formClientesFilhos.ShowDialog();
         }
