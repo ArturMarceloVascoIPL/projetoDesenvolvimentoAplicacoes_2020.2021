@@ -39,7 +39,7 @@ namespace Bookids.Forms
             // 
             this.buttonPDF.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonPDF.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonPDF.Location = new System.Drawing.Point(39, 121);
+            this.buttonPDF.Location = new System.Drawing.Point(18, 90);
             this.buttonPDF.Name = "buttonPDF";
             this.buttonPDF.Size = new System.Drawing.Size(70, 70);
             this.buttonPDF.TabIndex = 1;
@@ -54,7 +54,7 @@ namespace Bookids.Forms
             // 
             this.buttonTXT.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonTXT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonTXT.Location = new System.Drawing.Point(130, 121);
+            this.buttonTXT.Location = new System.Drawing.Point(150, 90);
             this.buttonTXT.Name = "buttonTXT";
             this.buttonTXT.Size = new System.Drawing.Size(70, 70);
             this.buttonTXT.TabIndex = 2;
@@ -68,9 +68,10 @@ namespace Bookids.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 79);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.Size = new System.Drawing.Size(116, 31);
             this.label1.TabIndex = 3;
             this.label1.Text = "Exportar";
             // 
@@ -90,7 +91,7 @@ namespace Bookids.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(232, 215);
+            this.ClientSize = new System.Drawing.Size(232, 179);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonTXT);

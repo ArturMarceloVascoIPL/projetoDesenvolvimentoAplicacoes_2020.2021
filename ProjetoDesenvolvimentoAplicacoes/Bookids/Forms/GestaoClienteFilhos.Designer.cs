@@ -336,7 +336,7 @@ namespace Bookids.Forms
             // 
             // textBoxTelemovel
             // 
-            this.textBoxTelemovel.Location = new System.Drawing.Point(98, 82);
+            this.textBoxTelemovel.Location = new System.Drawing.Point(131, 97);
             this.textBoxTelemovel.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTelemovel.MaxLength = 9;
             this.textBoxTelemovel.Name = "textBoxTelemovel";
@@ -762,6 +762,8 @@ namespace Bookids.Forms
             // 
             this.buttonNovoFilho.BackColor = System.Drawing.Color.SeaGreen;
             this.buttonNovoFilho.Enabled = false;
+            this.buttonNovoFilho.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.buttonNovoFilho.ForeColor = System.Drawing.Color.White;
             this.buttonNovoFilho.Location = new System.Drawing.Point(8, 412);
             this.buttonNovoFilho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNovoFilho.Name = "buttonNovoFilho";
@@ -824,6 +826,8 @@ namespace Bookids.Forms
             // 
             this.buttonApagarCliente.BackColor = System.Drawing.Color.Firebrick;
             this.buttonApagarCliente.Enabled = false;
+            this.buttonApagarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.buttonApagarCliente.ForeColor = System.Drawing.Color.White;
             this.buttonApagarCliente.Location = new System.Drawing.Point(283, 411);
             this.buttonApagarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonApagarCliente.Name = "buttonApagarCliente";
@@ -837,6 +841,8 @@ namespace Bookids.Forms
             // 
             this.buttonEditarCliente.BackColor = System.Drawing.Color.DodgerBlue;
             this.buttonEditarCliente.Enabled = false;
+            this.buttonEditarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.buttonEditarCliente.ForeColor = System.Drawing.Color.White;
             this.buttonEditarCliente.Location = new System.Drawing.Point(141, 411);
             this.buttonEditarCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEditarCliente.Name = "buttonEditarCliente";

@@ -176,7 +176,7 @@ namespace Bookids.Forms
             this.dateTimePickerData.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dateTimePickerData.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerData.Location = new System.Drawing.Point(192, 164);
-            this.dateTimePickerData.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dateTimePickerData.Margin = new System.Windows.Forms.Padding(5);
             this.dateTimePickerData.Name = "dateTimePickerData";
             this.dateTimePickerData.Size = new System.Drawing.Size(163, 22);
             this.dateTimePickerData.TabIndex = 42;
@@ -202,7 +202,7 @@ namespace Bookids.Forms
             this.comboBoxAnimadores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAnimadores.FormattingEnabled = true;
             this.comboBoxAnimadores.Location = new System.Drawing.Point(18, 192);
-            this.comboBoxAnimadores.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.comboBoxAnimadores.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxAnimadores.Name = "comboBoxAnimadores";
             this.comboBoxAnimadores.Size = new System.Drawing.Size(160, 24);
             this.comboBoxAnimadores.TabIndex = 21;
@@ -273,7 +273,7 @@ namespace Bookids.Forms
             this.comboBoxEscolas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxEscolas.FormattingEnabled = true;
             this.comboBoxEscolas.Location = new System.Drawing.Point(18, 192);
-            this.comboBoxEscolas.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.comboBoxEscolas.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxEscolas.Name = "comboBoxEscolas";
             this.comboBoxEscolas.Size = new System.Drawing.Size(160, 24);
             this.comboBoxEscolas.TabIndex = 21;

@@ -325,6 +325,9 @@ namespace Bookids.Forms
             // 
             // buttonCancelar
             // 
+            this.buttonCancelar.BackColor = System.Drawing.Color.Orange;
+            this.buttonCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.buttonCancelar.ForeColor = System.Drawing.Color.White;
             this.buttonCancelar.Location = new System.Drawing.Point(380, 213);
             this.buttonCancelar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancelar.Name = "buttonCancelar";
@@ -336,6 +339,9 @@ namespace Bookids.Forms
             // 
             // buttonGuardar
             // 
+            this.buttonGuardar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.buttonGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.buttonGuardar.ForeColor = System.Drawing.Color.White;
             this.buttonGuardar.Location = new System.Drawing.Point(7, 213);
             this.buttonGuardar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonGuardar.Name = "buttonGuardar";
@@ -380,6 +386,9 @@ namespace Bookids.Forms
             // 
             // buttonNovo
             // 
+            this.buttonNovo.BackColor = System.Drawing.Color.SeaGreen;
+            this.buttonNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.buttonNovo.ForeColor = System.Drawing.Color.White;
             this.buttonNovo.Location = new System.Drawing.Point(17, 466);
             this.buttonNovo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNovo.Name = "buttonNovo";
@@ -391,6 +400,9 @@ namespace Bookids.Forms
             // 
             // buttonEditar
             // 
+            this.buttonEditar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.buttonEditar.ForeColor = System.Drawing.Color.White;
             this.buttonEditar.Location = new System.Drawing.Point(156, 466);
             this.buttonEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEditar.Name = "buttonEditar";
